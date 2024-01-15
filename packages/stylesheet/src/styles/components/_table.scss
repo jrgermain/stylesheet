@@ -1,0 +1,56 @@
+@use "./text";
+
+table {
+  background-color: var(--color-body-alt);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--font-size-m);
+  border: var(--border-s) solid var(--color-outline);
+  border-radius: var(--radius-s);
+  color: var(--color-body-text);
+}
+
+caption {
+  @extend %h5;
+
+  text-align: unset;
+  margin: 0 0 var(--space-2xs);
+}
+
+th,
+td {
+  padding: var(--space-2xs);
+}
+
+th {
+  @include text.all-caps;
+
+  font-weight: var(--font-weight-bold);
+  border-bottom: var(--border-m) solid var(--color-outline);
+  text-align: center;
+  color: var(--color-body-text-alt);
+}
+
+td {
+  text-align: unset;
+}
+
+th:not(:last-of-type) {
+  border-right: var(--border-s) dashed var(--color-outline);
+}
+
+td:not(:last-of-type) {
+  border-right: var(--border-s) solid var(--color-outline);
+}
+
+tr:not(:last-of-type) td {
+  border-bottom: var(--border-s) solid var(--color-outline);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--color-body);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--color-body-alt);
+}

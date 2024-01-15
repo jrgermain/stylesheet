@@ -1,0 +1,22 @@
+hr,
+.hr {
+  background-color: var(--color-outline);
+  border: 0;
+  outline: 0;
+  width: 100%;
+  height: var(--border-s);
+  display: block;
+  margin: var(--space-xs) 0;
+
+  &.invisible {
+    visibility: hidden;
+  }
+
+  &.vertical {
+    display: inline-block;
+    width: var(--border-s);
+    height: 100%;
+    min-height: 1em;
+    margin: 0 var(--space-xs);
+  }
+}

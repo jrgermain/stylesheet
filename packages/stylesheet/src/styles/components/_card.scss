@@ -1,0 +1,34 @@
+@use "./text";
+
+.card {
+  background-color: var(--color-body-alt);
+  border-radius: var(--radius-l);
+  border: var(--border-s) solid var(--color-outline);
+  box-shadow: var(--shadow-m);
+
+  &.secondary {
+    background-color: var(--color-body);
+    border-radius: var(--radius-m);
+    color: var(--color-body-text-alt);
+    box-shadow: var(--shadow-s);
+
+    &:not(.no-padding) {
+      padding: var(--space-s);
+    }
+  }
+
+  &:not(.no-padding) {
+    padding: var(--space-m);
+
+    .card-title {
+      margin-top: 0;
+    }
+  }
+}
+
+.card-title {
+  @extend %h6;
+
+  color: var(--color-brand-3);
+  margin-bottom: var(--space-s);
+}

@@ -1,0 +1,148 @@
+$color-variants: (
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+  "brand",
+  "gray"
+);
+
+.chip {
+  display: inline-flex;
+  border-radius: 1em;
+  font-size: var(--font-size-s);
+  padding: var(--space-3xs) var(--space-xs);
+  background-color: transparent;
+  border: var(--border-s) solid var(--color-outline);
+  color: var(--color-body-text);
+  flex-shrink: 0;
+  cursor: default;
+  transition-property: box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  text-decoration: none;
+
+  &.clickable {
+    cursor: pointer;
+    transition-property: box-shadow, background-color, border-color;
+    box-shadow: var(--shadow-s);
+
+    &:focus-visible {
+      outline: 0;
+    }
+  }
+
+  @each $color in $color-variants {
+    &.#{$color} {
+      color: white;
+      background-color: var(--color-#{$color}-6);
+      border-color: var(--color-#{$color}-7);
+
+      &.clickable {
+        &:hover {
+          background-color: var(--color-#{$color}-7);
+        }
+
+        &:active {
+          background-color: var(--color-#{$color}-5);
+          border-color: var(--color-#{$color}-5);
+        }
+
+        &:focus-visible {
+          box-shadow: var(--shadow-s),
+            0 0 0 0.2em var(--color-#{$color}-transparent);
+        }
+      }
+    }
+  }
+
+  &.black {
+    color: white;
+    background-color: black;
+    border-color: var(--color-gray-4);
+
+    &.clickable {
+      &:hover {
+        background-color: var(--color-gray-4);
+      }
+
+      &:active {
+        background-color: var(--color-gray-1);
+        border-color: var(--color-gray-1);
+      }
+    }
+  }
+
+  &.white {
+    color: black;
+    background-color: white;
+    border-color: var(--color-gray-8);
+
+    &.clickable {
+      &:hover {
+        background-color: var(--color-gray-8);
+      }
+
+      &:active {
+        background-color: var(--color-gray-7);
+        border-color: var(--color-gray-7);
+      }
+    }
+  }
+
+  &.black.clickable:focus-visible,
+  &.white.clickable:focus-visible {
+    box-shadow: var(--shadow-s), 0 0 0 0.2em var(--color-gray-transparent);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @each $color in $color-variants {
+      &.#{$color} {
+        border-color: var(--color-#{$color}-5);
+
+        &.clickable {
+          &:hover {
+            background-color: var(--color-#{$color}-5);
+          }
+
+          &:active {
+            background-color: var(--color-#{$color}-7);
+            border-color: var(--color-#{$color}-7);
+          }
+        }
+      }
+    }
+
+    &.black {
+      border-color: var(--color-gray-7);
+
+      &.clickable {
+        &:hover {
+          background-color: var(--color-gray-7);
+        }
+
+        &:active {
+          background-color: var(--color-gray-8);
+          border-color: var(--color-gray-8);
+        }
+      }
+    }
+
+    &.white {
+      border-color: var(--color-gray-2);
+
+      &.clickable {
+        &:hover {
+          background-color: var(--color-gray-2);
+        }
+
+        &:active {
+          background-color: var(--color-gray-3);
+          border-color: var(--color-gray-3);
+        }
+      }
+    }
+  }
+}

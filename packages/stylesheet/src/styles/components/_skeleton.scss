@@ -1,0 +1,70 @@
+@keyframes skeleton-pulse-light {
+  from {
+    opacity: 0.14;
+  }
+
+  to {
+    opacity: 0.21;
+  }
+}
+
+@keyframes skeleton-pulse-dark {
+  from {
+    opacity: 0.28;
+  }
+
+  to {
+    opacity: 0.36;
+  }
+}
+
+.skeleton {
+  animation: skeleton-pulse-light 1s ease alternate 0s infinite !important;
+  border-radius: var(--radius-s) !important;
+  background-color: var(--color-gray-5) !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: 0 !important;
+  pointer-events: none !important;
+  color: transparent !important;
+  mask-image: none !important;
+  background-image: none !important;
+
+  &:is(p, .p, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+    width: 100%;
+  }
+
+  &:is(
+      p,
+      .p,
+      h1,
+      .h1,
+      h2,
+      .h2,
+      h3,
+      .h3,
+      h4,
+      .h4,
+      h5,
+      .h5,
+      h6,
+      .h6,
+      .chip
+    )::before {
+    content: ".";
+  }
+
+  &:is(button, .button, .chip):empty {
+    min-width: 5em;
+  }
+
+  &::before,
+  &::after,
+  > * {
+    visibility: hidden !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    animation-name: skeleton-pulse-dark !important;
+  }
+}

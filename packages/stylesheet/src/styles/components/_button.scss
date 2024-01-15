@@ -1,0 +1,181 @@
+@use "./text";
+
+button,
+.button,
+input:is([type="button"], [type="submit"], [type="reset"]) {
+  @include text.all-caps;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  outline: 0;
+  padding: 0.65em;
+  gap: 0.325em;
+  border-style: solid;
+  transform: scale(1);
+  transition-property: box-shadow, background-color, transform, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  text-decoration: none;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  border-width: 1px;
+  border-radius: var(--radius-m);
+  min-height: 2.5em;
+  min-width: 2.5em;
+  line-height: 1;
+  font-family: var(--font-family-ui);
+  box-shadow: var(--shadow-s);
+  user-select: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transition-property: opacity, width, height, border-radius;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+    z-index: -1;
+    border-radius: 30px;
+    width: 4em;
+    height: 4em;
+    opacity: 0;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--shadow-s), 0 0 0 0.2em var(--color-brand-transparent);
+  }
+
+  &:active {
+    transform: scale(0.98);
+
+    // On low-resolution screens, the scale effect makes text jump
+    // around awkwardly, so we use an alternative.
+    @media screen and (resolution < 200dpi) {
+      transform: translateY(1px);
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    &::after {
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+
+  &.primary {
+    color: white;
+    background-color: var(--color-brand-5);
+    border-color: var(--color-brand-4);
+    font-weight: 600;
+
+    &::after {
+      background-color: var(--color-brand-4);
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    &:active {
+      transform: scale(1);
+    }
+
+    &:hover::after {
+      opacity: 0;
+    }
+  }
+
+  &.subtle {
+    color: var(--color-brand-4);
+    background-color: transparent;
+    border-color: transparent;
+    font-weight: 700;
+    box-shadow: none !important;
+
+    &::after {
+      background-color: var(--color-brand-extra-transparent);
+    }
+
+    &:focus-visible {
+      background-color: var(--color-brand-transparent);
+
+      &::after {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &.small {
+    font-size: 0.85rem;
+  }
+
+  &.medium,
+  &:not(.small, .medium, .large, .close-button) {
+    font-size: 1.15rem;
+  }
+
+  &.large {
+    font-size: 1.45rem;
+  }
+
+  &.secondary,
+  &:not(.primary, .secondary, .subtle, .close-button) {
+    color: var(--color-body-text);
+    background-color: var(--color-gray-8);
+    border-color: var(--color-gray-7);
+    font-weight: 500;
+
+    &::after {
+      background-color: var(--color-gray-7);
+    }
+
+    &:focus-visible {
+      box-shadow: var(--shadow-s), 0 0 0 0.2em var(--color-gray-transparent);
+    }
+  }
+
+  &.close-button {
+    padding: 0;
+    height: 1rem;
+    width: 1rem;
+    margin: -0.5rem;
+    font-size: 0.85rem;
+    line-height: 1;
+    border-radius: var(--radius-l);
+    color: var(--color-brand-4);
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+
+    &:hover {
+      background-color: var(--color-brand-extra-transparent);
+    }
+
+    &:focus-visible {
+      background-color: var(--color-brand-transparent);
+    }
+
+    &::before {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0yMDguNDkgMTkxLjUxYTEyIDEyIDAgMCAxLTE3IDE3TDEyOCAxNDVsLTYzLjUxIDYzLjQ5YTEyIDEyIDAgMCAxLTE3LTE3TDExMSAxMjhMNDcuNTEgNjQuNDlhMTIgMTIgMCAwIDEgMTctMTdMMTI4IDExMWw2My41MS02My41MmExMiAxMiAwIDAgMSAxNyAxN0wxNDUgMTI4WiIvPjwvc3ZnPg==");
+      mask-size: contain;
+      background-color: currentcolor;
+    }
+
+    &::after {
+      content: unset;
+    }
+  }
+}

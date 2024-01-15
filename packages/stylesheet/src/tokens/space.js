@@ -1,0 +1,10 @@
+export const xxxs = "var(--space-3xs)";
+export const xxs = "var(--space-2xs)";
+export const xs = "var(--space-xs)";
+export const s = "var(--space-s)";
+export const m = "var(--space-m)";
+export const l = "var(--space-l)";
+export const xl = "var(--space-xl)";
+export const xxl = "var(--space-2xl)";
+export const xxxl = "var(--space-3xl)";
+export const body = "var(--space-body)";

@@ -1,0 +1,43 @@
+{
+  "name": "@jrgermain/stylesheet",
+  "version": "0.0.1",
+  "description": "A stylesheet for apps I build.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "dev": "node scripts/dev.cjs",
+    "lint": "stylelint ./src/styles"
+  },
+  "author": "jrgermain",
+  "license": "MIT",
+  "devDependencies": {
+    "@csstools/postcss-sass": "^5.0.1",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "postcss-load-config": "^4.0.1",
+    "postcss-preset-env": "^9.2.0",
+    "rimraf": "^5.0.5",
+    "sass": "^1.69.4",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard-scss": "^11.0.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    "./index.scss": "./src/styles/index.scss",
+    "./index.css": "./dist/index.css",
+    "./index.min.css": "./dist/index.min.css",
+    "./tokens": "./src/tokens/index.js",
+    "./tokens/borders": "./src/tokens/borders.js",
+    "./tokens/colors": "./src/tokens/borders.js",
+    "./tokens/font-families": "./src/tokens/borders.js",
+    "./tokens/font-sizes": "./src/tokens/borders.js",
+    "./tokens/font-weights": "./src/tokens/borders.js",
+    "./tokens/radii": "./src/tokens/borders.js",
+    "./tokens/shadows": "./src/tokens/borders.js",
+    "./tokens/space": "./src/tokens/borders.js"
+  }
+}
