@@ -124,6 +124,7 @@ a,
 
   &[target="_blank"]:not(.no-external-icon, .button.icon)::after {
     content: "";
+    print-color-adjust: exact;
     mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xOCAxM3Y2YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0yVjhhMiAyIDAgMCAxIDItMmg2bTQtM2g2djZtLTExIDVMMjEgMyIvPjwvc3ZnPg==");
     mask-size: contain;
     mask-repeat: no-repeat;
@@ -177,6 +178,7 @@ mark,
   color: black;
   padding: 0.1em 0.25em;
   border-radius: var(--radius-s);
+  print-color-adjust: exact;
 
   @media (prefers-color-scheme: dark) {
     background-color: var(--color-yellow-2);

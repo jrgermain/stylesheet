@@ -7,6 +7,7 @@ hr,
   height: var(--border-s);
   display: block;
   margin: var(--space-xs) 0;
+  print-color-adjust: exact;
 
   &.invisible {
     visibility: hidden;

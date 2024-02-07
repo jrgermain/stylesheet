@@ -12,6 +12,7 @@
 
   &::before {
     content: "";
+    print-color-adjust: exact;
     z-index: 2;
     position: absolute;
     top: 0;
@@ -26,6 +27,7 @@
 
   &::after {
     content: "";
+    print-color-adjust: exact;
     z-index: 1;
     position: absolute;
     top: 0;
@@ -59,6 +61,12 @@
     .alert-title {
       color: var(--color-red-5);
     }
+
+    @media print {
+      & {
+        border-color: var(--color-red-6);
+      }
+    }
   }
 
   &.warning {
@@ -78,6 +86,12 @@
 
     .alert-title {
       color: var(--color-yellow-5);
+    }
+
+    @media print {
+      & {
+        border-color: var(--color-yellow-6);
+      }
     }
   }
 
@@ -99,6 +113,12 @@
     .alert-title {
       color: var(--color-green-5);
     }
+
+    @media print {
+      & {
+        border-color: var(--color-green-6);
+      }
+    }
   }
 
   &.info {
@@ -115,6 +135,12 @@
 
     .alert-title {
       color: var(--color-sky-5);
+    }
+
+    @media print {
+      & {
+        border-color: var(--color-sky-6);
+      }
     }
   }
 }

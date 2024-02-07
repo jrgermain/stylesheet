@@ -1,5 +1,6 @@
 input[type="checkbox"].switch,
 label.switch input[type="checkbox"] {
+  print-color-adjust: exact;
   appearance: none;
   height: 1.8rem;
   width: 3rem;
