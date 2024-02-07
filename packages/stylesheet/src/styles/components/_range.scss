@@ -25,7 +25,7 @@
   border-color: var(--color-brand-5);
 
   &:active {
-    @media screen and (resolution >= 200dpi) {
+    @media screen and (resolution >= 2x) {
       transform: scale(0.9);
     }
   }

@@ -54,7 +54,7 @@ input:is([type="button"], [type="submit"], [type="reset"]) {
 
     // On low-resolution screens, the scale effect makes text jump
     // around awkwardly, so we use an alternative.
-    @media screen and (resolution < 200dpi) {
+    @media screen and (resolution < 2x) {
       transform: translateY(1px);
     }
   }
