@@ -1,3 +1,5 @@
+@use "../functions";
+
 @mixin all-caps() {
   text-transform: uppercase;
   letter-spacing: 0.05ch;
@@ -125,7 +127,9 @@ a,
   &[target="_blank"]:not(.no-external-icon, .button.icon)::after {
     content: "";
     print-color-adjust: exact;
-    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xOCAxM3Y2YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0yVjhhMiAyIDAgMCAxIDItMmg2bTQtM2g2djZtLTExIDVMMjEgMyIvPjwvc3ZnPg==");
+    mask-image: #{functions.svg-to-data-url(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg>'
+      )};
     mask-size: contain;
     mask-repeat: no-repeat;
     background-color: var(--color-gray-5);
