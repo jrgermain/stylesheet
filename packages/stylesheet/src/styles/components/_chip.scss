@@ -3,6 +3,7 @@ $color-variants: (
   "orange",
   "yellow",
   "green",
+  "sky",
   "blue",
   "purple",
   "brand",
@@ -14,135 +15,80 @@ $color-variants: (
   border-radius: 1em;
   font-size: var(--font-size-s);
   padding: var(--space-3xs) var(--space-xs);
-  background-color: transparent;
-  border: var(--border-s) solid var(--color-outline);
-  color: var(--color-body-text);
+  background-color: var(--chip-bg-color);
+  border: var(--border-s) solid var(--chip-border-color);
+  color: var(--chip-fg-color, white);
   flex-shrink: 0;
   cursor: default;
-  transition-property: box-shadow;
+  transition-property: box-shadow, background-color, border-color;
   transition-duration: 200ms;
   transition-timing-function: ease;
   text-decoration: none;
+  appearance: none;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 0.2em var(--chip-focus-ring-color);
+  }
 
   &.clickable {
     cursor: pointer;
-    transition-property: box-shadow, background-color, border-color;
     box-shadow: var(--shadow-s);
 
     &:focus-visible {
       outline: 0;
+      box-shadow: var(--shadow-s), 0 0 0 0.2em var(--chip-focus-ring-color);
+    }
+
+    &:hover {
+      background-color: var(--chip-border-color);
+    }
+
+    &:active {
+      background-color: var(--chip-bg-color-active);
+      border-color: var(--chip-bg-color-active);
     }
   }
 
   @each $color in $color-variants {
     &.#{$color} {
-      color: white;
-      background-color: var(--color-#{$color}-6);
-      border-color: var(--color-#{$color}-7);
-
-      &.clickable {
-        &:hover {
-          background-color: var(--color-#{$color}-7);
-        }
-
-        &:active {
-          background-color: var(--color-#{$color}-5);
-          border-color: var(--color-#{$color}-5);
-        }
-
-        &:focus-visible {
-          box-shadow: var(--shadow-s),
-            0 0 0 0.2em var(--color-#{$color}-transparent);
-        }
-      }
+      --chip-bg-color: var(--color-#{$color}-6);
+      --chip-border-color: var(--color-#{$color}-7);
+      --chip-focus-ring-color: var(--color-#{$color}-transparent);
+      --chip-bg-color-active: var(--color-#{$color}-5);
     }
   }
 
   &.black {
-    color: white;
-    background-color: black;
-    border-color: var(--color-gray-4);
-
-    &.clickable {
-      &:hover {
-        background-color: var(--color-gray-4);
-      }
-
-      &:active {
-        background-color: var(--color-gray-1);
-        border-color: var(--color-gray-1);
-      }
-    }
+    --chip-bg-color: black;
+    --chip-border-color: var(--color-gray-4);
+    --chip-focus-ring-color: var(--color-gray-transparent);
+    --chip-bg-color-active: var(--color-gray-1);
   }
 
   &.white {
-    color: black;
-    background-color: white;
-    border-color: var(--color-gray-8);
-
-    &.clickable {
-      &:hover {
-        background-color: var(--color-gray-8);
-      }
-
-      &:active {
-        background-color: var(--color-gray-7);
-        border-color: var(--color-gray-7);
-      }
-    }
-  }
-
-  &.black.clickable:focus-visible,
-  &.white.clickable:focus-visible {
-    box-shadow: var(--shadow-s), 0 0 0 0.2em var(--color-gray-transparent);
+    --chip-fg-color: black;
+    --chip-bg-color: white;
+    --chip-border-color: var(--color-gray-8);
+    --chip-focus-ring-color: var(--color-gray-transparent);
+    --chip-bg-color-active: var(--color-gray-7);
   }
 
   @media (prefers-color-scheme: dark) {
     @each $color in $color-variants {
       &.#{$color} {
-        border-color: var(--color-#{$color}-5);
-
-        &.clickable {
-          &:hover {
-            background-color: var(--color-#{$color}-5);
-          }
-
-          &:active {
-            background-color: var(--color-#{$color}-7);
-            border-color: var(--color-#{$color}-7);
-          }
-        }
+        --chip-border-color: var(--color-#{$color}-5);
+        --chip-bg-color-active: var(--color-#{$color}-7);
       }
     }
 
     &.black {
-      border-color: var(--color-gray-7);
-
-      &.clickable {
-        &:hover {
-          background-color: var(--color-gray-7);
-        }
-
-        &:active {
-          background-color: var(--color-gray-8);
-          border-color: var(--color-gray-8);
-        }
-      }
+      --chip-border-color: var(--color-gray-7);
+      --chip-bg-color-active: var(--color-gray-8);
     }
 
     &.white {
-      border-color: var(--color-gray-2);
-
-      &.clickable {
-        &:hover {
-          background-color: var(--color-gray-2);
-        }
-
-        &:active {
-          background-color: var(--color-gray-3);
-          border-color: var(--color-gray-3);
-        }
-      }
+      --chip-border-color: var(--color-gray-2);
+      --chip-bg-color-active: var(--color-gray-3);
     }
   }
 }

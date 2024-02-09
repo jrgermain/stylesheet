@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.cjs",
-    "dev": "node scripts/dev.cjs",
     "lint": "stylelint ./src/styles"
   },
   "author": "jrgermain",
@@ -30,5 +29,8 @@
     "./index.scss": "./src/styles/index.scss",
     "./index.css": "./dist/index.css",
     "./index.min.css": "./dist/index.min.css"
-  }
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

@@ -23,6 +23,7 @@ dialog {
   animation: var(--dialog-animation-duration) ease both show-dialog;
   background-color: var(--color-body-alt);
   color: var(--color-body-text);
+  padding: var(--space-s);
 
   @media (prefers-reduced-motion) {
     --dialog-animation-duration: 100ms;
@@ -126,9 +127,20 @@ dialog {
     margin: 0;
   }
 
-  .close-button {
+  :is(button, .button).close {
     color: inherit;
-    margin-left: var(--space-2xs);
+    margin: -0.5rem -0.5rem -0.5rem var(--space-3xs);
+    font-size: 0.8em;
+
+    &::after {
+      content: "";
+      width: 1.2em;
+      height: 1.2em;
+      mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0yMDguNDkgMTkxLjUxYTEyIDEyIDAgMCAxLTE3IDE3TDEyOCAxNDVsLTYzLjUxIDYzLjQ5YTEyIDEyIDAgMCAxLTE3LTE3TDExMSAxMjhMNDcuNTEgNjQuNDlhMTIgMTIgMCAwIDEgMTctMTdMMTI4IDExMWw2My41MS02My41MmExMiAxMiAwIDAgMSAxNyAxN0wxNDUgMTI4WiIvPjwvc3ZnPg==");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      background-color: currentcolor;
+    }
   }
 }
 

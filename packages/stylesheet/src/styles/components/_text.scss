@@ -141,7 +141,8 @@ a,
   }
 }
 
-pre {
+pre,
+.pre {
   font-family: var(--font-family-mono);
 }
 
@@ -158,7 +159,7 @@ kbd,
   font-size: 0.9em;
 }
 
-pre code {
+:is(pre, .pre) > :is(code, .code) {
   background-color: unset;
 }
 
