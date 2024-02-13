@@ -18,9 +18,17 @@ const processFile = async ({ source, plugins, outputFilename }) => {
       to: outputPath,
     })
     .then((result) => {
-      const promises = [fs.writeFile(outputPath, result.css)];
+      const promises = [];
       if (result.map) {
+        promises.push(
+          fs.writeFile(
+            outputPath,
+            `${result.css}\n/*# sourceMappingURL=${outputFilename}.map */`
+          )
+        );
         promises.push(fs.writeFile(`${outputPath}.map`, result.map.toString()));
+      } else {
+        promises.push(fs.writeFile(outputPath, result.css));
       }
       return promises;
     });
