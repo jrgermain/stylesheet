@@ -13,13 +13,13 @@
     "@csstools/postcss-sass": "^5.0.1",
     "cssnano": "^6.0.1",
     "postcss": "^8.4.31",
-    "postcss-cli": "^10.1.0",
-    "postcss-load-config": "^4.0.1",
+    "postcss-cli": "^11.0.0",
+    "postcss-load-config": "^5.0.0",
     "postcss-preset-env": "^9.2.0",
     "rimraf": "^5.0.5",
     "sass": "^1.69.4",
-    "stylelint": "^15.10.3",
-    "stylelint-config-standard-scss": "^11.0.0"
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard-scss": "^13.0.0"
   },
   "files": [
     "dist",
