@@ -221,3 +221,33 @@ ins,
   color: var(--color-green-2);
   border-radius: 1px;
 }
+
+:is(abbr, .abbr)[title] {
+  text-decoration: underline dotted var(--color-gray-6) var(--border-m);
+}
+
+small,
+.small {
+  font-size: 0.75em;
+  vertical-align: middle;
+}
+
+sub,
+.sub,
+sup,
+.sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub,
+.sub {
+  bottom: -0.25em;
+}
+
+sup,
+.sup {
+  top: -0.5em;
+}
