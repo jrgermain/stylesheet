@@ -163,6 +163,18 @@ kbd,
   font-size: 0.9em;
 }
 
+samp,
+.samp {
+  display: block;
+  font-size: calc(0.9 * var(--font-size-m));
+  background-color: var(--color-gray-9);
+  color: var(--color-gray-1);
+  border: var(--border-s) dashed var(--color-outline);
+  border-radius: var(--radius-s);
+  padding: var(--space-3xs);
+  font-family: var(--font-family-mono);
+}
+
 :is(pre, .pre) > :is(code, .code) {
   background-color: unset;
 }
@@ -188,4 +200,23 @@ mark,
   @media (prefers-color-scheme: dark) {
     background-color: var(--color-yellow-2);
   }
+}
+
+del,
+.del {
+  text-decoration-line: line-through;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--border-s);
+  background-color: var(--color-red-8);
+  color: var(--color-red-2);
+  text-decoration-color: var(--color-body-text);
+  border-radius: 1px;
+}
+
+ins,
+.ins {
+  text-decoration-line: none;
+  background-color: var(--color-green-8);
+  color: var(--color-green-2);
+  border-radius: 1px;
 }
