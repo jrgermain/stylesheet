@@ -95,6 +95,7 @@ blockquote,
   padding: var(--space-s);
   position: relative;
   font-size: var(--font-size-m);
+  line-height: 1.25;
 
   &::before {
     content: open-quote;
