@@ -6,7 +6,7 @@
     input[type="button"],
     input[type="submit"],
     input[type="reset"]
-  ):not(.chip, .card) {
+  ):not(.chip, .card, .chip .delete) {
   @include text.all-caps;
 
   --button-shadow: var(--shadow-s);

@@ -112,3 +112,8 @@ fieldset {
     font-weight: var(--font-weight-semibold);
   }
 }
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--color-brand-5);
+}

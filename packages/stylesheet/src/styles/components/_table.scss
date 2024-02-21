@@ -22,24 +22,31 @@ td {
   padding: var(--space-2xs);
 }
 
-th {
+th,
+tfoot td {
   @include text.all-caps;
 
   font-weight: var(--font-weight-bold);
-  border-bottom: var(--border-m) solid var(--color-outline);
   text-align: center;
-  color: var(--color-body-text-alt);
+}
+
+th {
+  border-bottom: var(--border-m) solid var(--color-outline);
+}
+
+tfoot td {
+  border-top: var(--border-m) solid var(--color-outline);
 }
 
 td {
   text-align: unset;
 }
 
-th:not(:last-of-type) {
+:is(th, tfoot td):not(:last-of-type) {
   border-right: var(--border-s) dashed var(--color-outline);
 }
 
-td:not(:last-of-type) {
+td:not(tfoot td, :last-of-type) {
   border-right: var(--border-s) solid var(--color-outline);
 }
 
@@ -47,7 +54,8 @@ tr:not(:last-of-type) td {
   border-bottom: var(--border-s) solid var(--color-outline);
 }
 
-tbody tr:nth-child(odd) {
+tbody tr:nth-child(odd),
+tbody:has(tr:last-of-type:nth-child(even)) + tfoot tr {
   background-color: var(--color-body);
 }
 
