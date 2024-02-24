@@ -1,0 +1,149 @@
+@mixin background {
+  border-radius: var(--radius-s);
+  border: 0;
+  display: block;
+  width: 100%;
+  height: 1em;
+  box-shadow: inset 0 0 0 var(--border-s) var(--color-gray-7);
+  background: var(--color-gray-8);
+  box-sizing: border-box;
+  overflow: clip;
+}
+
+@mixin value {
+  border-radius: var(--radius-s);
+  border: var(--border-s) solid transparent;
+  box-sizing: border-box;
+}
+
+@mixin value-good {
+  background: var(--color-green-6);
+  border-color: var(--color-green-5);
+}
+
+@mixin value-ok {
+  background: var(--color-yellow-7);
+  border-color: var(--color-yellow-6);
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--color-yellow-4);
+    border-color: var(--color-yellow-3);
+  }
+}
+
+@mixin value-bad {
+  background: var(--color-red-6);
+  border-color: var(--color-red-5);
+}
+
+@mixin value-neutral {
+  background: var(--color-blue-6);
+  border-color: var(--color-blue-5);
+}
+
+@mixin value-indeterminate {
+  @include value-neutral;
+
+  opacity: 0.5;
+  inline-size: 100% !important;
+  animation: indeterminate-progress 1s linear infinite alternate;
+}
+
+@keyframes indeterminate-progress {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+meter {
+  appearance: none;
+  width: 100%;
+  height: 1em;
+}
+
+@supports selector(::-moz-meter-bar) {
+  meter {
+    @include background;
+  }
+}
+
+::-webkit-meter-bar {
+  @include background;
+}
+
+::-webkit-meter-optimum-value,
+::-webkit-meter-suboptimum-value,
+::-webkit-meter-even-less-good-value {
+  @include value;
+}
+
+::-webkit-meter-inner-element {
+  display: inline-block;
+  position: relative;
+}
+
+::-moz-meter-bar {
+  @include value;
+}
+
+::-webkit-meter-optimum-value {
+  @include value-good;
+}
+
+:-moz-meter-optimum::-moz-meter-bar {
+  @include value-good;
+}
+
+::-webkit-meter-suboptimum-value {
+  @include value-ok;
+}
+
+:-moz-meter-sub-optimum::-moz-meter-bar {
+  @include value-ok;
+}
+
+::-webkit-meter-even-less-good-value {
+  @include value-bad;
+}
+
+:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  @include value-bad;
+}
+
+progress {
+  appearance: none;
+  width: 100%;
+  height: 1em;
+}
+
+@supports selector(::-moz-progress-bar) {
+  progress {
+    @include background;
+  }
+}
+
+::-webkit-progress-bar {
+  @include background;
+}
+
+::-webkit-progress-value {
+  @include value;
+  @include value-neutral;
+}
+
+::-moz-progress-bar {
+  @include value;
+  @include value-neutral;
+}
+
+:indeterminate::-webkit-progress-value {
+  @include value-indeterminate;
+}
+
+:indeterminate::-moz-progress-bar {
+  @include value-indeterminate;
+}
