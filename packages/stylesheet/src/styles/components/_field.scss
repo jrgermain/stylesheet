@@ -61,6 +61,12 @@
 
     &:disabled {
       opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    // Not using :read-only because it matches additional elements (e.g., every color input)
+    &[readonly] {
+      cursor: not-allowed;
 
       &:focus {
         outline: 0;
