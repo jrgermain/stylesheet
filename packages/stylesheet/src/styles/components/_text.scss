@@ -77,10 +77,6 @@ p,
   margin: 0;
   text-wrap: pretty;
   hanging-punctuation: first;
-
-  &:not(.alert-title) + & {
-    margin-block-start: 0.75em;
-  }
 }
 
 blockquote,
@@ -250,4 +246,11 @@ sub,
 sup,
 .sup {
   top: -0.5em;
+}
+
+/* Add a gap between consecutive block text elements */
+// prettier-ignore
+:is(p, .p, blockquote, .blockquote, pre, .pre, samp, .samp, .alert, details):not(.alert-title) +
+  :is(p, .p, blockquote, .blockquote, pre, .pre, samp, .samp, .alert, details):not(.alert-title) {
+  margin-block-start: 0.75em;
 }
