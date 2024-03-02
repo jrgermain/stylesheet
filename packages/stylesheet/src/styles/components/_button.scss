@@ -55,7 +55,9 @@
   }
 
   &:focus-visible {
-    box-shadow: var(--button-shadow), 0 0 0 0.2em var(--button-focus-ring-color);
+    box-shadow:
+      var(--button-shadow),
+      0 0 0 0.2em var(--button-focus-ring-color);
   }
 
   &:active {
@@ -126,16 +128,6 @@
     }
   }
 
-  &:is(:disabled, .disabled, [aria-disabled="true"]) {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: scale(1);
-
-    &:hover::before {
-      opacity: 0;
-    }
-  }
-
   &.small {
     font-size: 0.85rem;
   }
@@ -147,5 +139,42 @@
   &.icon {
     border-radius: var(--radius-full);
     padding: 0.125em;
+  }
+
+  &:is(:disabled, .disabled, [aria-disabled="true"]) {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: scale(1);
+
+    &:hover::before {
+      opacity: 0;
+    }
+  }
+
+  &.loading {
+    cursor: wait;
+
+    &::before {
+      opacity: 1 !important;
+      height: 100% !important;
+      border-radius: inherit !important;
+      animation: button-loading-bg 1s ease-in-out infinite forwards;
+    }
+  }
+}
+
+@keyframes button-loading-bg {
+  0% {
+    width: 0;
+    margin: 0 auto 0 0;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    margin: 0 0 0 auto;
   }
 }
