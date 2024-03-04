@@ -55,7 +55,8 @@
     &:focus {
       outline: 0;
       border-color: var(--color-brand-5);
-      box-shadow: 0 0 0 1px var(--color-brand-5),
+      box-shadow:
+        0 0 0 1px var(--color-brand-5),
         0 0 0 3px var(--color-brand-transparent);
     }
 
@@ -71,7 +72,8 @@
       &:focus {
         outline: 0;
         border-color: var(--color-gray-5);
-        box-shadow: 0 0 0 1px var(--color-gray-5),
+        box-shadow:
+          0 0 0 1px var(--color-gray-5),
           0 0 0 3px var(--color-gray-transparent);
       }
     }
@@ -84,9 +86,33 @@
       &:focus {
         outline: 0;
         border-color: var(--color-red-5);
-        box-shadow: 0 0 0 1px var(--color-red-5),
+        box-shadow:
+          0 0 0 1px var(--color-red-5),
           0 0 0 3px var(--color-red-transparent);
       }
+    }
+  }
+
+  input[type="color"] {
+    inline-size: auto;
+    block-size: auto;
+
+    &::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+
+    &::-webkit-color-swatch {
+      border: 0;
+      height: 1rem;
+      width: 1.62rem;
+      border-radius: var(--radius-s);
+    }
+
+    &::-moz-color-swatch {
+      border: 0;
+      height: 1rem;
+      width: 1.62rem;
+      border-radius: var(--radius-s);
     }
   }
 
