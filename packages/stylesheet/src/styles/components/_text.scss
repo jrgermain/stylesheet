@@ -250,7 +250,7 @@ sup,
 
 /* Add a gap between consecutive block text elements */
 // prettier-ignore
-:is(p, .p, blockquote, .blockquote, pre, .pre, samp, .samp, .alert, details):not(.alert-title) +
-  :is(p, .p, blockquote, .blockquote, pre, .pre, samp, .samp, .alert, details):not(.alert-title) {
+:is(p, .p, blockquote, .blockquote, pre, .pre, samp, .samp, .alert, details):not(.alert-title, .accordion details) +
+  :is(p, .p, blockquote, .blockquote, pre, .pre, samp, .samp, .alert, details):not(.alert-title, .accordion details) {
   margin-block-start: 0.75em;
 }
