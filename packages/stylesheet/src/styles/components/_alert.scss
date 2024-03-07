@@ -10,8 +10,8 @@
   font-size: var(--font-size-m);
   color: var(--color-body-text);
   position: relative;
-  background: linear-gradient(var(--alert-bg-color), var(--alert-bg-color))
-      padding-box,
+  background:
+    linear-gradient(var(--alert-bg-color), var(--alert-bg-color)) padding-box,
     linear-gradient(
         to right,
         var(--alert-border-start-color),

@@ -41,7 +41,9 @@ $color-variants: (
 
     &:focus-visible {
       outline: 0;
-      box-shadow: var(--shadow-s), 0 0 0 0.2em var(--chip-focus-ring-color);
+      box-shadow:
+        var(--shadow-s),
+        0 0 0 0.2em var(--chip-focus-ring-color);
     }
 
     &:hover {

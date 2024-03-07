@@ -23,8 +23,8 @@ const processFile = async ({ source, plugins, outputFilename }) => {
         promises.push(
           fs.writeFile(
             outputPath,
-            `${result.css}\n/*# sourceMappingURL=${outputFilename}.map */`
-          )
+            `${result.css}\n/*# sourceMappingURL=${outputFilename}.map */`,
+          ),
         );
         promises.push(fs.writeFile(`${outputPath}.map`, result.map.toString()));
       } else {
@@ -49,7 +49,7 @@ rimraf(destDirectoryPath)
         plugins: [postcssSass, postcssPresetEnv, cssnano],
         outputFilename: "index.min.css",
       }),
-    ])
+    ]),
   )
   .catch((e) => {
     console.error(e);
