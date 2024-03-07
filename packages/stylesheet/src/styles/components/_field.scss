@@ -17,6 +17,10 @@
 
   &:has(:user-invalid, &[aria-invalid="true"]) {
     color: var(--color-red-5);
+
+    .error-message {
+      opacity: 1;
+    }
   }
 
   &:user-invalid {
@@ -96,6 +100,7 @@
   input[type="color"] {
     inline-size: auto;
     block-size: auto;
+    cursor: pointer;
 
     &::-webkit-color-swatch-wrapper {
       padding: 0;
@@ -131,6 +136,41 @@
       background-image: #{functions.svg-to-data-url(
           '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m6 9l6 6l6-6"/></svg>'
         )};
+    }
+  }
+
+  .help-text {
+    font-size: 0.9em;
+    color: var(--color-body-text-alt);
+    font-weight: var(--font-weight-normal);
+    margin: -0.25em 0 0;
+    position: relative;
+  }
+
+  .error-message {
+    transition: opacity 200ms ease;
+    opacity: 0;
+    font-size: 0.9em;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-weight: var(--font-weight-semibold);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    &::before {
+      content: "";
+      mask-image: #{functions.svg-to-data-url(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="#888888" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m37.66 130.34a8 8 0 0 1-11.32 11.32L128 139.31l-26.34 26.35a8 8 0 0 1-11.32-11.32L116.69 128l-26.35-26.34a8 8 0 0 1 11.32-11.32L128 116.69l26.34-26.35a8 8 0 0 1 11.32 11.32L139.31 128Z"/></svg>'
+        )};
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: currentcolor;
+      display: inline-block;
+      height: 1.2em;
+      width: 1.2em;
     }
   }
 }
