@@ -114,6 +114,7 @@ a,
   text-decoration-color: var(--color-sky-transparent);
   text-decoration-skip-ink: all;
   text-decoration-thickness: var(--border-m);
+  text-underline-offset: 2px;
   cursor: pointer;
   transition: text-decoration-color 200ms ease;
 
