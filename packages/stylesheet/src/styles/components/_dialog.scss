@@ -1,38 +1,46 @@
 @use "./text";
 @use "../functions";
 
-@keyframes show-dialog {
-  from {
-    transform: var(--dialog-initial-transform);
-    opacity: var(--dialog-initial-opacity);
+dialog,
+dialog::backdrop {
+  --dialog-animation-duration: 400ms;
+  --dialog-starting-opacity: 0.25;
+  --dialog-starting-transform: translateY(8px);
+  --dialog-open-opacity: 1;
+  --dialog-open-transform: translate(0);
+  --dialog-ending-opacity: 0;
+  --dialog-ending-transform: translateY(-4px) scale(0.97);
+  --dialog-backdrop-starting-opacity: 0;
+  --dialog-backdrop-open-opacity: 0.75;
+  --dialog-backdrop-ending-opacity: 0;
+  --dialog-backdrop-color: var(--color-gray-2);
+
+  @media (prefers-reduced-motion) {
+    --dialog-animation-duration: 250ms;
+    --dialog-starting-transform: translate(0);
+    --dialog-ending-transform: translate(0);
   }
 
-  to {
-    transform: translate(0);
-    opacity: 1;
+  @media (prefers-color-scheme: dark) {
+    --dialog-backdrop-color: var(--color-gray-8);
+    --dialog-backdrop-open-opacity: 0.85;
   }
 }
 
 dialog {
-  --dialog-animation-duration: 200ms;
-  --dialog-initial-opacity: 0.25;
-  --dialog-initial-transform: translateY(8px);
-
   box-shadow: var(--shadow-xl);
   border: var(--border-s) solid var(--color-outline);
   border-radius: var(--radius-l);
-  animation: var(--dialog-animation-duration) ease both show-dialog;
   background-color: var(--color-body-alt);
   color: var(--color-body-text);
   padding: var(--space-s);
 
-  @media (prefers-reduced-motion) {
-    --dialog-animation-duration: 100ms;
-    --dialog-initial-transform: translate(0);
+  &::backdrop {
+    background-color: var(--dialog-backdrop-color);
   }
 
   &.sidebar {
-    --dialog-initial-opacity: 0.5;
+    --dialog-starting-opacity: 0.5;
 
     position: fixed;
     inset: 0;
@@ -45,7 +53,8 @@ dialog {
       right: auto;
 
       @media (prefers-reduced-motion: no-preference) {
-        --dialog-initial-transform: translateX(-16px);
+        --dialog-starting-transform: translateX(-16px);
+        --dialog-ending-transform: translateX(-16px);
       }
     }
 
@@ -53,7 +62,8 @@ dialog {
       bottom: auto;
 
       @media (prefers-reduced-motion: no-preference) {
-        --dialog-initial-transform: translateY(-16px);
+        --dialog-starting-transform: translateY(-16px);
+        --dialog-ending-transform: translateY(-16px);
       }
     }
 
@@ -61,7 +71,8 @@ dialog {
       left: auto;
 
       @media (prefers-reduced-motion: no-preference) {
-        --dialog-initial-transform: translateX(16px);
+        --dialog-starting-transform: translateX(16px);
+        --dialog-ending-transform: translateX(16px);
       }
     }
 
@@ -69,7 +80,8 @@ dialog {
       top: auto;
 
       @media (prefers-reduced-motion: no-preference) {
-        --dialog-initial-transform: translateY(16px);
+        --dialog-starting-transform: translateY(16px);
+        --dialog-ending-transform: translateY(16px);
       }
     }
 
@@ -89,18 +101,6 @@ dialog {
       width: auto;
       max-width: min(100dvw, 350px);
       min-width: min(100dvw, 300px);
-    }
-  }
-
-  &::backdrop {
-    background-color: var(--color-gray-2);
-    opacity: 0.75;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    &::backdrop {
-      background-color: var(--color-gray-8);
-      opacity: 0.85;
     }
   }
 }

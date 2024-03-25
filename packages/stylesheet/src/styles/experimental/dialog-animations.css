@@ -1,0 +1,38 @@
+dialog[open] {
+  transform: var(--dialog-open-transform);
+  opacity: var(--dialog-open-opacity);
+}
+
+dialog[open]::backdrop {
+  opacity: var(--dialog-backdrop-open-opacity);
+}
+
+dialog {
+  transform: var(--dialog-ending-transform);
+  opacity: var(--dialog-ending-opacity);
+  transition:
+    transform var(--dialog-animation-duration) ease,
+    opacity var(--dialog-animation-duration) ease,
+    display var(--dialog-animation-duration) ease allow-discrete,
+    overlay var(--dialog-animation-duration) ease allow-discrete;
+}
+
+dialog::backdrop {
+  opacity: var(--dialog-backdrop-ending-opacity);
+  transition:
+    transform var(--dialog-animation-duration) ease,
+    opacity var(--dialog-animation-duration) ease,
+    display var(--dialog-animation-duration) ease allow-discrete,
+    overlay var(--dialog-animation-duration) ease allow-discrete;
+}
+
+@starting-style {
+  dialog[open] {
+    transform: var(--dialog-starting-transform);
+    opacity: var(--dialog-starting-opacity);
+  }
+
+  dialog[open]::backdrop {
+    opacity: var(--dialog-backdrop-starting-opacity);
+  }
+}
