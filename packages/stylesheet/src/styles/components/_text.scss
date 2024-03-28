@@ -224,7 +224,12 @@ ins,
 }
 
 :is(abbr, .abbr)[title] {
-  text-decoration: underline dotted var(--color-gray-6) var(--border-m);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties  -- using the shorthand doesn't work in safari */
+  text-decoration-color: var(--color-gray-6);
+  text-decoration-thickness: var(--border-m);
+  text-underline-offset: 2px;
 }
 
 small,
