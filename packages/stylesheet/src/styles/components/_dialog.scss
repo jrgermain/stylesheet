@@ -3,7 +3,7 @@
 
 dialog,
 dialog::backdrop {
-  --dialog-animation-duration: 400ms;
+  --dialog-animation-duration: 250ms;
   --dialog-starting-opacity: 0.25;
   --dialog-starting-transform: translateY(8px);
   --dialog-open-opacity: 1;
@@ -16,7 +16,7 @@ dialog::backdrop {
   --dialog-backdrop-color: var(--color-gray-2);
 
   @media (prefers-reduced-motion) {
-    --dialog-animation-duration: 250ms;
+    --dialog-animation-duration: 150ms;
     --dialog-starting-transform: translate(0);
     --dialog-ending-transform: translate(0);
   }
