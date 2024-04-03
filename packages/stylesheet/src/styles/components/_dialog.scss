@@ -1,6 +1,18 @@
 @use "./text";
 @use "../functions";
 
+@keyframes dialog-fallback-animation {
+  from {
+    opacity: var(--dialog-starting-opacity);
+    transform: var(--dialog-starting-transform);
+  }
+
+  to {
+    opacity: var(--dialog-open-opacity);
+    transform: var(--dialog-open-transform);
+  }
+}
+
 dialog,
 dialog::backdrop {
   --dialog-animation-duration: 250ms;
@@ -34,6 +46,10 @@ dialog {
   background-color: var(--color-body-alt);
   color: var(--color-body-text);
   padding: var(--space-s);
+
+  // The following is unset if the browser supports more advanced animations:
+  animation: dialog-fallback-animation var(--dialog-animation-duration) linear
+    forwards;
 
   &::backdrop {
     background-color: var(--dialog-backdrop-color);
@@ -165,5 +181,11 @@ dialog {
       input[type="reset"]
     ):not(.small, .medium, .large) {
     font-size: 1rem;
+  }
+}
+
+@supports (transition-behavior: allow-discrete) and (overlay: none) {
+  dialog {
+    animation: unset;
   }
 }
