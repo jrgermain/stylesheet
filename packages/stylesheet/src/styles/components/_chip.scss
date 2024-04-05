@@ -31,7 +31,7 @@ $color-variants: (
   text-decoration: none;
   appearance: none;
 
-  &:focus-visible {
+  &:is(:focus-visible, .focus) {
     box-shadow: 0 0 0 0.2em var(--chip-focus-ring-color);
   }
 
@@ -39,18 +39,18 @@ $color-variants: (
     cursor: pointer;
     box-shadow: var(--shadow-s);
 
-    &:focus-visible {
+    &:is(:focus-visible, .focus) {
       outline: 0;
       box-shadow:
         var(--shadow-s),
         0 0 0 0.2em var(--chip-focus-ring-color);
     }
 
-    &:hover {
+    &:is(:hover, .hover) {
       background-color: var(--chip-border-color);
     }
 
-    &:active {
+    &:is(:active, .active) {
       background-color: var(--chip-bg-color-active);
       border-color: var(--chip-bg-color-active);
     }
@@ -148,16 +148,15 @@ $color-variants: (
       background-color: var(--chip-fg-color);
     }
 
-    &:focus-visible {
+    &:is(:focus-visible, .focus) {
       border-color: var(--chip-fg-color);
     }
 
-    &:hover::before,
-    &:focus-visible::before {
+    &:is(:hover, .hover, :focus-visible, .focus)::before {
       opacity: 1;
     }
 
-    &:active::before {
+    &:is(:active, .active)::before {
       opacity: 0.5;
     }
   }

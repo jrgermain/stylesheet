@@ -54,13 +54,13 @@
     opacity: 0;
   }
 
-  &:focus-visible {
+  &:is(:focus-visible, .focus) {
     box-shadow:
       var(--button-shadow),
       0 0 0 0.2em var(--button-focus-ring-color);
   }
 
-  &:active {
+  &:is(:active, .active) {
     transform: scale(0.98);
 
     // On low-resolution screens, the scale effect makes text jump
@@ -70,7 +70,7 @@
     }
   }
 
-  &:hover {
+  &:is(:hover, .hover) {
     text-decoration: none;
 
     &::before {
@@ -122,7 +122,7 @@
     --button-focus-ring-color: transparent;
     --button-shadow: none;
 
-    &:focus-visible {
+    &:is(:focus-visible, .focus) {
       --button-bg-color: var(--color-brand-transparent);
       --button-hover-bg-color: transparent;
     }
@@ -146,7 +146,7 @@
     cursor: not-allowed;
     transform: scale(1);
 
-    &:hover::before {
+    &:is(:hover, .hover)::before {
       opacity: 0;
     }
   }

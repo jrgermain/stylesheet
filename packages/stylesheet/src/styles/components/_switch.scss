@@ -35,7 +35,7 @@ label.switch input[type="checkbox"] {
     cursor: not-allowed;
   }
 
-  &:focus-visible {
+  &:is(:focus-visible, .focus) {
     border-color: var(--color-gray-6);
     box-shadow: 0 0 0 0.2rem var(--color-gray-transparent);
     outline: 0;
@@ -49,7 +49,7 @@ label.switch input[type="checkbox"] {
       transform: translateX(1.175rem);
     }
 
-    &:focus-visible {
+    &:is(:focus-visible, .focus) {
       box-shadow: 0 0 0 0.2rem var(--color-brand-transparent);
     }
   }

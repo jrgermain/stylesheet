@@ -32,11 +32,11 @@ details {
       transition-property: color, border-color, padding, margin;
     }
 
-    &:hover {
+    &:is(:hover, .hover) {
       color: var(--color-brand-4) !important;
     }
 
-    &:active {
+    &:is(:active, .active) {
       color: var(--color-brand-2) !important;
     }
 
@@ -71,11 +71,11 @@ details {
     }
 
     @media (prefers-color-scheme: dark) {
-      &:hover {
+      &:is(:hover, .hover) {
         color: var(--color-brand-2) !important;
       }
 
-      &:active {
+      &:is(:active, .active) {
         color: var(--color-brand-4) !important;
       }
 
