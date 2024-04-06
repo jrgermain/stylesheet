@@ -32,7 +32,7 @@
   print-color-adjust: exact;
 
   &:is(p, .p, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
-    width: 100%;
+    inline-size: 100%;
   }
 
   &:is(
@@ -56,7 +56,7 @@
   }
 
   &:is(button, .button, .chip):empty {
-    min-width: 5em;
+    min-inline-size: 5em;
   }
 
   &::before,

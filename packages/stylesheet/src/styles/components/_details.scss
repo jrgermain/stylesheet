@@ -3,7 +3,8 @@
 
 details {
   background-color: var(--color-body-alt);
-  padding: 0 var(--space-xs);
+  padding-block: 0;
+  padding-inline: var(--space-xs);
   border-radius: var(--radius-m);
   border: var(--border-s) solid var(--color-outline);
   box-shadow: var(--shadow-s);
@@ -16,10 +17,11 @@ details {
     @extend %h6;
 
     cursor: pointer;
-    border-bottom: var(--border-s) dashed transparent;
-    padding: var(--space-xs) var(--space-xs) var(--space-xs)
-      calc(var(--space-xs) + 1rem);
-    margin: 0 calc(-1 * var(--space-xs));
+    border-block-end: var(--border-s) dashed transparent;
+    padding: var(--space-xs);
+    padding-inline-start: calc(var(--space-xs) + 1rem);
+    margin-block: 0;
+    margin-inline: calc(-1 * var(--space-xs));
     transition-duration: 150ms;
     transition-property: color, border-color;
     transition-timing-function: ease;
@@ -52,14 +54,17 @@ details {
         )};
       display: inline-block;
       position: absolute;
-      top: 0;
-      bottom: 0;
+      inset-block: 0;
+      inset-inline-start: calc(var(--space-xs) / 2);
       margin: auto;
-      left: calc(var(--space-xs) / 2);
       width: 1em;
       height: 1em;
       rotate: -90deg;
       transition: rotate 200ms ease;
+    }
+
+    &:dir(rtl)::before {
+      rotate: 90deg;
     }
 
     @media (prefers-reduced-motion) {
@@ -88,12 +93,12 @@ details {
   }
 
   &[open] {
-    padding-bottom: var(--space-xs);
+    padding-block-end: var(--space-xs);
 
     summary {
       color: var(--color-brand-3);
-      border-bottom-color: var(--color-outline);
-      margin-bottom: var(--space-xs);
+      border-block-end-color: var(--color-outline);
+      margin-block-end: var(--space-xs);
 
       &::before {
         rotate: 0deg;
@@ -105,17 +110,17 @@ details {
 .accordion {
   > details {
     & + details {
-      border-top: 0;
+      border-block-start: 0;
     }
 
     &:not(:first-of-type) {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
     }
 
     &:not(:last-of-type) {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+      border-end-start-radius: 0;
+      border-end-end-radius: 0;
     }
   }
 }

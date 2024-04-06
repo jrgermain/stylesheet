@@ -1,6 +1,6 @@
 @mixin track {
-  height: 0.25rem;
-  width: 100%;
+  block-size: 0.25rem;
+  inline-size: 100%;
   border-radius: var(--radius-full);
   background-color: var(--color-gray-8);
   print-color-adjust: exact;
@@ -38,7 +38,7 @@
 }
 
 input[type="range"] {
-  height: 1.25rem;
+  block-size: 1.25rem;
   appearance: none;
   background: transparent;
   cursor: pointer;
@@ -82,7 +82,7 @@ input[type="range"] {
     @include thumb;
 
     appearance: none;
-    margin-top: -0.5rem;
+    margin-block-start: -0.5rem;
   }
 
   &::-moz-range-thumb {

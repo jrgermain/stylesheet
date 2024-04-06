@@ -21,7 +21,7 @@
     padding: var(--space-m);
 
     .card-title {
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 }
@@ -30,5 +30,5 @@
   @extend %h6;
 
   color: var(--color-brand-3);
-  margin-bottom: var(--space-s);
+  margin-block-end: var(--space-s);
 }

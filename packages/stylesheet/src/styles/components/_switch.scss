@@ -2,8 +2,8 @@ input[type="checkbox"].switch,
 label.switch input[type="checkbox"] {
   print-color-adjust: exact;
   appearance: none;
-  height: 1.8rem;
-  width: 3rem;
+  block-size: 1.8rem;
+  inline-size: 3rem;
   border-radius: 1rem;
   background-color: var(--color-gray-8);
   position: relative;
@@ -20,8 +20,8 @@ label.switch input[type="checkbox"] {
     height: 1.5rem;
     width: 1.5rem;
     background-color: white;
-    left: 0.1rem;
-    top: 0.1rem;
+    inset-inline-start: 0.1rem;
+    inset-block-start: 0.1rem;
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-s);
     transition-property: border-color, transform;
@@ -54,6 +54,10 @@ label.switch input[type="checkbox"] {
     }
   }
 
+  &:dir(rtl):checked::after {
+    transform: translateX(-1.175rem);
+  }
+
   @media (prefers-color-scheme: dark) {
     background-color: var(--color-gray-5);
 
@@ -64,7 +68,7 @@ label.switch input[type="checkbox"] {
 }
 
 label.switch {
-  width: 100%;
+  inline-size: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -128,8 +128,8 @@ dialog {
   align-items: center;
   justify-content: space-between;
   margin: 0 0 var(--space-2xs);
-  padding-bottom: var(--space-xs);
-  border-bottom: var(--border-s) dashed var(--color-outline);
+  padding-block-end: var(--space-xs);
+  border-block-end: var(--border-s) dashed var(--color-outline);
   color: var(--color-brand-3);
 
   h1,
@@ -146,7 +146,8 @@ dialog {
 
   :is(button, .button).close {
     color: inherit;
-    margin: -0.5rem -0.5rem -0.5rem var(--space-3xs);
+    margin: -0.5rem;
+    margin-inline-start: var(--space-3xs);
     font-size: 0.8em;
 
     &::after {
@@ -166,7 +167,7 @@ dialog {
 .dialog-buttons {
   display: flex;
   gap: var(--space-2xs);
-  margin-top: var(--space-xs);
+  margin-block-start: var(--space-xs);
 
   @media screen and (width <= 500px) {
     flex-direction: column;

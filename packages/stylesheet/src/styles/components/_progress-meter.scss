@@ -2,8 +2,8 @@
   border-radius: var(--radius-s);
   border: 0;
   display: block;
-  width: 100%;
-  height: 1em;
+  inline-size: 100%;
+  block-size: 1em;
   box-shadow: inset 0 0 0 var(--border-s) var(--color-gray-7);
   background: var(--color-gray-8);
   box-sizing: border-box;
@@ -61,8 +61,8 @@
 
 meter {
   appearance: none;
-  width: 100%;
-  height: 1em;
+  inline-size: 100%;
+  block-size: 1em;
 }
 
 @supports selector(::-moz-meter-bar) {
@@ -116,8 +116,8 @@ meter {
 
 progress {
   appearance: none;
-  width: 100%;
-  height: 1em;
+  inline-size: 100%;
+  block-size: 1em;
 }
 
 @supports selector(::-moz-progress-bar) {

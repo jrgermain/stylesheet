@@ -3,10 +3,11 @@
 
 .alert {
   display: block;
-  border-radius: calc(var(--space-2xs) + 2em) var(--radius-s) var(--radius-s)
-    calc(var(--space-2xs) + 2em);
-  padding: var(--space-2xs) var(--space-2xs) var(--space-2xs)
-    calc(var(--space-2xs) + 2em);
+  border-radius: var(--radius-s);
+  border-start-start-radius: calc(var(--space-2xs) + 2em);
+  border-end-start-radius: calc(var(--space-2xs) + 2em);
+  padding: var(--space-2xs);
+  padding-inline-start: calc(var(--space-2xs) + 2em);
   font-size: var(--font-size-m);
   color: var(--color-body-text);
   position: relative;
@@ -31,9 +32,8 @@
     print-color-adjust: exact;
     z-index: 2;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: calc(var(--space-2xs) * 0.5);
+    inset-block: 0;
+    inset-inline-start: calc(var(--space-2xs) * 0.5);
     margin: auto;
     width: 2em;
     height: 2em;
@@ -48,9 +48,8 @@
     print-color-adjust: exact;
     z-index: 1;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: calc(var(--space-2xs) * 0.5);
+    inset-block: 0;
+    inset-inline-start: calc(var(--space-2xs) * 0.5);
     margin: auto;
     width: 2em;
     height: 2em;
@@ -106,5 +105,6 @@
 
   color: var(--alert-border-start-color);
   font-size: var(--font-size-s);
-  margin: 0 0 var(--space-3xs);
+  margin: 0;
+  margin-block-end: var(--space-3xs);
 }

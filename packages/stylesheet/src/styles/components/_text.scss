@@ -7,8 +7,7 @@
 
 %heading-any {
   font-family: var(--font-family-heading);
-  margin-top: 0.6em;
-  margin-bottom: 0.2em;
+  margin-block: 0.6em 0.2em;
   line-height: 1.1;
   text-wrap: balance;
 }
@@ -84,9 +83,9 @@ blockquote,
   display: block;
   margin: 0;
   color: var(--color-gray-4);
-  border-left: var(--border-l) solid var(--color-gray-transparent);
+  border-inline-start: var(--border-l) solid var(--color-gray-transparent);
   padding: var(--space-3xs);
-  padding-left: var(--space-xs);
+  padding-inline-start: var(--space-xs);
   position: relative;
   font-size: var(--font-size-m);
   line-height: 1.25;
@@ -97,7 +96,7 @@ blockquote,
   }
 
   :is(footer, .footer) {
-    margin-top: 0.5em;
+    margin-block-start: 0.5em;
     font-size: var(--font-size-s);
     font-style: initial;
     color: var(--color-body-text);
@@ -235,7 +234,7 @@ ins,
 small,
 .small {
   font-size: 0.75em;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 
 sub,
@@ -250,12 +249,12 @@ sup,
 
 sub,
 .sub {
-  bottom: -0.25em;
+  inset-block-end: -0.25em;
 }
 
 sup,
 .sup {
-  top: -0.5em;
+  inset-block-start: -0.5em;
 }
 
 /* Add a gap between consecutive block text elements */

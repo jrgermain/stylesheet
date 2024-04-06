@@ -31,11 +31,11 @@ tfoot td {
 }
 
 th {
-  border-bottom: var(--border-m) solid var(--color-outline);
+  border-block-end: var(--border-m) solid var(--color-outline);
 }
 
 tfoot td {
-  border-top: var(--border-m) solid var(--color-outline);
+  border-block-start: var(--border-m) solid var(--color-outline);
 }
 
 td {
@@ -43,15 +43,15 @@ td {
 }
 
 :is(th, tfoot td):not(:last-of-type) {
-  border-right: var(--border-s) dashed var(--color-outline);
+  border-inline-end: var(--border-s) dashed var(--color-outline);
 }
 
 td:not(tfoot td, :last-of-type) {
-  border-right: var(--border-s) solid var(--color-outline);
+  border-inline-end: var(--border-s) solid var(--color-outline);
 }
 
 tr:not(:last-of-type) td {
-  border-bottom: var(--border-s) solid var(--color-outline);
+  border-block-end: var(--border-s) solid var(--color-outline);
 }
 
 tbody tr:nth-child(odd),

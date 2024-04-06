@@ -1,0 +1,7 @@
+@mixin focused() {
+  &:is(:focus-visible, .focus) {
+    @content;
+  }
+}
+
+@mixin;
