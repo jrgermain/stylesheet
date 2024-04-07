@@ -41,6 +41,8 @@
   @extend %flex-layout;
 
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
 }
 
 .stack {
@@ -48,7 +50,7 @@
 
   flex-wrap: nowrap;
   align-items: stretch;
-  justify-content: flex-start;
+  justify-content: start;
 }
 
 .separate {

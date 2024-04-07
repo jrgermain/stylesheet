@@ -117,7 +117,7 @@ a,
   text-decoration-color: var(--color-sky-transparent);
   text-decoration-skip-ink: all;
   text-decoration-thickness: var(--border-m);
-  text-underline-offset: 2px;
+  text-underline-offset: 0.1em;
   cursor: pointer;
   transition: text-decoration-color 200ms ease;
 
@@ -228,7 +228,7 @@ ins,
   /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties  -- using the shorthand doesn't work in safari */
   text-decoration-color: var(--color-gray-6);
   text-decoration-thickness: var(--border-m);
-  text-underline-offset: 2px;
+  text-underline-offset: 0.1em;
 }
 
 small,

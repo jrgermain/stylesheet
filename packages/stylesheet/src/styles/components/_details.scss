@@ -19,7 +19,7 @@ details {
     cursor: pointer;
     border-block-end: var(--border-s) dashed transparent;
     padding: var(--space-xs);
-    padding-inline-start: calc(var(--space-xs) + 1rem);
+    padding-inline-start: calc(var(--space-xs) + 1em);
     margin-block: 0;
     margin-inline: calc(-1 * var(--space-xs));
     transition-duration: 150ms;

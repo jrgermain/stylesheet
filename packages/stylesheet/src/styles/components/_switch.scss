@@ -1,27 +1,32 @@
 input[type="checkbox"].switch,
 label.switch input[type="checkbox"] {
+  font-size: 1rem;
   print-color-adjust: exact;
   appearance: none;
-  block-size: 1.8rem;
-  inline-size: 3rem;
-  border-radius: 1rem;
+  block-size: 1.8em;
+  inline-size: 3em;
+  border-radius: var(--radius-full);
   background-color: var(--color-gray-8);
   position: relative;
   flex: none;
   transition-property: background-color, box-shadow, border-color;
   transition-duration: 200ms;
   transition-timing-function: ease;
-  border: var(--border-s) solid var(--color-gray-7);
+  border: 0.1em solid var(--color-gray-7);
   cursor: pointer;
+
+  &.small {
+    font-size: 0.8rem;
+  }
 
   &::after {
     content: "";
     position: absolute;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.4em;
+    width: 1.4em;
     background-color: white;
-    inset-inline-start: 0.1rem;
-    inset-block-start: 0.1rem;
+    inset-inline-start: 0.1em;
+    inset-block-start: 0.1em;
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-s);
     transition-property: border-color, transform;
@@ -37,7 +42,7 @@ label.switch input[type="checkbox"] {
 
   &:is(:focus-visible, .focus) {
     border-color: var(--color-gray-6);
-    box-shadow: 0 0 0 0.2rem var(--color-gray-transparent);
+    box-shadow: 0 0 0 0.2em var(--color-gray-transparent);
     outline: 0;
   }
 
@@ -46,16 +51,16 @@ label.switch input[type="checkbox"] {
     border-color: var(--color-brand-5);
 
     &::after {
-      transform: translateX(1.175rem);
+      transform: translateX(1.2em);
     }
 
     &:is(:focus-visible, .focus) {
-      box-shadow: 0 0 0 0.2rem var(--color-brand-transparent);
+      box-shadow: 0 0 0 0.2em var(--color-brand-transparent);
     }
   }
 
   &:dir(rtl):checked::after {
-    transform: translateX(-1.175rem);
+    transform: translateX(-1.2em);
   }
 
   @media (prefers-color-scheme: dark) {

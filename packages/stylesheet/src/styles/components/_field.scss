@@ -108,15 +108,15 @@
 
     &::-webkit-color-swatch {
       border: 0;
-      block-size: 1rem;
-      inline-size: 1.62rem;
+      block-size: 1em;
+      inline-size: 1.62em;
       border-radius: var(--radius-s);
     }
 
     &::-moz-color-swatch {
       border: 0;
-      block-size: 1rem;
-      inline-size: 1.62rem;
+      block-size: 1em;
+      inline-size: 1.62em;
       border-radius: var(--radius-s);
     }
   }
