@@ -7,8 +7,8 @@
 
 %heading-any {
   font-family: var(--font-family-heading);
-  margin-block: 0.6em 0.2em;
-  line-height: 1.1;
+  margin-block: 0.75em 0.3em;
+  line-height: 1;
   text-wrap: balance;
 }
 
@@ -68,11 +68,12 @@ h6,
 }
 
 p,
-.p {
+.p,
+li {
   font-family: var(--font-family-body);
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-normal);
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
   text-wrap: pretty;
   hanging-punctuation: first;
