@@ -21,7 +21,7 @@
   );
   --color-#{$name}-tint: color-mix(
     in oklab,
-    var(--color-#{$name}-6) var(--tint-mix-proportion),
+    var(--color-#{$name}-8) var(--tint-mix-proportion),
     var(--color-body-alt)
   );
 }
@@ -30,7 +30,7 @@
 ::backdrop {
   // Color components
   --chroma: calc(var(--config-vividness, 0.5) * 100%);
-  --tint-mix-proportion: 15%;
+  --tint-mix-proportion: 25%;
   --lightness-1: 15%;
   --lightness-2: 25%;
   --lightness-3: 35%;
@@ -106,8 +106,8 @@
     --opacity-medium: 50%;
     --opacity-high: 80%;
 
-    // Tint colors need slightly more oomph when blended with black
-    --tint-mix-proportion: 30%;
+    // Tint colors need more oomph when blended with black
+    --tint-mix-proportion: 70%;
   }
 
   // Font sizes
