@@ -80,6 +80,11 @@
       height: 100%;
       border-radius: calc(var(--radius-m) - var(--border-s));
     }
+
+    // inputs don't support children, so the ::before pseudo element won't work
+    &:is(input) {
+      background-color: var(--button-hover-bg-color);
+    }
   }
 
   color: var(--button-fg-color);
