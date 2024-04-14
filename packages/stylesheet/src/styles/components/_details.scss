@@ -2,6 +2,7 @@
 @use "../functions";
 
 details {
+  width: 100%;
   background-color: var(--color-body-alt);
   padding-block: 0;
   padding-inline: var(--space-xs);
@@ -108,6 +109,8 @@ details {
 }
 
 .accordion {
+  width: 100%;
+
   > details {
     & + details {
       border-block-start: 0;
@@ -123,4 +126,10 @@ details {
       border-end-end-radius: 0;
     }
   }
+}
+
+details.no-width,
+.accordion.no-width,
+.accordion.no-width > details {
+  width: initial;
 }
