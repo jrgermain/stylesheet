@@ -20,6 +20,11 @@
       )
       border-box;
   border: var(--border-m) solid transparent;
+  line-height: 1.4;
+
+  > * {
+    line-height: 1.4;
+  }
 
   @media print {
     & {
@@ -106,5 +111,5 @@
   color: var(--alert-border-start-color);
   font-size: var(--font-size-s);
   margin: 0;
-  margin-block-end: var(--space-3xs);
+  margin-block-end: 0.15em;
 }
