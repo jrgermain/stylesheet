@@ -23,6 +23,10 @@
     }
   }
 
+  &:has([readonly]):focus-within {
+    color: var(--color-gray-5);
+  }
+
   &:user-invalid {
     color: var(--color-red-5);
   }
