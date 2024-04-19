@@ -55,7 +55,7 @@ dialog {
     background-color: var(--dialog-backdrop-color);
   }
 
-  &.sidebar {
+  &.drawer {
     --dialog-starting-opacity: 0.5;
 
     position: fixed;
