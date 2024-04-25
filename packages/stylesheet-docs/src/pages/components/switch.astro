@@ -1,0 +1,24 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+import ComponentOption from "../../components/ComponentOption.astro";
+
+const exampleCode = `<input type="checkbox" class=switch/>`;
+---
+
+<ComponentDocs name="Switch" exampleCode={exampleCode}>
+  <ComponentOption name="Labeled Switch">
+    <p slot="details">
+      To create a labeled switch, put the <code>switch</code> class on a <code
+        >label</code
+      > element. Inside the label, put the label text followed by an <code
+        >input[type=checkbox]</code
+      >. The input does not need to have the <code>switch</code> class.
+    </p>
+    <Fragment slot="examples">
+      <label class="switch">
+        Show Advanced Options
+        <input type="checkbox" />
+      </label>
+    </Fragment>
+  </ComponentOption>
+</ComponentDocs>

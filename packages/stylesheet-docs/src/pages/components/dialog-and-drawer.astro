@@ -1,0 +1,93 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+import ComponentOption from "../../components/ComponentOption.astro";
+
+const exampleCode = `
+<!-- For this example, we've defined a global variable '$dialog' pointing to the dialog element. -->
+
+<button onclick="$dialog.showModal()">
+  Open Dialog
+</button>
+
+<dialog id="dialog1">
+  <header class="dialog-title">
+    <h1>Leave Without Saving?</h1>
+    <button class="small subtle icon close" onclick="$dialog.close()"></button>
+  </header>
+
+  <p>You have unsaved edits. What would you like to do?</p>
+  
+  <div class="dialog-buttons">
+    <button class="primary red" onclick="$dialog.close()">
+      Discard Changes
+    </button>
+    <button autofocus onclick="$dialog.close()">
+      Keep Editing
+    </button>
+  </div>
+</dialog>
+`;
+---
+
+<ComponentDocs name="Dialog" exampleCode={exampleCode}>
+  <ComponentOption name="drawer">
+    <Fragment slot="details">
+      <p>
+        A dialog can optionally be displayed as a <strong>drawer</strong>. In
+        this case, it is docked to one side of the screen and takes the whole
+        height (if docked to the side) or width (if docked to the top or
+        bottom).
+      </p>
+      <p>
+        To turn a dialog into a drawer, add the class <code>drawer</code>, along
+        with the side of the screen the drawer should slide out from. Valid
+        sides are:
+      </p>
+      <ul>
+        <li><code>left</code></li>
+        <li><code>right</code></li>
+        <li><code>top</code></li>
+        <li><code>bottom</code></li>
+      </ul>
+    </Fragment>
+    <Fragment slot="examples">
+      <div x-data="{ side: 'left' }">
+        <div class="stack" style={{ alignItems: "flex-end" }}>
+          <label class="field">
+            Side
+            <select x-model="side">
+              <option value="left">Left</option>
+              <option value="right">Right</option>
+              <option value="top">Top</option>
+              <option value="bottom">Bottom</option>
+            </select>
+          </label>
+          <button onclick="$drawer.showModal()"> Open Drawer </button>
+        </div>
+
+        <dialog id="drawer1" x-bind:class="'drawer ' + side">
+          <header class="dialog-title">
+            <h1>Account Settings</h1>
+            <button class="small subtle icon close" onclick="$drawer.close()"
+            ></button>
+          </header>
+
+          <div class="dense vertical stack">
+            <label class="field">
+              Account Number
+              <input readonly value="123894848339" />
+            </label>
+            <label class="field">
+              Nickname
+              <input autofocus value="Personal Checking" />
+            </label>
+          </div>
+        </dialog>
+      </div>
+    </Fragment>
+  </ComponentOption>
+</ComponentDocs>
+<script is:inline>
+  window.$dialog = document.getElementById("dialog1");
+  window.$drawer = document.getElementById("drawer1");
+</script>

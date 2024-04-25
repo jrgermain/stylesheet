@@ -1,0 +1,50 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+import ComponentOption from "../../components/ComponentOption.astro";
+
+const exampleCode = `
+<div class="success alert">
+  <p class="alert-title">Profile Updated</p>
+  <p>Please note that it may take up to 24 hours for everyone to see your changes.</p>
+</div>
+`;
+---
+
+<ComponentDocs name="Alert" exampleCode={exampleCode}>
+  <ComponentOption name="Status">
+    <Fragment slot="details">
+      <p>To set the status of an alert, add one of the following classes:</p>
+      <ul>
+        <li><code>info</code></li>
+        <li><code>success</code></li>
+        <li><code>warning</code></li>
+        <li><code>error</code></li>
+      </ul>
+    </Fragment>
+    <div class="densest vertical stack" slot="examples">
+      <div class="info alert">
+        <p>This is an <strong>info</strong> alert.</p>
+      </div>
+      <div class="success alert">
+        <p>This is a <strong>success</strong> alert.</p>
+      </div>
+      <div class="warning alert">
+        <p>This is a <strong>warning</strong> alert.</p>
+      </div>
+      <div class="error alert">
+        <p>This is an <strong>error</strong> alert.</p>
+      </div>
+    </div>
+  </ComponentOption>
+  <ComponentOption name="Title">
+    <p slot="details">
+      To add a title to the alert, add an element with the class <code
+        >alert-title</code
+      > as the first child.
+    </p>
+    <div slot="examples" class="info alert">
+      <p class="alert-title">Fun Fact</p>
+      <p>The tip of a shoelace is called an aglet.</p>
+    </div>
+  </ComponentOption>
+</ComponentDocs>

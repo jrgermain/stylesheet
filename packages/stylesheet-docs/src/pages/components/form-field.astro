@@ -1,0 +1,127 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+import ComponentOption from "../../components/ComponentOption.astro";
+
+const exampleCode = `
+<!-- Use the 'field' class as a wrapper for form fields to style both the field and related label/help/error text. Use either of the two formats below for the markup: -->
+
+<!-- Option 1 -->
+<label class="field">
+  Email Address
+  <input type="email" />
+</label>
+
+<!-- Option 2 -->
+<div class="field">
+  <label for="field1">Email Address</label>
+  <input id="field1" type="email" />
+</div>
+`;
+---
+
+<ComponentDocs name="Form Field" exampleCode={exampleCode}>
+  <ComponentOption name="Supported Form Controls">
+    <p slot="details">
+      The <code>field</code> wrapper supports the following form control elements:
+    </p>
+    <Fragment slot="examples">
+      <label class="field">
+        Select
+        <select>
+          <option>Item 1</option>
+          <option>Item 2</option>
+          <option>Item 3</option>
+        </select>
+      </label>
+      <label class="field">
+        Color Input
+        <input type="color" />
+      </label>
+      <label class="field">
+        Date Input
+        <input type="date" />
+      </label>
+      <label class="field">
+        Datetime-local Input
+        <input type="datetime-local" />
+      </label>
+      <label class="field">
+        Email Input
+        <input type="email" />
+      </label>
+      <label class="field">
+        Month Input
+        <input type="month" />
+      </label>
+      <label class="field">
+        Number Input
+        <input type="number" />
+      </label>
+      <label class="field">
+        Password Input
+        <input type="password" />
+      </label>
+      <label class="field">
+        Search Input
+        <input type="search" />
+      </label>
+      <label class="field">
+        Tel Input
+        <input type="tel" />
+      </label>
+      <label class="field">
+        Text Input
+        <input type="text" />
+      </label>
+      <label class="field">
+        Time Input
+        <input type="time" />
+      </label>
+      <label class="field">
+        URL Input
+        <input type="url" />
+      </label>
+      <label class="field">
+        Week Input
+        <input type="week" />
+      </label>
+    </Fragment>
+  </ComponentOption>
+  <ComponentOption name="Read-only/Disabled">
+    <p slot="details">
+      Fields with the <code>disabled</code> or <code>readonly</code> attributes will
+      have styling applied. The styles for each are slightly different, as readonly
+      fields are focusable and disabled fields are not.
+    </p>
+    <Fragment slot="examples">
+      <label class="field"
+        >Disabled <input type="text" value="Testing" disabled /></label
+      >
+      <label class="field"
+        >Read-only <input type="text" value="Testing" readonly /></label
+      >
+    </Fragment>
+  </ComponentOption>
+  <ComponentOption name="Help & Error Text">
+    <p slot="details">Fields may have help text, error text, or both.</p>
+    <Fragment slot="examples">
+      <div class="field">
+        <label for="employee-id">Employee ID Number</label>
+        <div class="help-text" id="employee-id-help-text">
+          This is printed on the back of your badge.
+        </div>
+        <input
+          id="employee-id"
+          aria-describedby="employee-id-help-text"
+          aria-errormessage="employee-id-error-message"
+          type="text"
+          minlength="8"
+          maxlength="8"
+        />
+        <div id="employee-id-error-message" class="error-message">
+          Your ID Number must be 8 digits long.
+        </div>
+      </div>
+    </Fragment>
+  </ComponentOption>
+</ComponentDocs>

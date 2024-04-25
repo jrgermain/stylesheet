@@ -1,0 +1,337 @@
+---
+import "@jrgermain/stylesheet/index.scss";
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/recursive";
+import "@fontsource-variable/lexend";
+import "@fontsource-variable/source-code-pro";
+import NavLink from "../components/NavLink.astro";
+import githubLogo from "../assets/github-logo.svg";
+import npmLogo from "../assets/npm-logo.svg";
+import menuIcon from "../assets/menu-icon.svg";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+// Given a human-readable page title, generate a kebab-case path segment
+const toLink = (str: string) =>
+  str
+    .replace(/\(.*\)/, "")
+    .replace("&", "and")
+    .trim()
+    .toLowerCase()
+    .replace(/[^0-9a-z]+/g, "-");
+
+const navSections = [
+  {
+    heading: "Getting Started",
+    links: ["Introduction", "Installation & Setup", "Customizing", "Tokens"],
+  },
+  {
+    heading: "Components",
+    links: [
+      "Alert",
+      "Button",
+      "Card",
+      "Chip",
+      "Details",
+      "Dialog & Drawer",
+      "Form Field",
+      "Hr (Divider)",
+      "Layout (Flex)",
+      "Meter",
+      "Progress",
+      "Range Input (Slider)",
+      "Skeleton",
+      "Switch",
+      "Table",
+      "Text (Headings, Links, etc.)",
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Documentation for @jrgermain/stylesheet - a stylesheet for apps I build."
+    />
+    <!-- <meta name="theme-color" content="oklch(0.35 0.22 270)" /> -->
+    <script
+      is:inline
+      src="https://unpkg.com/htmx.org@1.9.11"
+      integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
+      crossorigin="anonymous"></script>
+    <script
+      is:inline
+      defer
+      src="https://unpkg.com/alpinejs@3.13.8/dist/cdn.min.js"
+      integrity="sha384-MGt/yQlIAvCVZEB4PNx8b9JxEfqFXemRJcpH6AIHAxDt1bRfYFeOnv3HJMW0LVD3"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="title">@jrgermain/stylesheet</a>
+      <div class="icons">
+        <a
+          class="github logo"
+          href="https://github.com/jrgermain/stylesheet"
+          title="GitHub"
+        >
+          <span class="sr-only">GitHub</span>
+        </a>
+        <a
+          class="npm logo"
+          href="https://www.npmjs.com/package/@jrgermain/stylesheet"
+          title="NPM"
+        >
+          <span class="sr-only">NPM</span>
+        </a>
+        <hr class="vertical header-toggle-divider" />
+        <input
+          type="checkbox"
+          class="header-toggle"
+          title="Toggle navigation"
+        />
+      </div>
+    </header>
+    <nav>
+      {
+        navSections.map((section) => (
+          <>
+            <h1>{section.heading}</h1>
+            {section.links.map((link) => (
+              <NavLink href={`/${toLink(section.heading)}/${toLink(link)}`}>
+                {link}
+              </NavLink>
+            ))}
+          </>
+        ))
+      }
+    </nav>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+<style is:global>
+  :root {
+    --config-brand-hue: 270deg;
+    --config-vividness: 0.55;
+    --config-roundness: 0.65;
+    --config-body-font: "Manrope Variable", sans-serif;
+    --config-heading-font: "Lexend Variable", sans-serif;
+    --config-mono-font: "Source Code Pro Variable", monospace;
+  }
+
+  .astro-code {
+    margin: 0;
+    padding: var(--space-xs);
+    border-radius: var(--radius-s);
+  }
+
+  .astro-code code {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .sr-only {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
+</style>
+<style
+  define:vars={{
+    "menu-icon": `url(${menuIcon.src})`,
+    "github-icon": `url(${githubLogo.src})`,
+    "npm-icon": `url(${npmLogo.src})`,
+  }}
+>
+  :root {
+    --header-color: #fffc;
+    --header-text-color: var(--color-brand-3);
+    --header-filter: blur(24px) saturate(120%);
+  }
+
+  body {
+    min-height: 100svh;
+    min-width: 100svw;
+  }
+
+  header {
+    position: fixed;
+    width: 100dvw;
+    height: 3.5rem;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    padding: var(--space-s);
+    display: flex;
+    color: var(--header-text-color);
+    background-color: var(--header-color);
+    -webkit-backdrop-filter: var(--header-filter);
+    backdrop-filter: var(--header-filter);
+    border-bottom: var(--border-l) solid var(--color-brand-transparent);
+    box-shadow: var(--shadow-s);
+  }
+
+  header .title {
+    text-decoration: none;
+    color: inherit;
+    margin: auto auto auto 0;
+    font-family: var(--font-family-mono);
+    font-size: 1.1rem;
+    transition: color 200ms ease;
+  }
+
+  header .title:hover {
+    color: var(--color-body-text);
+  }
+
+  header .icons {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  .logo,
+  .header-toggle {
+    background-color: var(--header-text-color);
+    height: 1.5rem;
+    width: 1.5rem;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+  }
+
+  .logo:hover,
+  .header-toggle:hover {
+    background-color: var(--color-body-text);
+  }
+
+  .logo:focus-visible,
+  .header-toggle:focus-visible {
+    scale: 1.2;
+    opacity: 0.67;
+  }
+
+  .github {
+    mask-image: var(--github-icon);
+  }
+
+  .npm {
+    mask-image: var(--npm-icon);
+  }
+
+  .header-toggle {
+    mask-image: var(--menu-icon);
+    display: none;
+    appearance: none;
+  }
+
+  .header-toggle-divider {
+    display: none;
+  }
+
+  nav {
+    position: fixed;
+    top: 3.5rem;
+    left: 0;
+    width: 300px;
+    height: calc(100dvh - 3.5rem);
+    overflow: auto;
+    z-index: 2;
+    transition:
+      width 150ms ease,
+      opacity 150ms ease;
+    display: flex;
+    flex-direction: column;
+    padding: calc(0.75 * var(--space-body));
+    -webkit-backdrop-filter: var(--header-filter);
+    backdrop-filter: var(--header-filter);
+  }
+
+  nav h1 {
+    font-size: 1.2rem;
+    margin: var(--space-s) 0 var(--space-2xs);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  nav h1:first-of-type {
+    margin-top: 0;
+  }
+
+  nav::after {
+    content: "";
+    height: calc(100% - 2 * var(--space-s));
+    width: var(--border-s);
+    background-color: var(--color-outline);
+    position: absolute;
+    top: var(--space-s);
+    right: 0;
+  }
+
+  main {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: auto;
+    margin: 0;
+    padding: var(--space-body);
+    padding-top: calc(var(--space-body) + 3.5rem);
+    padding-left: calc(var(--space-body) + 300px);
+  }
+
+  @media (width < 900px) {
+    main {
+      padding-left: var(--space-body);
+    }
+
+    .header-toggle {
+      display: block;
+    }
+
+    .header-toggle-divider {
+      display: block;
+      height: 1.5rem;
+      margin: 0;
+    }
+
+    nav {
+      width: 0;
+      opacity: 0;
+      pointer-events: none;
+      background-color: var(--header-color);
+    }
+
+    header:has(.header-toggle:checked) + nav {
+      width: 100dvw;
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --header-color: #000c;
+      --header-text-color: white;
+    }
+  }
+</style>

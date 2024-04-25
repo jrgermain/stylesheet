@@ -1,0 +1,81 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+import ComponentOption from "../../components/ComponentOption.astro";
+
+const exampleCode = `
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Job Area</th>
+      <th>Job Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John</td>
+      <td>Johnson</td>
+      <td>Analytics</td>
+      <td>Data Analyst</td>
+    </tr>
+    <tr>
+      <td>Jack</td>
+      <td>Jackson</td>
+      <td>Analytics</td>
+      <td>Manager</td>
+    </tr>
+    <tr>
+      <td>Robin</td>
+      <td>Robinson</td>
+      <td>Engineering</td>
+      <td>Software Engineer</td>
+    </tr>
+  </tbody>
+</table>
+`;
+---
+
+<ComponentDocs name="Table" exampleCode={exampleCode}>
+  <ComponentOption name="Caption and Footer">
+    <p slot="details">
+      If you choose to include a title (using the <code>caption</code> element) or
+      a footer (using the <code>tfoot</code> element), they will be styled.
+    </p>
+    <Fragment slot="examples">
+      <table>
+        <caption>Sales Figures</caption>
+        <thead>
+          <tr>
+            <th>Quarter</th>
+            <th>Gross Revenue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Q1</td>
+            <td>$1,202,133</td>
+          </tr>
+          <tr>
+            <td>Q2</td>
+            <td>$2,001,259</td>
+          </tr>
+          <tr>
+            <td>Q3</td>
+            <td>$997,673</td>
+          </tr>
+          <tr>
+            <td>Q4</td>
+            <td>$1,012,422</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td>$5,213,487</td>
+          </tr>
+        </tfoot>
+      </table>
+    </Fragment>
+  </ComponentOption>
+</ComponentDocs>

@@ -1,0 +1,16 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+
+const exampleCode = `
+<!-- Low -->
+<meter min="0" max="100" low="33" high="67" optimum="100" value="10"></meter>
+
+<!-- Medium -->
+<meter min="0" max="100" low="33" high="67" optimum="100" value="50"></meter>
+
+<!-- High -->
+<meter min="0" max="100" low="33" high="67" optimum="100" value="90"></meter>
+`;
+---
+
+<ComponentDocs name="Meter" exampleCode={exampleCode} />

@@ -1,0 +1,192 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+import ComponentOption from "../../components/ComponentOption.astro";
+
+const exampleCode = `
+<!-- Buttons are styled automatically -->
+<button>I'm a button</button>
+
+<!-- Other elements are styled as buttons with class "button" -->
+<a href="#" class="button">I'm a button too</a>
+`;
+---
+
+<ComponentDocs name="Button" exampleCode={exampleCode}>
+  <ComponentOption name="Variant">
+    <Fragment slot="details">
+      <p>To set the variant of a button, add one of the following classes:</p>
+      <ul>
+        <li><code>primary</code></li>
+        <li><code>secondary</code></li>
+        <li><code>subtle</code></li>
+      </ul>
+      <p>
+        If you don't add any of these, buttons default to the <strong
+          >secondary</strong
+        > variant.
+      </p>
+    </Fragment>
+    <Fragment slot="examples">
+      <button class="primary">Primary</button>
+      <button class="secondary">Secondary</button>
+      <button class="subtle">Subtle</button>
+    </Fragment>
+  </ComponentOption>
+  <ComponentOption name="Size">
+    <Fragment slot="details">
+      <p>To adjust the size of a button, add one of the following classes:</p>
+      <ul>
+        <li><code>small</code></li>
+        <li><code>medium</code></li>
+        <li><code>large</code></li>
+      </ul>
+      <p>
+        If you don't add any of these, buttons default to <strong>medium</strong
+        >.
+      </p>
+      <p class="info alert">
+        For finer-grained control over sizing, you can set the <code
+          >font-size</code
+        > style to an arbitrary value and the button will scale accordingly.
+      </p>
+    </Fragment>
+    <Fragment slot="examples">
+      <button class="small">Small</button>
+      <button class="medium">Medium</button>
+      <button class="large">Large</button>
+    </Fragment>
+  </ComponentOption>
+  <ComponentOption name="Disabled">
+    <Fragment slot="details">
+      <p>To give a button a disabled style, do one of the following:</p>
+      <ul>
+        <li>Add the <code>disabled</code> attribute</li>
+        <li>Add the <code>disabled</code> class</li>
+        <li>
+          Set the <code>aria-disabled</code> attribute to <code>true</code>
+        </li>
+      </ul>
+      <p class="warning alert">
+        If you use a method other than setting the <code>disabled</code> attribute,
+        make sure you are disabling the <em>behavior</em> of the button as well.
+        Otherwise, the button will look disabled but still function normally.
+      </p>
+    </Fragment>
+    <Fragment slot="examples">
+      <button disabled>Disabled attribute</button>
+      <button class="disabled">Disabled class</button>
+      <button aria-disabled="true">aria-disabled</button>
+    </Fragment>
+  </ComponentOption>
+  <ComponentOption name="Loading">
+    <p slot="details">
+      To give a button a busy/loading style, add the class <code>loading</code>.
+      Many times, you will also want to disable the button, but this is not
+      required.
+    </p>
+    <Fragment slot="examples">
+      <button disabled class="loading">Disabled and loading</button>
+      <button class="loading">Just loading</button>
+    </Fragment>
+  </ComponentOption>
+  <ComponentOption name="Link">
+    <p slot="details">
+      You can add the <code>button</code> class to an <code>a</code> element to style
+      the link as a button. Links that open in a new tab will automatically have
+      an icon added to the button.
+    </p>
+    <Fragment slot="examples">
+      <a href="/" class="button">Go to Homepage</a>
+      <a href="/" target="_blank" class="button">Go to Homepage</a>
+    </Fragment>
+  </ComponentOption>
+  <ComponentOption name="Icon Button">
+    <p slot="details">
+      You can add the <code>icon</code> class to a button to make it circular and
+      adjust the padding, to make it more suited to holding an icon. This class can
+      be combined with a variant, size, or other modifiers described here.
+    </p>
+    <Fragment slot="examples">
+      <button class="icon">
+        <svg
+          width="1.5em"
+          height="1.5em"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          color="currentcolor"
+        >
+          <path
+            d="M22 8.86222C22 10.4087 21.4062 11.8941 20.3458 12.9929C17.9049 15.523 15.5374 18.1613 13.0053 20.5997C12.4249 21.1505 11.5042 21.1304 10.9488 20.5547L3.65376 12.9929C1.44875 10.7072 1.44875 7.01723 3.65376 4.73157C5.88044 2.42345 9.50794 2.42345 11.7346 4.73157L11.9998 5.00642L12.2648 4.73173C13.3324 3.6245 14.7864 3 16.3053 3C17.8242 3 19.2781 3.62444 20.3458 4.73157C21.4063 5.83045 22 7.31577 22 8.86222Z"
+            stroke="currentcolor"
+            stroke-width="1.5"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      <button class="red primary icon">
+        <svg
+          width="1.5em"
+          height="1.5em"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          color="currentcolor"
+        >
+          <path
+            d="M22 8.86222C22 10.4087 21.4062 11.8941 20.3458 12.9929C17.9049 15.523 15.5374 18.1613 13.0053 20.5997C12.4249 21.1505 11.5042 21.1304 10.9488 20.5547L3.65376 12.9929C1.44875 10.7072 1.44875 7.01723 3.65376 4.73157C5.88044 2.42345 9.50794 2.42345 11.7346 4.73157L11.9998 5.00642L12.2648 4.73173C13.3324 3.6245 14.7864 3 16.3053 3C17.8242 3 19.2781 3.62444 20.3458 4.73157C21.4063 5.83045 22 7.31577 22 8.86222Z"
+            stroke="currentcolor"
+            stroke-width="1.5"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      <button class="subtle icon">
+        <svg
+          width="1.5em"
+          height="1.5em"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          color="currentcolor"
+        >
+          <path
+            d="M22 8.86222C22 10.4087 21.4062 11.8941 20.3458 12.9929C17.9049 15.523 15.5374 18.1613 13.0053 20.5997C12.4249 21.1505 11.5042 21.1304 10.9488 20.5547L3.65376 12.9929C1.44875 10.7072 1.44875 7.01723 3.65376 4.73157C5.88044 2.42345 9.50794 2.42345 11.7346 4.73157L11.9998 5.00642L12.2648 4.73173C13.3324 3.6245 14.7864 3 16.3053 3C17.8242 3 19.2781 3.62444 20.3458 4.73157C21.4063 5.83045 22 7.31577 22 8.86222Z"
+            stroke="currentcolor"
+            stroke-width="1.5"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button></Fragment
+    >
+  </ComponentOption>
+  <ComponentOption name="Colors">
+    <Fragment slot="details">
+      <p>
+        Buttons with the <strong>Primary</strong> variant may also have an alternate
+        color. While they default to the <strong>brand</strong> color, you can override
+        this by adding one of the following classes:
+      </p>
+      <ul>
+        <li><code>red</code></li>
+        <li><code>orange</code></li>
+        <li><code>yellow</code></li>
+        <li><code>green</code></li>
+        <li><code>sky</code></li>
+        <li><code>blue</code></li>
+        <li><code>purple</code></li>
+        <li><code>gray</code></li>
+      </ul>
+    </Fragment>
+    <Fragment slot="examples">
+      <button class="primary red">Red</button>
+      <button class="primary orange">Orange</button>
+      <button class="primary yellow">Yellow</button>
+      <button class="primary green">Green</button>
+      <button class="primary sky">Sky</button>
+      <button class="primary blue">Blue</button>
+      <button class="primary purple">Purple</button>
+      <button class="primary gray">Gray</button>
+    </Fragment>
+  </ComponentOption>
+</ComponentDocs>

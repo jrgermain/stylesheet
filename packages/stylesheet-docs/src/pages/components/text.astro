@@ -1,0 +1,64 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+
+const exampleCode = `
+<div>
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <h6>Heading 6</h6>
+  <p>I did a good amount of reading on typography.</p>
+  <p>
+    In my research, I learned about a bunch of subtle ways to make text
+    look good. For example, I slightly reduce the weights of text in dark
+    mode, since the eye perceives white text on a dark background to be
+    thicker than it is. I also set a nice roomy line height on paragraphs,
+    and a more condensed one on headings. Consecutive paragraphs have a
+    little breathing room between, and
+    <code>text-wrap</code> is used in browsers that support it.
+  </p>
+  <p>
+    The stylesheet includes styles for <strong>bolding</strong>,
+    <em>italicizing</em>, <mark>highlighting</mark>, as well as formatting <code
+      >code</code
+    > and <a>links</a>. There are also styles for the <sub>sub</sub> and <sup
+      >sup</sup
+    > elements, the <small>small</small> element, the <abbr
+      title="abbreviation">abbr</abbr
+    > element. If you use the correct semantic elements, these styles get applied
+    automatically. Otherwise, you can fall back on classes that do the same
+    thing.
+  </p>
+  <p>
+    <a href="." target="_blank">Links that open in a new tab</a>
+    automatically have an icon appended, but this can be suppressed.
+  </p>
+  <p>There is also styling for blockquotes:</p>
+  <blockquote cite="https://www.huxley.net/bnw/four.html">
+    <p>
+      Words can be like X-rays, if you use them properly—they’ll go
+      through anything. You read and you’re pierced.
+    </p>
+    <footer>—Aldous Huxley, <cite>Brave New World</cite></footer>
+  </blockquote>
+  <p>
+    There is also support for some of the less common elements like <del
+      >del</del
+    > and <ins>ins</ins>.
+  </p>
+  <p>
+    Have you heard of the <code>samp</code> element? This can be used to show
+    the output of a computer program. For example, we can use it to show what
+    happens when you run the command <code>rm -rf /</code>.
+  </p>
+  <samp>
+    rm: it is dangerous to operate recursively on '/'<br />rm: use
+    --no-preserve-root to override this failsafe
+  </samp>
+</div>
+`;
+---
+
+<ComponentDocs name="Text" exampleCode={exampleCode} />

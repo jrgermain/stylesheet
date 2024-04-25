@@ -1,0 +1,21 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <div class="markdown">
+    <slot />
+  </div>
+</Layout>
+
+<style is:global>
+  .markdown > :first-child {
+    margin-top: 0;
+  }
+
+  .markdown .astro-code {
+    padding: var(--space-2xs);
+    border-radius: var(--radius-m);
+  }
+</style>

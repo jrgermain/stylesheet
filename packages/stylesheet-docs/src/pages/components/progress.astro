@@ -1,0 +1,17 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+import ComponentOption from "../../components/ComponentOption.astro";
+
+const exampleCode = `<progress value="50" max="100"></progress>`;
+---
+
+<ComponentDocs name="Progress" exampleCode={exampleCode}>
+  <ComponentOption name="Indeterminate">
+    <p slot="details">
+      To make a progress bar Indeterminate, omit the <code>value</code> attribute.
+    </p>
+    <Fragment slot="examples">
+      <progress></progress>
+    </Fragment>
+  </ComponentOption>
+</ComponentDocs>

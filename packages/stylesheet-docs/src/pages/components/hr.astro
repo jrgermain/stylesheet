@@ -1,0 +1,54 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+import ComponentOption from "../../components/ComponentOption.astro";
+
+const exampleCode = `<hr/>`;
+---
+
+<ComponentDocs name="Hr (Separator)" exampleCode={exampleCode}>
+  <ComponentOption name="Orientation">
+    <Fragment slot="details">
+      <p>
+        To change the orientation of the slider, use one of the following
+        classes:
+      </p>
+      <ul>
+        <li><code>horizontal</code></li>
+        <li><code>vertical</code></li>
+      </ul>
+      <p>By default, separators are horizontal.</p>
+    </Fragment>
+    <Fragment slot="examples">
+      <div class="secondary card">
+        <p>Top content</p>
+        <hr class="horizontal" />
+        <p>Bottom content</p>
+      </div>
+      <div class="secondary card">
+        <span>Left content</span>
+        <hr class="vertical" />
+        <span>Right content</span>
+      </div>
+    </Fragment>
+  </ComponentOption>
+  <ComponentOption name="Visibility">
+    <p slot="details">
+      You can make a separator invisible by adding the class <code
+        >invisible</code
+      >. Invisible separators take up the same amount of space but don't render
+      a line.
+    </p>
+    <Fragment slot="examples">
+      <div class="secondary card">
+        <p>Top content</p>
+        <hr class="horizontal invisible" />
+        <p>Bottom content</p>
+      </div>
+      <div class="secondary card">
+        <span>Left content</span>
+        <hr class="vertical invisible" />
+        <span>Right content</span>
+      </div>
+    </Fragment>
+  </ComponentOption>
+</ComponentDocs>

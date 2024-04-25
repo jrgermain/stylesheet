@@ -1,0 +1,268 @@
+---
+import TokenDocs from "../../components/TokenDocs.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const colors = [
+  "brand",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "sky",
+  "blue",
+  "purple",
+  "magenta",
+  "gray",
+];
+
+const palette = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "transparent",
+  "extra-transparent",
+  "tint",
+];
+
+const semanticColors = [
+  "body",
+  "body-alt",
+  "body-text",
+  "body-text-alt",
+  "shadow",
+  "outline",
+];
+
+const fontSizes = ["xs", "s", "m", "l", "xl", "2xl", "3xl", "4xl"];
+
+const fontWeights = ["light", "normal", "semibold", "bold", "black"];
+
+const fontFamilies = ["body", "heading", "ui", "mono"];
+
+const spaces = ["3xs", "2xs", "xs", "s", "m", "l", "xl", "2xl", "3xl"];
+
+const semanticSpaces = ["body"];
+
+const radii = ["none", "s", "m", "l", "xl", "2xl", "full"];
+
+const shadows = ["none", "s", "m", "l", "xl"];
+
+const borders = ["none", "s", "m", "l", "xl"];
+---
+
+<!-- borders, colors, fonts, radii, shadows, spacing -->
+<Layout title="Tokens">
+  <h1 style="margin-top: 0;">Tokens</h1>
+  <p>
+    All tokens are defined as CSS Custom Properties (also known as <q
+      >CSS Variables</q
+    >). You can (and should) reference these properties when creating higher
+    order components or making other styling tweaks.
+  </p>
+
+  <h2>Colors</h2>
+
+  <h3>Standard Palette</h3>
+  <p>
+    The stylesheet defines the following set of <q>base</q> colors: <code
+      >brand</code
+    >, <code>red</code>, <code>orange</code>, <code>yellow</code>, <code
+      >green</code
+    >, <code>sky</code>, <code>blue</code>, <code>purple</code>, <code
+      >magenta</code
+    >, and<code>gray</code>. For each of these, there are a total of 12
+    variants: 9 lightnesses, 2 opacity variations, and a <q>tint</q> variation.
+  </p>
+  <p>
+    The variables for the standard colors are all prefixed with <code
+      >--color-</code
+    >. For example, the color <code>red-1</code> can be referenced as <code
+      >--color-red-1</code
+    >.
+  </p>
+  <label
+    id="show-additional-variations"
+    class="switch"
+    style="justify-content: flex-end;"
+    >Show additional variations <input type="checkbox" /></label
+  >
+  <div class="palettes">
+    {
+      colors.map((color) => (
+        <div class="palette" role="row">
+          {palette.map((suffix) => (
+            <span
+              class:list={[
+                "color",
+                `variant-${suffix}`,
+                Number.isNaN(+suffix) && "is-additional",
+              ]}
+              style={{
+                background: `linear-gradient(90deg, var(--color-${color}-${suffix}), var(--color-${color}-${suffix})), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black 0 ), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black 0), white;`,
+              }}
+            >
+              {color}-{suffix}
+            </span>
+          ))}
+          <span
+            class="color-name"
+            style={{ color: `var(--color-${color}-tint)` }}
+          >
+            {color}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+  <h3>Semantic Colors</h3>
+  <p>
+    In addition to color palettes, the stylesheet defines {
+      semanticColors.length
+    }
+    <q>semantic</q> colors. These colors ...
+  </p>
+  <div class="palettes">
+    <div class="palette" role="row">
+      {
+        semanticColors.map((color) => (
+          <span
+            class:list={["color", color]}
+            style={{ backgroundColor: `var(--color-${color})` }}
+          >
+            {color}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- <h2>Border Widths</h2> 
+  <TokenDocs
+    template={(token) =>
+      `<div style="width:48px;height:24px;border:var(${token}) solid var(--color-outline);"></div>`}
+    tokens={[
+      { name: "None", prop: "--border-none" },
+      { name: "Small", prop: "--border-s" },
+      { name: "Medium", prop: "--border-m" },
+      { name: "Large", prop: "--border-l" },
+      { name: "Extra Large", prop: "--border-xl" },
+    ]}
+  />
+
+  <h2>Font Families</h2>
+  <TokenDocs
+    template={(token) =>
+      `<span style="font-family:var(${token});">Testing</span>`}
+    tokens={[
+      { name: "Body", prop: "--font-family-body" },
+      { name: "Heading", prop: "--font-family-heading" },
+      { name: "UI", prop: "--font-family-ui" },
+      { name: "Mono", prop: "--font-family-mono" },
+    ]}
+  /> -->
+</Layout>
+<style>
+  .palettes {
+    width: 100%;
+    overflow: auto;
+    background: linear-gradient(
+        45deg,
+        black 25%,
+        transparent 25%,
+        transparent 75%,
+        black 75%,
+        black 0
+      ),
+      linear-gradient(
+        45deg,
+        black 25%,
+        transparent 25%,
+        transparent 75%,
+        black 75%,
+        black 0
+      ),
+      white;
+    background-repeat: repeat;
+    background-position:
+      0 0,
+      16px 16px;
+    background-size: 32px 32px;
+  }
+
+  .palette {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    position: relative;
+  }
+
+  .palette .color-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .palette .color {
+    width: 100%;
+    height: 5rem;
+    min-width: 6rem;
+    font-size: var(--font-size-s);
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    padding: var(--space-3xs);
+    color: black;
+    font-family: var(--font-family-mono);
+    font-weight: var(--font-weight-semibold);
+    --gradient: linear-gradient(320deg, black 50%, white 50%);
+    background-repeat: repeat;
+    background-position:
+      0 0,
+      0 0,
+      16px 16px;
+    background-size: 32px 32px;
+  }
+
+  .palette
+    .color:is(.variant-1, .variant-2, .variant-3, .variant-4, .variant-5) {
+    color: var(--color-body);
+  }
+  .palette
+    .color:is(.variant-6, .variant-7, .variant-8, .variant-9, .variant-tint) {
+    color: var(--color-body-text);
+  }
+  .palette .color:is(.variant-transparent, .variant-extra-transparent) {
+    color: white;
+    text-shadow: 0 0 2px black;
+  }
+
+  .palette .color-name {
+    position: absolute;
+    bottom: var(--space-2xs);
+    left: var(--space-2xs);
+    color: white;
+    font-size: 2rem;
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-black);
+    letter-spacing: 0.075ch;
+    line-height: 1;
+  }
+
+  .palette .color.is-additional {
+    display: none;
+  }
+
+  #show-additional-variations:has(:checked)
+    + .palettes
+    .palette
+    .color.is-additional {
+    display: flex;
+  }
+</style>

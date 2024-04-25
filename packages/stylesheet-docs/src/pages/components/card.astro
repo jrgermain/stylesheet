@@ -1,0 +1,53 @@
+---
+import ComponentDocs from "../../components/ComponentDocs.astro";
+import ComponentOption from "../../components/ComponentOption.astro";
+
+const exampleCode = `
+<div class="card">
+  <h1 class="card-title">Optional Title</h1>
+  <p>Content</p>
+</div>
+`;
+---
+
+<ComponentDocs name="Card" exampleCode={exampleCode}>
+  <ComponentOption name="Variant">
+    <p slot="details">
+      Cards can either be <strong>Primary</strong> or <strong>Secondary</strong
+      >. All cards default to the Primary variant. To make a card secondary, add
+      the class <code>secondary</code>.
+    </p>
+    <Fragment slot="examples">
+      <div class="card">
+        <p>This is an example of a Primary card.</p>
+      </div>
+      <div class="secondary card">
+        <p>This is an example of a Secondary card.</p>
+      </div>
+      <div class="card">
+        <p>One use case for Secondary cards is creating nested cards.</p>
+        <hr class="invisible" />
+        <div class="secondary card">
+          <p>This Secondary card is nested within a Primary one.</p>
+        </div>
+      </div>
+    </Fragment>
+  </ComponentOption>
+  <ComponentOption name="Title">
+    <p slot="details">
+      You can add a title to the card by adding a child element with the class <code
+        >card-title</code
+      >.
+    </p>
+    <Fragment slot="examples">
+      <div class="card">
+        <h1 class="card-title">Hey</h1>
+        <p>I have a title.</p>
+      </div>
+      <div class="secondary card">
+        <h1 class="card-title">Hey</h1>
+        <p>Me too!</p>
+      </div>
+    </Fragment>
+  </ComponentOption>
+</ComponentDocs>
