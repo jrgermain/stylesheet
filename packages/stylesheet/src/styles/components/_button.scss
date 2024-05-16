@@ -100,7 +100,17 @@
     --button-focus-ring-color: var(--color-brand-transparent);
 
     @each $color
-      in ("red", "orange", "yellow", "green", "sky", "blue", "purple", "gray")
+      in (
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "sky",
+        "blue",
+        "purple",
+        "magenta",
+        "gray"
+      )
     {
       &.#{$color} {
         --button-bg-color: var(--color-#{$color}-5);
