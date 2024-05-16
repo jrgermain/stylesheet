@@ -158,11 +158,13 @@
 
   // Shadows
   --shadow-none: none;
-  --shadow-s: 0 1px 5px -1px var(--color-shadow);
-  --shadow-m: 0 1px 7px var(--color-shadow);
-  --shadow-l: 0 0 4px var(--color-shadow), 0 2px 12px var(--color-shadow);
-  --shadow-xl: 0 0 2px -1px var(--color-shadow), 0 2px 8px var(--color-shadow),
-    0 3px 18px var(--color-shadow);
+  --shadow-s: 0 1px calc(2px + var(--config-depth, 0.5) * 6px) -1px var(--color-shadow);
+  --shadow-m: 0 1px calc(2px + var(--config-depth, 0.5) * 10px)
+    var(--color-shadow);
+  --shadow-l: var(--shadow-s),
+    0 1px calc(3px + var(--config-depth, 0.5) * 18px) var(--color-shadow);
+  --shadow-xl: var(--shadow-m),
+    0 1px calc(5px + var(--config-depth, 0.5) * 30px) var(--color-shadow);
 
   // Border widths
   --border-none: 0;
