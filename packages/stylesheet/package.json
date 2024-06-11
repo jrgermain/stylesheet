@@ -27,6 +27,9 @@
     "src"
   ],
   "exports": {
+    ".": {
+      "sass": "./src/styles/index.scss"
+    },
     "./index.scss": "./src/styles/index.scss",
     "./index.css": "./dist/index.css",
     "./index.min.css": "./dist/index.min.css"
