@@ -14,9 +14,11 @@ const exampleCode = `
     <h1>Leave Without Saving?</h1>
     <button class="small subtle icon close" onclick="$dialog.close()"></button>
   </header>
-
-  <p>You have unsaved edits. What would you like to do?</p>
-  
+  <div class="dialog-body">
+    <p>You have unsaved edits. What would you like to do?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis ultricies lacus sed turpis tincidunt id. Rhoncus mattis rhoncus urna neque viverra justo nec. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Ac placerat vestibulum lectus mauris ultrices. Elementum sagittis vitae et leo duis ut diam. Odio facilisis mauris sit amet massa. Cras semper auctor neque vitae tempus quam. Cursus metus aliquam eleifend mi in. Fermentum iaculis eu non diam. Diam quam nulla porttitor massa id neque aliquam.</p>
+    <p>Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Arcu felis bibendum ut tristique et egestas quis ipsum. Fermentum dui faucibus in ornare quam viverra orci sagittis. Urna duis convallis convallis tellus id. Dignissim enim sit amet venenatis urna cursus eget. Penatibus et magnis dis parturient montes nascetur ridiculus mus. Interdum varius sit amet mattis vulputate enim nulla. Purus ut faucibus pulvinar elementum. Id leo in vitae turpis massa sed elementum tempus egestas. Amet facilisis magna etiam tempor orci eu. Faucibus turpis in eu mi bibendum neque egestas congue quisque. Quisque id diam vel quam elementum pulvinar etiam non. Ultricies mi eget mauris pharetra et ultrices neque ornare. Etiam sit amet nisl purus in mollis nunc sed. A lacus vestibulum sed arcu non. Arcu felis bibendum ut tristique. Felis imperdiet proin fermentum leo. Massa placerat duis ultricies lacus sed turpis tincidunt. Sed enim ut sem viverra. Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique.</p>
+  </div>
   <div class="dialog-buttons">
     <button class="primary red" onclick="$dialog.close()">
       Discard Changes
@@ -72,7 +74,7 @@ const exampleCode = `
             ></button>
           </header>
 
-          <div class="dense vertical stack">
+          <div class="dialog-body dense vertical stack">
             <label class="field">
               Account Number
               <input readonly value="123894848339" />
