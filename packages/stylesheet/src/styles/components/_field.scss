@@ -4,7 +4,7 @@
   display: inline-flex;
   flex-direction: column;
   line-height: 1;
-  gap: var(--space-3xs);
+  gap: var(--space-2xs);
   color: var(--color-body-text);
   font-weight: var(--font-weight-semibold);
   transition-duration: 200ms;
@@ -49,7 +49,6 @@
     border: var(--border-s) solid var(--color-outline);
     font-size: 1rem;
     padding: var(--space-2xs);
-    margin-block-start: 2px;
     border-radius: var(--radius-m);
     transition-duration: 200ms;
     transition-property: color, box-shadow, border-color;
