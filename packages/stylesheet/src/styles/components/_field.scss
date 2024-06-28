@@ -1,15 +1,29 @@
 @use "../functions";
 
 .field {
+  --field-gap: var(--space-2xs);
+  --field-padding: var(--space-2xs);
+  --field-radius: var(--radius-m);
+
   display: inline-flex;
   flex-direction: column;
   line-height: 1;
-  gap: var(--space-2xs);
+  gap: var(--field-gap);
   color: var(--color-body-text);
   font-weight: var(--font-weight-semibold);
   transition-duration: 200ms;
   transition-property: color, box-shadow;
   transition-timing-function: ease;
+  font-size: var(--font-size-m);
+
+  &.compact,
+  :is(form, .form, fieldset).compact & {
+    --field-gap: calc(0.9 * var(--space-2xs));
+    --field-padding: calc(0.75 * var(--space-2xs));
+    --field-radius: var(--radius-s);
+
+    font-size: calc(0.9 * var(--font-size-m));
+  }
 
   &:focus-within {
     color: var(--color-brand-5);
@@ -47,9 +61,9 @@
     color: var(--color-body-text);
     background-color: white;
     border: var(--border-s) solid var(--color-outline);
-    font-size: 1rem;
-    padding: var(--space-2xs);
-    border-radius: var(--radius-m);
+    font-size: 0.9em;
+    padding: var(--field-padding);
+    border-radius: var(--field-radius);
     transition-duration: 200ms;
     transition-property: color, box-shadow, border-color;
     transition-timing-function: ease;

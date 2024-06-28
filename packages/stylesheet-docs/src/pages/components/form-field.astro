@@ -124,4 +124,42 @@ const exampleCode = `
       </div>
     </Fragment>
   </ComponentOption>
+  <ComponentOption name="Compact Variant">
+    <p slot="details">
+      Fields can be given a more condensed look by adding the <code
+        >compact</code
+      > class to either the field itself or to the containing <code>form</code>, <code
+        >.form</code
+      >, or <code>fieldset</code> element.
+    </p>
+    <Fragment slot="examples">
+      <form class="compact dense vertical stack">
+        <h2 class="h6">Compact Form</h2>
+        <label class="field">
+          Text Input
+          <input type="text" />
+        </label>
+        <label class="field">
+          Dropdown
+          <select>
+            <option>a</option>
+            <option>b</option>
+            <option>c</option>
+          </select>
+        </label>
+      </form>
+
+      <form class="dense vertical stack">
+        <h2 class="h6">Regular Form</h2>
+        <label class="field">
+          Normal Text Input
+          <input type="text" />
+        </label>
+        <label class="compact field">
+          Compact Text Input
+          <input type="text" />
+        </label>
+      </form>
+    </Fragment>
+  </ComponentOption>
 </ComponentDocs>
