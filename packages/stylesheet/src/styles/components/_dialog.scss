@@ -1,21 +1,8 @@
 @use "./text";
 @use "../functions";
 
-@keyframes dialog-fallback-animation {
-  from {
-    opacity: var(--dialog-starting-opacity);
-    transform: var(--dialog-starting-transform);
-  }
-
-  to {
-    opacity: var(--dialog-open-opacity);
-    transform: var(--dialog-open-transform);
-  }
-}
-
 dialog,
 dialog::backdrop {
-  --dialog-animation-duration: 250ms;
   --dialog-starting-opacity: 0.25;
   --dialog-starting-transform: translateY(8px);
   --dialog-open-opacity: 1;
@@ -28,7 +15,6 @@ dialog::backdrop {
   --dialog-backdrop-color: var(--color-gray-2);
 
   @media (prefers-reduced-motion) {
-    --dialog-animation-duration: 150ms;
     --dialog-starting-transform: translate(0);
     --dialog-ending-transform: translate(0);
   }
@@ -48,10 +34,6 @@ dialog {
   padding: 0;
   flex-direction: column;
   gap: 0;
-
-  // The following is unset if the browser supports more advanced animations:
-  animation: dialog-fallback-animation var(--dialog-animation-duration) linear
-    forwards;
 
   &::backdrop {
     background-color: var(--dialog-backdrop-color);

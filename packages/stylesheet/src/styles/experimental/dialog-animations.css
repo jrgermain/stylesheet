@@ -1,4 +1,5 @@
 dialog[open] {
+  display: flex;
   transform: var(--dialog-open-transform);
   opacity: var(--dialog-open-opacity);
 }
@@ -11,19 +12,19 @@ dialog {
   transform: var(--dialog-ending-transform);
   opacity: var(--dialog-ending-opacity);
   transition:
-    transform var(--dialog-animation-duration) ease,
-    opacity var(--dialog-animation-duration) ease,
-    display var(--dialog-animation-duration) ease allow-discrete,
-    overlay var(--dialog-animation-duration) ease allow-discrete;
+    transform 150ms ease,
+    opacity 150ms ease,
+    display 150ms ease allow-discrete,
+    overlay 150ms ease allow-discrete;
 }
 
 dialog::backdrop {
   opacity: var(--dialog-backdrop-ending-opacity);
   transition:
-    transform var(--dialog-animation-duration) ease,
-    opacity var(--dialog-animation-duration) ease,
-    display var(--dialog-animation-duration) ease allow-discrete,
-    overlay var(--dialog-animation-duration) ease allow-discrete;
+    transform 150ms ease,
+    opacity 150ms ease,
+    display 150ms ease allow-discrete,
+    overlay 150ms ease allow-discrete;
 }
 
 @starting-style {
