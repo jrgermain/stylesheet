@@ -10,14 +10,14 @@ const exampleCode = `
 </button>
 
 <dialog id="dialog1">
-  <header class="dialog-title">
+  <header class="dialog-header">
     <h1>Leave Without Saving?</h1>
     <button class="small subtle icon close" onclick="$dialog.close()"></button>
   </header>
   <div class="dialog-body">
     <p>You have unsaved edits. What would you like to do?</p>
   </div>
-  <div class="dialog-actions">
+  <div class="dialog-footer">
     <button class="primary red" onclick="$dialog.close()">
       Discard Changes
     </button>
@@ -65,7 +65,7 @@ const exampleCode = `
         </div>
 
         <dialog id="dialog2" x-bind:class="size">
-          <header class="dialog-title">
+          <header class="dialog-header">
             <h1>This is a <span x-text="size"></span> dialog</h1>
             <button class="small subtle icon close" onclick="$dialog2.close()"
             ></button>
@@ -138,7 +138,7 @@ const exampleCode = `
         </div>
 
         <dialog id="drawer1" x-bind:class="'drawer ' + side + ' ' + size">
-          <header class="dialog-title">
+          <header class="dialog-header">
             <h1>Account Settings</h1>
             <button class="small subtle icon close" onclick="$drawer.close()"
             ></button>

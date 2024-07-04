@@ -175,7 +175,7 @@ dialog {
   padding: var(--space-s);
 }
 
-.dialog-title {
+.dialog-header {
   @extend %h6;
   @extend %dialog-section;
 
@@ -226,7 +226,7 @@ dialog {
   overflow: auto;
 }
 
-.dialog-actions {
+.dialog-footer {
   @extend %dialog-section;
 
   flex-shrink: 0;
