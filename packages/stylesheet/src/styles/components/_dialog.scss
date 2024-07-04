@@ -42,7 +42,7 @@ dialog::backdrop {
 dialog {
   box-shadow: var(--shadow-xl);
   border: var(--border-s) solid var(--color-outline);
-  border-radius: var(--radius-m);
+  border-radius: var(--radius-l);
   background-color: var(--color-body-alt);
   color: var(--color-body-text);
   padding: 0;
@@ -108,8 +108,20 @@ dialog {
       width: 100dvw;
       max-width: unset;
       height: auto;
-      max-height: min(100dvh, 450px);
+      max-height: 100dvh;
       min-height: min(100dvh, 250px);
+
+      &.small {
+        max-height: min(100dvh, 300px);
+      }
+
+      &.medium {
+        max-height: min(100dvh, 450px);
+      }
+
+      &.large {
+        max-height: min(100dvh, 600px);
+      }
     }
 
     &.left,
@@ -117,13 +129,40 @@ dialog {
       height: 100dvh;
       max-height: unset;
       width: auto;
-      max-width: min(100dvw, 350px);
       min-width: min(100dvw, 300px);
+      max-width: 100dvw;
+
+      &.small {
+        max-width: min(100dvw, 350px);
+      }
+
+      &.medium {
+        max-width: min(100dvw, 450px);
+      }
+
+      &.large {
+        max-width: min(100dvw, 700px);
+      }
     }
   }
 
   &:not(.drawer) {
+    --dialog-width: 9999px;
+
     max-height: calc(100svh - 4 * var(--space-body));
+    max-width: min(calc(100svw - 4 * var(--space-body)), var(--dialog-width));
+
+    &.small {
+      --dialog-width: 400px;
+    }
+
+    &.medium {
+      --dialog-width: 650px;
+    }
+
+    &.large {
+      --dialog-width: 900px;
+    }
   }
 
   &[open] {
@@ -133,8 +172,7 @@ dialog {
 
 %dialog-section {
   margin: 0;
-  padding-inline: var(--space-s);
-  padding-block: var(--space-xs);
+  padding: var(--space-s);
 }
 
 .dialog-title {
@@ -188,13 +226,15 @@ dialog {
   overflow: auto;
 }
 
-.dialog-buttons {
+.dialog-actions {
   @extend %dialog-section;
 
   flex-shrink: 0;
   display: flex;
   gap: var(--space-2xs);
   justify-content: flex-end;
+  background-color: var(--color-body);
+  border-block-start: var(--border-s) solid var(--color-outline);
 
   @media screen and (width <= 500px) {
     flex-direction: column;
