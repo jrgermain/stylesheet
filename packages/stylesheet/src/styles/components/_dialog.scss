@@ -152,21 +152,17 @@ dialog {
   }
 }
 
-%dialog-section {
-  margin: 0;
-  padding: var(--space-s);
-}
-
 .dialog-header {
   @extend %h6;
-  @extend %dialog-section;
 
+  padding: var(--space-m);
+  padding-block-end: var(--space-xs);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-block-end: var(--border-s) dashed var(--color-outline);
   color: var(--color-brand-3);
+  margin: 0;
 
   h1,
   h2,
@@ -201,22 +197,23 @@ dialog {
 }
 
 .dialog-body {
-  @extend %dialog-section;
-
+  padding-inline: var(--space-m);
+  padding-block: var(--space-xs);
   flex-shrink: 1;
   display: block;
   overflow: auto;
+  margin: 0;
 }
 
 .dialog-footer {
-  @extend %dialog-section;
-
+  padding: var(--space-xs);
   flex-shrink: 0;
   display: flex;
   gap: var(--space-2xs);
   justify-content: flex-end;
   background-color: var(--color-body);
   border-block-start: var(--border-s) solid var(--color-outline);
+  margin: 0;
 
   @media screen and (width <= 500px) {
     flex-direction: column;
