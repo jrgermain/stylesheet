@@ -44,8 +44,6 @@ td {
 
 th,
 tfoot td {
-  @include text.all-caps;
-
   font-weight: var(--font-weight-bold);
   text-align: center;
 }
