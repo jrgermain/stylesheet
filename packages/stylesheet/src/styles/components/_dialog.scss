@@ -197,8 +197,8 @@ dialog {
 }
 
 .dialog-body {
-  padding-inline: var(--space-m);
-  padding-block: var(--space-xs);
+  padding: var(--space-m);
+  padding-block-start: var(--space-xs);
   flex-shrink: 1;
   display: block;
   overflow: auto;
