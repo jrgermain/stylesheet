@@ -69,6 +69,6 @@
   justify-content: space-around;
 }
 
-:is(form, .form):not(.no-max-width) {
+:is(form, .form, .text-container):not(.no-max-width) {
   max-width: 60ch;
 }
