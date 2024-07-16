@@ -210,7 +210,7 @@ del,
   text-decoration-skip-ink: none;
   text-decoration-thickness: var(--border-s);
   background-color: var(--color-red-8);
-  color: var(--color-red-2);
+  color: var(--color-red-1);
   text-decoration-color: var(--color-body-text);
   border-radius: 1px;
 }
@@ -219,7 +219,7 @@ ins,
 .ins {
   text-decoration-line: none;
   background-color: var(--color-green-8);
-  color: var(--color-green-2);
+  color: var(--color-green-1);
   border-radius: 1px;
 }
 
