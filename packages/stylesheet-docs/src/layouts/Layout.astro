@@ -77,6 +77,9 @@ const navSections = [
       crossorigin="anonymous"></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content"
+      >Skip to Main Content <kbd>↵</kbd></a
+    >
     <header>
       <a href="/" class="title">@jrgermain/stylesheet</a>
       <div class="icons">
@@ -116,7 +119,7 @@ const navSections = [
         ))
       }
     </nav>
-    <main>
+    <main id="main-content">
       <slot />
     </main>
   </body>
