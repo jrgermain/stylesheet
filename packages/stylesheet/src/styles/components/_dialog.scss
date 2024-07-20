@@ -153,8 +153,10 @@ dialog {
 }
 
 .dialog-header {
-  @extend %h6;
-
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
   padding: var(--space-m);
   padding-block-end: var(--space-xs);
   flex-shrink: 0;

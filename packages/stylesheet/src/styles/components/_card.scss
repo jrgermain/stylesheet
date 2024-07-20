@@ -1,5 +1,3 @@
-@use "./text";
-
 .card {
   background-color: var(--color-body-alt);
   border-radius: var(--radius-l);
@@ -27,8 +25,8 @@
 }
 
 .card-title {
-  @extend %h6;
-
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-bold);
   color: var(--color-brand-3);
   margin-block-end: var(--space-s);
 }

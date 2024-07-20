@@ -1,11 +1,6 @@
 @use "../functions";
 @use "./layout";
 
-@mixin all-caps() {
-  text-transform: uppercase;
-  letter-spacing: 0.05ch;
-}
-
 %heading-any {
   font-family: var(--font-family-heading);
   margin-block: 0.75em 0.3em;
@@ -62,7 +57,6 @@ h6,
 .h6,
 %h6 {
   @extend %heading-any;
-  @include all-caps;
 
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-bold);

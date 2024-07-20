@@ -15,8 +15,10 @@ details {
   }
 
   summary {
-    @extend %h6;
-
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
     cursor: pointer;
     border-block-end: var(--border-s) dashed transparent;
     padding: var(--space-xs);
