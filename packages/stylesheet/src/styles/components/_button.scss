@@ -4,7 +4,7 @@
     input[type="button"],
     input[type="submit"],
     input[type="reset"]
-  ):not(.chip, .card, .chip .delete) {
+  ):not(.chip, .card, .chip .delete, .input-group .action) {
   --button-shadow: var(--shadow-s);
   --button-hover-bg-color: var(--button-border-color);
 
