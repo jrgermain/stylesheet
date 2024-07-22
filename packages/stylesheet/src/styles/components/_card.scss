@@ -10,6 +10,11 @@
     color: var(--color-body-text-alt);
     box-shadow: var(--shadow-s);
 
+    .card-title {
+      font-size: var(--font-size-m);
+      margin-block-end: var(--space-2xs);
+    }
+
     &:not(.no-padding) {
       padding: var(--space-s);
     }
@@ -28,5 +33,5 @@
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-bold);
   color: var(--color-brand-3);
-  margin-block-end: var(--space-s);
+  margin-block-end: var(--space-xs);
 }
