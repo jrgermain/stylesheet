@@ -31,5 +31,7 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm ci
         working-directory: ./packages/stylesheet-docs
+      - run: npm run lint
+        working-directory: ./packages/stylesheet-docs
       - run: npm run build
         working-directory: ./packages/stylesheet-docs
