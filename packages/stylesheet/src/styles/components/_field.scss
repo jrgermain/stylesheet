@@ -77,8 +77,8 @@
       outline: 0;
       border-color: var(--color-brand-5);
       box-shadow:
-        0 0 0 1px var(--color-brand-5),
-        0 0 0 3px var(--color-brand-transparent);
+        0 0 0 0.1em var(--color-brand-5),
+        0 0 0 calc(0.2em + var(--border-s)) var(--color-brand-transparent);
     }
 
     &:disabled {
@@ -96,22 +96,22 @@
         border-style: solid;
         border-color: var(--color-gray-5);
         box-shadow:
-          0 0 0 1px var(--color-gray-5),
-          0 0 0 3px var(--color-gray-transparent);
+          0 0 0 0.1em var(--color-gray-5),
+          0 0 0 calc(0.2em + var(--border-s)) var(--color-gray-transparent);
       }
     }
 
     &:user-invalid,
     &[aria-invalid="true"] {
       border-color: var(--color-red-5);
-      box-shadow: 0 0 0 1px var(--color-red-5);
+      box-shadow: 0 0 0 0.1em var(--color-red-5);
 
       &:focus {
         outline: 0;
         border-color: var(--color-red-5);
         box-shadow:
-          0 0 0 1px var(--color-red-5),
-          0 0 0 3px var(--color-red-transparent);
+          0 0 0 0.1em var(--color-red-5),
+          0 0 0 calc(0.2em + var(--border-s)) var(--color-red-transparent);
       }
     }
   }
@@ -269,8 +269,8 @@
         border-inline-start-width: var(--border-s);
         border-inline-start-style: solid;
         box-shadow:
-          0 0 0 1px var(--color-brand-5),
-          0 0 0 3px var(--color-brand-transparent);
+          0 0 0 0.1em var(--color-brand-5),
+          0 0 0 calc(0.2em + var(--border-s)) var(--color-brand-transparent);
         outline: 0;
       }
     }
