@@ -1,5 +1,4 @@
 ---
-import TokenDocs from "../../components/TokenDocs.astro";
 import Layout from "../../layouts/Layout.astro";
 
 const colors = [
@@ -38,22 +37,6 @@ const semanticColors = [
   "shadow",
   "outline",
 ];
-
-const fontSizes = ["xs", "s", "m", "l", "xl", "2xl", "3xl", "4xl"];
-
-const fontWeights = ["light", "normal", "semibold", "bold", "black"];
-
-const fontFamilies = ["body", "heading", "ui", "mono"];
-
-const spaces = ["3xs", "2xs", "xs", "s", "m", "l", "xl", "2xl", "3xl"];
-
-const semanticSpaces = ["body"];
-
-const radii = ["none", "s", "m", "l", "xl", "2xl", "full"];
-
-const shadows = ["none", "s", "m", "l", "xl"];
-
-const borders = ["none", "s", "m", "l", "xl"];
 ---
 
 <!-- borders, colors, fonts, radii, shadows, spacing -->
@@ -110,10 +93,7 @@ const borders = ["none", "s", "m", "l", "xl"];
               {color}-{suffix}
             </span>
           ))}
-          <span
-            class="color-name"
-            style={{ color: `var(--color-${color}-9)` }}
-          >
+          <span class="color-name" style={{ color: `var(--color-${color}-9)` }}>
             {color}
           </span>
         </div>
