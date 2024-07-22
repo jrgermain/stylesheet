@@ -1,21 +1,8 @@
 @use "./text";
 @use "../functions";
 
-@keyframes dialog-fallback-animation {
-  from {
-    opacity: var(--dialog-starting-opacity);
-    transform: var(--dialog-starting-transform);
-  }
-
-  to {
-    opacity: var(--dialog-open-opacity);
-    transform: var(--dialog-open-transform);
-  }
-}
-
 dialog,
 dialog::backdrop {
-  --dialog-animation-duration: 250ms;
   --dialog-starting-opacity: 0.25;
   --dialog-starting-transform: translateY(8px);
   --dialog-open-opacity: 1;
@@ -28,7 +15,6 @@ dialog::backdrop {
   --dialog-backdrop-color: var(--color-gray-2);
 
   @media (prefers-reduced-motion) {
-    --dialog-animation-duration: 150ms;
     --dialog-starting-transform: translate(0);
     --dialog-ending-transform: translate(0);
   }
@@ -45,11 +31,9 @@ dialog {
   border-radius: var(--radius-l);
   background-color: var(--color-body-alt);
   color: var(--color-body-text);
-  padding: var(--space-s);
-
-  // The following is unset if the browser supports more advanced animations:
-  animation: dialog-fallback-animation var(--dialog-animation-duration) linear
-    forwards;
+  padding: 0;
+  flex-direction: column;
+  gap: 0;
 
   &::backdrop {
     background-color: var(--dialog-backdrop-color);
@@ -106,8 +90,20 @@ dialog {
       width: 100dvw;
       max-width: unset;
       height: auto;
-      max-height: min(100dvh, 450px);
+      max-height: 100dvh;
       min-height: min(100dvh, 250px);
+
+      &.small {
+        max-height: min(100dvh, 300px);
+      }
+
+      &.medium {
+        max-height: min(100dvh, 450px);
+      }
+
+      &.large {
+        max-height: min(100dvh, 600px);
+      }
     }
 
     &.left,
@@ -115,22 +111,60 @@ dialog {
       height: 100dvh;
       max-height: unset;
       width: auto;
-      max-width: min(100dvw, 350px);
       min-width: min(100dvw, 300px);
+      max-width: 100dvw;
+
+      &.small {
+        max-width: min(100dvw, 350px);
+      }
+
+      &.medium {
+        max-width: min(100dvw, 450px);
+      }
+
+      &.large {
+        max-width: min(100dvw, 700px);
+      }
     }
+  }
+
+  &:not(.drawer) {
+    --dialog-width: 9999px;
+
+    max-height: calc(100svh - 4 * var(--space-body));
+    max-width: min(calc(100svw - 4 * var(--space-body)), var(--dialog-width));
+
+    &.small {
+      --dialog-width: 400px;
+    }
+
+    &.medium {
+      --dialog-width: 650px;
+    }
+
+    &.large {
+      --dialog-width: 900px;
+    }
+  }
+
+  &[open] {
+    display: flex;
   }
 }
 
-.dialog-title {
-  @extend %h6;
-
+.dialog-header {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  padding: var(--space-m);
+  padding-block-end: var(--space-xs);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 0 var(--space-2xs);
-  padding-block-end: var(--space-xs);
-  border-block-end: var(--border-s) dashed var(--color-outline);
   color: var(--color-brand-3);
+  margin: 0;
 
   h1,
   h2,
@@ -148,7 +182,6 @@ dialog {
     color: inherit;
     margin: -0.5rem;
     margin-inline-start: var(--space-3xs);
-    font-size: 0.8em;
 
     &::after {
       content: "";
@@ -164,14 +197,29 @@ dialog {
   }
 }
 
-.dialog-buttons {
+.dialog-body {
+  padding: var(--space-m);
+  padding-block-start: var(--space-xs);
+  flex-shrink: 1;
+  display: block;
+  overflow: auto;
+  margin: 0;
+}
+
+.dialog-footer {
+  padding: var(--space-xs);
+  flex-shrink: 0;
   display: flex;
   gap: var(--space-2xs);
-  margin-block-start: var(--space-xs);
+  justify-content: flex-end;
+  background-color: var(--color-body);
+  border-block-start: var(--border-s) solid var(--color-outline);
+  margin: 0;
 
   @media screen and (width <= 500px) {
     flex-direction: column;
     width: 100%;
+    justify-content: stretch;
   }
 
   :is(
@@ -181,7 +229,7 @@ dialog {
       input[type="submit"],
       input[type="reset"]
     ):not(.small, .medium, .large) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 

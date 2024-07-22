@@ -1,14 +1,10 @@
-@use "./text";
-
 :is(
     button,
     .button,
     input[type="button"],
     input[type="submit"],
     input[type="reset"]
-  ):not(.chip, .card, .chip .delete) {
-  @include text.all-caps;
-
+  ):not(.chip, .card, .chip .delete, .input-group .action) {
   --button-shadow: var(--shadow-s);
   --button-hover-bg-color: var(--button-border-color);
 
@@ -96,7 +92,7 @@
     --button-fg-color: white;
     --button-bg-color: var(--color-brand-5);
     --button-border-color: var(--color-brand-4);
-    --button-font-weight: var(--font-weight-semibold);
+    --button-font-weight: var(--font-weight-bold);
     --button-focus-ring-color: var(--color-brand-transparent);
 
     @each $color
@@ -121,15 +117,15 @@
   }
 
   // .secondary, default
-  &:not(.primary, .subtle, .close-button) {
+  &:not(.primary, .subtle, .close) {
     --button-fg-color: var(--color-body-text);
-    --button-bg-color: var(--color-gray-8);
-    --button-border-color: var(--color-gray-7);
+    --button-bg-color: var(--color-gray-9);
+    --button-border-color: var(--color-gray-8);
     --button-font-weight: var(--font-weight-normal);
     --button-focus-ring-color: var(--color-gray-transparent);
   }
 
-  &.subtle {
+  &:is(.subtle, .close) {
     --button-fg-color: var(--color-brand-4);
     --button-bg-color: transparent;
     --button-border-color: transparent;
@@ -144,15 +140,15 @@
     }
   }
 
-  &.small {
-    font-size: 0.75rem;
+  &:is(.small, .close) {
+    font-size: 0.8rem;
   }
 
   &.large {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
-  &.icon {
+  &:is(.icon, .close) {
     border-radius: var(--radius-full);
     padding-inline: 0.5em;
     padding-block: 0.5em;
@@ -160,15 +156,27 @@
     min-height: 0;
     aspect-ratio: 1;
 
-    &::before {
-      width: 75%;
-      height: 75%;
+    &:is(.subtle, .close) {
+      &::before {
+        width: 75%;
+        height: 75%;
+      }
+
+      &:is(:hover, .hover)::before {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+      }
     }
 
-    &:is(:hover, .hover)::before {
-      width: 100%;
-      height: 100%;
-      border-radius: 100%;
+    &:not(.subtle, .close) {
+      &::before {
+        content: unset;
+      }
+
+      &:is(:hover, .hover) {
+        background-color: var(--button-hover-bg-color);
+      }
     }
   }
 

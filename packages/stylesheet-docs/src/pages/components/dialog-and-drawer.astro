@@ -10,14 +10,14 @@ const exampleCode = `
 </button>
 
 <dialog id="dialog1">
-  <header class="dialog-title">
+  <header class="dialog-header">
     <h1>Leave Without Saving?</h1>
-    <button class="small subtle icon close" onclick="$dialog.close()"></button>
+    <button class="close" onclick="$dialog.close()"></button>
   </header>
-
-  <p>You have unsaved edits. What would you like to do?</p>
-  
-  <div class="dialog-buttons">
+  <div class="dialog-body">
+    <p>You have unsaved edits. What would you like to do?</p>
+  </div>
+  <div class="dialog-footer">
     <button class="primary red" onclick="$dialog.close()">
       Discard Changes
     </button>
@@ -30,6 +30,66 @@ const exampleCode = `
 ---
 
 <ComponentDocs name="Dialog" exampleCode={exampleCode}>
+  <ComponentOption name="size">
+    <Fragment slot="details">
+      <p>
+        A dialog can optionally have a <strong>size</strong>, which controls the
+        maximum width of the dialog. If the contents of the dialog are small,
+        then the dialog might not take up the whole width it is allowed.
+      </p>
+      <p>To set the size of a dialog, add one of the following classes:</p>
+      <ul>
+        <li><code>small</code></li>
+        <li><code>medium</code></li>
+        <li><code>large</code></li>
+      </ul>
+      <p>
+        If you don't add any of the above, the dialog will be as wide as
+        necessary to fit the content without extending past the edge of the
+        screen.
+      </p>
+    </Fragment>
+    <Fragment slot="examples">
+      <div x-data="{ size: '' }">
+        <div class="stack" style={{ alignItems: "flex-end" }}>
+          <label class="field">
+            Size
+            <select x-model="size">
+              <option value="">(Unset)</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
+          </label>
+          <button onclick="$dialog2.showModal()"> Open Dialog</button>
+        </div>
+
+        <dialog id="dialog2" x-bind:class="size">
+          <header class="dialog-header">
+            <h1>This is a <span x-text="size"></span> dialog</h1>
+            <button class="small subtle icon close" onclick="$dialog2.close()"
+            ></button>
+          </header>
+          <div class="dialog-body">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
+              ultricies lacus sed turpis tincidunt id. Rhoncus mattis rhoncus
+              urna neque viverra justo nec.
+            </p>
+            <p>
+              Pretium nibh ipsum consequat nisl vel pretium lectus quam. Ac
+              placerat vestibulum lectus mauris ultrices. Elementum sagittis
+              vitae et leo duis ut diam. Odio facilisis mauris sit amet massa.
+              Cras semper auctor neque vitae tempus quam. Cursus metus aliquam
+              eleifend mi in. Fermentum iaculis eu non diam. Diam quam nulla
+              porttitor massa id neque aliquam
+            </p>
+          </div>
+        </dialog>
+      </div>
+    </Fragment>
+  </ComponentOption>
   <ComponentOption name="drawer">
     <Fragment slot="details">
       <p>
@@ -49,9 +109,12 @@ const exampleCode = `
         <li><code>top</code></li>
         <li><code>bottom</code></li>
       </ul>
+      <p>
+        Drawers also support the same <strong>size</strong> classes as normal dialogs.
+      </p>
     </Fragment>
     <Fragment slot="examples">
-      <div x-data="{ side: 'left' }">
+      <div x-data="{ side: 'left', size: '' }">
         <div class="stack" style={{ alignItems: "flex-end" }}>
           <label class="field">
             Side
@@ -62,25 +125,41 @@ const exampleCode = `
               <option value="bottom">Bottom</option>
             </select>
           </label>
-          <button onclick="$drawer.showModal()"> Open Drawer </button>
+          <label class="field">
+            Size
+            <select x-model="size">
+              <option value="">(Unset)</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
+          </label>
+          <button onclick="$drawer.showModal()">Open Drawer</button>
         </div>
 
-        <dialog id="drawer1" x-bind:class="'drawer ' + side">
-          <header class="dialog-title">
+        <dialog id="drawer1" x-bind:class="'drawer ' + side + ' ' + size">
+          <header class="dialog-header">
             <h1>Account Settings</h1>
             <button class="small subtle icon close" onclick="$drawer.close()"
             ></button>
           </header>
 
-          <div class="dense vertical stack">
+          <div class="dialog-body dense vertical stack">
             <label class="field">
               Account Number
               <input readonly value="123894848339" />
             </label>
             <label class="field">
               Nickname
-              <input autofocus value="Personal Checking" />
+              <input autofocus value="Personal Savings" />
             </label>
+            <hr />
+            <div class="warning alert">
+              You've made <strong>4</strong> outbound transfers from this account
+              this month. If you make more than 6 outbound transfers in a calendar
+              month, you will be charged a fee of <strong>$5.00</strong> as outlined
+              in <a>savings account fees</a>.
+            </div>
           </div>
         </dialog>
       </div>
@@ -89,5 +168,6 @@ const exampleCode = `
 </ComponentDocs>
 <script is:inline>
   window.$dialog = document.getElementById("dialog1");
+  window.$dialog2 = document.getElementById("dialog2");
   window.$drawer = document.getElementById("drawer1");
 </script>

@@ -112,7 +112,7 @@ const borders = ["none", "s", "m", "l", "xl"];
           ))}
           <span
             class="color-name"
-            style={{ color: `var(--color-${color}-tint)` }}
+            style={{ color: `var(--color-${color}-9)` }}
           >
             {color}
           </span>
@@ -142,6 +142,17 @@ const borders = ["none", "s", "m", "l", "xl"];
     </div>
   </div>
 
+  <h2>Shadows</h2>
+  <div class="sparser vertical stack">
+    {
+      ["none", "s", "m", "l", "xl"].map((size) => (
+        <div class="box" style={{ boxShadow: `var(--shadow-${size})` }}>
+          shadow-{size}
+        </div>
+      ))
+    }
+  </div>
+
   <!-- <h2>Border Widths</h2> 
   <TokenDocs
     template={(token) =>
@@ -167,6 +178,7 @@ const borders = ["none", "s", "m", "l", "xl"];
     ]}
   /> -->
 </Layout>
+<!-- Colors -->
 <style>
   .palettes {
     width: 100%;
@@ -264,5 +276,19 @@ const borders = ["none", "s", "m", "l", "xl"];
     .palette
     .color.is-additional {
     display: flex;
+  }
+</style>
+<!-- Shadows -->
+<style>
+  .box {
+    border: var(--border-s) solid var(--color-outline);
+    height: 4rem;
+    width: 12rem;
+    font-family: var(--font-family-mono);
+    border-radius: var(--radius-m);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-body-alt);
   }
 </style>

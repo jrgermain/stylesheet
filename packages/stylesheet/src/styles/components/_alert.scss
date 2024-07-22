@@ -1,4 +1,3 @@
-@use "./text";
 @use "../functions";
 
 .alert {
@@ -69,7 +68,7 @@
   }
 
   &.error {
-    --alert-bg-color: var(--color-red-tint);
+    --alert-bg-color: var(--color-red-9);
     --alert-border-start-color: var(--color-red-5);
     --alert-border-end-color: var(--color-red-6);
     --alert-icon: #{functions.svg-to-data-url(
@@ -78,7 +77,7 @@
   }
 
   &.warning {
-    --alert-bg-color: var(--color-yellow-tint);
+    --alert-bg-color: var(--color-yellow-9);
     --alert-border-start-color: var(--color-yellow-5);
     --alert-border-end-color: var(--color-yellow-6);
     --alert-icon: #{functions.svg-to-data-url(
@@ -87,7 +86,7 @@
   }
 
   &.success {
-    --alert-bg-color: var(--color-green-tint);
+    --alert-bg-color: var(--color-green-9);
     --alert-border-start-color: var(--color-green-5);
     --alert-border-end-color: var(--color-green-6);
     --alert-icon: #{functions.svg-to-data-url(
@@ -96,7 +95,7 @@
   }
 
   &.info {
-    --alert-bg-color: var(--color-sky-tint);
+    --alert-bg-color: var(--color-sky-9);
     --alert-border-start-color: var(--color-sky-5);
     --alert-border-end-color: var(--color-sky-6);
     --alert-icon: #{functions.svg-to-data-url(
@@ -106,10 +105,11 @@
 }
 
 .alert-title {
-  @extend %h6;
-
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
   color: var(--alert-border-start-color);
-  font-size: var(--font-size-s);
+  font-size: 0.85em;
   margin: 0;
   margin-block-end: 0.15em;
 }

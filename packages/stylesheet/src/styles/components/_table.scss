@@ -1,6 +1,10 @@
 @use "./text";
 
 table {
+  --table-bg-odd: var(--color-body-alt);
+  --table-bg-even: var(--color-body);
+  --table-vertical-border: var(--border-s);
+
   background-color: var(--color-body-alt);
   border-collapse: separate;
   border-spacing: 0;
@@ -8,6 +12,22 @@ table {
   border: var(--border-s) solid var(--color-outline);
   border-radius: var(--radius-s);
   color: var(--color-body-text);
+
+  &.subtle {
+    --table-bg-odd: transparent;
+    --table-bg-even: transparent;
+    --table-vertical-border: 0;
+
+    border: 0;
+  }
+
+  &.dense :is(th, td) {
+    padding: var(--space-3xs) var(--space-2xs);
+  }
+
+  &.sparse :is(th, td) {
+    padding: var(--space-xs) var(--space-s);
+  }
 }
 
 caption {
@@ -19,13 +39,11 @@ caption {
 
 th,
 td {
-  padding: var(--space-2xs);
+  padding: var(--space-2xs) var(--space-xs);
 }
 
 th,
 tfoot td {
-  @include text.all-caps;
-
   font-weight: var(--font-weight-bold);
   text-align: center;
 }
@@ -43,11 +61,11 @@ td {
 }
 
 :is(th, tfoot td):not(:last-of-type) {
-  border-inline-end: var(--border-s) dashed var(--color-outline);
+  border-inline-end: var(--table-vertical-border) dashed var(--color-outline);
 }
 
 td:not(tfoot td, :last-of-type) {
-  border-inline-end: var(--border-s) solid var(--color-outline);
+  border-inline-end: var(--table-vertical-border) solid var(--color-outline);
 }
 
 tr:not(:last-of-type) td {
@@ -56,9 +74,9 @@ tr:not(:last-of-type) td {
 
 tbody tr:nth-child(odd),
 tbody:has(tr:last-of-type:nth-child(even)) + tfoot tr {
-  background-color: var(--color-body);
+  background-color: var(--table-bg-even);
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--color-body-alt);
+  background-color: var(--table-bg-odd);
 }

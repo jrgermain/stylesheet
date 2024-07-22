@@ -1,15 +1,29 @@
 @use "../functions";
 
 .field {
+  --field-gap: var(--space-2xs);
+  --field-padding: var(--space-2xs);
+  --field-radius: var(--radius-m);
+
   display: inline-flex;
   flex-direction: column;
   line-height: 1;
-  gap: var(--space-3xs);
+  gap: var(--field-gap);
   color: var(--color-body-text);
   font-weight: var(--font-weight-semibold);
   transition-duration: 200ms;
   transition-property: color, box-shadow;
   transition-timing-function: ease;
+  font-size: var(--font-size-m);
+
+  &.compact,
+  :is(form, .form, fieldset).compact & {
+    --field-gap: calc(0.9 * var(--space-2xs));
+    --field-padding: calc(0.75 * var(--space-2xs));
+    --field-radius: var(--radius-s);
+
+    font-size: calc(0.9 * var(--font-size-m));
+  }
 
   &:focus-within {
     color: var(--color-brand-5);
@@ -47,10 +61,9 @@
     color: var(--color-body-text);
     background-color: white;
     border: var(--border-s) solid var(--color-outline);
-    font-size: 1rem;
-    padding: var(--space-2xs);
-    margin-block-start: 2px;
-    border-radius: var(--radius-m);
+    font-size: 0.9em;
+    padding: var(--field-padding);
+    border-radius: var(--field-radius);
     transition-duration: 200ms;
     transition-property: color, box-shadow, border-color;
     transition-timing-function: ease;
@@ -64,8 +77,8 @@
       outline: 0;
       border-color: var(--color-brand-5);
       box-shadow:
-        0 0 0 1px var(--color-brand-5),
-        0 0 0 3px var(--color-brand-transparent);
+        0 0 0 0.1em var(--color-brand-5),
+        0 0 0 calc(0.2em + var(--border-s)) var(--color-brand-transparent);
     }
 
     &:disabled {
@@ -76,27 +89,29 @@
     // Not using :read-only because it matches additional elements (e.g., every color input)
     &[readonly] {
       cursor: not-allowed;
+      border-style: dashed;
 
       &:focus {
         outline: 0;
+        border-style: solid;
         border-color: var(--color-gray-5);
         box-shadow:
-          0 0 0 1px var(--color-gray-5),
-          0 0 0 3px var(--color-gray-transparent);
+          0 0 0 0.1em var(--color-gray-5),
+          0 0 0 calc(0.2em + var(--border-s)) var(--color-gray-transparent);
       }
     }
 
     &:user-invalid,
     &[aria-invalid="true"] {
       border-color: var(--color-red-5);
-      box-shadow: 0 0 0 1px var(--color-red-5);
+      box-shadow: 0 0 0 0.1em var(--color-red-5);
 
       &:focus {
         outline: 0;
         border-color: var(--color-red-5);
         box-shadow:
-          0 0 0 1px var(--color-red-5),
-          0 0 0 3px var(--color-red-transparent);
+          0 0 0 0.1em var(--color-red-5),
+          0 0 0 calc(0.2em + var(--border-s)) var(--color-red-transparent);
       }
     }
   }
@@ -179,6 +194,93 @@
       display: inline-block;
       height: 1.2em;
       width: 1.2em;
+    }
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    > * {
+      border-radius: 0 !important;
+      z-index: 1;
+    }
+
+    > :first-child {
+      border-start-start-radius: var(--field-radius) !important;
+      border-end-start-radius: var(--field-radius) !important;
+    }
+
+    > :last-child {
+      border-end-end-radius: var(--field-radius) !important;
+      border-start-end-radius: var(--field-radius) !important;
+    }
+
+    > :focus-visible {
+      z-index: 2;
+    }
+
+    > :is(.prefix, .suffix, .action) {
+      user-select: none;
+      -webkit-user-drag: none;
+      display: flex;
+      font-weight: var(--font-weight-normal);
+      color: var(--color-gray-3);
+      background-color: var(--color-gray-9);
+      border: var(--border-s) solid var(--color-outline);
+      padding: var(--space-3xs) var(--space-xs);
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9em;
+
+      :is(img, svg) {
+        height: 1.15em;
+        width: auto;
+      }
+    }
+
+    > .prefix {
+      border-inline-end: 0;
+    }
+
+    > .suffix {
+      border-inline-start: 0;
+    }
+
+    > .action {
+      cursor: pointer;
+      color: var(--color-brand-3);
+      border-inline-start: 0;
+      transition-property: box-shadow, background-color;
+      transition-timing-function: ease;
+      transition-duration: 200ms;
+
+      &:hover {
+        background-color: var(--color-gray-8);
+      }
+
+      &:active {
+        background-color: var(--color-gray-7);
+      }
+
+      &:focus-visible {
+        border-color: var(--color-brand-5);
+        border-inline-start-width: var(--border-s);
+        border-inline-start-style: solid;
+        box-shadow:
+          0 0 0 0.1em var(--color-brand-5),
+          0 0 0 calc(0.2em + var(--border-s)) var(--color-brand-transparent);
+        outline: 0;
+      }
+    }
+
+    > :is(input, select, textarea) {
+      width: 100%;
+
+      &:has(~ .action:focus-visible) {
+        border-inline-end-width: 0;
+      }
     }
   }
 }
