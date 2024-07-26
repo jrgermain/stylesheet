@@ -14,20 +14,7 @@ const colors = [
   "gray",
 ];
 
-const palette = [
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "transparent",
-  "extra-transparent",
-  "tint",
-];
+const palette = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 const semanticColors = [
   "body",
@@ -59,8 +46,10 @@ const semanticColors = [
       >green</code
     >, <code>sky</code>, <code>blue</code>, <code>purple</code>, <code
       >magenta</code
-    >, and<code>gray</code>. For each of these, there are a total of 12
-    variants: 9 lightnesses, 2 opacity variations, and a <q>tint</q> variation.
+    >, and<code>gray</code>. For each of these, there are 9 lightnesses and 2
+    transparent shades. The lightensses go from 1 to 9, where 1 has the most
+    contrast with the page background (i.e., the darkest shade in light mode and
+    the lightest shade in dark mode).
   </p>
   <p>
     The variables for the standard colors are all prefixed with <code
@@ -69,25 +58,19 @@ const semanticColors = [
       >--color-red-1</code
     >.
   </p>
-  <label
-    id="show-additional-variations"
-    class="switch"
-    style="justify-content: flex-end;"
-    >Show additional variations <input type="checkbox" /></label
-  >
   <div class="palettes">
     {
       colors.map((color) => (
         <div class="palette" role="row">
           {palette.map((suffix) => (
             <span
-              class:list={[
-                "color",
-                `variant-${suffix}`,
-                Number.isNaN(+suffix) && "is-additional",
-              ]}
+              class={"color"}
               style={{
-                background: `linear-gradient(90deg, var(--color-${color}-${suffix}), var(--color-${color}-${suffix})), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black 0 ), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black 0), white;`,
+                background: `var(--color-${color}-${suffix})`,
+                color:
+                  suffix < "6"
+                    ? "var(--color-body-alt)"
+                    : "var(--color-body-text)",
               }}
             >
               {color}-{suffix}
@@ -100,6 +83,7 @@ const semanticColors = [
       ))
     }
   </div>
+
   <h3>Semantic Colors</h3>
   <p>
     In addition to color palettes, the stylesheet defines {
@@ -132,6 +116,45 @@ const semanticColors = [
       ))
     }
   </div>
+
+  <h2>Font Sizes</h2>
+  <p>
+    The variables for font sizes are all prefixed with <code>--font-size-</code
+    >. For example, the font size <code>m</code> can be referenced as <code
+      >--font-size-m</code
+    >.
+  </p>
+  <br />
+  <div class="card vertical stack">
+    {
+      ["xs", "s", "m", "l", "xl", "2xl", "3xl", "4xl"].map((size) => (
+        <div style={{ fontSize: `var(--font-size-${size})` }}>
+          This text has a size of <strong>{size}</strong>.
+        </div>
+      ))
+    }
+  </div>
+
+  <h2>Font Weights</h2>
+  <p>
+    The variables for font weights are all prefixed with <code
+      >--font-weight-</code
+    >. For example, the font weight <code>normal</code> can be referenced as <code
+      >--font-weight-normal</code
+    >.
+  </p>
+  <br />
+  <div class="card">
+    {
+      ["light", "normal", "semibold", "bold", "black"].map((weight) => (
+        <p style={{ fontWeight: `var(--font-weight-${weight})` }}>
+          This text has a weight of {weight}.
+        </p>
+      ))
+    }
+  </div>
+
+  <hr class="invisible" style="margin-bottom:10rem;" />
 
   <!-- <h2>Border Widths</h2> 
   <TokenDocs
