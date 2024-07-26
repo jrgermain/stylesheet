@@ -32,6 +32,7 @@ $color-variants: (
   transition-timing-function: ease;
   text-decoration: none;
   appearance: none;
+  line-height: 1;
 
   &:is(:focus-visible, .focus) {
     box-shadow: 0 0 0 0.2em var(--chip-focus-ring-color);
@@ -103,7 +104,6 @@ $color-variants: (
 
   :is(button, .button).delete {
     outline: 0;
-    margin-block: calc(-1 * var(--space-3xs));
     margin-inline: var(--space-3xs) calc(-1 * var(--space-2xs));
     font-size: 0.6em;
     border: var(--border-s) solid var(--chip-border-color);
@@ -117,8 +117,8 @@ $color-variants: (
     justify-content: center;
     overflow: hidden;
     cursor: pointer;
-    height: 2.5em;
-    width: 2.5em;
+    height: 2em;
+    width: 2em;
     user-select: none;
     background-color: transparent;
     padding: 0;
