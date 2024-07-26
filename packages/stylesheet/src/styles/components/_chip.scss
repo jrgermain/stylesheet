@@ -18,7 +18,7 @@ $color-variants: (
 
   display: inline-flex;
   align-items: center;
-  border-radius: 1em;
+  border-radius: var(--radius-full);
   font-size: var(--font-size-s);
   padding-block: var(--space-3xs);
   padding-inline: var(--space-xs);
@@ -32,7 +32,7 @@ $color-variants: (
   transition-timing-function: ease;
   text-decoration: none;
   appearance: none;
-  line-height: 1;
+  line-height: 1.2;
 
   &:is(:focus-visible, .focus) {
     box-shadow: 0 0 0 0.2em var(--chip-focus-ring-color);
