@@ -295,27 +295,13 @@
   --font-weight-light: 200;
 
   // Font families
-  --font-family-body: var(
-    --config-body-font,
-    Inter,
-    Roboto,
-    "Helvetica Neue",
-    "Arial Nova",
-    "Nimbus Sans",
-    Arial,
-    sans-serif
-  );
-  --font-family-heading: var(--config-heading-font, var(--font-family-body));
-  --font-family-ui: var(--config-ui-font, var(--font-family-body));
-  --font-family-mono: var(
-    --config-mono-font,
-    ui-monospace,
-    "Source Code Pro",
-    Menlo,
-    Consolas,
-    "DejaVu Sans Mono",
-    monospace
-  );
+  --font-family-body: "Manrope Variable", "Inter", "Roboto", "Helvetica Neue",
+    "Arial Nova", "Nimbus Sans", "Arial", sans-serif;
+  --font-family-heading: "Lexend Variable", "Inter", "Roboto", "Helvetica Neue",
+    "Arial Nova", "Nimbus Sans", "Arial", sans-serif;
+  --font-family-ui: var(--font-family-body);
+  --font-family-mono: "Source Code Pro Variable", ui-monospace,
+    "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", monospace;
 
   // Spacing
   --space-3xs: clamp(4px, 3.6528px + 0.1087vw, 5px);
@@ -333,22 +319,19 @@
 
   // Radii
   --radius-none: 0;
-  --radius-s: calc(var(--config-roundness, 0.3) * 5px);
-  --radius-m: calc(var(--config-roundness, 0.3) * 10px);
-  --radius-l: calc(var(--config-roundness, 0.3) * 20px);
-  --radius-xl: calc(var(--config-roundness, 0.3) * 40px);
-  --radius-2xl: calc(var(--config-roundness, 0.3) * 100px);
+  --radius-s: 3px;
+  --radius-m: 6px;
+  --radius-l: 12px;
+  --radius-xl: 24px;
+  --radius-2xl: 64px;
   --radius-full: 9999px;
 
   // Shadows
   --shadow-none: none;
-  --shadow-s: 0 1px calc(2px + var(--config-depth, 0.5) * 6px) -1px var(--color-shadow);
-  --shadow-m: 0 1px calc(2px + var(--config-depth, 0.5) * 10px)
-    var(--color-shadow);
-  --shadow-l: var(--shadow-s),
-    0 1px calc(3px + var(--config-depth, 0.5) * 18px) var(--color-shadow);
-  --shadow-xl: var(--shadow-m),
-    0 1px calc(5px + var(--config-depth, 0.5) * 30px) var(--color-shadow);
+  --shadow-s: 0 1px 3px -1px var(--color-shadow);
+  --shadow-m: 0 1px 7px -1px var(--color-shadow);
+  --shadow-l: var(--shadow-s), 0 1px 11px -1px var(--color-shadow);
+  --shadow-xl: var(--shadow-m), 0 1px 15px -1px var(--color-shadow);
 
   // Border widths
   --border-none: 0;
