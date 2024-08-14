@@ -43,4 +43,8 @@ const isActive = path === href || path.startsWith(`${href}/`);
   a[aria-current="page"] {
     font-weight: var(--font-weight-bold);
   }
+
+  a:focus-visible {
+    outline-offset: 0;
+  }
 </style>

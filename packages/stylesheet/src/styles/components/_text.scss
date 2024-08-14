@@ -1,4 +1,4 @@
-@use "../functions";
+@use "../utils";
 @use "./layout";
 
 %heading-any {
@@ -121,10 +121,14 @@ a,
     text-decoration-color: currentcolor;
   }
 
+  &:focus-visible {
+    outline-offset: 1px;
+  }
+
   &[target="_blank"]:not(.no-external-icon, .button.icon)::after {
     content: "";
     print-color-adjust: exact;
-    mask-image: #{functions.svg-to-data-url(
+    mask-image: #{utils.svg-to-data-url(
         '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg>'
       )};
     mask-size: contain;

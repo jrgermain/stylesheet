@@ -4,9 +4,6 @@ import "@fontsource-variable/manrope";
 import "@fontsource-variable/lexend";
 import "@fontsource-variable/source-code-pro";
 import NavLink from "../components/NavLink.astro";
-import githubLogo from "../assets/github-logo.svg";
-import npmLogo from "../assets/npm-logo.svg";
-import menuIcon from "../assets/menu-icon.svg";
 
 interface Props {
   title: string;
@@ -62,7 +59,6 @@ const navSections = [
       name="description"
       content="Documentation for @jrgermain/stylesheet - a stylesheet for apps I build."
     />
-    <!-- <meta name="theme-color" content="oklch(0.35 0.22 270)" /> -->
     <script
       is:inline
       src="https://unpkg.com/htmx.org@1.9.11"
@@ -75,40 +71,44 @@ const navSections = [
       integrity="sha384-MGt/yQlIAvCVZEB4PNx8b9JxEfqFXemRJcpH6AIHAxDt1bRfYFeOnv3HJMW0LVD3"
       crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body class="app">
     <a class="skip-link" href="#main-content"
       >Skip to Main Content <kbd>↵</kbd></a
     >
     <header>
       <a href="/" class="title">@jrgermain/stylesheet</a>
-      <div class="icons">
-        <a
-          class="github logo"
-          href="https://github.com/jrgermain/stylesheet"
-          title="GitHub"
-        >
-          <span class="sr-only">GitHub</span>
-        </a>
-        <a
-          class="npm logo"
-          href="https://www.npmjs.com/package/@jrgermain/stylesheet"
-          title="NPM"
-        >
-          <span class="sr-only">NPM</span>
-        </a>
-        <hr class="vertical header-toggle-divider" />
-        <input
-          type="checkbox"
-          class="header-toggle"
-          title="Toggle navigation"
-        />
-      </div>
+      <a href="https://github.com/jrgermain/stylesheet" title="GitHub">
+        <svg aria-hidden="true" viewBox="0 0 98 96" class="github-logo">
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+          ></path>
+        </svg>
+        <span class="sr-only">GitHub</span>
+      </a>
+      <a href="https://www.npmjs.com/package/@jrgermain/stylesheet" title="NPM">
+        <svg aria-hidden="true" viewBox="0 0 780 250" class="npm-logo">
+          <path
+            fill="currentColor"
+            d="M240,250h100v-50h100V0H240V250z M340,50h50v100h-50V50z M480,0v200h100V50h50v150h50V50h50v150h50V0H480z M0,200h100V50h50v150h50V0H0V200z"
+          ></path>
+        </svg>
+        <span class="sr-only">NPM</span>
+      </a>
+      <label class="toggle-sidebar">
+        <input type="checkbox" title="Toggle navigation" />
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
     </header>
-    <nav>
+    <nav class="sidebar">
       {
         navSections.map((section) => (
           <>
-            <h1>{section.heading}</h1>
+            <h1 class="section-title">{section.heading}</h1>
             {section.links.map((link) => (
               <NavLink href={`/${toLink(section.heading)}/${toLink(link)}`}>
                 {link}
@@ -118,7 +118,7 @@ const navSections = [
         ))
       }
     </nav>
-    <main id="main-content">
+    <main id="main-content" class="content">
       <slot />
     </main>
   </body>
@@ -137,183 +137,19 @@ const navSections = [
     border-radius: 0;
   }
 </style>
-<style
-  define:vars={{
-    "menu-icon": `url(${menuIcon.src})`,
-    "github-icon": `url(${githubLogo.src})`,
-    "npm-icon": `url(${npmLogo.src})`,
-  }}
->
-  :root {
-    --header-color: #fffc;
-    --header-text-color: var(--color-brand-3);
-    --header-filter: blur(24px) saturate(120%);
-  }
-
-  body {
-    min-height: 100svh;
-    min-width: 100svw;
-  }
-
-  header {
-    position: fixed;
-    width: 100dvw;
-    height: 3.5rem;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    padding: var(--space-s);
-    display: flex;
-    color: var(--header-text-color);
-    background-color: var(--header-color);
-    -webkit-backdrop-filter: var(--header-filter);
-    backdrop-filter: var(--header-filter);
-    border-bottom: var(--border-l) solid var(--color-brand-transparent);
-    box-shadow: var(--shadow-s);
-  }
-
-  header .title {
-    text-decoration: none;
-    color: inherit;
-    margin: auto auto auto 0;
+<style>
+  .title {
+    margin: auto;
+    margin-inline-start: 0;
     font-family: var(--font-family-mono);
     font-size: 1.1rem;
-    transition: color 200ms ease;
   }
 
-  header .title:hover {
-    color: var(--color-body-text);
+  .github-logo {
+    width: 1.6rem;
   }
 
-  header .icons {
-    display: flex;
-    gap: var(--space-xs);
-    align-items: center;
-  }
-
-  .logo,
-  .header-toggle {
-    background-color: var(--header-text-color);
-    height: 1.5rem;
-    width: 1.5rem;
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    mask-position: center;
-    cursor: pointer;
-    transition: all 200ms ease;
-  }
-
-  .logo:hover,
-  .header-toggle:hover {
-    background-color: var(--color-body-text);
-  }
-
-  .logo:focus-visible,
-  .header-toggle:focus-visible {
-    scale: 1.2;
-    opacity: 0.67;
-  }
-
-  .github {
-    mask-image: var(--github-icon);
-  }
-
-  .npm {
-    mask-image: var(--npm-icon);
-  }
-
-  .header-toggle {
-    mask-image: var(--menu-icon);
-    display: none;
-    appearance: none;
-  }
-
-  .header-toggle-divider {
-    display: none;
-  }
-
-  nav {
-    position: fixed;
-    top: 3.5rem;
-    left: 0;
-    width: 300px;
-    height: calc(100dvh - 3.5rem);
-    overflow: auto;
-    z-index: 2;
-    transition:
-      width 150ms ease,
-      opacity 150ms ease;
-    display: flex;
-    flex-direction: column;
-    padding: calc(0.75 * var(--space-body));
-    -webkit-backdrop-filter: var(--header-filter);
-    backdrop-filter: var(--header-filter);
-  }
-
-  nav h1 {
-    font-size: 1.2rem;
-    margin: var(--space-s) 0 var(--space-2xs);
-    font-weight: var(--font-weight-semibold);
-  }
-
-  nav h1:first-of-type {
-    margin-top: 0;
-  }
-
-  nav::after {
-    content: "";
-    height: calc(100% - 2 * var(--space-s));
-    width: var(--border-s);
-    background-color: var(--color-outline);
-    position: absolute;
-    top: var(--space-s);
-    right: 0;
-  }
-
-  main {
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    overflow: auto;
-    margin: 0;
-    padding: var(--space-body);
-    padding-top: calc(var(--space-body) + 3.5rem);
-    padding-left: calc(var(--space-body) + 300px);
-  }
-
-  @media (width < 900px) {
-    main {
-      padding-left: var(--space-body);
-    }
-
-    .header-toggle {
-      display: block;
-    }
-
-    .header-toggle-divider {
-      display: block;
-      height: 1.5rem;
-      margin: 0;
-    }
-
-    nav {
-      width: 0;
-      opacity: 0;
-      pointer-events: none;
-      background-color: var(--header-color);
-    }
-
-    header:has(.header-toggle:checked) + nav {
-      width: 100dvw;
-      opacity: 1;
-      pointer-events: initial;
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --header-color: #000c;
-      --header-text-color: var(--color-brand-2);
-    }
+  .npm-logo {
+    width: 2.1rem;
   }
 </style>

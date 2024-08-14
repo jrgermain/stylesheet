@@ -4,6 +4,8 @@
 
 :root,
 ::backdrop {
+  --header-height: clamp(50px, 3.5rem, 70px);
+  --sidebar-width: clamp(300px, 18rem, 400px);
   --opacity-low: 20%;
   --opacity-medium: 40%;
   --opacity-high: 70%;

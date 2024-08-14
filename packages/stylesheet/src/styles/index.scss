@@ -1,5 +1,6 @@
 @use "./variables";
 @use "./components/alert";
+@use "./components/app";
 @use "./components/button";
 @use "./components/card";
 @use "./components/chip";
@@ -15,11 +16,16 @@
 @use "./components/table";
 @use "./components/text";
 @import "./experimental/dialog-animations";
+@import "./experimental/mobile-sidebar-fade-out";
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+:where(:focus-visible) {
+  outline: var(--border-m) solid var(--color-brand-5);
 }
 
 html {
