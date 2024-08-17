@@ -22,8 +22,11 @@
     "prettier": "^3.1.1"
   },
   "devDependencies": {
+    "@csstools/postcss-sass": "^5.1.1",
     "@faker-js/faker": "^8.3.1",
     "@types/jsdom": "^21.1.6",
+    "cssnano": "^7.0.5",
+    "postcss-preset-env": "^10.0.1",
     "sass": "^1.69.5",
     "typescript": "^5.4.2"
   },
