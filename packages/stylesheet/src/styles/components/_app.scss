@@ -20,6 +20,7 @@
       color: var(--color-brand-2);
     }
 
+    // TODO cleanup
     > :where(.clickable, button, a[href], .toggle-sidebar) {
       height: 100%;
       padding: 0.5rem;
@@ -163,13 +164,47 @@
       left: calc(var(--sidebar-width) - var(--border-s));
     }
 
-    .section-title {
+    .sidebar-heading {
       font-size: 1.2rem;
-      margin: var(--space-s) 0 var(--space-2xs);
+      margin: var(--space-s) 0 var(--space-3xs);
       font-weight: var(--font-weight-semibold);
 
       &:first-of-type {
         margin-block-start: 0;
+      }
+    }
+
+    .sidebar-item {
+      padding: var(--space-2xs) var(--space-xs);
+      margin: 0 calc(-1 * var(--space-xs));
+      border-radius: var(--radius-l);
+      color: var(--color-body-text-alt);
+      text-decoration: none;
+      font-weight: var(--font-weight-normal);
+      font-size: 1rem;
+      transition-property: color, background-color, box-shadow;
+      transition-duration: 200ms;
+      transition-timing-function: ease;
+
+      &:hover {
+        background-color: var(--color-brand-extra-transparent);
+      }
+
+      &:active {
+        color: var(--color-brand-1);
+      }
+
+      &:is(.current, [aria-current="page"]) {
+        color: var(--color-brand-4);
+        font-weight: var(--font-weight-bold);
+      }
+
+      &:hover:active {
+        background-color: var(--color-brand-transparent);
+      }
+
+      &:focus-visible {
+        outline-offset: 0;
       }
     }
   }

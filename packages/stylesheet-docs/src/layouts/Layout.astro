@@ -108,7 +108,7 @@ const navSections = [
       {
         navSections.map((section) => (
           <>
-            <h1 class="section-title">{section.heading}</h1>
+            <h1 class="sidebar-heading">{section.heading}</h1>
             {section.links.map((link) => (
               <NavLink href={`/${toLink(section.heading)}/${toLink(link)}`}>
                 {link}

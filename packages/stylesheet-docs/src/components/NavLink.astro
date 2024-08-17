@@ -9,42 +9,6 @@ const path = new URL(Astro.request.url).pathname;
 const isActive = path === href || path.startsWith(`${href}/`);
 ---
 
-<a href={href} aria-current={isActive ? "page" : undefined}> <slot /></a>
-
-<style>
-  a {
-    padding: var(--space-2xs) var(--space-xs);
-    border-radius: var(--radius-l);
-    color: var(--color-body-text-alt);
-    text-decoration: none;
-    font-weight: var(--font-weight-normal);
-    font-size: 1rem;
-    transition-property: color, background-color, box-shadow;
-    transition-duration: 200ms;
-    transition-timing-function: ease;
-  }
-
-  a:hover {
-    background-color: var(--color-brand-extra-transparent);
-  }
-
-  a:active {
-    color: var(--color-brand-1);
-  }
-
-  a[aria-current="page"] {
-    color: var(--color-brand-4);
-  }
-
-  a:hover:active {
-    background-color: var(--color-brand-transparent);
-  }
-
-  a[aria-current="page"] {
-    font-weight: var(--font-weight-bold);
-  }
-
-  a:focus-visible {
-    outline-offset: 0;
-  }
-</style>
+<a class="sidebar-item" href={href} aria-current={isActive ? "page" : undefined}
+  ><slot /></a
+>
