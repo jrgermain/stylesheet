@@ -54,7 +54,8 @@
   &:is(:focus-visible, .focus) {
     box-shadow:
       var(--button-shadow),
-      0 0 0 0.2em var(--button-focus-ring-color);
+      0 0 0 0.1em var(--button-border-color),
+      0 0 0 calc(0.2em + var(--border-s)) var(--button-focus-ring-color);
   }
 
   &:is(:active, .active) {
@@ -122,7 +123,7 @@
     --button-bg-color: var(--color-gray-9);
     --button-border-color: var(--color-gray-8);
     --button-font-weight: var(--font-weight-normal);
-    --button-focus-ring-color: var(--color-gray-transparent);
+    --button-focus-ring-color: var(--color-gray-extra-transparent);
   }
 
   &:is(.subtle, .close) {
