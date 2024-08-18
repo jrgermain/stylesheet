@@ -1,6 +1,6 @@
 {
   "name": "@jrgermain/stylesheet",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A stylesheet for apps I build.",
   "type": "module",
   "scripts": {
