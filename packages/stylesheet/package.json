@@ -1,14 +1,23 @@
 {
   "name": "@jrgermain/stylesheet",
-  "version": "0.0.2",
-  "description": "A stylesheet for apps I build.",
+  "version": "0.0.3",
+  "description": "A stylesheet for apps I build",
+  "homepage": "https://stylesheet.jrgermain.dev",
+  "author": {
+    "name": "jrgermain",
+    "url": "https://jrgermain.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrgermain/stylesheet",
+    "directory": "packages/stylesheet"
+  },
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.cjs",
     "lint": "stylelint ./src/styles"
   },
-  "author": "jrgermain",
-  "license": "MIT",
   "devDependencies": {
     "@csstools/postcss-sass": "^5.0.1",
     "cssnano": "^6.0.1",
