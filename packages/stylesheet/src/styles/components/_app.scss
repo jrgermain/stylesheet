@@ -141,11 +141,7 @@
     transition:
       opacity 150ms ease,
       display 150ms allow-discrete;
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-body);
     width: var(--sidebar-width);
-    gap: var(--space-3xs);
     position: fixed;
     top: var(--header-height);
     left: 0;
@@ -163,19 +159,30 @@
       left: calc(var(--sidebar-width) - var(--border-s));
     }
 
-    .sidebar-heading {
-      font-size: 1.2rem;
-      margin: var(--space-s) 0 var(--space-3xs);
-      font-weight: var(--font-weight-semibold);
-
+    .sidebar-section {
       &:first-of-type {
-        margin-block-start: 0;
+        margin-block-start: var(--space-body);
+      }
+
+      &:not(:last-of-type) {
+        margin-block-end: var(--space-xs);
+      }
+
+      &:last-of-type {
+        margin-block-end: var(--space-body);
       }
     }
 
+    .sidebar-heading {
+      font-size: 1.2rem;
+      margin: 0 var(--space-body) var(--space-3xs);
+      font-weight: var(--font-weight-semibold);
+    }
+
     .sidebar-item {
-      padding: var(--space-2xs) var(--space-xs);
-      margin: 0 calc(-1 * var(--space-xs));
+      display: block;
+      margin: 0 var(--space-2xs);
+      padding: var(--space-2xs) calc(var(--space-body) - var(--space-2xs));
       border-radius: var(--radius-l);
       color: var(--color-body-text-alt);
       text-decoration: none;
