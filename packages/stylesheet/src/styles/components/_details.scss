@@ -108,6 +108,23 @@ details {
       }
     }
   }
+
+  &.subtle,
+  .accordion.subtle > & {
+    box-shadow: none;
+    border: 0;
+    padding-inline: var(--space-2xs);
+
+    summary {
+      border-block-end: 0;
+      padding: var(--space-2xs);
+      padding-inline-start: calc(var(--space-2xs) + 1em);
+    }
+
+    &[open] summary {
+      margin-block-end: var(--space-2xs);
+    }
+  }
 }
 
 .accordion {

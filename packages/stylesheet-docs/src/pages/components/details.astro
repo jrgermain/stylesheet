@@ -52,4 +52,34 @@ const exampleCode = `
       </p>
     </details>
   </ComponentOption>
+  <ComponentOption name="Subtle">
+    <p slot="details">
+      You can use a borderless <strong>subtle</strong> variant by adding the <code
+        >subtle</code
+      > class to either the details element itself or the surrounding accordion wrapper.
+    </p>
+    <div slot="examples">
+      <h4 class="h5">Subtle Details</h4>
+      <details class="subtle">
+        <summary>Summary</summary>
+        Details content
+      </details>
+      <hr />
+      <h4 class="h5">Subtle Accordion</h4>
+      <div class="subtle accordion">
+        <details>
+          <summary>Section 1</summary>
+          <p>This is the first section.</p>
+        </details>
+        <details>
+          <summary>Section 2</summary>
+          <p>This is the second section.</p>
+        </details>
+        <details>
+          <summary>Section 3</summary>
+          <p>This is the third section.</p>
+        </details>
+      </div>
+    </div>
+  </ComponentOption>
 </ComponentDocs>
