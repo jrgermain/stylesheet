@@ -35,7 +35,7 @@ $color-variants: (
   line-height: 1.2;
 
   &:is(:focus-visible, .focus) {
-    box-shadow: 0 0 0 0.2em var(--chip-focus-ring-color);
+    box-shadow: 0 0 0 0.2em var(--chip-focus-color);
   }
 
   &.clickable {
@@ -46,7 +46,7 @@ $color-variants: (
       outline: 0;
       box-shadow:
         var(--shadow-s),
-        0 0 0 0.2em var(--chip-focus-ring-color);
+        0 0 0 0.2em var(--chip-focus-color);
     }
 
     &:is(:hover, .hover) {
@@ -63,7 +63,7 @@ $color-variants: (
     &.#{$color} {
       --chip-bg-color: var(--color-#{$color}-6);
       --chip-border-color: var(--color-#{$color}-7);
-      --chip-focus-ring-color: var(--color-#{$color}-transparent);
+      --chip-focus-color: var(--color-#{$color}-transparent);
       --chip-bg-color-active: var(--color-#{$color}-5);
     }
   }
@@ -71,7 +71,7 @@ $color-variants: (
   &.black {
     --chip-bg-color: black;
     --chip-border-color: var(--color-gray-4);
-    --chip-focus-ring-color: var(--color-gray-transparent);
+    --chip-focus-color: var(--color-gray-transparent);
     --chip-bg-color-active: var(--color-gray-1);
   }
 
@@ -79,7 +79,7 @@ $color-variants: (
     --chip-fg-color: black;
     --chip-bg-color: white;
     --chip-border-color: var(--color-gray-8);
-    --chip-focus-ring-color: var(--color-gray-transparent);
+    --chip-focus-color: var(--color-gray-transparent);
     --chip-bg-color-active: var(--color-gray-7);
   }
 
@@ -108,58 +108,44 @@ $color-variants: (
     font-size: 0.6em;
     border: var(--border-s) solid var(--chip-border-color);
     border-radius: var(--radius-full);
-    transition-property: box-shadow, background-color, transform, opacity,
-      border-color;
+    transition-property: background-color, border-color;
     transition-duration: 200ms;
     transition-timing-function: ease;
     position: relative;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     cursor: pointer;
     height: 2em;
     width: 2em;
     user-select: none;
-    background-color: transparent;
+    background-color: #0002;
     padding: 0;
     display: inline-flex;
-
-    &::before {
-      content: "";
-      width: 100%;
-      height: 100%;
-      opacity: 0.7;
-      position: absolute;
-      inset-block-start: 0;
-      inset-inline-start: 0;
-      background-color: var(--chip-border-color);
-      transition-duration: 200ms;
-      transition-timing-function: ease;
-      transition-property: background-color, opacity;
-    }
+    box-shadow: none;
 
     &::after {
       content: "";
-      width: 1.2em;
-      height: 1.2em;
+      width: 1.7em;
+      height: 1.7em;
       mask-image: #{utils.svg-to-data-url(
-          '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="black" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>'
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>'
         )};
       mask-size: contain;
       mask-repeat: no-repeat;
+      mask-position: center;
       background-color: var(--chip-fg-color);
+      margin: auto;
     }
 
     &:is(:focus-visible, .focus) {
       border-color: var(--chip-fg-color);
     }
 
-    &:is(:hover, .hover, :focus-visible, .focus)::before {
-      opacity: 1;
+    &:is(:hover, .hover, :focus-visible, .focus) {
+      background-color: #0001;
     }
 
-    &:is(:active, .active)::before {
-      opacity: 0.5;
+    &:is(:active, .active) {
+      background-color: #0003;
     }
   }
 }
