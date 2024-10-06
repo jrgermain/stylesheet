@@ -9,6 +9,24 @@ const cssnano = require("cssnano");
 const sourceFilePath = path.join(__dirname, "../src/styles/index.scss");
 const destDirectoryPath = path.join(__dirname, "../dist");
 
+/** @type {import('postcss-preset-env').pluginOptions} */
+const presetEnvOptions = {
+  features: {
+    "oklab-function": false,
+    "custom-properties": false,
+  },
+};
+
+/** @type {import('cssnano').Options} */
+const cssNanoOptionsNormal = {
+  preset: ["default", { normalizeWhitespace: false }],
+};
+
+/** @type {import('cssnano').Options} */
+const cssNanoOptionsMinified = {
+  preset: "default",
+};
+
 const processFile = async ({ source, plugins, outputFilename }) => {
   const outputPath = path.join(destDirectoryPath, outputFilename);
 
@@ -23,8 +41,8 @@ const processFile = async ({ source, plugins, outputFilename }) => {
         promises.push(
           fs.writeFile(
             outputPath,
-            `${result.css}\n/*# sourceMappingURL=${outputFilename}.map */`,
-          ),
+            `${result.css}\n/*# sourceMappingURL=${outputFilename}.map */`
+          )
         );
         promises.push(fs.writeFile(`${outputPath}.map`, result.map.toString()));
       } else {
@@ -41,15 +59,23 @@ rimraf(destDirectoryPath)
     Promise.all([
       processFile({
         source,
-        plugins: [postcssSass, postcssPresetEnv],
+        plugins: [
+          postcssSass,
+          postcssPresetEnv(presetEnvOptions),
+          cssnano(cssNanoOptionsNormal),
+        ],
         outputFilename: "index.css",
       }),
       processFile({
         source,
-        plugins: [postcssSass, postcssPresetEnv, cssnano],
+        plugins: [
+          postcssSass,
+          postcssPresetEnv(presetEnvOptions),
+          cssnano(cssNanoOptionsMinified),
+        ],
         outputFilename: "index.min.css",
       }),
-    ]),
+    ])
   )
   .catch((e) => {
     console.error(e);
