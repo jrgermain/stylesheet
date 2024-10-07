@@ -29,6 +29,7 @@ const navSections = [
     heading: "Components",
     links: [
       "Alert",
+      "App",
       "Button",
       "Card",
       "Chip",
@@ -122,8 +123,8 @@ const navSections = [
       <nav class="app-sidebar">
         {
           navSections.map((section) => (
-            <section class="sidebar-section">
-              <h1 class="sidebar-heading">{section.heading}</h1>
+            <section class="app-sidebar-section">
+              <h1 class="app-sidebar-heading">{section.heading}</h1>
               {section.links.map((link) => (
                 <NavLink href={`/${toLink(section.heading)}/${toLink(link)}`}>
                   {link}

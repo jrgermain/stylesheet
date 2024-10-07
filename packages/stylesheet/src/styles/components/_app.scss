@@ -143,60 +143,60 @@
       transparent 100%
     )
     80;
+}
 
-  .sidebar-section {
-    &:first-of-type {
-      margin-block-start: var(--space-body);
-    }
-
-    &:not(:last-of-type) {
-      margin-block-end: var(--space-xs);
-    }
-
-    &:last-of-type {
-      margin-block-end: var(--space-body);
-    }
+.app-sidebar-section {
+  &:first-of-type {
+    margin-block-start: var(--space-body);
   }
 
-  .sidebar-heading {
-    font-size: 1.2rem;
-    margin: 0 var(--space-body) var(--space-3xs);
-    font-weight: var(--font-weight-semibold);
+  &:not(:last-of-type) {
+    margin-block-end: var(--space-xs);
   }
 
-  .sidebar-item {
-    display: block;
-    margin: 0 var(--space-2xs);
-    padding: var(--space-2xs) calc(var(--space-body) - var(--space-2xs));
-    border-radius: var(--radius-l);
-    color: var(--color-body-text-alt);
-    text-decoration: none;
-    font-weight: var(--font-weight-normal);
-    font-size: 1rem;
-    transition-property: color, background-color, box-shadow;
-    transition-duration: 200ms;
-    transition-timing-function: ease;
+  &:last-of-type {
+    margin-block-end: var(--space-body);
+  }
+}
 
-    &:hover {
-      background-color: var(--color-brand-extra-transparent);
-    }
+.app-sidebar-heading {
+  font-size: 1.2rem;
+  margin: 0 var(--space-body) var(--space-3xs);
+  font-weight: var(--font-weight-semibold);
+}
 
-    &:active {
-      color: var(--color-brand-1);
-    }
+.app-sidebar-item {
+  display: block;
+  margin: 0 var(--space-2xs);
+  padding: var(--space-2xs) calc(var(--space-body) - var(--space-2xs));
+  border-radius: var(--radius-l);
+  color: var(--color-body-text-alt);
+  text-decoration: none;
+  font-weight: var(--font-weight-normal);
+  font-size: 1rem;
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
 
-    &:is(.current, [aria-current="page"]) {
-      color: var(--color-brand-4);
-      font-weight: var(--font-weight-bold);
-    }
+  &:hover {
+    background-color: var(--color-brand-extra-transparent);
+  }
 
-    &:hover:active {
-      background-color: var(--color-brand-transparent);
-    }
+  &:active {
+    color: var(--color-brand-1);
+  }
 
-    &:focus-visible {
-      outline-offset: 0;
-    }
+  &:is(.current, [aria-current="page"]) {
+    color: var(--color-brand-4);
+    font-weight: var(--font-weight-bold);
+  }
+
+  &:hover:active {
+    background-color: var(--color-brand-transparent);
+  }
+
+  &:focus-visible {
+    outline-offset: 0;
   }
 }
 

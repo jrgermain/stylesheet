@@ -9,6 +9,8 @@ const path = new URL(Astro.request.url).pathname;
 const isActive = path === href || path.startsWith(`${href}/`);
 ---
 
-<a class="sidebar-item" href={href} aria-current={isActive ? "page" : undefined}
-  ><slot /></a
+<a
+  class="app-sidebar-item"
+  href={href}
+  aria-current={isActive ? "page" : undefined}><slot /></a
 >

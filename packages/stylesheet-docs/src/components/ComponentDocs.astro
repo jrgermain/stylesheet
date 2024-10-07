@@ -24,14 +24,14 @@ const formattedCode = await formatExampleCode(exampleCode);
     <div class="flow" set:html={formattedCode} />
   </div>
 
-  <h2>Options</h2>
   {
-    Astro.slots.has("default") ? (
-      <div class="stack vertically">
-        <slot />
-      </div>
-    ) : (
-      <p>This element doesn't have any configurable options.</p>
+    Astro.slots.has("default") && (
+      <>
+        <h2>Options</h2>
+        <div class="stack vertically">
+          <slot />
+        </div>
+      </>
     )
   }
 </Layout>
