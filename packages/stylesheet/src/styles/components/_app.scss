@@ -58,14 +58,13 @@
   }
 
   // Put a spacer between consecutive right-aligned sections (3rd onward)
-  &:nth-child(n + 3) {
-    // TODO make this look legit; it looks like this just as a test
-    &::before {
-      content: "";
-      height: 2rem;
-      width: 2px;
-      background-color: orange;
-    }
+  &:nth-child(n + 3)::before {
+    content: "";
+    background-color: var(--color-outline);
+    height: 2rem;
+    width: var(--border-s);
+    position: relative;
+    right: calc(var(--space-s) / 2);
   }
 }
 
