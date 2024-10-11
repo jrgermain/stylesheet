@@ -1,4 +1,5 @@
 ---
+import { Code } from "astro:components";
 import Layout from "../../layouts/Layout.astro";
 
 const colors = [
@@ -14,29 +15,26 @@ const colors = [
   "gray",
 ];
 
-const palette = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-const semanticColors = [
-  "body",
-  "body-alt",
-  "body-text",
-  "body-text-alt",
-  "shadow",
-  "outline",
-];
+const shades = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 ---
 
 <!-- borders, colors, fonts, radii, shadows, spacing -->
 <Layout title="Tokens">
   <h1 style="margin-top: 0;">Tokens</h1>
   <p>
-    All tokens are defined as CSS Custom Properties (also known as <q
+    All design tokens are defined as CSS Custom Properties (also known as <q
       >CSS Variables</q
-    >). You can (and should) reference these properties when creating higher
-    order components or making other styling tweaks.
+    >). You should reference these properties when creating custom styles.
+  </p>
+  <p>
+    This page talks through each type of token and shows examples of what each
+    value looks like.
   </p>
 
   <h2>Colors</h2>
+
+  All colors are prefixed with <code>--color-</code>. The stylesheet defines 2
+  sets of colors: the standard palette and semantic colors.
 
   <h3>Standard Palette</h3>
   <p>
@@ -46,34 +44,46 @@ const semanticColors = [
       >green</code
     >, <code>sky</code>, <code>blue</code>, <code>purple</code>, <code
       >magenta</code
-    >, and<code>gray</code>. For each of these, there are 9 lightnesses and 2
-    transparent shades. The lightensses go from 1 to 9, where 1 has the most
-    contrast with the page background (i.e., the darkest shade in light mode and
-    the lightest shade in dark mode).
+    >, and<code>gray</code>.
   </p>
   <p>
-    The variables for the standard colors are all prefixed with <code
-      >--color-</code
-    >. For example, the color <code>red-1</code> can be referenced as <code
-      >--color-red-1</code
-    >.
+    For each of the base colors, there are 9 lightnesses and 2 transparent
+    shades. The lightensses go from 1 to 9, where 1 has the most contrast with
+    the page background (i.e., the darkest shade in light mode and the lightest
+    shade in dark mode) and 9 has the least. The transparent shades are based on
+    lightness 5, with <code>transparent</code> having a medium transparency and <code
+      >extra-transparent</code
+    > having a high transparency.
   </p>
-  <div class="palettes">
+  <p>
+    The variables for these colors all use the standard <code>--color-</code> prefix,
+    followed by the color name and shade. For example, the color <code>red</code
+    > with lightness 1 is defined as
+    <code>--color-red-1</code>, while <code>red</code> with high transparency is
+    defined as <code>--color-red-extra-transparent</code>. Below is an example
+    of how to reference these colors in a stylesheet:
+  </p>
+  <Code
+    code=".red {\n  background-color: var(--color-red-1);\n}\n\n.transparent-red {\n  background-color: var(--color-red-extra-transparent);\n}"
+    lang="css"
+  />
+  <hr class="invisible" />
+  <div>
     {
       colors.map((color) => (
-        <div class="palette" role="row">
-          {palette.map((suffix) => (
+        <div class="color-row">
+          {shades.map((suffix) => (
             <span
-              class={"color"}
+              class="cell"
               style={{
                 background: `var(--color-${color}-${suffix})`,
                 color:
                   suffix < "6"
-                    ? "var(--color-body-alt)"
-                    : "var(--color-body-text)",
+                    ? `var(--color-${color}-9)`
+                    : `var(--color-${color}-1)`,
               }}
             >
-              {color}-{suffix}
+              {suffix}
             </span>
           ))}
           <span class="color-name" style={{ color: `var(--color-${color}-9)` }}>
@@ -86,25 +96,49 @@ const semanticColors = [
 
   <h3>Semantic Colors</h3>
   <p>
-    In addition to color palettes, the stylesheet defines {
-      semanticColors.length
-    }
-    <q>semantic</q> colors. These colors ...
+    In addition to the standard palette, the stylesheet defines a set of
+    <q>semantic</q> colors. These colors are used for specific purposes and are named
+    after their use case.
   </p>
-  <div class="palettes">
-    <div class="palette" role="row">
-      {
-        semanticColors.map((color) => (
-          <span
-            class:list={["color", color]}
-            style={{ backgroundColor: `var(--color-${color})` }}
-          >
-            {color}
-          </span>
-        ))
-      }
-    </div>
+  <div class="semantic-color">
+    <div class="swatch" style={{ backgroundColor: "var(--color-body)" }}></div>
+    <strong>body</strong>
+    <span>the primary background color for the document</span>
   </div>
+  <div class="semantic-color">
+    <div class="swatch" style={{ backgroundColor: "var(--color-body-alt)" }}>
+    </div>
+    <strong>body-alt</strong>
+    <span>the secondary backgroud color, used on surfaces like cards</span>
+  </div>
+  <div class="semantic-color">
+    <div class="swatch" style={{ backgroundColor: "var(--color-body-text)" }}>
+    </div>
+    <strong>body-text</strong>
+    <span>the primary text color for the document</span>
+  </div>
+  <div class="semantic-color">
+    <div
+      class="swatch"
+      style={{ backgroundColor: "var(--color-body-text-alt)" }}
+    >
+    </div>
+    <strong>body-text-alt</strong>
+    <span>the secondary text color for the document</span>
+  </div>
+  <div class="semantic-color">
+    <div class="swatch" style={{ backgroundColor: "var(--color-shadow)" }}>
+    </div>
+    <strong>shadow</strong>
+    <span>a transparent gray used for box shadows</span>
+  </div>
+  <div class="semantic-color">
+    <div class="swatch" style={{ backgroundColor: "var(--color-outline)" }}>
+    </div>
+    <strong>outline</strong>
+    <span>a gray used for borders and outlines</span>
+  </div>
+  <p>Unline standard palette colors, these don't come in multiple shades.</p>
 
   <h2>Shadows</h2>
   <div class="sparser vertical stack">
@@ -154,144 +188,192 @@ const semanticColors = [
     }
   </div>
 
+  <h2>Font Families</h2>
+  <p>
+    The variables for font families are all prefixed with <code
+      >--font-family-</code
+    >. For example, the font family <code>body</code> can be referenced as <code
+      >--font-family-body</code
+    >.
+  </p>
+  <br />
+  <div class="card">
+    {
+      ["body", "heading", "mono"].map((family) => (
+        <p style={{ fontFamily: `var(--font-family-${family})` }}>
+          This text has a font family of {family}.
+        </p>
+      ))
+    }
+  </div>
+
+  <h2>Spacing</h2>
+  <p>
+    Spacing tokens scale with the screen width, becoming slightly more spread
+    out as the screen widens. The variables for spacing are prefixed with <code
+      >--space-</code
+    > and are implemented as T-shirt sizes between 3xs and 3xl.
+  </p>
+  <p>
+    There's also a token called <code>space-body</code> that scales from <code
+      >xs</code
+    > on small screens to <code>m</code> on large screens. This token is used for
+    the margins around the app.
+  </p>
+  <br />
+  <div class="card">
+    {
+      ["3xs", "2xs", "xs", "s", "m", "l", "xl", "2xl", "3xl"].map((space) => (
+        <>
+          <span>{space}</span>
+          <div class="space-example">
+            <div class="space-example-block" />
+            <div
+              class="space-example-spacer"
+              style={{ width: `var(--space-${space})` }}
+            />
+            <div class="space-example-block" />
+          </div>
+        </>
+      ))
+    }
+  </div>
+
+  <h2>Radii</h2>
+  <div class="flow">
+    {
+      ["none", "s", "m", "l", "xl", "2xl", "full"].map((radius) => (
+        <div
+          class="box"
+          style={{
+            height: "10rem",
+            borderColor: "var(--color-brand-5)",
+            borderWidth: "var(--border-m)",
+            borderRadius: `var(--radius-${radius})`,
+          }}
+        >
+          radius-{radius}
+        </div>
+      ))
+    }
+  </div>
+
+  <h2>Border Widths</h2>
+  <div class="flow">
+    {
+      ["none", "s", "m", "l", "xl"].map((radius) => (
+        <div
+          class="box"
+          style={{
+            borderColor: "var(--color-brand-5)",
+            borderWidth: `var(--border-${radius})`,
+          }}
+        >
+          radius-{radius}
+        </div>
+      ))
+    }
+  </div>
+
   <hr class="invisible" style="margin-bottom:10rem;" />
 
-  <!-- <h2>Border Widths</h2> 
-  <TokenDocs
-    template={(token) =>
-      `<div style="width:48px;height:24px;border:var(${token}) solid var(--color-outline);"></div>`}
-    tokens={[
-      { name: "None", prop: "--border-none" },
-      { name: "Small", prop: "--border-s" },
-      { name: "Medium", prop: "--border-m" },
-      { name: "Large", prop: "--border-l" },
-      { name: "Extra Large", prop: "--border-xl" },
-    ]}
-  />
+  <style>
+    /* Colors */
+    .color-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 0;
+      width: auto;
+      margin-block-end: auto;
+      max-width: 72rem;
+    }
 
-  <h2>Font Families</h2>
-  <TokenDocs
-    template={(token) =>
-      `<span style="font-family:var(${token});">Testing</span>`}
-    tokens={[
-      { name: "Body", prop: "--font-family-body" },
-      { name: "Heading", prop: "--font-family-heading" },
-      { name: "UI", prop: "--font-family-ui" },
-      { name: "Mono", prop: "--font-family-mono" },
-    ]}
-  /> -->
+    .color-row .color-name {
+      position: absolute;
+      left: 4px;
+      bottom: 4px;
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+    }
+
+    .color-row .cell {
+      display: flex;
+      align-items: start;
+      justify-content: end;
+      min-width: 5rem;
+      max-width: 8rem;
+      aspect-ratio: 1;
+      width: 100%;
+      padding: 4px;
+      font-size: var(--font-size-s);
+      margin: 0;
+    }
+
+    .semantic-color {
+      display: flex;
+      align-items: center;
+      margin-block: var(--space-3xs);
+    }
+
+    .semantic-color .swatch {
+      height: 2rem;
+      width: 2rem;
+      border-radius: var(--radius-s);
+      border: var(--border-s) solid var(--color-outline);
+      margin-inline-end: var(--space-xs);
+    }
+
+    .semantic-color strong::after {
+      content: "–";
+      font-weight: var(--font-weight-light);
+      color: var(--color-body-text-alt);
+      margin-inline: 0.5ch;
+    }
+
+    /* Shadows */
+    .box {
+      border: var(--border-s) solid var(--color-outline);
+      height: 4rem;
+      width: 12rem;
+      font-family: var(--font-family-mono);
+      border-radius: var(--radius-m);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-body-alt);
+    }
+
+    .space-example {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin-block-end: var(--space-s);
+    }
+
+    .space-example-block {
+      display: inline-block;
+      height: 1.5rem;
+      width: 1.5rem;
+      background-color: var(--color-body-text);
+      flex: none;
+      background-color: var(--color-blue-5);
+    }
+
+    .space-example-block:not(:first-child) {
+      background-color: var(--color-red-5);
+    }
+
+    .space-example-spacer {
+      display: inline-block;
+      position: relative;
+      height: var(--border-s);
+      background-color: var(--color-body-text);
+      flex: none;
+      margin: auto 0;
+    }
+  </style>
 </Layout>
-<!-- Colors -->
-<style>
-  .palettes {
-    width: 100%;
-    overflow: auto;
-    background: linear-gradient(
-        45deg,
-        black 25%,
-        transparent 25%,
-        transparent 75%,
-        black 75%,
-        black 0
-      ),
-      linear-gradient(
-        45deg,
-        black 25%,
-        transparent 25%,
-        transparent 75%,
-        black 75%,
-        black 0
-      ),
-      white;
-    background-repeat: repeat;
-    background-position:
-      0 0,
-      16px 16px;
-    background-size: 32px 32px;
-  }
-
-  .palette {
-    width: 100%;
-    display: flex;
-    justify-content: stretch;
-    position: relative;
-  }
-
-  .palette .color-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .palette .color {
-    width: 100%;
-    height: 5rem;
-    min-width: 6rem;
-    font-size: var(--font-size-s);
-    display: flex;
-    align-items: start;
-    justify-content: end;
-    padding: var(--space-3xs);
-    color: black;
-    font-family: var(--font-family-mono);
-    font-weight: var(--font-weight-semibold);
-    --gradient: linear-gradient(320deg, black 50%, white 50%);
-    background-repeat: repeat;
-    background-position:
-      0 0,
-      0 0,
-      16px 16px;
-    background-size: 32px 32px;
-  }
-
-  .palette
-    .color:is(.variant-1, .variant-2, .variant-3, .variant-4, .variant-5) {
-    color: var(--color-body);
-  }
-  .palette
-    .color:is(.variant-6, .variant-7, .variant-8, .variant-9, .variant-tint) {
-    color: var(--color-body-text);
-  }
-  .palette .color:is(.variant-transparent, .variant-extra-transparent) {
-    color: white;
-    text-shadow: 0 0 2px black;
-  }
-
-  .palette .color-name {
-    position: absolute;
-    bottom: var(--space-2xs);
-    left: var(--space-2xs);
-    color: white;
-    font-size: 2rem;
-    font-family: var(--font-family-heading);
-    font-weight: var(--font-weight-black);
-    letter-spacing: 0.075ch;
-    line-height: 1;
-  }
-
-  .palette .color.is-additional {
-    display: none;
-  }
-
-  #show-additional-variations:has(:checked)
-    + .palettes
-    .palette
-    .color.is-additional {
-    display: flex;
-  }
-</style>
-<!-- Shadows -->
-<style>
-  .box {
-    border: var(--border-s) solid var(--color-outline);
-    height: 4rem;
-    width: 12rem;
-    font-family: var(--font-family-mono);
-    border-radius: var(--radius-m);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-body-alt);
-  }
-</style>
