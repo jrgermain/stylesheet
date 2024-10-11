@@ -67,7 +67,7 @@
     transition-duration: 200ms;
     transition-property: color, box-shadow, border-color;
     transition-timing-function: ease;
-    font-family: var(--font-family-ui);
+    font-family: var(--font-family-body);
 
     @media (prefers-color-scheme: dark) {
       background-color: black;
