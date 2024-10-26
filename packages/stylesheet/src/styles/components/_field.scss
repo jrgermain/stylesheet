@@ -2,7 +2,7 @@
 
 .field {
   --field-gap: var(--space-2xs);
-  --field-padding: var(--space-2xs);
+  --field-padding: 0.5em;
   --field-radius: var(--radius-m);
 
   display: inline-flex;
@@ -19,7 +19,7 @@
   &.compact,
   :is(form, .form, fieldset).compact & {
     --field-gap: calc(0.9 * var(--space-2xs));
-    --field-padding: calc(0.75 * var(--space-2xs));
+    --field-padding: 0.33em;
     --field-radius: var(--radius-s);
 
     font-size: calc(0.9 * var(--font-size-m));
@@ -229,7 +229,7 @@
       color: var(--color-gray-3);
       background-color: var(--color-gray-9);
       border: var(--border-s) solid var(--color-outline);
-      padding: var(--space-3xs) var(--space-xs);
+      padding: var(--field-padding) calc(2 * var(--field-padding));
       align-items: center;
       justify-content: center;
       font-size: 0.9em;
