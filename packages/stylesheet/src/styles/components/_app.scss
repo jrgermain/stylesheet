@@ -45,7 +45,6 @@
   height: 100%;
   display: flex;
   align-items: center;
-  gap: var(--space-3xs);
 
   // If header only has 1 section, center it
   &:only-child {
@@ -55,6 +54,22 @@
   // Otherwise, align the first to the left and the rest to the right
   &:first-child {
     margin-inline-end: auto;
+  }
+
+  // The content of the first header item should be var(--space-body) from the
+  // left edge of the app. Since there is var(--space-body) padding in the
+  // header and var(--space-xs) padding in the header items, we just need to
+  // move it back by var(--space-xs).
+  &:first-child .app-header-item:first-child {
+    margin-inline-start: calc(-1 * var(--space-xs));
+  }
+
+  // The content of the last header item should be var(--space-body) from the
+  // right edge of the app. Since there is var(--space-body) padding in the
+  // header and var(--space-xs) padding in the header items, we just need to
+  // move it forward by var(--space-xs).
+  &:last-child .app-header-item:last-child {
+    margin-inline-end: calc(-1 * var(--space-xs));
   }
 
   // Put a spacer between consecutive right-aligned sections (3rd onward)
@@ -81,6 +96,7 @@
   align-items: center;
   position: relative;
   font-weight: var(--font-weight-semibold);
+  padding-inline: var(--space-xs);
 
   &:focus-visible {
     outline-offset: calc(-1 * var(--border-m));
