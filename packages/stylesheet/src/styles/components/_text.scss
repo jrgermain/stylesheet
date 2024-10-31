@@ -1,6 +1,12 @@
 @use "../utils";
 @use "./layout";
 
+@mixin highlighted-text($color) {
+  background-color: var(--color-#{$color}-8);
+  color: var(--color-#{$color}-2);
+  print-color-adjust: exact;
+}
+
 %heading-any {
   font-family: var(--font-family-heading);
   margin-block: 0.75em 0.3em;
@@ -190,34 +196,31 @@ em,
   font-style: italic;
 }
 
-mark,
-.mark {
-  background-color: var(--color-yellow-8);
-  color: var(--color-yellow-1);
-  print-color-adjust: exact;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: var(--color-yellow-7);
-  }
+::target-text {
+  @include highlighted-text("brand");
 }
 
-del,
-.del {
-  text-decoration-line: line-through;
-  text-decoration-skip-ink: none;
-  text-decoration-thickness: var(--border-s);
-  background-color: var(--color-red-8);
-  color: var(--color-red-1);
-  text-decoration-color: var(--color-body-text);
-  border-radius: 1px;
+mark,
+.mark {
+  @include highlighted-text("yellow");
 }
 
 ins,
 .ins {
-  text-decoration-line: none;
-  background-color: var(--color-green-8);
-  color: var(--color-green-1);
-  border-radius: 1px;
+  @include highlighted-text("green");
+
+  text-decoration-thickness: var(--border-s);
+  text-decoration-color: var(--color-body-text);
+}
+
+del,
+.del {
+  @include highlighted-text("red");
+
+  text-decoration-line: line-through;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--border-s);
+  text-decoration-color: var(--color-body-text);
 }
 
 :is(abbr, .abbr)[title] {
@@ -253,12 +256,6 @@ sub,
 sup,
 .sup {
   inset-block-start: -0.5em;
-}
-
-::target-text {
-  background-color: var(--color-brand-8);
-  color: var(--color-brand-1);
-  print-color-adjust: exact;
 }
 
 /* Add a gap between consecutive block text elements */
