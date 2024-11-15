@@ -7,11 +7,10 @@
   --app-sidebar-width: clamp(300px, 18rem, 400px);
 
   position: relative;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  overflow: visible;
 }
 
 .app-header {
@@ -132,32 +131,27 @@
   width: 100%;
   max-width: var(--app-width);
   margin-inline: auto;
+  flex: none;
+  display: flex;
+  flex-direction: row;
 }
 
 .app-sidebar {
-  // TODO simplify
-  overflow: auto;
   transition:
     opacity 150ms ease,
     display 150ms allow-discrete;
   width: var(--app-sidebar-width);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  z-index: 3;
+  flex: none;
   opacity: 1;
-  border-inline-end: var(--border-s) solid;
-  border-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      transparent 10%,
-      var(--color-outline) 10%,
-      var(--color-outline) 90%,
-      transparent 90%,
-      transparent 100%
-    )
-    80;
+  border-inline-end: var(--border-s) dashed var(--color-outline);
+}
+
+.app-sidebar-content {
+  position: sticky;
+  top: 0;
+  overflow: auto;
+  height: auto;
+  height: 100dvh;
 }
 
 .app-sidebar-section {
@@ -201,7 +195,7 @@
     color: var(--color-brand-1);
   }
 
-  &:is(.current, [aria-current="page"]) {
+  &:is([aria-current], .current) {
     color: var(--color-brand-4);
     font-weight: var(--font-weight-bold);
   }
@@ -294,40 +288,9 @@
 
 .app:has(.app-sidebar) {
   --app-width: 125rem;
-
-  overflow: hidden;
-
-  .app-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-
-  .app-body {
-    position: fixed;
-    top: var(--app-header-height);
-    left: 0;
-    right: 0;
-    margin-inline: auto;
-    height: calc(100dvh - var(--app-header-height));
-  }
-
-  .app-content {
-    overflow: auto;
-    position: absolute;
-    top: 0;
-    left: var(--app-sidebar-width);
-    width: calc(100% - var(--app-sidebar-width));
-    height: 100%;
-  }
 }
 
 @media (width < 55rem) {
-  .app-content {
-    left: 0 !important;
-    width: 100dvw !important;
-  }
-
   .app-sidebar {
     width: 100dvw;
     opacity: 1;
