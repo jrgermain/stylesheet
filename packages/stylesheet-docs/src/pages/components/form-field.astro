@@ -234,4 +234,45 @@ const exampleCode = `
       </label>
     </Fragment>
   </ComponentOption>
+  <ComponentOption name="Fieldset">
+    <p slot="details">
+      You can use a <code>fieldset</code> element with a corresponding <code
+        >legend</code
+      > to define a group of related input fields.
+    </p>
+    <Fragment slot="examples">
+      <fieldset>
+        <legend>Deposit Amount</legend>
+        <label class="field">
+          Amount
+          <input type="number" step="0.01" />
+        </label>
+        <label class="field">
+          Currency
+          <select>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>CHF</option>
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Console</legend>
+        <div class="densest vertical stack">
+          <label>
+            <input type="radio" name="radio" />
+            Nintendo Switch
+          </label>
+          <label>
+            <input type="radio" name="radio" />
+            Xbox
+          </label>
+          <label>
+            <input type="radio" name="radio" />
+            PlayStation
+          </label>
+        </div>
+      </fieldset>
+    </Fragment>
+  </ComponentOption>
 </ComponentDocs>
