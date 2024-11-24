@@ -68,6 +68,9 @@
     --alert-bg-color: var(--color-red-9);
     --alert-border-start-color: var(--color-red-5);
     --alert-border-end-color: var(--color-red-6);
+    --alert-dismiss-icon-color: var(--color-red-4);
+    --alert-dismiss-hover-bg: var(--color-red-extra-transparent);
+    --alert-dismiss-focus-bg: var(--color-red-transparent);
     --alert-icon: #{utils.svg-to-data-url(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="64" d="M368 368L144 144M368 144L144 368"/></svg>'
       )};
@@ -77,6 +80,9 @@
     --alert-bg-color: var(--color-yellow-9);
     --alert-border-start-color: var(--color-yellow-5);
     --alert-border-end-color: var(--color-yellow-6);
+    --alert-dismiss-icon-color: var(--color-yellow-4);
+    --alert-dismiss-hover-bg: var(--color-yellow-extra-transparent);
+    --alert-dismiss-focus-bg: var(--color-yellow-transparent);
     --alert-icon: #{utils.svg-to-data-url(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 80c-8.66 0-16.58 7.36-16 16l8 216a8 8 0 008 8h0a8 8 0 008-8l8-216c.58-8.64-7.34-16-16-16z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="64"/><circle cx="256" cy="436" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48"/></svg>'
       )};
@@ -86,6 +92,9 @@
     --alert-bg-color: var(--color-green-9);
     --alert-border-start-color: var(--color-green-5);
     --alert-border-end-color: var(--color-green-6);
+    --alert-dismiss-icon-color: var(--color-green-4);
+    --alert-dismiss-hover-bg: var(--color-green-extra-transparent);
+    --alert-dismiss-focus-bg: var(--color-green-transparent);
     --alert-icon: #{utils.svg-to-data-url(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="64" d="M416 128L192 384l-96-96"/></svg>'
       )};
@@ -95,9 +104,66 @@
     --alert-bg-color: var(--color-sky-9);
     --alert-border-start-color: var(--color-sky-5);
     --alert-border-end-color: var(--color-sky-6);
+    --alert-dismiss-icon-color: var(--color-sky-4);
+    --alert-dismiss-hover-bg: var(--color-sky-extra-transparent);
+    --alert-dismiss-focus-bg: var(--color-sky-transparent);
     --alert-icon: #{utils.svg-to-data-url(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="64" d="M196 220h64v172"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="64" d="M187 396h138"/><circle cx="253 " cy="118" r="44"/></svg>'
       )};
+  }
+
+  &.banner {
+    border-radius: 0;
+    border-width: var(--border-m) 0;
+    width: 100%;
+    padding: var(--space-xs);
+    padding-inline-start: calc(var(--space-xs) + 2em);
+
+    &:has(.button.dismiss) {
+      padding-inline-end: calc(var(--space-xs) + 2em);
+    }
+
+    &::before,
+    &::after {
+      inset-inline-start: calc(var(--space-xs) * 0.5);
+      margin: auto;
+      width: 2em;
+      height: 2em;
+    }
+
+    .button.dismiss {
+      --button-fg-color: var(--alert-dismiss-icon-color);
+      --button-bg-color: transparent;
+      --button-border-color: transparent;
+      --button-hover-bg-color: var(--alert-dismiss-hover-bg);
+      --button-focus-ring-color: transparent;
+      --button-shadow: none;
+
+      font-size: 0.75rem;
+      position: absolute;
+      inset-block: 0;
+      inset-inline-end: var(--space-3xs);
+      margin: auto;
+      width: 3em;
+      height: 3em;
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--alert-dismiss-focus-bg);
+        --button-hover-bg-color: transparent;
+      }
+
+      &::after {
+        content: "";
+        width: 1.8em;
+        height: 1.8em;
+        mask-image: #{utils.svg-to-data-url(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>'
+          )};
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        background-color: currentcolor;
+      }
+    }
   }
 }
 

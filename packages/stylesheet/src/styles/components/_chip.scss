@@ -102,7 +102,7 @@ $color-variants: (
     }
   }
 
-  :is(button, .button).delete {
+  .delete {
     outline: 0;
     margin-inline: var(--space-3xs) calc(-1 * var(--space-2xs));
     font-size: 0.6em;

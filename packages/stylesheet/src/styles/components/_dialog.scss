@@ -178,7 +178,7 @@ dialog {
     margin: 0;
   }
 
-  :is(button, .button).close {
+  .button.close {
     color: inherit;
     margin: -0.5rem;
     margin-inline-start: var(--space-3xs);
@@ -222,13 +222,7 @@ dialog {
     justify-content: stretch;
   }
 
-  :is(
-      button,
-      .button,
-      input[type="button"],
-      input[type="submit"],
-      input[type="reset"]
-    ):not(.small, .medium, .large) {
+  .button:not(.small, .medium, .large) {
     font-size: 0.9rem;
   }
 }

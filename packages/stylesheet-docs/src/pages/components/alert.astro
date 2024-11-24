@@ -47,4 +47,33 @@ const exampleCode = `
       <p>The tip of a shoelace is called an aglet.</p>
     </div>
   </ComponentOption>
+  <ComponentOption name="Banner">
+    <p slot="details">
+      An alert can be used as a <strong>banner</strong> by adding the class <code
+        >banner</code
+      >. This is intended to be used for site-wide messages and should be placed
+      at the top of the page. You can add a button with the class <code
+        >dismiss</code
+      > to allow users to close the banner.
+    </p>
+    <div slot="examples">
+      <button
+        class="primary button"
+        onclick="document.querySelector('.app').prepend(document.querySelector('#banner-template').content.firstElementChild.cloneNode(true)); window.scrollTo({ top: 0, behavior: 'smooth' });"
+        >Add Site-wide Alert</button
+      >
+      <template id="banner-template">
+        <div class="alert banner info">
+          <p>
+            You're viewing the documentation for v2. To see documentation for
+            v1, click <a>here</a>.
+          </p>
+          <button
+            class="dismiss button"
+            title="Dismiss"
+            onclick="document.querySelector('.alert.banner').remove()"></button>
+        </div>
+      </template>
+    </div>
+  </ComponentOption>
 </ComponentDocs>
