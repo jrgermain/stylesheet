@@ -3,8 +3,6 @@
 
 .app {
   --app-width: 110rem;
-  --app-header-height: clamp(50px, 3.5rem, 70px);
-  --app-sidebar-width: clamp(300px, 18rem, 400px);
 
   position: relative;
   width: 100%;
@@ -14,13 +12,15 @@
 }
 
 .app-header {
-  height: var(--app-header-height);
+  height: clamp(50px, 3.5rem, 70px);
   width: 100%;
   color: var(--color-brand-3);
   background-color: var(--color-body-alt);
   border-bottom: var(--border-l) solid var(--color-brand-transparent);
   box-shadow: var(--shadow-s);
   flex: none;
+  overflow: auto hidden;
+  scrollbar-width: thin;
 
   @media (prefers-color-scheme: dark) {
     color: var(--color-brand-2);
@@ -140,7 +140,7 @@
   transition:
     opacity 150ms ease,
     display 150ms allow-discrete;
-  width: var(--app-sidebar-width);
+  width: clamp(300px, 18rem, 400px);
   flex: none;
   opacity: 1;
   border-inline-end: var(--border-s) dashed var(--color-outline);
