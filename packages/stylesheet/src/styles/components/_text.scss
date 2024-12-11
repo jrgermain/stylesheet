@@ -209,18 +209,23 @@ ins,
 .ins {
   @include highlighted-text("green");
 
-  text-decoration-thickness: var(--border-s);
-  text-decoration-color: var(--color-body-text);
+  text-decoration-thickness: var(--border-m);
+  text-decoration-color: var(--color-green-4);
 }
 
 del,
 .del {
   @include highlighted-text("red");
+  @include utils.transition("text-decoration-color", $duration: 150ms);
 
   text-decoration-line: line-through;
   text-decoration-skip-ink: none;
-  text-decoration-thickness: var(--border-s);
-  text-decoration-color: var(--color-body-text);
+  text-decoration-thickness: var(--border-m);
+  text-decoration-color: var(--color-red-4);
+
+  &:hover {
+    text-decoration-color: transparent;
+  }
 }
 
 :is(abbr, .abbr)[title] {

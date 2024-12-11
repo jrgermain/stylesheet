@@ -74,7 +74,7 @@
   }
 
   @if list.length($properties) == 1 {
-    transition-property: #{string.unquote($properties-string)}
+    transition: #{string.unquote($properties-string)}
       $duration
       #{string.unquote($timing-function)};
   }
