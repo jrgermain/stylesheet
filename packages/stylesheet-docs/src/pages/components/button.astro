@@ -4,7 +4,7 @@ import ComponentOption from "../../components/ComponentOption.astro";
 
 const exampleCode = `
 <!-- Buttons are styled automatically -->
-<button>I'm a button</button>
+<button class="button">I'm a button</button>
 
 <!-- Other elements are styled as buttons with class "button" -->
 <a href="#" class="button">I'm a button too</a>
@@ -27,9 +27,9 @@ const exampleCode = `
       </p>
     </Fragment>
     <Fragment slot="examples">
-      <button class="primary">Primary</button>
-      <button class="secondary">Secondary</button>
-      <button class="subtle">Subtle</button>
+      <button class="primary button">Primary</button>
+      <button class="secondary button">Secondary</button>
+      <button class="subtle button">Subtle</button>
     </Fragment>
   </ComponentOption>
   <ComponentOption name="Size">
@@ -51,9 +51,9 @@ const exampleCode = `
       </p>
     </Fragment>
     <Fragment slot="examples">
-      <button class="small">Small</button>
-      <button class="medium">Medium</button>
-      <button class="large">Large</button>
+      <button class="small button">Small</button>
+      <button class="medium button">Medium</button>
+      <button class="large button">Large</button>
     </Fragment>
   </ComponentOption>
   <ComponentOption name="Disabled">
@@ -73,9 +73,9 @@ const exampleCode = `
       </p>
     </Fragment>
     <Fragment slot="examples">
-      <button disabled>Disabled attribute</button>
-      <button class="disabled">Disabled class</button>
-      <button aria-disabled="true">aria-disabled</button>
+      <button disabled class="button">Disabled attribute</button>
+      <button class="disabled button">Disabled class</button>
+      <button aria-disabled="true" class="button">aria-disabled</button>
     </Fragment>
   </ComponentOption>
   <ComponentOption name="Loading">
@@ -85,8 +85,8 @@ const exampleCode = `
       required.
     </p>
     <Fragment slot="examples">
-      <button disabled class="loading">Disabled and loading</button>
-      <button class="loading">Just loading</button>
+      <button disabled class="loading button">Disabled and loading</button>
+      <button class="loading button">Just loading</button>
     </Fragment>
   </ComponentOption>
   <ComponentOption name="Link">
@@ -107,7 +107,7 @@ const exampleCode = `
       be combined with a variant, size, or other modifiers described here.
     </p>
     <Fragment slot="examples">
-      <button class="icon">
+      <button class="icon button">
         <svg
           width="1.5em"
           height="1.5em"
@@ -124,7 +124,7 @@ const exampleCode = `
             stroke-linejoin="round"></path>
         </svg>
       </button>
-      <button class="red primary icon">
+      <button class="red primary icon button">
         <svg
           width="1.5em"
           height="1.5em"
@@ -141,7 +141,7 @@ const exampleCode = `
             stroke-linejoin="round"></path>
         </svg>
       </button>
-      <button class="subtle icon">
+      <button class="subtle icon button">
         <svg
           width="1.5em"
           height="1.5em"
@@ -180,15 +180,15 @@ const exampleCode = `
       </ul>
     </Fragment>
     <Fragment slot="examples">
-      <button class="primary red">Red</button>
-      <button class="primary orange">Orange</button>
-      <button class="primary yellow">Yellow</button>
-      <button class="primary green">Green</button>
-      <button class="primary sky">Sky</button>
-      <button class="primary blue">Blue</button>
-      <button class="primary purple">Purple</button>
-      <button class="primary magenta">Magenta</button>
-      <button class="primary gray">Gray</button>
+      <button class="button primary red">Red</button>
+      <button class="button primary orange">Orange</button>
+      <button class="button primary yellow">Yellow</button>
+      <button class="button primary green">Green</button>
+      <button class="button primary sky">Sky</button>
+      <button class="button primary blue">Blue</button>
+      <button class="button primary purple">Purple</button>
+      <button class="button primary magenta">Magenta</button>
+      <button class="button primary gray">Gray</button>
     </Fragment>
   </ComponentOption>
 </ComponentDocs>

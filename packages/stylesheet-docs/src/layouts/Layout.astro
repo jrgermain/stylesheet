@@ -121,18 +121,20 @@ const navSections = [
     </header>
     <div class="app-body">
       <nav class="app-sidebar">
-        {
-          navSections.map((section) => (
-            <section class="app-sidebar-section">
-              <h1 class="app-sidebar-heading">{section.heading}</h1>
-              {section.links.map((link) => (
-                <NavLink href={`/${toLink(section.heading)}/${toLink(link)}`}>
-                  {link}
-                </NavLink>
-              ))}
-            </section>
-          ))
-        }
+        <div class="app-sidebar-content">
+          {
+            navSections.map((section) => (
+              <section class="app-sidebar-section">
+                <h1 class="app-sidebar-heading">{section.heading}</h1>
+                {section.links.map((link) => (
+                  <NavLink href={`/${toLink(section.heading)}/${toLink(link)}`}>
+                    {link}
+                  </NavLink>
+                ))}
+              </section>
+            ))
+          }
+        </div>
       </nav>
       <main id="main-content" class="app-content">
         <slot />

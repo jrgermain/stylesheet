@@ -55,7 +55,7 @@
     content: ".";
   }
 
-  &:is(button, .button, .chip):empty {
+  &:is(.button, .chip):empty {
     min-inline-size: 5em;
   }
 

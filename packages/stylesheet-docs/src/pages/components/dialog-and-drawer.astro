@@ -5,23 +5,23 @@ import ComponentOption from "../../components/ComponentOption.astro";
 const exampleCode = `
 <!-- For this example, we've defined a global variable '$dialog' pointing to the dialog element. -->
 
-<button onclick="$dialog.showModal()">
+<button class="button" onclick="$dialog.showModal()">
   Open Dialog
 </button>
 
 <dialog id="dialog1">
   <header class="dialog-header">
     <h1>Leave Without Saving?</h1>
-    <button class="close" onclick="$dialog.close()"></button>
+    <button class="close button" onclick="$dialog.close()"></button>
   </header>
   <div class="dialog-body">
     <p>You have unsaved edits. What would you like to do?</p>
   </div>
   <div class="dialog-footer">
-    <button class="primary red" onclick="$dialog.close()">
+    <button class="primary red button" onclick="$dialog.close()">
       Discard Changes
     </button>
-    <button autofocus onclick="$dialog.close()">
+    <button class="button" onclick="$dialog.close()">
       Keep Editing
     </button>
   </div>
@@ -61,14 +61,15 @@ const exampleCode = `
               <option value="large">Large</option>
             </select>
           </label>
-          <button onclick="$dialog2.showModal()"> Open Dialog</button>
+          <button class="button" onclick="$dialog2.showModal()">
+            Open Dialog</button
+          >
         </div>
 
         <dialog id="dialog2" x-bind:class="size">
           <header class="dialog-header">
             <h1>This is a <span x-text="size"></span> dialog</h1>
-            <button class="small subtle icon close" onclick="$dialog2.close()"
-            ></button>
+            <button class="close button" onclick="$dialog2.close()"></button>
           </header>
           <div class="dialog-body">
             <p>
@@ -134,14 +135,15 @@ const exampleCode = `
               <option value="large">Large</option>
             </select>
           </label>
-          <button onclick="$drawer.showModal()">Open Drawer</button>
+          <button class="button" onclick="$drawer.showModal()"
+            >Open Drawer</button
+          >
         </div>
 
         <dialog id="drawer1" x-bind:class="'drawer ' + side + ' ' + size">
           <header class="dialog-header">
             <h1>Account Settings</h1>
-            <button class="small subtle icon close" onclick="$drawer.close()"
-            ></button>
+            <button class="close button" onclick="$drawer.close()"></button>
           </header>
 
           <div class="dialog-body dense vertical stack">
@@ -151,7 +153,7 @@ const exampleCode = `
             </label>
             <label class="field">
               Nickname
-              <input autofocus value="Personal Savings" />
+              <input value="Personal Savings" />
             </label>
             <hr />
             <div class="warning alert">
