@@ -258,12 +258,6 @@ sup,
   inset-block-start: -0.5em;
 }
 
-::target-text {
-  background-color: var(--color-brand-8);
-  color: var(--color-brand-1);
-  print-color-adjust: exact;
-}
-
 /* Add a gap between consecutive block text elements */
 // prettier-ignore
 :is(p, .p, blockquote, .blockquote, pre, .pre, samp, .samp, .alert, details):not(.alert-title, .accordion details) +
