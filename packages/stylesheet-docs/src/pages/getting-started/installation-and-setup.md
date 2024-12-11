@@ -9,19 +9,22 @@ title: Installation & Setup
 
 This is usually the easier option if your project supports importing CSS files from its dependencies (true for most frameworks).
 
-First, add the stylesheet as a project dependency by running the following command:
+First, add the stylesheet and fonts as dependencies by running the following command:
 
 ```sh
-npm install @jrgermain/stylesheet
+npm install @jrgermain/stylesheet @fontsource-variable/lexend @fontsource-variable/manrope @fontsource-variable/source-code-pro
 ```
 
-Then, in the entrypoint of your project, add the following import:
+Then, in the entrypoint of your project, add the following imports:
 
 ```js
 import "@jrgermain/stylesheet/index.css";
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/lexend";
+import "@fontsource-variable/source-code-pro";
 ```
 
-Note that the actual name of the file where you need to add this import statement is going to be framework-dependent. Typically this file will be called something like root, index, or main.
+Note that the actual name of the file where you need to add these import statements is going to be framework-dependent. Typically this file will be called something like root, index, or main.
 
 ## Option 2: `<link>` tag
 
@@ -42,6 +45,8 @@ You can either copy the CSS files (`index.min.css` and `index.min.css.map`) into
   href="https://cdn.jsdelivr.net/npm/@jrgermain/stylesheet@0.2.0/dist/index.css"
 />
 ```
+
+You'll also need to add the **Lexend Variable**, **Manrope Variable**, and **Source Code Pro Variable** fonts, either by making local copies or using a CDN. If you're stuck, [Fontsource](https://fontsource.org) can help you download or get CDN links for these fonts.
 
 # Customizing
 
