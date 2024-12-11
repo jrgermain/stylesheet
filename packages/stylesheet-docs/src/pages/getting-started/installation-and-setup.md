@@ -25,17 +25,21 @@ Note that the actual name of the file where you need to add this import statemen
 
 ## Option 2: `<link>` tag
 
-Alternatively, you can add a `<link>` tag to your document head that references the stylesheet. You can either copy the CSS files to your project manually, or reference them from a CDN.
+Alternatively, you can add a `<link>` tag to your document head with a `href` that references the stylesheet.
+
+You can either copy the CSS files (`index.min.css` and `index.min.css.map`) into your public directory and reference the local copy **or** link to a CDN.
 
 ```html
-<!-- Reference file copied into "styles" directory -->
-<link rel="stylesheet" type="text/css" href="/styles/index.css" />
+<!-- Use stylesheet that was copied into $PUBLIC_DIR/styles -->
+<link rel="stylesheet" type="text/css" href="/styles/index.min.css" />
+```
 
-<!-- Reference file from a CDN -->
+```html
+<!-- Pull version 0.2.0 of stylesheet from a CDN -->
 <link
   rel="stylesheet"
   type="text/css"
-  href="https://cdn.jsdelivr.net/npm/@jrgermain/stylesheet@1.0/dist/index.css"
+  href="https://cdn.jsdelivr.net/npm/@jrgermain/stylesheet@0.2.0/dist/index.css"
 />
 ```
 
