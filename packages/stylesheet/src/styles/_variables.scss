@@ -9,23 +9,23 @@
   --opacity-high: 70%;
 
   // Brand
-  --color-brand-1: oklch(15% 55% 270deg);
-  --color-brand-2: oklch(25% 53% 270deg);
-  --color-brand-3: oklch(35% 52% 270deg);
-  --color-brand-4: oklch(45% 51% 270deg);
-  --color-brand-5: oklch(55% 50% 270deg);
-  --color-brand-6: oklch(65% 50% 270deg);
-  --color-brand-7: oklch(75% 45% 270deg);
-  --color-brand-8: oklch(85% 42% 270deg);
-  --color-brand-9: oklch(95% 36% 270deg);
-  --color-brand-transparent: oklch(55% 50% 270deg / var(--opacity-medium));
-  --color-brand-extra-transparent: oklch(55% 50% 270deg / var(--opacity-low));
+  --color-brand-1: oklch(15% 55% 275deg);
+  --color-brand-2: oklch(25% 52% 275deg);
+  --color-brand-3: oklch(35% 52% 275deg);
+  --color-brand-4: oklch(45% 55% 275deg);
+  --color-brand-5: oklch(55% 52% 275deg);
+  --color-brand-6: oklch(65% 50% 275deg);
+  --color-brand-7: oklch(75% 45% 275deg);
+  --color-brand-8: oklch(85% 42% 275deg);
+  --color-brand-9: oklch(95% 36% 275deg);
+  --color-brand-transparent: oklch(55% 52% 275deg / var(--opacity-medium));
+  --color-brand-extra-transparent: oklch(55% 52% 275deg / var(--opacity-low));
 
   // Red
   --color-red-1: oklch(15% 55% 30deg);
   --color-red-2: oklch(25% 52% 30deg);
   --color-red-3: oklch(35% 54% 30deg);
-  --color-red-4: oklch(45% 52% 30deg);
+  --color-red-4: oklch(45% 50% 30deg);
   --color-red-5: oklch(55% 50% 30deg);
   --color-red-6: oklch(65% 50% 30deg);
   --color-red-7: oklch(75% 45% 30deg);
@@ -35,69 +35,69 @@
   --color-red-extra-transparent: oklch(55% 50% 30deg / var(--opacity-low));
 
   // Orange
-  --color-orange-1: oklch(15% 55% 61deg);
-  --color-orange-2: oklch(25% 50% 61deg);
-  --color-orange-3: oklch(35% 49% 61deg);
-  --color-orange-4: oklch(45% 48% 61deg);
-  --color-orange-5: oklch(55% 50% 61deg);
-  --color-orange-6: oklch(65% 50% 61deg);
-  --color-orange-7: oklch(75% 45% 61deg);
-  --color-orange-8: oklch(85% 40% 61deg);
-  --color-orange-9: oklch(95% 35% 61deg);
-  --color-orange-transparent: oklch(55% 50% 61deg / var(--opacity-medium));
-  --color-orange-extra-transparent: oklch(55% 50% 61deg / var(--opacity-low));
+  --color-orange-1: oklch(15% 60% 55deg);
+  --color-orange-2: oklch(25% 60% 55deg);
+  --color-orange-3: oklch(35% 55% 55deg);
+  --color-orange-4: oklch(45% 50% 55deg);
+  --color-orange-5: oklch(55% 50% 55deg);
+  --color-orange-6: oklch(65% 40% 55deg);
+  --color-orange-7: oklch(75% 40% 55deg);
+  --color-orange-8: oklch(85% 40% 55deg);
+  --color-orange-9: oklch(95% 38% 55deg);
+  --color-orange-transparent: oklch(55% 50% 55deg / var(--opacity-medium));
+  --color-orange-extra-transparent: oklch(55% 50% 55deg / var(--opacity-low));
 
   // Yellow
-  --color-yellow-1: oklch(15% 50% 90deg);
-  --color-yellow-2: oklch(25% 50% 90deg);
-  --color-yellow-3: oklch(35% 50% 90deg);
-  --color-yellow-4: oklch(45% 44% 90deg);
-  --color-yellow-5: oklch(55% 44% 90deg);
-  --color-yellow-6: oklch(65% 44% 90deg);
-  --color-yellow-7: oklch(75% 40% 90deg);
-  --color-yellow-8: oklch(85% 37% 90deg);
-  --color-yellow-9: oklch(95% 29% 90deg);
-  --color-yellow-transparent: oklch(55% 44% 90deg / var(--opacity-medium));
-  --color-yellow-extra-transparent: oklch(55% 44% 90deg / var(--opacity-low));
+  --color-yellow-1: oklch(15% 55% 88deg);
+  --color-yellow-2: oklch(25% 55% 88deg);
+  --color-yellow-3: oklch(35% 55% 88deg);
+  --color-yellow-4: oklch(45% 45% 88deg);
+  --color-yellow-5: oklch(55% 45% 88deg);
+  --color-yellow-6: oklch(65% 40% 88deg);
+  --color-yellow-7: oklch(75% 36% 88deg);
+  --color-yellow-8: oklch(85% 30% 88deg);
+  --color-yellow-9: oklch(95% 28% 88deg);
+  --color-yellow-transparent: oklch(55% 45% 88deg / var(--opacity-medium));
+  --color-yellow-extra-transparent: oklch(55% 45% 88deg / var(--opacity-low));
 
   // Green
   --color-green-1: oklch(15% 55% 133deg);
-  --color-green-2: oklch(25% 55% 133deg);
-  --color-green-3: oklch(35% 50% 133deg);
-  --color-green-4: oklch(45% 50% 133deg);
-  --color-green-5: oklch(55% 49% 133deg);
-  --color-green-6: oklch(65% 49% 133deg);
-  --color-green-7: oklch(75% 45% 133deg);
-  --color-green-8: oklch(85% 43% 133deg);
-  --color-green-9: oklch(95% 30% 133deg);
-  --color-green-transparent: oklch(55% 49% 133deg / var(--opacity-medium));
-  --color-green-extra-transparent: oklch(55% 49% 133deg / var(--opacity-low));
+  --color-green-2: oklch(25% 50% 133deg);
+  --color-green-3: oklch(35% 48% 133deg);
+  --color-green-4: oklch(45% 46% 133deg);
+  --color-green-5: oklch(55% 46% 133deg);
+  --color-green-6: oklch(65% 46% 133deg);
+  --color-green-7: oklch(75% 46% 133deg);
+  --color-green-8: oklch(85% 40% 133deg);
+  --color-green-9: oklch(95% 20% 133deg);
+  --color-green-transparent: oklch(55% 46% 133deg / var(--opacity-medium));
+  --color-green-extra-transparent: oklch(55% 46% 133deg / var(--opacity-low));
 
   // Sky
-  --color-sky-1: oklch(15% 55% 200deg);
-  --color-sky-2: oklch(25% 55% 200deg);
-  --color-sky-3: oklch(35% 50% 200deg);
-  --color-sky-4: oklch(45% 50% 200deg);
-  --color-sky-5: oklch(55% 52% 200deg);
-  --color-sky-6: oklch(65% 46% 200deg);
-  --color-sky-7: oklch(75% 36% 200deg);
-  --color-sky-8: oklch(85% 25% 200deg);
-  --color-sky-9: oklch(95% 17% 200deg);
-  --color-sky-transparent: oklch(55% 52% 200deg / var(--opacity-medium));
-  --color-sky-extra-transparent: oklch(55% 52% 200deg / var(--opacity-low));
+  --color-sky-1: oklch(15% 55% 195deg);
+  --color-sky-2: oklch(25% 55% 195deg);
+  --color-sky-3: oklch(35% 50% 195deg);
+  --color-sky-4: oklch(45% 50% 195deg);
+  --color-sky-5: oklch(55% 52% 195deg);
+  --color-sky-6: oklch(65% 45% 195deg);
+  --color-sky-7: oklch(75% 35% 195deg);
+  --color-sky-8: oklch(85% 25% 195deg);
+  --color-sky-9: oklch(95% 12% 195deg);
+  --color-sky-transparent: oklch(55% 52% 195deg / var(--opacity-medium));
+  --color-sky-extra-transparent: oklch(55% 52% 195deg / var(--opacity-low));
 
   // Blue
-  --color-blue-1: oklch(15% 55% 260deg);
-  --color-blue-2: oklch(25% 55% 260deg);
-  --color-blue-3: oklch(35% 53% 260deg);
-  --color-blue-4: oklch(45% 50% 260deg);
-  --color-blue-5: oklch(55% 52% 260deg);
+  --color-blue-1: oklch(15% 52% 260deg);
+  --color-blue-2: oklch(25% 48% 260deg);
+  --color-blue-3: oklch(35% 46% 260deg);
+  --color-blue-4: oklch(45% 48% 260deg);
+  --color-blue-5: oklch(55% 50% 260deg);
   --color-blue-6: oklch(65% 52% 260deg);
-  --color-blue-7: oklch(75% 52% 260deg);
-  --color-blue-8: oklch(85% 50% 260deg);
-  --color-blue-9: oklch(95% 39% 260deg);
-  --color-blue-transparent: oklch(55% 52% 260deg / var(--opacity-medium));
-  --color-blue-extra-transparent: oklch(55% 52% 260deg / var(--opacity-low));
+  --color-blue-7: oklch(75% 48% 260deg);
+  --color-blue-8: oklch(85% 45% 260deg);
+  --color-blue-9: oklch(95% 42% 260deg);
+  --color-blue-transparent: oklch(55% 50% 260deg / var(--opacity-medium));
+  --color-blue-extra-transparent: oklch(55% 50% 260deg / var(--opacity-low));
 
   // Purple
   --color-purple-1: oklch(15% 55% 310deg);
@@ -106,7 +106,7 @@
   --color-purple-4: oklch(45% 52% 310deg);
   --color-purple-5: oklch(55% 52% 310deg);
   --color-purple-6: oklch(65% 51% 310deg);
-  --color-purple-7: oklch(75% 48% 310deg);
+  --color-purple-7: oklch(75% 42% 310deg);
   --color-purple-8: oklch(85% 42% 310deg);
   --color-purple-9: oklch(95% 40% 310deg);
   --color-purple-transparent: oklch(55% 52% 310deg / var(--opacity-medium));
@@ -116,12 +116,12 @@
   --color-magenta-1: oklch(15% 55% 356deg);
   --color-magenta-2: oklch(25% 55% 356deg);
   --color-magenta-3: oklch(35% 54% 356deg);
-  --color-magenta-4: oklch(45% 51% 356deg);
+  --color-magenta-4: oklch(45% 46% 356deg);
   --color-magenta-5: oklch(55% 50% 356deg);
-  --color-magenta-6: oklch(65% 47% 356deg);
-  --color-magenta-7: oklch(75% 43% 356deg);
-  --color-magenta-8: oklch(85% 38% 356deg);
-  --color-magenta-9: oklch(95% 30% 356deg);
+  --color-magenta-6: oklch(65% 48% 356deg);
+  --color-magenta-7: oklch(75% 42% 356deg);
+  --color-magenta-8: oklch(85% 36% 356deg);
+  --color-magenta-9: oklch(95% 34% 356deg);
   --color-magenta-transparent: oklch(55% 50% 356deg / var(--opacity-medium));
   --color-magenta-extra-transparent: oklch(55% 50% 356deg / var(--opacity-low));
 
@@ -148,121 +148,111 @@
 
   @media (prefers-color-scheme: dark) {
     // Brand
-    --color-brand-9: oklch(17% 55% 270deg);
-    --color-brand-8: oklch(27% 53% 270deg);
-    --color-brand-7: oklch(37% 52% 270deg);
-    --color-brand-6: oklch(47% 51% 270deg);
-    --color-brand-5: oklch(57% 50% 270deg);
-    --color-brand-4: oklch(67% 50% 270deg);
-    --color-brand-3: oklch(77% 45% 270deg);
-    --color-brand-2: oklch(87% 42% 270deg);
-    --color-brand-1: oklch(97% 36% 270deg);
+    --color-brand-9: oklch(15% 55% 275deg);
+    --color-brand-8: oklch(25% 52% 275deg);
+    --color-brand-7: oklch(35% 52% 275deg);
+    --color-brand-6: oklch(45% 55% 275deg);
+    --color-brand-4: oklch(65% 50% 275deg);
+    --color-brand-3: oklch(75% 45% 275deg);
+    --color-brand-2: oklch(85% 42% 275deg);
+    --color-brand-1: oklch(95% 36% 275deg);
 
     // Red
-    --color-red-9: oklch(17% 55% 30deg);
-    --color-red-8: oklch(27% 52% 30deg);
-    --color-red-7: oklch(37% 54% 30deg);
-    --color-red-6: oklch(47% 52% 30deg);
-    --color-red-5: oklch(57% 50% 30deg);
-    --color-red-4: oklch(67% 50% 30deg);
-    --color-red-3: oklch(77% 45% 30deg);
-    --color-red-2: oklch(87% 45% 30deg);
-    --color-red-1: oklch(97% 38% 30deg);
+    --color-red-9: oklch(15% 55% 30deg);
+    --color-red-8: oklch(25% 52% 30deg);
+    --color-red-7: oklch(35% 54% 30deg);
+    --color-red-6: oklch(45% 50% 30deg);
+    --color-red-4: oklch(65% 50% 30deg);
+    --color-red-3: oklch(75% 45% 30deg);
+    --color-red-2: oklch(85% 45% 30deg);
+    --color-red-1: oklch(95% 38% 30deg);
 
     // Orange
-    --color-orange-9: oklch(17% 55% 61deg);
-    --color-orange-8: oklch(27% 50% 61deg);
-    --color-orange-7: oklch(37% 49% 61deg);
-    --color-orange-6: oklch(47% 48% 61deg);
-    --color-orange-5: oklch(57% 50% 61deg);
-    --color-orange-4: oklch(67% 50% 61deg);
-    --color-orange-3: oklch(77% 45% 61deg);
-    --color-orange-2: oklch(87% 40% 61deg);
-    --color-orange-1: oklch(97% 35% 61deg);
+    --color-orange-9: oklch(15% 60% 55deg);
+    --color-orange-8: oklch(25% 60% 55deg);
+    --color-orange-7: oklch(35% 55% 55deg);
+    --color-orange-6: oklch(45% 50% 55deg);
+    --color-orange-4: oklch(65% 40% 55deg);
+    --color-orange-3: oklch(75% 40% 55deg);
+    --color-orange-2: oklch(85% 40% 55deg);
+    --color-orange-1: oklch(95% 38% 55deg);
 
     // Yellow
-    --color-yellow-9: oklch(17% 50% 90deg);
-    --color-yellow-8: oklch(27% 50% 90deg);
-    --color-yellow-7: oklch(37% 50% 90deg);
-    --color-yellow-6: oklch(47% 44% 90deg);
-    --color-yellow-5: oklch(57% 44% 90deg);
-    --color-yellow-4: oklch(67% 44% 90deg);
-    --color-yellow-3: oklch(77% 40% 90deg);
-    --color-yellow-2: oklch(87% 37% 90deg);
-    --color-yellow-1: oklch(97% 29% 90deg);
+    --color-yellow-9: oklch(15% 55% 88deg);
+    --color-yellow-8: oklch(25% 55% 88deg);
+    --color-yellow-7: oklch(35% 55% 88deg);
+    --color-yellow-6: oklch(45% 45% 88deg);
+    --color-yellow-4: oklch(65% 40% 88deg);
+    --color-yellow-3: oklch(75% 36% 88deg);
+    --color-yellow-2: oklch(85% 30% 88deg);
+    --color-yellow-1: oklch(95% 28% 88deg);
 
     // Green
-    --color-green-9: oklch(17% 55% 133deg);
-    --color-green-8: oklch(27% 55% 133deg);
-    --color-green-7: oklch(37% 50% 133deg);
-    --color-green-6: oklch(47% 50% 133deg);
-    --color-green-5: oklch(57% 49% 133deg);
-    --color-green-4: oklch(67% 49% 133deg);
-    --color-green-3: oklch(77% 45% 133deg);
-    --color-green-2: oklch(87% 43% 133deg);
-    --color-green-1: oklch(97% 30% 133deg);
+    --color-green-9: oklch(15% 55% 133deg);
+    --color-green-8: oklch(25% 50% 133deg);
+    --color-green-7: oklch(35% 48% 133deg);
+    --color-green-6: oklch(45% 46% 133deg);
+    --color-green-4: oklch(65% 46% 133deg);
+    --color-green-3: oklch(75% 46% 133deg);
+    --color-green-2: oklch(85% 40% 133deg);
+    --color-green-1: oklch(95% 20% 133deg);
 
     // Sky
-    --color-sky-9: oklch(17% 55% 200deg);
-    --color-sky-8: oklch(27% 55% 200deg);
-    --color-sky-7: oklch(37% 50% 200deg);
-    --color-sky-6: oklch(47% 50% 200deg);
-    --color-sky-5: oklch(57% 52% 200deg);
-    --color-sky-4: oklch(67% 46% 200deg);
-    --color-sky-3: oklch(77% 36% 200deg);
-    --color-sky-2: oklch(87% 25% 200deg);
-    --color-sky-1: oklch(97% 17% 200deg);
+    --color-sky-9: oklch(15% 55% 195deg);
+    --color-sky-8: oklch(25% 55% 195deg);
+    --color-sky-7: oklch(35% 50% 195deg);
+    --color-sky-6: oklch(45% 50% 195deg);
+    --color-sky-4: oklch(65% 45% 195deg);
+    --color-sky-3: oklch(75% 35% 195deg);
+    --color-sky-2: oklch(85% 25% 195deg);
+    --color-sky-1: oklch(95% 12% 195deg);
 
     // Blue
-    --color-blue-9: oklch(17% 55% 260deg);
-    --color-blue-8: oklch(27% 55% 260deg);
-    --color-blue-7: oklch(37% 53% 260deg);
-    --color-blue-6: oklch(47% 50% 260deg);
-    --color-blue-5: oklch(57% 52% 260deg);
-    --color-blue-4: oklch(67% 52% 260deg);
-    --color-blue-3: oklch(77% 52% 260deg);
-    --color-blue-2: oklch(87% 50% 260deg);
-    --color-blue-1: oklch(97% 39% 260deg);
+    --color-blue-9: oklch(15% 52% 260deg);
+    --color-blue-8: oklch(25% 48% 260deg);
+    --color-blue-7: oklch(35% 46% 260deg);
+    --color-blue-6: oklch(45% 48% 260deg);
+    --color-blue-4: oklch(65% 52% 260deg);
+    --color-blue-3: oklch(75% 48% 260deg);
+    --color-blue-2: oklch(85% 45% 260deg);
+    --color-blue-1: oklch(95% 42% 260deg);
 
     // Purple
-    --color-purple-9: oklch(17% 55% 310deg);
-    --color-purple-8: oklch(27% 55% 310deg);
-    --color-purple-7: oklch(37% 53% 310deg);
-    --color-purple-6: oklch(47% 52% 310deg);
-    --color-purple-5: oklch(57% 52% 310deg);
-    --color-purple-4: oklch(67% 51% 310deg);
-    --color-purple-3: oklch(77% 48% 310deg);
-    --color-purple-2: oklch(87% 42% 310deg);
-    --color-purple-1: oklch(97% 40% 310deg);
+    --color-purple-9: oklch(15% 55% 310deg);
+    --color-purple-8: oklch(25% 55% 310deg);
+    --color-purple-7: oklch(35% 53% 310deg);
+    --color-purple-6: oklch(45% 52% 310deg);
+    --color-purple-4: oklch(65% 51% 310deg);
+    --color-purple-3: oklch(75% 42% 310deg);
+    --color-purple-2: oklch(85% 42% 310deg);
+    --color-purple-1: oklch(95% 40% 310deg);
 
     // Magenta
-    --color-magenta-9: oklch(17% 55% 356deg);
-    --color-magenta-8: oklch(27% 55% 356deg);
-    --color-magenta-7: oklch(37% 54% 356deg);
-    --color-magenta-6: oklch(47% 51% 356deg);
-    --color-magenta-5: oklch(57% 50% 356deg);
-    --color-magenta-4: oklch(67% 47% 356deg);
-    --color-magenta-3: oklch(77% 43% 356deg);
-    --color-magenta-2: oklch(87% 38% 356deg);
-    --color-magenta-1: oklch(97% 30% 356deg);
+    --color-magenta-9: oklch(15% 55% 356deg);
+    --color-magenta-8: oklch(25% 55% 356deg);
+    --color-magenta-7: oklch(35% 54% 356deg);
+    --color-magenta-6: oklch(45% 46% 356deg);
+    --color-magenta-4: oklch(65% 48% 356deg);
+    --color-magenta-3: oklch(75% 42% 356deg);
+    --color-magenta-2: oklch(85% 36% 356deg);
+    --color-magenta-1: oklch(95% 34% 356deg);
 
     // Gray
-    --color-gray-9: oklch(17% 2% 263deg);
-    --color-gray-8: oklch(27% 2% 263deg);
-    --color-gray-7: oklch(37% 2% 263deg);
-    --color-gray-6: oklch(47% 2% 263deg);
-    --color-gray-5: oklch(57% 2% 263deg);
-    --color-gray-4: oklch(67% 2% 263deg);
-    --color-gray-3: oklch(77% 2% 263deg);
-    --color-gray-2: oklch(87% 2% 263deg);
-    --color-gray-1: oklch(97% 2% 263deg);
+    --color-gray-9: oklch(15% 2% 263deg);
+    --color-gray-8: oklch(25% 2% 263deg);
+    --color-gray-7: oklch(35% 2% 263deg);
+    --color-gray-6: oklch(45% 2% 263deg);
+    --color-gray-4: oklch(65% 2% 263deg);
+    --color-gray-3: oklch(75% 2% 263deg);
+    --color-gray-2: oklch(85% 2% 263deg);
+    --color-gray-1: oklch(95% 2% 263deg);
 
     // Darker replacements for semantic colors
     --color-body: oklch(20% 2% 263deg);
     --color-body-alt: oklch(8% 2% 263deg);
     --color-body-text: white;
-    --color-body-text-alt: oklch(88% 1% 263deg);
-    --color-shadow: oklch(5% 2% 263deg / 25%);
+    --color-body-text-alt: oklch(85% 1% 263deg);
+    --color-shadow: oklch(5% 2% 263deg / 40%);
     --color-outline: oklch(39% 2% 263deg);
 
     // Slightly decrease font weights
