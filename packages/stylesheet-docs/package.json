@@ -17,7 +17,7 @@
     "@fontsource-variable/manrope": "^5.0.18",
     "@fontsource-variable/source-code-pro": "^5.0.17",
     "@jrgermain/stylesheet": "file:../stylesheet",
-    "astro": "^4.16.6",
+    "astro": "^4.16.18",
     "prettier": "^3.1.1"
   },
   "devDependencies": {
