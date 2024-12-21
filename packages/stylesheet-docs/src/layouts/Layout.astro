@@ -83,7 +83,7 @@ const navSections = [
         </div>
         <div class="app-header-section">
           <a
-            class="app-header-item"
+            class="app-header-item hide-when-really-narrow"
             href="https://github.com/jrgermain/stylesheet"
             title="GitHub"
           >
@@ -98,7 +98,7 @@ const navSections = [
             <span class="sr-only">GitHub</span>
           </a>
           <a
-            class="app-header-item"
+            class="app-header-item hide-when-really-narrow"
             href="https://www.npmjs.com/package/@jrgermain/stylesheet"
             title="NPM"
           >
@@ -134,6 +134,23 @@ const navSections = [
               </section>
             ))
           }
+          <section class="app-sidebar-section show-when-really-narrow">
+            <h1 class="app-sidebar-heading">Links</h1>
+            <a
+              class="app-sidebar-item"
+              href="https://github.com/jrgermain/stylesheet"
+              target="_blank"
+            >
+              GitHub
+            </a>
+            <a
+              class="app-sidebar-item"
+              href="https://www.npmjs.com/package/@jrgermain/stylesheet"
+              target="_blank"
+            >
+              NPM
+            </a>
+          </section>
         </div>
       </nav>
       <main id="main-content" class="app-content">
@@ -169,5 +186,17 @@ const navSections = [
 
   .npm-logo {
     width: 2.1rem;
+  }
+
+  @media screen and (width < 480px) {
+    .hide-when-really-narrow {
+      display: none;
+    }
+  }
+
+  @media screen and (width >= 480px) {
+    .show-when-really-narrow {
+      display: none;
+    }
   }
 </style>
