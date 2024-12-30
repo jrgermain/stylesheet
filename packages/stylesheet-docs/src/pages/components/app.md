@@ -26,7 +26,6 @@ The root element of your app should have the class `app`. The rest of your appli
 
 Another valid option (e.g., for a react SPA) would be something like this:
 
-````html
 ```html
 <html>
   <head>
@@ -36,7 +35,7 @@ Another valid option (e.g., for a react SPA) would be something like this:
     <div id="root" class="app">...</div>
   </body>
 </html>
-````
+```
 
 ## App Header
 

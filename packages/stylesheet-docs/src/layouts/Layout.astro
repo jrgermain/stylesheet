@@ -4,6 +4,7 @@ import "@fontsource-variable/manrope";
 import "@fontsource-variable/lexend";
 import "@fontsource-variable/source-code-pro";
 import NavLink from "../components/NavLink.astro";
+import joey from "../assets/joey.jpg";
 
 interface Props {
   title: string;
@@ -60,17 +61,16 @@ const navSections = [
       name="description"
       content="Documentation for @jrgermain/stylesheet - a stylesheet for apps I build."
     />
-    <script
-      is:inline
-      src="https://unpkg.com/htmx.org@1.9.11"
-      integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
-      crossorigin="anonymous"></script>
-    <script
-      is:inline
-      defer
-      src="https://unpkg.com/alpinejs@3.13.8/dist/cdn.min.js"
-      integrity="sha384-MGt/yQlIAvCVZEB4PNx8b9JxEfqFXemRJcpH6AIHAxDt1bRfYFeOnv3HJMW0LVD3"
-      crossorigin="anonymous"></script>
+    <meta name="theme-color" content="#fff" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="oklch(8% 2% 263deg)"
+    />
+    <script>
+      import Alpine from "alpinejs";
+      Alpine.start();
+    </script>
   </head>
   <body class="app">
     <a class="skip-link" href="#main-content"
@@ -79,7 +79,12 @@ const navSections = [
     <header class="app-header">
       <div class="app-header-content">
         <div class="app-header-section">
-          <a class="app-header-item title" href="/">@jrgermain/stylesheet</a>
+          <a class="app-header-item title" href="/">
+            <img aria-hidden="true" src={joey.src} />
+            <span aria-hidden="true" class="slash"></span>
+            <span class="sr-only">jrgermain/</span>
+            stylesheet
+          </a>
         </div>
         <div class="app-header-section">
           <a
@@ -176,8 +181,26 @@ const navSections = [
 <style>
   .title {
     margin: auto;
-    font-family: var(--font-family-mono);
-    font-size: 1.1rem;
+    font-family: var(--font-family-heading);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .title img {
+    background-color: var(--color-brand-3);
+    height: 1.6em;
+    width: 1.6em;
+    border: var(--border-m) solid transparent;
+    border-radius: var(--radius-full);
+  }
+
+  .slash {
+    background-color: var(--color-brand-transparent);
+    width: var(--border-m);
+    height: 1.25em;
+    rotate: 22deg;
+    margin-inline: var(--space-2xs);
   }
 
   .github-logo {
