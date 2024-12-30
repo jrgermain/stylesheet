@@ -95,7 +95,7 @@
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  transition-property: color;
+  transition-property: color, background-color;
   transition-duration: 200ms;
   transition-timing-function: ease;
   display: flex;
@@ -103,13 +103,16 @@
   position: relative;
   font-weight: var(--font-weight-semibold);
   padding-inline: var(--space-xs);
-
-  &:focus-visible {
-    outline-offset: calc(-1 * var(--border-m));
-  }
+  border-radius: var(--radius-m);
+  border: var(--border-m) solid var(--color-body-alt);
 
   &:hover {
-    color: var(--color-body-text);
+    background-color: var(--color-brand-extra-transparent);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-brand-extra-transparent);
+    outline-offset: calc(-1 * var(--border-m));
   }
 
   &:is([aria-current], .current) {
@@ -125,7 +128,7 @@
     position: absolute;
     width: 100%;
     height: var(--border-l);
-    bottom: calc(-1 * var(--border-l));
+    bottom: calc(-1 * (var(--border-l) + var(--border-m)));
     left: 0;
     background-color: currentcolor;
     opacity: 0;
@@ -190,6 +193,7 @@
   text-decoration: none;
   font-weight: var(--font-weight-normal);
   font-size: 1rem;
+  user-select: none;
   transition-property: color, background-color, box-shadow;
   transition-duration: 200ms;
   transition-timing-function: ease;
@@ -213,6 +217,7 @@
 
   &:focus-visible {
     outline-offset: 0;
+    background-color: var(--color-brand-extra-transparent);
   }
 }
 
@@ -223,10 +228,6 @@
   display: none;
   width: 2.75rem;
   margin-inline-start: 1rem;
-
-  &:hover {
-    color: var(--color-body-text);
-  }
 
   &:has(input:focus-visible) {
     outline: var(--border-m) solid var(--color-brand-5);
