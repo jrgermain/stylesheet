@@ -2,19 +2,25 @@
 @use "./layout";
 
 .app {
-  --app-width: 110rem;
+  // The app is designed to take up the entire width of the page. However, we
+  // set a global limit on the overall width of its content for UX and aesthetic
+  // reasons. The wrapper elements of the page will always extend to the edge of
+  // the screen, but all content within them will be kept within this limit and
+  // centered.
+  --app-max-content-width: 110rem;
+  --app-header-height: clamp(50px, 3.5rem, 70px);
+  --app-sidebar-width: clamp(300px, 18rem, 400px);
 
   position: relative;
-  width: min-content;
-  min-width: 100%;
+  width: 100%;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
 
 .app-header {
-  height: clamp(50px, 3.5rem, 70px);
-  width: 100dvw;
+  height: var(--app-header-height);
+  width: 100%;
   color: var(--color-brand-3);
   background-color: var(--color-body-alt);
   border-bottom: var(--border-l) solid var(--color-brand-transparent);
@@ -31,7 +37,7 @@
 .app-header-content {
   height: 100%;
   width: 100%;
-  max-width: var(--app-width);
+  max-width: var(--app-max-content-width);
   margin-inline: auto;
   padding-inline: var(--space-body);
   display: flex;
@@ -130,7 +136,7 @@
 .app-body {
   position: relative;
   width: 100%;
-  max-width: var(--app-width);
+  max-width: var(--app-max-content-width);
   margin-inline: auto;
   flex: none;
   display: flex;
@@ -141,7 +147,7 @@
   transition:
     opacity 150ms ease,
     display 150ms allow-discrete;
-  width: clamp(300px, 18rem, 400px);
+  width: var(--app-sidebar-width);
   flex: none;
   opacity: 1;
   border-inline-end: var(--border-s) dashed var(--color-outline);
@@ -151,8 +157,8 @@
   position: sticky;
   top: 0;
   overflow: auto;
-  height: auto;
   height: 100dvh;
+  overscroll-behavior: contain;
 }
 
 .app-sidebar-section {
@@ -285,18 +291,32 @@
 .app-content {
   width: 100%;
   padding: var(--space-body);
+  position: relative;
 }
 
-.app:has(.app-sidebar) {
-  --app-width: 125rem;
+// If there's a sidebar, shrink the content area to accommodate it
+.app-sidebar ~ .app-content {
+  width: calc(100% - var(--app-sidebar-width));
 }
 
 @media (width < 55rem) {
+  // If there's a sidebar, DON'T factor its width into the content width since
+  // the sidebar now has `position: fixed`. This only applies to pages with a
+  // sidebar; without one, app-content's width is already 100%.
+  .app-sidebar ~ .app-content {
+    width: 100%;
+  }
+
   .app-sidebar {
-    width: 100dvw;
+    position: fixed;
+    top: var(--app-header-height);
+    left: 0;
+    width: 100vw;
     opacity: 1;
     background-color: #fffc;
     backdrop-filter: blur(24px) saturate(120%);
+    border-right: 0;
+    z-index: 9;
 
     @media (prefers-color-scheme: dark) {
       background-color: #000c;
@@ -311,8 +331,37 @@
     display: initial;
   }
 
-  .app:has(.app-sidebar-toggle input:not(:checked)) .app-sidebar {
+  .app-sidebar-content {
+    height: calc(100dvh - var(--app-header-height));
+  }
+
+  .app:not(:has(.app-sidebar-toggle input:checked)) .app-sidebar {
     opacity: 0;
     display: none;
   }
+
+  // If sidebar is open, temporarily hide the overflow and any site-wide banners
+  .app:has(.app-sidebar-toggle input:checked) {
+    overflow: hidden;
+
+    > .banner {
+      display: none;
+    }
+
+    .app-header {
+      position: fixed;
+      top: 0;
+      z-index: 10;
+    }
+
+    .app-content {
+      top: var(--app-header-height);
+    }
+  }
+}
+
+.app:has(dialog:modal) {
+  // If modal is open, hide the overflow. This prevents the user from scrolling
+  // the page down by dragging on the header, which they'd have no way to undo.
+  overflow: hidden;
 }
