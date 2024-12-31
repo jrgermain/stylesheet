@@ -5,4 +5,14 @@ export default defineConfig({
   redirects: {
     "/": { destination: "/getting-started/introduction", status: 307 },
   },
+  vite: {
+    ssr: {
+      noExternal: ["@jrgermain/stylesheet"],
+    },
+    server: {
+      fs: {
+        allow: [".."],
+      },
+    },
+  },
 });

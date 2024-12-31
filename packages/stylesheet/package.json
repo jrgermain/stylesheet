@@ -33,17 +33,25 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "index.cjs",
+    "index.mjs"
   ],
   "exports": {
     ".": {
-      "sass": "./src/styles/index.scss"
-    },
-    "./index.scss": "./src/styles/index.scss",
-    "./index.css": "./dist/index.css",
-    "./index.min.css": "./dist/index.min.css"
+      "sass": "./src/styles/index.scss",
+      "browser": "./dist/index.css",
+      "unpkg": "./dist/index.css",
+      "require": "./index.cjs",
+      "default": "./index.mjs"
+    }
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "dependencies": {
+    "@fontsource-variable/lexend": "^5.1.2",
+    "@fontsource-variable/manrope": "^5.1.1",
+    "@fontsource-variable/source-code-pro": "^5.1.1"
+  }
 }

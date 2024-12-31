@@ -6,9 +6,6 @@ const postcssSass = require("@csstools/postcss-sass");
 const postcssPresetEnv = require("postcss-preset-env");
 const cssnano = require("cssnano");
 
-const sourceFilePath = path.join(__dirname, "../src/styles/index.scss");
-const destDirectoryPath = path.join(__dirname, "../dist");
-
 /** @type {import('postcss-preset-env').pluginOptions} */
 const presetEnvOptions = {
   features: {
@@ -27,57 +24,47 @@ const cssNanoOptionsMinified = {
   preset: "default",
 };
 
-const processFile = async ({ source, plugins, outputFilename }) => {
-  const outputPath = path.join(destDirectoryPath, outputFilename);
+const projectRoot = path.join(__dirname, "..");
 
-  return postcss(plugins)
-    .process(source, {
-      from: sourceFilePath,
-      to: outputPath,
-    })
-    .then((result) => {
-      const promises = [];
-      if (result.map) {
-        promises.push(
-          fs.writeFile(
-            outputPath,
-            `${result.css}\n/*# sourceMappingURL=${outputFilename}.map */`
-          )
-        );
-        promises.push(fs.writeFile(`${outputPath}.map`, result.map.toString()));
-      } else {
-        promises.push(fs.writeFile(outputPath, result.css));
-      }
-      return promises;
-    });
+const processCssFile = async (sourcePath, destPath, plugins) => {
+  const absoluteSourcePath = path.join(projectRoot, sourcePath);
+  const absoluteDestPath = path.join(projectRoot, destPath);
+
+  const sourceContent = await fs.readFile(absoluteSourcePath, "utf-8");
+
+  const result = await postcss(plugins).process(sourceContent, {
+    from: absoluteSourcePath,
+    to: absoluteDestPath,
+  });
+
+  if (result.map) {
+    const destFilename = path.basename(destPath);
+    const sourceMapRef = `\n/*# sourceMappingURL=./${destFilename}.map */`;
+    await fs.writeFile(absoluteDestPath, result.css + sourceMapRef);
+    await fs.writeFile(`${absoluteDestPath}.map`, result.map.toString());
+  } else {
+    await fs.writeFile(absoluteDestPath, result.css);
+  }
 };
 
-rimraf(destDirectoryPath)
-  .then(() => fs.mkdir(destDirectoryPath))
-  .then(() => fs.readFile(sourceFilePath))
-  .then((source) =>
-    Promise.all([
-      processFile({
-        source,
-        plugins: [
-          postcssSass,
-          postcssPresetEnv(presetEnvOptions),
-          cssnano(cssNanoOptionsNormal),
-        ],
-        outputFilename: "index.css",
-      }),
-      processFile({
-        source,
-        plugins: [
-          postcssSass,
-          postcssPresetEnv(presetEnvOptions),
-          cssnano(cssNanoOptionsMinified),
-        ],
-        outputFilename: "index.min.css",
-      }),
-    ])
-  )
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  });
+(async () => {
+  // Prepare dist directory
+  const distPath = path.join(projectRoot, "dist");
+  await rimraf(distPath);
+  await fs.mkdir(distPath);
+
+  // Process files
+  await processCssFile("src/styles/index.scss", "dist/index.css", [
+    postcssSass,
+    postcssPresetEnv(presetEnvOptions),
+    cssnano(cssNanoOptionsNormal),
+  ]);
+  await processCssFile("src/styles/index.scss", "dist/index.min.css", [
+    postcssSass,
+    postcssPresetEnv(presetEnvOptions),
+    cssnano(cssNanoOptionsMinified),
+  ]);
+})().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
