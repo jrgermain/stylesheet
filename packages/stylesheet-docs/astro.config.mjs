@@ -9,8 +9,5 @@ export default defineConfig({
     ssr: {
       noExternal: ["@jrgermain/stylesheet"],
     },
-    resolve: {
-      preserveSymlinks: true,
-    },
   },
 });
