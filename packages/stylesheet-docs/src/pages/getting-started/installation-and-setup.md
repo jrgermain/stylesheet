@@ -56,11 +56,11 @@ You can either copy the CSS files (`index.min.css` and optionally `index.min.css
 ```
 
 ```html
-<!-- Pull version 0.2.0 of stylesheet from a CDN -->
+<!-- Pull version 0.3.0 of stylesheet from a CDN -->
 <link
   rel="stylesheet"
   type="text/css"
-  href="https://cdn.jsdelivr.net/npm/@jrgermain/stylesheet@0.2.0"
+  href="https://cdn.jsdelivr.net/npm/@jrgermain/stylesheet@0.3.0"
 />
 ```
 
