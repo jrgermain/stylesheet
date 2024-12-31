@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@types/alpinejs": "^3.13.11",
+    "rollup-plugin-import-css": "^3.5.8",
     "typescript": "^5.4.2"
   },
   "browserslist": [
