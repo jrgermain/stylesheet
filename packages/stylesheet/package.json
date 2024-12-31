@@ -44,6 +44,11 @@
       "unpkg": "./dist/index.css",
       "require": "./index.cjs",
       "default": "./index.mjs"
+    },
+    "./index.css": "./dist/index.css",
+    "./index.js": {
+      "require": "./index.cjs",
+      "default": "./index.mjs"
     }
   },
   "browserslist": [
