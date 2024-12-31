@@ -1,6 +1,3 @@
-@use "./text";
-@use "../utils";
-
 details {
   width: 100%;
   background-color: var(--color-body-alt);
@@ -52,9 +49,7 @@ details {
 
     // Replacement marker element
     &::before {
-      content: #{utils.svg-to-data-url(
-          '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></svg>'
-        )};
+      content: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></svg>');
       display: inline-block;
       position: absolute;
       inset-block: 0;
@@ -88,9 +83,7 @@ details {
       }
 
       &::before {
-        content: #{utils.svg-to-data-url(
-            '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></svg>'
-          )};
+        content: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></svg>');
       }
     }
   }
