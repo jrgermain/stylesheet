@@ -1,5 +1,6 @@
-import path from "node:path";
 import { defineConfig } from "astro/config";
+import css from "rollup-plugin-import-css";
+
 // https://astro.build/config
 export default defineConfig({
   redirects: {
@@ -9,12 +10,10 @@ export default defineConfig({
     ssr: {
       noExternal: ["@jrgermain/stylesheet"],
     },
-    resolve: {
-      dedupe: [
-        "@fontsource-variable/manrope",
-        "@fontsource-variable/lexend",
-        "@fontsource-variable/source-code-pro",
-      ],
+    build: {
+      rollupOptions: {
+        plugins: [css()],
+      },
     },
   },
 });
