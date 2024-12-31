@@ -9,10 +9,8 @@ export default defineConfig({
     ssr: {
       noExternal: ["@jrgermain/stylesheet"],
     },
-    server: {
-      fs: {
-        allow: [".."],
-      },
+    resolve: {
+      preserveSymlinks: true,
     },
   },
 });
