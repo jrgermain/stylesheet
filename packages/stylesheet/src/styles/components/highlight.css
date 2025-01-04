@@ -1,0 +1,37 @@
+.highlight,
+.style-semantic-elements mark {
+  background-color: var(--color-yellow-8);
+  color: var(--color-yellow-2);
+  print-color-adjust: exact;
+}
+
+.highlight.removed,
+.style-semantic-elements del {
+  background-color: var(--color-red-8);
+  color: var(--color-red-2);
+  transition: text-decoration-color 150ms ease;
+  text-decoration-line: line-through;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--border-m);
+  text-decoration-color: var(--color-red-4);
+  print-color-adjust: exact;
+
+  &:hover {
+    text-decoration-color: transparent;
+  }
+}
+
+.highlight.added,
+.style-semantic-elements ins {
+  background-color: var(--color-green-8);
+  color: var(--color-green-2);
+  text-decoration-thickness: var(--border-m);
+  text-decoration-color: var(--color-green-4);
+  print-color-adjust: exact;
+}
+
+::target-text {
+  background-color: var(--color-brand-8);
+  color: var(--color-brand-2);
+  print-color-adjust: exact;
+}

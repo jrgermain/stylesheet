@@ -1,5 +1,5 @@
-hr,
-.hr {
+.divider,
+.style-semantic-elements :is(hr, br) {
   background-color: var(--color-outline);
   border: 0;
   outline: 0;
@@ -9,10 +9,6 @@ hr,
   margin: var(--space-xs) 0;
   print-color-adjust: exact;
 
-  &.invisible {
-    visibility: hidden;
-  }
-
   &.vertical {
     display: inline-block;
     width: var(--border-s);
@@ -20,4 +16,9 @@ hr,
     min-height: 1em;
     margin: 0 var(--space-xs);
   }
+}
+
+.divider.invisible,
+.style-semantic-elements br {
+  visibility: hidden;
 }

@@ -1,14 +1,14 @@
-dialog[open] {
+dialog:is(.modal, .drawer)[open] {
   display: flex;
   transform: var(--dialog-open-transform);
   opacity: var(--dialog-open-opacity);
 }
 
-dialog[open]::backdrop {
+dialog:is(.modal, .drawer)[open]::backdrop {
   opacity: var(--dialog-backdrop-open-opacity);
 }
 
-dialog {
+dialog:is(.modal, .drawer) {
   transform: var(--dialog-ending-transform);
   opacity: var(--dialog-ending-opacity);
   transition:
@@ -18,7 +18,7 @@ dialog {
     overlay 150ms ease allow-discrete;
 }
 
-dialog::backdrop {
+dialog:is(.modal, .drawer)::backdrop {
   opacity: var(--dialog-backdrop-ending-opacity);
   transition:
     transform 150ms ease,
@@ -28,12 +28,12 @@ dialog::backdrop {
 }
 
 @starting-style {
-  dialog[open] {
+  dialog:is(.modal, .drawer)[open] {
     transform: var(--dialog-starting-transform);
     opacity: var(--dialog-starting-opacity);
   }
 
-  dialog[open]::backdrop {
+  dialog:is(.modal, .drawer)[open]::backdrop {
     opacity: var(--dialog-backdrop-starting-opacity);
   }
 }

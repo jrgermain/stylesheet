@@ -1,0 +1,10 @@
+.abbreviation,
+.style-semantic-elements abbr[title] {
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties  -- using the shorthand doesn't work in safari */
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--color-gray-6);
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties  -- using the shorthand doesn't work in safari */
+  text-decoration-thickness: var(--border-m);
+  text-underline-offset: 0.1em;
+}

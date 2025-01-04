@@ -1,49 +1,36 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const { rimraf } = require("rimraf");
-const postcss = require("postcss");
-const postcssSass = require("@csstools/postcss-sass");
-const postcssPresetEnv = require("postcss-preset-env");
-const cssnano = require("cssnano");
-
-/** @type {import('postcss-preset-env').pluginOptions} */
-const presetEnvOptions = {
-  features: {
-    "oklab-function": false,
-    "custom-properties": false,
-  },
-};
-
-/** @type {import('cssnano').Options} */
-const cssNanoOptionsNormal = {
-  preset: ["default", { normalizeWhitespace: false }],
-};
-
-/** @type {import('cssnano').Options} */
-const cssNanoOptionsMinified = {
-  preset: "default",
-};
+const { bundle, browserslistToTargets } = require("lightningcss");
+const browserslist = require("browserslist");
 
 const projectRoot = path.join(__dirname, "..");
+const targets = browserslistToTargets(browserslist("defaults"));
 
-const processCssFile = async (sourcePath, destPath, plugins) => {
+const processCssFile = async (sourcePath, destPath, options = {}) => {
   const absoluteSourcePath = path.join(projectRoot, sourcePath);
   const absoluteDestPath = path.join(projectRoot, destPath);
 
-  const sourceContent = await fs.readFile(absoluteSourcePath, "utf-8");
+  const sourceContent = await fs.readFile(absoluteSourcePath);
 
-  const result = await postcss(plugins).process(sourceContent, {
-    from: absoluteSourcePath,
-    to: absoluteDestPath,
+  const result = bundle({
+    code: sourceContent,
+    filename: absoluteSourcePath,
+    cssModules: false,
+    errorRecovery: false,
+    projectRoot: path.dirname(absoluteSourcePath),
+    targets,
+    ...options,
   });
 
   if (result.map) {
     const destFilename = path.basename(destPath);
     const sourceMapRef = `\n/*# sourceMappingURL=./${destFilename}.map */`;
-    await fs.writeFile(absoluteDestPath, result.css + sourceMapRef);
-    await fs.writeFile(`${absoluteDestPath}.map`, result.map.toString());
+    await fs.writeFile(absoluteDestPath, result.code);
+    await fs.appendFile(absoluteDestPath, sourceMapRef);
+    await fs.writeFile(`${absoluteDestPath}.map`, result.map);
   } else {
-    await fs.writeFile(absoluteDestPath, result.css);
+    await fs.writeFile(absoluteDestPath, result.code);
   }
 };
 
@@ -54,16 +41,13 @@ const processCssFile = async (sourcePath, destPath, plugins) => {
   await fs.mkdir(distPath);
 
   // Process files
-  await processCssFile("src/styles/index.scss", "dist/index.css", [
-    postcssSass,
-    postcssPresetEnv(presetEnvOptions),
-    cssnano(cssNanoOptionsNormal),
-  ]);
-  await processCssFile("src/styles/index.scss", "dist/index.min.css", [
-    postcssSass,
-    postcssPresetEnv(presetEnvOptions),
-    cssnano(cssNanoOptionsMinified),
-  ]);
+  await processCssFile("src/styles/index.css", "dist/index.css", {
+    sourceMap: true,
+  });
+  await processCssFile("src/styles/index.css", "dist/index.min.css", {
+    minify: true,
+    sourceMap: true,
+  });
 })().catch((e) => {
   console.error(e);
   process.exit(1);

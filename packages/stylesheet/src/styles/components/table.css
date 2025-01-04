@@ -1,0 +1,83 @@
+table.table,
+.style-semantic-elements table {
+  --table-bg-odd: var(--color-body-alt);
+  --table-bg-even: var(--color-body);
+  --table-vertical-border: var(--border-s);
+
+  background-color: var(--color-body-alt);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--font-size-m);
+  border: var(--border-s) solid var(--color-outline);
+  border-radius: var(--radius-s);
+  color: var(--color-body-text);
+
+  &.subtle {
+    --table-bg-odd: transparent;
+    --table-bg-even: transparent;
+    --table-vertical-border: 0;
+
+    border: 0;
+  }
+
+  &.dense :is(th, td) {
+    padding: var(--space-3xs) var(--space-2xs);
+  }
+
+  &.sparse :is(th, td) {
+    padding: var(--space-xs) var(--space-s);
+  }
+
+  caption {
+    font-family: var(--font-family-heading);
+    line-height: 1.15;
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-semibold);
+    text-align: start;
+    margin: 0 0 var(--space-2xs);
+  }
+
+  th,
+  td {
+    padding: var(--space-2xs) var(--space-xs);
+  }
+
+  th,
+  tfoot td {
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+  }
+
+  th {
+    border-block-end: var(--border-m) solid var(--color-outline);
+  }
+
+  tfoot td {
+    border-block-start: var(--border-m) solid var(--color-outline);
+  }
+
+  td {
+    text-align: unset;
+  }
+
+  :is(th, tfoot td):not(:last-of-type) {
+    border-inline-end: var(--table-vertical-border) dashed var(--color-outline);
+  }
+
+  td:not(tfoot td, :last-of-type) {
+    border-inline-end: var(--table-vertical-border) solid var(--color-outline);
+  }
+
+  tr:not(:last-of-type) td {
+    border-block-end: var(--border-s) solid var(--color-outline);
+  }
+
+  tbody tr:nth-child(odd),
+  tbody:has(tr:last-of-type:nth-child(even)) + tfoot tr {
+    background-color: var(--table-bg-even);
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: var(--table-bg-odd);
+  }
+}

@@ -1,0 +1,19 @@
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: var(--space-body);
+  left: var(--space-body);
+  background-color: var(--color-body-alt);
+  padding: var(--space-xs);
+  border-radius: var(--radius-m);
+  border: var(--border-l) solid currentcolor;
+  outline: 0;
+  box-shadow: var(--shadow-m);
+  text-decoration: none;
+  vertical-align: middle;
+
+  kbd {
+    margin-inline-start: var(--space-3xs);
+    font-weight: initial;
+  }
+}

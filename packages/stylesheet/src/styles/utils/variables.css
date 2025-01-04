@@ -4,7 +4,7 @@
   --opacity-medium: 40%;
   --opacity-high: 70%;
 
-  // Brand
+  /* Brand */
   --color-brand-1: oklch(15% 55% 275deg);
   --color-brand-2: oklch(25% 52% 275deg);
   --color-brand-3: oklch(35% 52% 275deg);
@@ -17,7 +17,7 @@
   --color-brand-transparent: oklch(55% 52% 275deg / var(--opacity-medium));
   --color-brand-extra-transparent: oklch(55% 52% 275deg / var(--opacity-low));
 
-  // Red
+  /* Red */
   --color-red-1: oklch(15% 55% 30deg);
   --color-red-2: oklch(25% 52% 30deg);
   --color-red-3: oklch(35% 54% 30deg);
@@ -30,7 +30,7 @@
   --color-red-transparent: oklch(55% 50% 30deg / var(--opacity-medium));
   --color-red-extra-transparent: oklch(55% 50% 30deg / var(--opacity-low));
 
-  // Orange
+  /* Orange */
   --color-orange-1: oklch(15% 60% 55deg);
   --color-orange-2: oklch(25% 60% 55deg);
   --color-orange-3: oklch(35% 55% 55deg);
@@ -43,7 +43,7 @@
   --color-orange-transparent: oklch(55% 50% 55deg / var(--opacity-medium));
   --color-orange-extra-transparent: oklch(55% 50% 55deg / var(--opacity-low));
 
-  // Yellow
+  /* Yellow */
   --color-yellow-1: oklch(15% 55% 88deg);
   --color-yellow-2: oklch(25% 55% 88deg);
   --color-yellow-3: oklch(35% 55% 88deg);
@@ -56,7 +56,7 @@
   --color-yellow-transparent: oklch(55% 45% 88deg / var(--opacity-medium));
   --color-yellow-extra-transparent: oklch(55% 45% 88deg / var(--opacity-low));
 
-  // Green
+  /* Green */
   --color-green-1: oklch(15% 55% 133deg);
   --color-green-2: oklch(25% 50% 133deg);
   --color-green-3: oklch(35% 48% 133deg);
@@ -69,7 +69,7 @@
   --color-green-transparent: oklch(55% 46% 133deg / var(--opacity-medium));
   --color-green-extra-transparent: oklch(55% 46% 133deg / var(--opacity-low));
 
-  // Sky
+  /* Sky */
   --color-sky-1: oklch(15% 55% 195deg);
   --color-sky-2: oklch(25% 55% 195deg);
   --color-sky-3: oklch(35% 50% 195deg);
@@ -82,7 +82,7 @@
   --color-sky-transparent: oklch(55% 52% 195deg / var(--opacity-medium));
   --color-sky-extra-transparent: oklch(55% 52% 195deg / var(--opacity-low));
 
-  // Blue
+  /* Blue */
   --color-blue-1: oklch(15% 52% 260deg);
   --color-blue-2: oklch(25% 48% 260deg);
   --color-blue-3: oklch(35% 46% 260deg);
@@ -95,7 +95,7 @@
   --color-blue-transparent: oklch(55% 50% 260deg / var(--opacity-medium));
   --color-blue-extra-transparent: oklch(55% 50% 260deg / var(--opacity-low));
 
-  // Purple
+  /* Purple */
   --color-purple-1: oklch(15% 55% 310deg);
   --color-purple-2: oklch(25% 55% 310deg);
   --color-purple-3: oklch(35% 53% 310deg);
@@ -108,7 +108,7 @@
   --color-purple-transparent: oklch(55% 52% 310deg / var(--opacity-medium));
   --color-purple-extra-transparent: oklch(55% 52% 310deg / var(--opacity-low));
 
-  // Magenta
+  /* Magenta */
   --color-magenta-1: oklch(15% 55% 356deg);
   --color-magenta-2: oklch(25% 55% 356deg);
   --color-magenta-3: oklch(35% 54% 356deg);
@@ -121,7 +121,7 @@
   --color-magenta-transparent: oklch(55% 50% 356deg / var(--opacity-medium));
   --color-magenta-extra-transparent: oklch(55% 50% 356deg / var(--opacity-low));
 
-  // Gray
+  /* Gray */
   --color-gray-1: oklch(15% 2% 263deg);
   --color-gray-2: oklch(25% 2% 263deg);
   --color-gray-3: oklch(35% 2% 263deg);
@@ -134,7 +134,7 @@
   --color-gray-transparent: oklch(55% 2% 263deg / var(--opacity-medium));
   --color-gray-extra-transparent: oklch(55% 2% 263deg / var(--opacity-low));
 
-  // Individual colors
+  /* Individual colors */
   --color-body: oklch(98.5% 1% 263deg);
   --color-body-alt: white;
   --color-body-text: oklch(10% 2% 263deg);
@@ -143,7 +143,7 @@
   --color-outline: oklch(89% 2% 263deg);
 
   @media (prefers-color-scheme: dark) {
-    // Brand
+    /* Brand */
     --color-brand-9: oklch(15% 55% 275deg);
     --color-brand-8: oklch(25% 52% 275deg);
     --color-brand-7: oklch(35% 52% 275deg);
@@ -153,7 +153,7 @@
     --color-brand-2: oklch(85% 42% 275deg);
     --color-brand-1: oklch(95% 36% 275deg);
 
-    // Red
+    /* Red */
     --color-red-9: oklch(15% 55% 30deg);
     --color-red-8: oklch(25% 52% 30deg);
     --color-red-7: oklch(35% 54% 30deg);
@@ -163,7 +163,7 @@
     --color-red-2: oklch(85% 45% 30deg);
     --color-red-1: oklch(95% 38% 30deg);
 
-    // Orange
+    /* Orange */
     --color-orange-9: oklch(15% 60% 55deg);
     --color-orange-8: oklch(25% 60% 55deg);
     --color-orange-7: oklch(35% 55% 55deg);
@@ -173,7 +173,7 @@
     --color-orange-2: oklch(85% 40% 55deg);
     --color-orange-1: oklch(95% 38% 55deg);
 
-    // Yellow
+    /* Yellow */
     --color-yellow-9: oklch(15% 55% 88deg);
     --color-yellow-8: oklch(25% 55% 88deg);
     --color-yellow-7: oklch(35% 55% 88deg);
@@ -183,7 +183,7 @@
     --color-yellow-2: oklch(85% 30% 88deg);
     --color-yellow-1: oklch(95% 28% 88deg);
 
-    // Green
+    /* Green */
     --color-green-9: oklch(15% 55% 133deg);
     --color-green-8: oklch(25% 50% 133deg);
     --color-green-7: oklch(35% 48% 133deg);
@@ -193,7 +193,7 @@
     --color-green-2: oklch(85% 40% 133deg);
     --color-green-1: oklch(95% 20% 133deg);
 
-    // Sky
+    /* Sky */
     --color-sky-9: oklch(15% 55% 195deg);
     --color-sky-8: oklch(25% 55% 195deg);
     --color-sky-7: oklch(35% 50% 195deg);
@@ -203,7 +203,7 @@
     --color-sky-2: oklch(85% 25% 195deg);
     --color-sky-1: oklch(95% 12% 195deg);
 
-    // Blue
+    /* Blue */
     --color-blue-9: oklch(15% 52% 260deg);
     --color-blue-8: oklch(25% 48% 260deg);
     --color-blue-7: oklch(35% 46% 260deg);
@@ -213,7 +213,7 @@
     --color-blue-2: oklch(85% 45% 260deg);
     --color-blue-1: oklch(95% 42% 260deg);
 
-    // Purple
+    /* Purple */
     --color-purple-9: oklch(15% 55% 310deg);
     --color-purple-8: oklch(25% 55% 310deg);
     --color-purple-7: oklch(35% 53% 310deg);
@@ -223,7 +223,7 @@
     --color-purple-2: oklch(85% 42% 310deg);
     --color-purple-1: oklch(95% 40% 310deg);
 
-    // Magenta
+    /* Magenta */
     --color-magenta-9: oklch(15% 55% 356deg);
     --color-magenta-8: oklch(25% 55% 356deg);
     --color-magenta-7: oklch(35% 54% 356deg);
@@ -233,7 +233,7 @@
     --color-magenta-2: oklch(85% 36% 356deg);
     --color-magenta-1: oklch(95% 34% 356deg);
 
-    // Gray
+    /* Gray */
     --color-gray-9: oklch(15% 2% 263deg);
     --color-gray-8: oklch(25% 2% 263deg);
     --color-gray-7: oklch(35% 2% 263deg);
@@ -243,7 +243,7 @@
     --color-gray-2: oklch(85% 2% 263deg);
     --color-gray-1: oklch(95% 2% 263deg);
 
-    // Darker replacements for semantic colors
+    /* Darker replacements for semantic colors */
     --color-body: oklch(20% 2% 263deg);
     --color-body-alt: oklch(8% 2% 263deg);
     --color-body-text: white;
@@ -251,19 +251,19 @@
     --color-shadow: oklch(5% 2% 263deg / 40%);
     --color-outline: oklch(39% 2% 263deg);
 
-    // Slightly decrease font weights
+    /* Slightly decrease font weights */
     --font-weight-black: 900;
     --font-weight-bold: 700;
     --font-weight-semibold: 550;
     --font-weight-normal: 375;
 
-    // Slightly increase opacity
+    /* Slightly increase opacity */
     --opacity-low: 35%;
     --opacity-medium: 50%;
     --opacity-high: 80%;
   }
 
-  // Font sizes
+  /* Font sizes */
   --font-size-xs: clamp(0.6944rem, 0.6855rem + 0.0446vw, 0.72rem);
   --font-size-s: clamp(0.8331rem, 0.8099rem + 0.1163vw, 0.9rem);
   --font-size-m: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
@@ -273,14 +273,14 @@
   --font-size-3xl: clamp(2.0738rem, 1.8396rem + 1.1707vw, 2.7469rem);
   --font-size-4xl: clamp(2.4881rem, 2.1594rem + 1.6435vw, 3.4331rem);
 
-  // Font weights
+  /* Font weights */
   --font-weight-black: 950;
   --font-weight-bold: 750;
   --font-weight-semibold: 600;
   --font-weight-normal: 400;
   --font-weight-light: 200;
 
-  // Font families
+  /* Font families */
   --font-family-body: "Manrope Variable", "Inter", "Roboto", "Helvetica Neue",
     "Arial Nova", "Nimbus Sans", "Arial", sans-serif;
   --font-family-heading: "Lexend Variable", "Inter", "Roboto", "Helvetica Neue",
@@ -288,7 +288,7 @@
   --font-family-mono: "Source Code Pro Variable", ui-monospace,
     "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", monospace;
 
-  // Spacing
+  /* Spacing */
   --space-3xs: clamp(4px, 3.6528px + 0.1087vw, 5px);
   --space-2xs: clamp(8px, 7.6528px + 0.1087vw, 9px);
   --space-xs: clamp(12px, 11.304px + 0.2174vw, 14px);
@@ -299,10 +299,10 @@
   --space-2xl: clamp(64px, 61.2176px + 0.8696vw, 72px);
   --space-3xl: clamp(96px, 91.8256px + 1.3043vw, 108px);
 
-  // Between xs and m based on screen width
+  /* Between xs and m based on screen width */
   --space-body: clamp(12px, 6.7824px + 1.6304vw, 27px);
 
-  // Radii
+  /* Radii */
   --radius-none: 0;
   --radius-s: 3px;
   --radius-m: 6px;
@@ -311,14 +311,14 @@
   --radius-2xl: 64px;
   --radius-full: 9999px;
 
-  // Shadows
+  /* Shadows */
   --shadow-none: none;
   --shadow-s: 0 1px 3px -1px var(--color-shadow);
   --shadow-m: 0 1px 7px -1px var(--color-shadow);
   --shadow-l: var(--shadow-s), 0 1px 11px -1px var(--color-shadow);
   --shadow-xl: var(--shadow-m), 0 1px 15px -1px var(--color-shadow);
 
-  // Border widths
+  /* Border widths */
   --border-none: 0;
   --border-s: 1px;
   --border-m: 2px;

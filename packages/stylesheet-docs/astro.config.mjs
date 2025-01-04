@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import css from "rollup-plugin-import-css";
 
 // https://astro.build/config
 export default defineConfig({
@@ -7,10 +6,8 @@ export default defineConfig({
     "/": { destination: "/getting-started/introduction", status: 307 },
   },
   vite: {
-    build: {
-      rollupOptions: {
-        plugins: [css()],
-      },
+    css: {
+      transformer: "lightningcss",
     },
   },
 });

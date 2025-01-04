@@ -1,3 +1,8 @@
+.form {
+  max-width: 60ch;
+  margin-inline-end: auto;
+}
+
 .field {
   --field-gap: var(--space-2xs);
   --field-padding: 0.5em;
@@ -15,7 +20,7 @@
   font-size: var(--font-size-m);
 
   &.compact,
-  :is(form, .form, fieldset).compact & {
+  :is(.form, .fieldset).compact & {
     --field-gap: calc(0.9 * var(--space-2xs));
     --field-padding: 0.33em;
     --field-radius: var(--radius-s);
@@ -84,7 +89,7 @@
       cursor: not-allowed;
     }
 
-    // Not using :read-only because it matches additional elements (e.g., every color input)
+    /* Not using :read-only because it matches additional elements (e.g., every color input) */
     &[readonly] {
       cursor: not-allowed;
       border-style: dashed;
@@ -277,7 +282,7 @@
   }
 }
 
-fieldset {
+fieldset.fieldset {
   border: var(--border-s) solid var(--color-outline);
   border-radius: var(--radius-s);
   background-color: var(--color-body);

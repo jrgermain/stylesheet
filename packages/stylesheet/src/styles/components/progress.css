@@ -1,0 +1,74 @@
+@keyframes indeterminate-progress {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+/* TODO require class on progress element */
+progress {
+  appearance: none;
+  inline-size: 100%;
+  block-size: 1em;
+}
+
+@supports selector(::-moz-progress-bar) {
+  progress {
+    border-radius: var(--radius-s);
+    border: 0;
+    display: block;
+    inline-size: 100%;
+    block-size: 1em;
+    box-shadow: inset 0 0 0 var(--border-s) var(--color-outline);
+    background: var(--color-gray-9);
+    box-sizing: border-box;
+    overflow: clip;
+  }
+}
+
+::-webkit-progress-bar {
+  border-radius: var(--radius-s);
+  border: 0;
+  display: block;
+  inline-size: 100%;
+  block-size: 1em;
+  box-shadow: inset 0 0 0 var(--border-s) var(--color-outline);
+  background: var(--color-gray-9);
+  box-sizing: border-box;
+  overflow: clip;
+}
+
+::-webkit-progress-value {
+  border-radius: var(--radius-s);
+  border: var(--border-s) solid transparent;
+  box-sizing: border-box;
+  background: var(--color-blue-6);
+  border-color: var(--color-blue-5);
+}
+
+::-moz-progress-bar {
+  border-radius: var(--radius-s);
+  border: var(--border-s) solid transparent;
+  box-sizing: border-box;
+  background: var(--color-blue-6);
+  border-color: var(--color-blue-5);
+}
+
+:indeterminate::-webkit-progress-value {
+  background: var(--color-blue-6);
+  border-color: var(--color-blue-5);
+  opacity: 0.5;
+  inline-size: 100% !important;
+  animation: indeterminate-progress 1s linear infinite alternate;
+}
+
+:indeterminate::-moz-progress-bar {
+  background: var(--color-blue-6);
+  border-color: var(--color-blue-5);
+  opacity: 0.5;
+  inline-size: 100% !important;
+  animation: indeterminate-progress 1s linear infinite alternate;
+}

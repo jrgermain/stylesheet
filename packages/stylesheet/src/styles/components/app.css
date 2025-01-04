@@ -1,11 +1,10 @@
-@use "./layout";
-
 .app {
-  // The app is designed to take up the entire width of the page. However, we
-  // set a global limit on the overall width of its content for UX and aesthetic
-  // reasons. The wrapper elements of the page will always extend to the edge of
-  // the screen, but all content within them will be kept within this limit and
-  // centered.
+  /* The app is designed to take up the entire width of the page. However, we
+   * set a global limit on the overall width of its content for UX and aesthetic
+   * reasons. The wrapper elements of the page will always extend to the edge of
+   * the screen, but all content within them will be kept within this limit and
+   * centered.
+   */
   --app-max-content-width: 110rem;
   --app-header-height: clamp(50px, 3.5rem, 70px);
   --app-sidebar-width: clamp(300px, 18rem, 400px);
@@ -51,33 +50,37 @@
   display: flex;
   align-items: center;
 
-  // If header only has 1 section, center it
+  /* If header only has 1 section, center it */
   &:only-child {
     margin-inline: auto;
   }
 
-  // Otherwise, align the first to the left and the rest to the right
+  /* Otherwise, align the first to the left and the rest to the right */
   &:first-child {
     margin-inline-end: auto;
   }
 
-  // The content of the first header item should be var(--space-body) from the
-  // left edge of the app. Since there is var(--space-body) padding in the
-  // header and var(--space-xs) padding in the header items, we just need to
-  // move it back by var(--space-xs).
+  /*
+   * The content of the first header item should be var(--space-body) from the
+   * left edge of the app. Since there is var(--space-body) padding in the
+   * header and var(--space-xs) padding in the header items, we just need to
+   * move it back by var(--space-xs).
+   */
   &:first-child .app-header-item:first-child {
     margin-inline-start: calc(-1 * var(--space-xs));
   }
 
-  // The content of the last header item should be var(--space-body) from the
-  // right edge of the app. Since there is var(--space-body) padding in the
-  // header and var(--space-xs) padding in the header items, we just need to
-  // move it forward by var(--space-xs).
+  /* 
+   * The content of the last header item should be var(--space-body) from the
+   * right edge of the app. Since there is var(--space-body) padding in the
+   * header and var(--space-xs) padding in the header items, we just need to
+   * move it forward by var(--space-xs).
+   */
   &:last-child .app-header-item:last-child {
     margin-inline-end: calc(-1 * var(--space-xs));
   }
 
-  // Put a spacer between consecutive right-aligned sections (3rd onward)
+  /* Put a spacer between consecutive right-aligned sections (3rd onward) */
   &:nth-child(n + 3)::before {
     content: "";
     background-color: var(--color-outline);
@@ -89,7 +92,7 @@
 }
 
 .app-header-item {
-  // TODO simplify
+  /* TODO simplify */
   height: 100%;
   cursor: pointer;
   text-decoration: none;
@@ -220,7 +223,7 @@
 }
 
 .app-sidebar-toggle {
-  // TODO simplify
+  /* TODO simplify */
   transition-property: color, background-color;
   transition-duration: 200ms;
   transition-timing-function: ease;
@@ -231,10 +234,6 @@
   &:has(input:focus-visible) {
     outline: var(--border-m) solid var(--color-brand-5);
     outline-offset: calc(-1 * var(--border-m));
-  }
-
-  input[type="checkbox"] {
-    @extend %visually-hidden;
   }
 
   &::before {
@@ -295,15 +294,17 @@
   position: relative;
 }
 
-// If there's a sidebar, shrink the content area to accommodate it
+/* If there's a sidebar, shrink the content area to accommodate it */
 .app-sidebar ~ .app-content {
   width: calc(100% - var(--app-sidebar-width));
 }
 
 @media (width < 55rem) {
-  // If there's a sidebar, DON'T factor its width into the content width since
-  // the sidebar now has `position: fixed`. This only applies to pages with a
-  // sidebar; without one, app-content's width is already 100%.
+  /* 
+   * If there's a sidebar, DON'T factor its width into the content width since
+   * the sidebar now has `position: fixed`. This only applies to pages with a
+   * sidebar; without one, app-content's width is already 100%.
+   */
   .app-sidebar ~ .app-content {
     width: 100%;
   }
@@ -341,7 +342,7 @@
     display: none;
   }
 
-  // If sidebar is open, temporarily hide the overflow and any site-wide banners
+  /* If sidebar is open, temporarily hide the overflow and any site-wide banners */
   .app:has(.app-sidebar-toggle input:checked) {
     overflow: hidden;
 
@@ -362,7 +363,9 @@
 }
 
 .app:has(dialog:modal) {
-  // If modal is open, hide the overflow. This prevents the user from scrolling
-  // the page down by dragging on the header, which they'd have no way to undo.
+  /* 
+   * If modal is open, hide the overflow. This prevents the user from scrolling
+   * the page down by dragging on the header, which they'd have no way to undo.
+   */
   overflow: hidden;
 }

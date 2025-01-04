@@ -1,0 +1,63 @@
+.text,
+.style-semantic-elements :is(p, strong, em, s, small, sub, sup) {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  margin: 0;
+  text-wrap: pretty;
+  hanging-punctuation: first;
+  overflow-wrap: break-word;
+}
+
+.text.bold,
+.style-semantic-elements strong {
+  font-weight: var(--font-weight-bold);
+}
+
+.text.italic,
+.style-semantic-elements em {
+  font-style: italic;
+}
+
+.text.underline {
+  text-decoration-line: underline;
+}
+
+.text.strikethrough,
+.style-semantic-elements s {
+  text-decoration-line: line-through;
+}
+
+.text.underline.strikethrough {
+  text-decoration-line: underline line-through;
+}
+
+.text.small,
+.style-semantic-elements small {
+  font-size: 0.75em;
+  vertical-align: baseline;
+}
+
+.text:is(.subscript, .superscript),
+.style-semantic-elements :is(sub, sup) {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.text.subscript,
+.style-semantic-elements sub {
+  inset-block-end: -0.25em;
+}
+
+.text.superscript,
+.style-semantic-elements sup {
+  inset-block-start: -0.5em;
+}
+
+p.text + p.text,
+.style-semantic-elements p + p {
+  margin-block-start: 0.75em;
+}

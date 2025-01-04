@@ -3,28 +3,18 @@
   border-radius: var(--radius-l);
   border: var(--border-s) solid var(--color-outline);
   box-shadow: var(--shadow-m);
+  padding: var(--space-m);
 
   &.secondary {
     background-color: var(--color-body);
     border-radius: var(--radius-m);
     color: var(--color-body-text-alt);
     box-shadow: var(--shadow-s);
+    padding: var(--space-s);
 
     .card-title {
       font-size: var(--font-size-m);
       margin-block-end: var(--space-2xs);
-    }
-
-    &:not(.no-padding) {
-      padding: var(--space-s);
-    }
-  }
-
-  &:not(.no-padding) {
-    padding: var(--space-m);
-
-    .card-title {
-      margin-block-start: 0;
     }
   }
 }

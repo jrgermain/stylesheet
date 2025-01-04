@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:where(:focus-visible) {
+  outline: var(--border-m) solid var(--color-brand-5);
+}
+
+html {
+  text-size-adjust: none;
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-body);
+  color: var(--color-body-text);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-m);
+}
+
+img,
+picture,
+video,
+iframe {
+  max-width: 100%;
+  display: block;
+}

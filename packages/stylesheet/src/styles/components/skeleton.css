@@ -31,10 +31,12 @@
   background-image: none !important;
   print-color-adjust: exact;
 
+  /* TODO replace with new selectors */
   &:is(p, .p, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
     inline-size: 100%;
   }
 
+  /* TODO replace with new selectors */
   &:is(
       p,
       .p,

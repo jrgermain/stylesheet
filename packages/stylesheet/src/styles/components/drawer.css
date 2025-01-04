@@ -1,0 +1,89 @@
+/* See utils/base-dialog for more */
+.drawer {
+  --dialog-starting-opacity: 0.5;
+
+  position: fixed;
+  inset: 0;
+  border-radius: 0;
+  margin: 0;
+  border: 0;
+  overflow: auto;
+
+  &.left {
+    right: auto;
+
+    @media (prefers-reduced-motion: no-preference) {
+      --dialog-starting-transform: translateX(-16px);
+      --dialog-ending-transform: translateX(-16px);
+    }
+  }
+
+  &.top {
+    bottom: auto;
+
+    @media (prefers-reduced-motion: no-preference) {
+      --dialog-starting-transform: translateY(-16px);
+      --dialog-ending-transform: translateY(-16px);
+    }
+  }
+
+  &.right {
+    left: auto;
+
+    @media (prefers-reduced-motion: no-preference) {
+      --dialog-starting-transform: translateX(16px);
+      --dialog-ending-transform: translateX(16px);
+    }
+  }
+
+  &.bottom {
+    top: auto;
+
+    @media (prefers-reduced-motion: no-preference) {
+      --dialog-starting-transform: translateY(16px);
+      --dialog-ending-transform: translateY(16px);
+    }
+  }
+
+  &.top,
+  &.bottom {
+    width: 100dvw;
+    max-width: unset;
+    height: auto;
+    max-height: 100dvh;
+    min-height: min(100dvh, 250px);
+
+    &.small {
+      max-height: min(100dvh, 300px);
+    }
+
+    &.medium {
+      max-height: min(100dvh, 450px);
+    }
+
+    &.large {
+      max-height: min(100dvh, 600px);
+    }
+  }
+
+  &.left,
+  &.right {
+    height: 100dvh;
+    max-height: unset;
+    width: auto;
+    min-width: min(100dvw, 300px);
+    max-width: 100dvw;
+
+    &.small {
+      max-width: min(100dvw, 350px);
+    }
+
+    &.medium {
+      max-width: min(100dvw, 450px);
+    }
+
+    &.large {
+      max-width: min(100dvw, 700px);
+    }
+  }
+}

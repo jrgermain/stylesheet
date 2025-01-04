@@ -1,0 +1,19 @@
+/* See utils/base-dialog for more */
+.modal {
+  --dialog-width: 9999px;
+
+  max-height: calc(100svh - 4 * var(--space-body));
+  max-width: min(calc(100svw - 4 * var(--space-body)), var(--dialog-width));
+
+  &.small {
+    --dialog-width: 400px;
+  }
+
+  &.medium {
+    --dialog-width: 650px;
+  }
+
+  &.large {
+    --dialog-width: 900px;
+  }
+}

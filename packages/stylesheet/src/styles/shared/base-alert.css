@@ -1,10 +1,6 @@
-.alert {
+.alert,
+.banner {
   display: block;
-  border-radius: var(--radius-s);
-  border-start-start-radius: calc(var(--space-2xs) + 2em);
-  border-end-start-radius: calc(var(--space-2xs) + 2em);
-  padding: var(--space-2xs);
-  padding-inline-start: calc(var(--space-2xs) + 2em);
   font-size: var(--font-size-m);
   color: var(--color-body-text);
   position: relative;
@@ -35,8 +31,6 @@
     print-color-adjust: exact;
     position: absolute;
     inset-block: 0;
-    inset-inline-start: calc(var(--space-2xs) * 0.5);
-    margin: auto;
     width: 2em;
     height: 2em;
   }
@@ -101,61 +95,10 @@
     --alert-dismiss-focus-bg: var(--color-sky-transparent);
     --alert-icon: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="64" d="M196 220h64v172"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="64" d="M187 396h138"/><circle cx="253 " cy="118" r="44"/></svg>');
   }
-
-  &.banner {
-    border-radius: 0;
-    border-width: var(--border-m) 0;
-    width: 100%;
-    padding: var(--space-xs);
-    padding-inline-start: calc(var(--space-xs) + 2em);
-
-    &:has(.button.dismiss) {
-      padding-inline-end: calc(var(--space-xs) + 2em);
-    }
-
-    &::before,
-    &::after {
-      inset-inline-start: calc(var(--space-xs) * 0.5);
-      margin: auto;
-      width: 2em;
-      height: 2em;
-    }
-
-    .button.dismiss {
-      --button-fg-color: var(--alert-dismiss-icon-color);
-      --button-bg-color: transparent;
-      --button-border-color: transparent;
-      --button-hover-bg-color: var(--alert-dismiss-hover-bg);
-      --button-focus-ring-color: transparent;
-      --button-shadow: none;
-
-      font-size: 0.75rem;
-      position: absolute;
-      inset-block: 0;
-      inset-inline-end: var(--space-3xs);
-      margin: auto;
-      width: 3em;
-      height: 3em;
-
-      &:is(:focus-visible, .focus) {
-        --button-bg-color: var(--alert-dismiss-focus-bg);
-        --button-hover-bg-color: transparent;
-      }
-
-      &::after {
-        content: "";
-        width: 1.8em;
-        height: 1.8em;
-        mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>');
-        mask-size: contain;
-        mask-repeat: no-repeat;
-        background-color: currentcolor;
-      }
-    }
-  }
 }
 
-.alert-title {
+.alert-title,
+.banner-title {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-bold);
   line-height: 1;

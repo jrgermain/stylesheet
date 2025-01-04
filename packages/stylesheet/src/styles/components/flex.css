@@ -1,4 +1,7 @@
-%flex-layout {
+.flow,
+.stack,
+.separate,
+.space {
   display: flex !important;
   gap: var(--space-s);
 
@@ -38,48 +41,25 @@
 }
 
 .flow {
-  @extend %flex-layout;
-
   flex-wrap: wrap;
   align-items: center;
   justify-content: start;
 }
 
 .stack {
-  @extend %flex-layout;
-
   flex-wrap: nowrap;
   align-items: stretch;
   justify-content: start;
 }
 
 .separate {
-  @extend %flex-layout;
-
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
 }
 
 .space {
-  @extend %flex-layout;
-
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-}
-
-:is(form, .form, .text-container):not(.no-max-width) {
-  max-width: 60ch;
-}
-
-%visually-hidden {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
 }

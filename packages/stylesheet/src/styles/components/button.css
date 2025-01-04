@@ -1,4 +1,6 @@
-.button {
+.button,
+.style-semantic-elements
+  :is(button, input[type="button"], input[type="reset"], input[type="submit"]) {
   --button-shadow: var(--shadow-s);
   --button-hover-bg-color: var(--button-border-color);
 
@@ -55,8 +57,10 @@
   &:is(:active, .active) {
     transform: scale(0.98);
 
-    // On low-resolution screens, the scale effect makes text jump
-    // around awkwardly, so we use an alternative.
+    /*
+     * On low-resolution screens, the scale effect makes text jump
+     * around awkwardly, so we use an alternative.
+     */
     @media screen and (resolution < 2x) {
       transform: translateY(1px);
     }
@@ -72,7 +76,7 @@
       border-radius: 5px;
     }
 
-    // inputs don't support children, so the ::before pseudo element won't work
+    /* inputs don't support children, so the ::before pseudo element won't work */
     &:is(input) {
       background-color: var(--button-hover-bg-color);
     }
@@ -90,28 +94,62 @@
     --button-font-weight: var(--font-weight-bold);
     --button-focus-ring-color: var(--color-brand-transparent);
 
-    @each $color
-      in (
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "sky",
-        "blue",
-        "purple",
-        "magenta",
-        "gray"
-      )
-    {
-      &.#{$color} {
-        --button-bg-color: var(--color-#{$color}-5);
-        --button-border-color: var(--color-#{$color}-4);
-        --button-focus-ring-color: var(--color-#{$color}-transparent);
-      }
+    &.red {
+      --button-bg-color: var(--color-red-5);
+      --button-border-color: var(--color-red-4);
+      --button-focus-ring-color: var(--color-red-transparent);
+    }
+
+    &.orange {
+      --button-bg-color: var(--color-orange-5);
+      --button-border-color: var(--color-orange-4);
+      --button-focus-ring-color: var(--color-orange-transparent);
+    }
+
+    &.yellow {
+      --button-bg-color: var(--color-yellow-5);
+      --button-border-color: var(--color-yellow-4);
+      --button-focus-ring-color: var(--color-yellow-transparent);
+    }
+
+    &.green {
+      --button-bg-color: var(--color-green-5);
+      --button-border-color: var(--color-green-4);
+      --button-focus-ring-color: var(--color-green-transparent);
+    }
+
+    &.sky {
+      --button-bg-color: var(--color-sky-5);
+      --button-border-color: var(--color-sky-4);
+      --button-focus-ring-color: var(--color-sky-transparent);
+    }
+
+    &.blue {
+      --button-bg-color: var(--color-blue-5);
+      --button-border-color: var(--color-blue-4);
+      --button-focus-ring-color: var(--color-blue-transparent);
+    }
+
+    &.purple {
+      --button-bg-color: var(--color-purple-5);
+      --button-border-color: var(--color-purple-4);
+      --button-focus-ring-color: var(--color-purple-transparent);
+    }
+
+    &.magenta {
+      --button-bg-color: var(--color-magenta-5);
+      --button-border-color: var(--color-magenta-4);
+      --button-focus-ring-color: var(--color-magenta-transparent);
+    }
+
+    &.gray {
+      --button-bg-color: var(--color-gray-5);
+      --button-border-color: var(--color-gray-4);
+      --button-focus-ring-color: var(--color-gray-transparent);
     }
   }
 
-  // .secondary, default
+  /* .secondary, default */
   &:not(.primary, .subtle, .close, .dismiss) {
     --button-fg-color: var(--color-body-text);
     --button-bg-color: var(--color-gray-9);
