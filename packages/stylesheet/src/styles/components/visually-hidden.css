@@ -1,7 +1,7 @@
 .visually-hidden,
 .sr-only,
 .app-sidebar-toggle input,
-.skip-link:not(:focus) {
+.skip-link:not(:focus, .static) {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
   height: 1px;

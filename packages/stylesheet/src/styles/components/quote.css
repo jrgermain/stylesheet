@@ -1,5 +1,5 @@
-.quotation,
-.style-semantic-elements blockquote {
+.quote,
+.markdown-output blockquote {
   display: block;
   margin: 0;
   color: var(--color-gray-4);
@@ -7,22 +7,23 @@
   padding: var(--space-3xs);
   padding-inline-start: var(--space-xs);
   position: relative;
-  font-size: var(--font-size-m);
   line-height: 1.25;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-m);
   font-weight: var(--font-weight-normal);
 
   @media (prefers-color-scheme: dark) {
     color: var(--color-gray-2);
   }
 
-  :is(footer, .footer) {
+  footer {
     margin-block-start: 0.5em;
     font-size: var(--font-size-s);
     font-style: initial;
     color: var(--color-body-text);
     font-weight: var(--font-weight-semibold);
 
-    :is(cite, .cite) {
+    cite {
       font-weight: var(--font-weight-normal);
       font-style: italic;
     }

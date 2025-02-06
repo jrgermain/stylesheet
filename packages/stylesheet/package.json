@@ -16,10 +16,12 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.cjs",
+    "watch": "node scripts/watch.cjs",
     "lint": "stylelint ./src/styles"
   },
   "devDependencies": {
     "browserslist": "^4.24.3",
+    "chokidar": "^4.0.3",
     "lightningcss": "^1.28.2",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
@@ -48,10 +50,5 @@
   },
   "browserslist": [
     "defaults"
-  ],
-  "dependencies": {
-    "@fontsource-variable/lexend": "^5.1.2",
-    "@fontsource-variable/manrope": "^5.1.1",
-    "@fontsource-variable/source-code-pro": "^5.1.1"
-  }
+  ]
 }

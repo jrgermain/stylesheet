@@ -1,5 +1,5 @@
 .divider,
-.style-semantic-elements :is(hr, br) {
+.markdown-output :is(hr, br) {
   background-color: var(--color-outline);
   border: 0;
   outline: 0;
@@ -19,6 +19,6 @@
 }
 
 .divider.invisible,
-.style-semantic-elements br {
+.markdown-output br {
   visibility: hidden;
 }

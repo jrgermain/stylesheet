@@ -1,6 +1,4 @@
-.button,
-.style-semantic-elements
-  :is(button, input[type="button"], input[type="reset"], input[type="submit"]) {
+.button {
   --button-shadow: var(--shadow-s);
   --button-hover-bg-color: var(--button-border-color);
 
@@ -170,6 +168,87 @@
     &:is(:focus-visible, .focus) {
       --button-bg-color: var(--color-brand-transparent);
       --button-hover-bg-color: transparent;
+    }
+
+    &.red {
+      --button-fg-color: var(--color-red-4);
+      --button-hover-bg-color: var(--color-red-extra-transparent);
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--color-red-transparent);
+      }
+    }
+
+    &.orange {
+      --button-fg-color: var(--color-orange-4);
+      --button-hover-bg-color: var(--color-orange-extra-transparent);
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--color-orange-transparent);
+      }
+    }
+
+    &.yellow {
+      --button-fg-color: var(--color-yellow-4);
+      --button-hover-bg-color: var(--color-yellow-extra-transparent);
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--color-yellow-transparent);
+      }
+    }
+
+    &.green {
+      --button-fg-color: var(--color-green-4);
+      --button-hover-bg-color: var(--color-green-extra-transparent);
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--color-green-transparent);
+      }
+    }
+
+    &.sky {
+      --button-fg-color: var(--color-sky-4);
+      --button-hover-bg-color: var(--color-sky-extra-transparent);
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--color-sky-transparent);
+      }
+    }
+
+    &.blue {
+      --button-fg-color: var(--color-blue-4);
+      --button-hover-bg-color: var(--color-blue-extra-transparent);
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--color-blue-transparent);
+      }
+    }
+
+    &.purple {
+      --button-fg-color: var(--color-purple-4);
+      --button-hover-bg-color: var(--color-purple-extra-transparent);
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--color-purple-transparent);
+      }
+    }
+
+    &.magenta {
+      --button-fg-color: var(--color-magenta-4);
+      --button-hover-bg-color: var(--color-magenta-extra-transparent);
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--color-magenta-transparent);
+      }
+    }
+
+    &.gray {
+      --button-fg-color: var(--color-gray-4);
+      --button-hover-bg-color: var(--color-gray-extra-transparent);
+
+      &:is(:focus-visible, .focus) {
+        --button-bg-color: var(--color-gray-transparent);
+      }
     }
   }
 

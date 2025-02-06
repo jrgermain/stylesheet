@@ -1,12 +1,11 @@
-/* TODO require class on meter element */
-meter {
+meter.meter {
   appearance: none;
   inline-size: 100%;
   block-size: 1em;
 }
 
 @supports selector(::-moz-meter-bar) {
-  meter {
+  meter.meter {
     border-radius: var(--radius-s);
     border: 0;
     display: block;
@@ -19,7 +18,7 @@ meter {
   }
 }
 
-::-webkit-meter-bar {
+.meter::-webkit-meter-bar {
   border-radius: var(--radius-s);
   border: 0;
   display: block;
@@ -31,51 +30,51 @@ meter {
   overflow: clip;
 }
 
-::-webkit-meter-optimum-value,
-::-webkit-meter-suboptimum-value,
-::-webkit-meter-even-less-good-value {
+.meter::-webkit-meter-optimum-value,
+.meter::-webkit-meter-suboptimum-value,
+.meter::-webkit-meter-even-less-good-value {
   border-radius: var(--radius-s);
   border: var(--border-s) solid transparent;
   box-sizing: border-box;
 }
 
-::-webkit-meter-inner-element {
+.meter::-webkit-meter-inner-element {
   display: inline-block;
   position: relative;
 }
 
-::-moz-meter-bar {
+.meter::-moz-meter-bar {
   border-radius: var(--radius-s);
   border: var(--border-s) solid transparent;
   box-sizing: border-box;
 }
 
-::-webkit-meter-optimum-value {
+.meter::-webkit-meter-optimum-value {
   background: var(--color-green-6);
   border-color: var(--color-green-5);
 }
 
-:-moz-meter-optimum::-moz-meter-bar {
+.meter:-moz-meter-optimum::-moz-meter-bar {
   background: var(--color-green-6);
   border-color: var(--color-green-5);
 }
 
-::-webkit-meter-suboptimum-value {
+.meter::-webkit-meter-suboptimum-value {
   background: light-dark(var(--color-yellow-7), var(--color-yellow-4));
   border-color: light-dark(var(--color-yellow-6), var(--color-yellow-3));
 }
 
-:-moz-meter-sub-optimum::-moz-meter-bar {
+.meter:-moz-meter-sub-optimum::-moz-meter-bar {
   background: light-dark(var(--color-yellow-7), var(--color-yellow-4));
   border-color: light-dark(var(--color-yellow-6), var(--color-yellow-3));
 }
 
-::-webkit-meter-even-less-good-value {
+.meter::-webkit-meter-even-less-good-value {
   background: var(--color-red-6);
   border-color: var(--color-red-5);
 }
 
-:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+.meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
   background: var(--color-red-6);
   border-color: var(--color-red-5);
 }

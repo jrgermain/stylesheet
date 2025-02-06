@@ -135,7 +135,7 @@
   --color-gray-extra-transparent: oklch(55% 2% 263deg / var(--opacity-low));
 
   /* Individual colors */
-  --color-body: oklch(98.5% 1% 263deg);
+  --color-body: oklch(98.5% 0.8% 263deg);
   --color-body-alt: white;
   --color-body-text: oklch(10% 2% 263deg);
   --color-body-text-alt: oklch(38% 2% 263deg);
@@ -251,12 +251,6 @@
     --color-shadow: oklch(5% 2% 263deg / 40%);
     --color-outline: oklch(39% 2% 263deg);
 
-    /* Slightly decrease font weights */
-    --font-weight-black: 900;
-    --font-weight-bold: 700;
-    --font-weight-semibold: 550;
-    --font-weight-normal: 375;
-
     /* Slightly increase opacity */
     --opacity-low: 35%;
     --opacity-medium: 50%;
@@ -274,19 +268,18 @@
   --font-size-4xl: clamp(2.4881rem, 2.1594rem + 1.6435vw, 3.4331rem);
 
   /* Font weights */
-  --font-weight-black: 950;
-  --font-weight-bold: 750;
-  --font-weight-semibold: 600;
+  --font-weight-light: 300;
   --font-weight-normal: 400;
-  --font-weight-light: 200;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
 
   /* Font families */
-  --font-family-body: "Manrope Variable", "Inter", "Roboto", "Helvetica Neue",
-    "Arial Nova", "Nimbus Sans", "Arial", sans-serif;
-  --font-family-heading: "Lexend Variable", "Inter", "Roboto", "Helvetica Neue",
-    "Arial Nova", "Nimbus Sans", "Arial", sans-serif;
-  --font-family-mono: "Source Code Pro Variable", ui-monospace,
-    "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", monospace;
+  --font-family-body: "Avenir Next", avenir, corbel, source-sans-pro,
+    "DejaVu Sans", ui-sans-serif, sans-serif;
+  --font-family-heading: seravek, "Gill Sans Nova", verdana, "DejaVu Sans",
+    source-sans-pro, ui-sans-serif, sans-serif;
+  --font-family-mono: ui-monospace, "Source Code Pro", ui-monospace, monospace;
 
   /* Spacing */
   --space-3xs: clamp(4px, 3.6528px + 0.1087vw, 5px);

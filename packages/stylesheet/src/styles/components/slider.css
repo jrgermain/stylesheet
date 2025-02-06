@@ -1,5 +1,4 @@
-input[type="range"].slider,
-.style-semantic-elements input[type="range"] {
+input[type="range"].slider {
   font-size: 1rem;
   block-size: 1.25em;
   appearance: none;

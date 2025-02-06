@@ -1,12 +1,12 @@
 .highlight,
-.style-semantic-elements mark {
+.markdown-output mark {
   background-color: var(--color-yellow-8);
   color: var(--color-yellow-2);
   print-color-adjust: exact;
 }
 
 .highlight.removed,
-.style-semantic-elements del {
+.markdown-output del {
   background-color: var(--color-red-8);
   color: var(--color-red-2);
   transition: text-decoration-color 150ms ease;
@@ -22,14 +22,16 @@
 }
 
 .highlight.added,
-.style-semantic-elements ins {
+.markdown-output ins {
   background-color: var(--color-green-8);
   color: var(--color-green-2);
   text-decoration-thickness: var(--border-m);
   text-decoration-color: var(--color-green-4);
+  text-underline-offset: 0.1em;
   print-color-adjust: exact;
 }
 
+.highlight.target,
 ::target-text {
   background-color: var(--color-brand-8);
   color: var(--color-brand-2);

@@ -112,6 +112,10 @@
     background-color: var(--color-brand-extra-transparent);
   }
 
+  &:active {
+    background-color: var(--color-brand-transparent);
+  }
+
   &:focus-visible {
     background-color: var(--color-brand-extra-transparent);
     outline-offset: calc(-1 * var(--border-m));

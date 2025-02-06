@@ -1,63 +1,119 @@
-.text,
-.style-semantic-elements :is(p, strong, em, s, small, sub, sup) {
+/* stylelint-disable declaration-block-no-redundant-longhand-properties -- text-decoration shorthand doesn't work properly for Safari */
+
+.paragraph,
+.markdown-output p {
   font-family: var(--font-family-body);
-  font-size: var(--font-size-m);
   font-weight: var(--font-weight-normal);
   line-height: 1.6;
-  margin: 0;
+  margin: 0.75em 0;
   text-wrap: pretty;
   hanging-punctuation: first;
   overflow-wrap: break-word;
+
+  &:first-child {
+    margin-block-start: 0;
+  }
+
+  &:last-child {
+    margin-block-end: 0;
+  }
 }
 
-.text.bold,
-.style-semantic-elements strong {
+.abbreviation,
+.markdown-output abbr[title] {
+  display: inline-block;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: var(--border-m);
+  text-decoration-color: var(--color-gray-6);
+  text-underline-offset: 0.1em;
+}
+
+.bold,
+.markdown-output strong,
+.markdown-output b {
   font-weight: var(--font-weight-bold);
 }
 
-.text.italic,
-.style-semantic-elements em {
+.italic,
+.markdown-output em {
   font-style: italic;
 }
 
-.text.underline {
+.underline {
   text-decoration-line: underline;
 }
 
-.text.strikethrough,
-.style-semantic-elements s {
+.strikethrough,
+.markdown-output s {
   text-decoration-line: line-through;
 }
 
-.text.underline.strikethrough {
+.underline.strikethrough {
   text-decoration-line: underline line-through;
 }
 
-.text.small,
-.style-semantic-elements small {
+.small,
+.markdown-output small {
   font-size: 0.75em;
   vertical-align: baseline;
 }
 
-.text:is(.subscript, .superscript),
-.style-semantic-elements :is(sub, sup) {
+.subscript,
+.superscript,
+.markdown-output sub,
+.markdown-output sup {
   font-size: 0.75em;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
-.text.subscript,
-.style-semantic-elements sub {
+.subscript,
+.markdown-output sub {
   inset-block-end: -0.25em;
 }
 
-.text.superscript,
-.style-semantic-elements sup {
+.superscript,
+.markdown-output sup {
   inset-block-start: -0.5em;
 }
 
-p.text + p.text,
-.style-semantic-elements p + p {
-  margin-block-start: 0.75em;
+.code,
+.markdown-output code {
+  font-family: var(--font-family-mono);
+  background-color: var(--color-gray-extra-transparent);
+  color: var(--color-gray-1);
+  border-radius: var(--radius-s);
+  display: inline-block;
+  padding: 0 0.5ch;
+  margin: 0 0.25ch;
+  font-size: 0.9em;
+
+  &.invert {
+    color: var(--color-gray-9);
+  }
+}
+
+.link .code,
+.markdown-output a code {
+  text-decoration: inherit;
+  text-decoration-color: inherit;
+  text-decoration-thickness: inherit;
+  color: inherit;
+}
+
+.key,
+.skip-link kbd,
+.markdown-output kbd {
+  display: inline;
+  padding: 0 0.5ch;
+  margin: 0 0.25ch;
+  font-size: 0.9em;
+  border: var(--border-s) solid var(--color-gray-8);
+  border-bottom-width: 3px;
+  border-radius: var(--radius-m);
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--color-gray-9);
+  color: var(--color-body-text);
 }

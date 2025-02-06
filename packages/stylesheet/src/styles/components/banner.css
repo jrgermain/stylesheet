@@ -4,7 +4,7 @@
   padding: var(--space-xs);
   padding-inline-start: calc(var(--space-xs) + 2em);
 
-  &:has(.banner-dismiss) {
+  &:has(.button.dismiss) {
     padding-inline-end: calc(var(--space-xs) + 2em);
   }
 
@@ -12,36 +12,22 @@
   &::after {
     inset-inline-start: calc(var(--space-xs) * 0.5);
   }
-}
 
-.banner-dismiss {
-  --button-fg-color: var(--alert-dismiss-icon-color);
-  --button-bg-color: transparent;
-  --button-border-color: transparent;
-  --button-hover-bg-color: var(--alert-dismiss-hover-bg);
-  --button-focus-ring-color: transparent;
-  --button-shadow: none;
-
-  font-size: 0.75rem;
-  position: absolute;
-  inset-block: 0;
-  inset-inline-end: var(--space-3xs);
-  margin: auto;
-  width: 3em;
-  height: 3em;
-
-  &:is(:focus-visible, .focus) {
-    --button-bg-color: var(--alert-dismiss-focus-bg);
-    --button-hover-bg-color: transparent;
+  & + & {
+    border-block-start-width: 0;
   }
 
-  &::after {
-    content: "";
-    width: 1.8em;
-    height: 1.8em;
-    mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>');
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    background-color: currentcolor;
+  .button.dismiss {
+    --button-fg-color: var(--alert-dismiss-icon-color);
+    --button-hover-bg-color: var(--alert-dismiss-hover-bg);
+
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: var(--space-3xs);
+    margin: auto;
+
+    &:is(:focus-visible, .focus) {
+      --button-bg-color: var(--alert-dismiss-focus-bg);
+    }
   }
 }

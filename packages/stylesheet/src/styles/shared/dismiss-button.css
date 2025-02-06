@@ -1,0 +1,27 @@
+.button.dismiss {
+  --button-fg-color: var(--color-body-text);
+  --button-bg-color: transparent;
+  --button-border-color: transparent;
+  --button-hover-bg-color: var(--color-gray-extra-transparent);
+  --button-focus-ring-color: transparent;
+  --button-shadow: none;
+
+  font-size: 0.75rem;
+  width: 3em;
+  height: 3em;
+
+  &:is(:focus-visible, .focus) {
+    --button-bg-color: var(--color-gray-transparent);
+    --button-hover-bg-color: transparent;
+  }
+
+  &::after {
+    content: "";
+    width: 1.8em;
+    height: 1.8em;
+    mask-image: url("@/src/svg/x.svg");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: currentcolor;
+  }
+}

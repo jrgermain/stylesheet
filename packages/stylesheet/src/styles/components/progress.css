@@ -8,15 +8,14 @@
   }
 }
 
-/* TODO require class on progress element */
-progress {
+progress.progress {
   appearance: none;
   inline-size: 100%;
   block-size: 1em;
 }
 
 @supports selector(::-moz-progress-bar) {
-  progress {
+  progress.progress {
     border-radius: var(--radius-s);
     border: 0;
     display: block;
@@ -29,7 +28,7 @@ progress {
   }
 }
 
-::-webkit-progress-bar {
+.progress::-webkit-progress-bar {
   border-radius: var(--radius-s);
   border: 0;
   display: block;
@@ -41,7 +40,7 @@ progress {
   overflow: clip;
 }
 
-::-webkit-progress-value {
+.progress::-webkit-progress-value {
   border-radius: var(--radius-s);
   border: var(--border-s) solid transparent;
   box-sizing: border-box;
@@ -49,7 +48,7 @@ progress {
   border-color: var(--color-blue-5);
 }
 
-::-moz-progress-bar {
+.progress::-moz-progress-bar {
   border-radius: var(--radius-s);
   border: var(--border-s) solid transparent;
   box-sizing: border-box;
@@ -57,7 +56,7 @@ progress {
   border-color: var(--color-blue-5);
 }
 
-:indeterminate::-webkit-progress-value {
+.progress:indeterminate::-webkit-progress-value {
   background: var(--color-blue-6);
   border-color: var(--color-blue-5);
   opacity: 0.5;
@@ -65,7 +64,7 @@ progress {
   animation: indeterminate-progress 1s linear infinite alternate;
 }
 
-:indeterminate::-moz-progress-bar {
+.progress:indeterminate::-moz-progress-bar {
   background: var(--color-blue-6);
   border-color: var(--color-blue-5);
   opacity: 0.5;

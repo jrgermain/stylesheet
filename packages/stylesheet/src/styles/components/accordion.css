@@ -1,15 +1,46 @@
-details.details,
-.style-semantic-elements details {
+.accordion {
   width: 100%;
-  background-color: var(--color-body-alt);
-  padding-block: 0;
-  padding-inline: var(--space-xs);
-  border-radius: var(--radius-m);
-  border: var(--border-s) solid var(--color-outline);
-  box-shadow: var(--shadow-s);
 
-  @media (prefers-reduced-motion: no-preference) {
-    transition: 150ms padding ease;
+  details {
+    width: 100%;
+    background-color: var(--color-body-alt);
+    padding-block: 0;
+    padding-inline: var(--space-xs);
+    border-radius: var(--radius-m);
+    border: var(--border-s) solid var(--color-outline);
+    box-shadow: var(--shadow-s);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: 150ms padding ease;
+    }
+
+    & + details {
+      border-block-start: 0;
+    }
+
+    &:not(:first-of-type) {
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
+    }
+
+    &:not(:last-of-type) {
+      border-end-start-radius: 0;
+      border-end-end-radius: 0;
+    }
+
+    &[open] {
+      padding-block-end: var(--space-xs);
+
+      summary {
+        color: var(--color-brand-3);
+        border-block-end-color: var(--color-outline);
+        margin-block-end: var(--space-xs);
+
+        &::before {
+          rotate: 0deg;
+        }
+      }
+    }
   }
 
   summary {
@@ -50,7 +81,7 @@ details.details,
 
     /* Replacement marker element */
     &::before {
-      content: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></svg>');
+      content: url("@/src/svg/dropdown.svg");
       display: inline-block;
       position: absolute;
       inset-block: 0;
@@ -84,67 +115,27 @@ details.details,
       }
 
       &::before {
-        content: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></svg>');
+        content: url("@/src/svg/dropdown-invert.svg");
       }
     }
   }
 
-  &[open] {
-    padding-block-end: var(--space-xs);
+  &.subtle {
+    details {
+      box-shadow: none;
+      border: 0;
+      padding-inline: var(--space-2xs);
+      background-color: transparent;
 
-    summary {
-      color: var(--color-brand-3);
-      border-block-end-color: var(--color-outline);
-      margin-block-end: var(--space-xs);
-
-      &::before {
-        rotate: 0deg;
+      &[open] summary {
+        margin-block-end: var(--space-2xs);
       }
     }
-  }
-
-  &.subtle,
-  .accordion.subtle > & {
-    box-shadow: none;
-    border: 0;
-    padding-inline: var(--space-2xs);
-    background-color: transparent;
 
     summary {
       border-block-end: 0;
       padding: var(--space-2xs);
       padding-inline-start: calc(var(--space-2xs) + 1em);
     }
-
-    &[open] summary {
-      margin-block-end: var(--space-2xs);
-    }
   }
-}
-
-.accordion {
-  width: 100%;
-
-  > details {
-    & + details {
-      border-block-start: 0;
-    }
-
-    &:not(:first-of-type) {
-      border-start-start-radius: 0;
-      border-start-end-radius: 0;
-    }
-
-    &:not(:last-of-type) {
-      border-end-start-radius: 0;
-      border-end-end-radius: 0;
-    }
-  }
-}
-
-.details.no-width,
-.style-semantic-elements details.no-width,
-.accordion.no-width,
-.accordion.no-width > details {
-  width: initial;
 }

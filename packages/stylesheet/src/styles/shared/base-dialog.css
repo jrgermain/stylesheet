@@ -99,28 +99,6 @@
   margin: 0;
 }
 
-.modal-footer,
-.drawer-footer {
-  padding: var(--space-xs);
-  flex-shrink: 0;
-  display: flex;
-  gap: var(--space-2xs);
-  justify-content: flex-start;
-  background-color: var(--color-body);
-  border-block-start: var(--border-s) solid var(--color-outline);
-  margin: 0;
-
-  @media screen and (width <= 500px) {
-    flex-direction: column;
-    width: 100%;
-    justify-content: stretch;
-  }
-
-  .button:not(.small, .medium, .large) {
-    font-size: 0.9rem;
-  }
-}
-
 @supports (transition-behavior: allow-discrete) and (overlay: none) {
   .modal,
   .drawer {

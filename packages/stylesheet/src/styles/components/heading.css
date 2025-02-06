@@ -1,5 +1,10 @@
-.heading,
-.style-semantic-elements :is(h1, h2, h3, h4, h5, h6) {
+.heading-1,
+.heading-2,
+.heading-3,
+.heading-4,
+.heading-5,
+.heading-6,
+.markdown-output :is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--font-family-heading);
   margin-block: 0.75em 0.3em;
   line-height: 1.15;
@@ -7,38 +12,42 @@
   overflow-wrap: break-word;
 }
 
-.heading.level-1,
-.style-semantic-elements h1 {
+.heading-1,
+.markdown-output h1 {
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-black);
+
+  .app-content > &:first-of-type {
+    margin-block-start: 0;
+  }
 }
 
-.heading.level-2,
-.style-semantic-elements h2 {
+.heading-2,
+.markdown-output h2 {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
 }
 
-.heading.level-3,
-.style-semantic-elements h3 {
+.heading-3,
+.markdown-output h3 {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
 }
 
-.heading.level-4,
-.style-semantic-elements h4 {
+.heading-4,
+.markdown-output h4 {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
 }
 
-.heading.level-5,
-.style-semantic-elements h5 {
+.heading-5,
+.markdown-output h5 {
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-semibold);
 }
 
-.heading.level-6,
-.style-semantic-elements h6 {
+.heading-6,
+.markdown-output h6 {
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-bold);
 }
