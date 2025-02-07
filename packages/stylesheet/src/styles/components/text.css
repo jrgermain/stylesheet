@@ -53,7 +53,7 @@
   text-decoration-line: underline line-through;
 }
 
-.small,
+.small-text,
 .markdown-output small {
   font-size: 0.75em;
   vertical-align: baseline;
