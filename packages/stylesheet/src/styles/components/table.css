@@ -11,6 +11,8 @@ table.table,
   border: var(--border-s) solid var(--color-outline);
   border-radius: var(--radius-s);
   color: var(--color-body-text);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-normal);
 
   &.subtle {
     --table-bg-odd: transparent;
@@ -45,6 +47,7 @@ table.table,
   th,
   tfoot td {
     font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-heading);
     text-align: center;
   }
 

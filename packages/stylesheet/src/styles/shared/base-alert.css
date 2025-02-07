@@ -1,7 +1,9 @@
 .alert,
 .banner {
   display: block;
+  font-family: var(--font-family-body);
   font-size: var(--font-size-m);
+  font-weight: var(--font-weight-normal);
   color: var(--color-body-text);
   position: relative;
   background:

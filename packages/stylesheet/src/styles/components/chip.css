@@ -12,6 +12,8 @@
   align-items: center;
   border-radius: var(--radius-full);
   font-size: var(--font-size-s);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-normal);
   padding-block: var(--space-3xs);
   padding-inline: var(--space-xs);
   background-color: var(--chip-bg-color);

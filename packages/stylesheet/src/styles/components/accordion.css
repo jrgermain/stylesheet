@@ -9,6 +9,9 @@
     border-radius: var(--radius-m);
     border: var(--border-s) solid var(--color-outline);
     box-shadow: var(--shadow-s);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-normal);
 
     @media (prefers-reduced-motion: no-preference) {
       transition: 150ms padding ease;

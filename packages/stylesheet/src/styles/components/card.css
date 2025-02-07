@@ -4,6 +4,9 @@
   border: var(--border-s) solid var(--color-outline);
   box-shadow: var(--shadow-m);
   padding: var(--space-m);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-normal);
 
   &.secondary {
     background-color: var(--color-body);

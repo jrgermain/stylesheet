@@ -8,6 +8,7 @@ label.switch {
   font-weight: var(--font-weight-semibold);
   gap: var(--space-3xs);
   font-size: var(--font-size-m);
+  font-family: var(--font-family-body);
 }
 
 /* For small labeled switches, set the label text size to font-size-s */

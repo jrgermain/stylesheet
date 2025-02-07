@@ -114,6 +114,7 @@
   border-bottom-width: 3px;
   border-radius: var(--radius-m);
   font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-body);
   background-color: var(--color-gray-9);
   color: var(--color-body-text);
 }

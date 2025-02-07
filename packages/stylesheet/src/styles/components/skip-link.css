@@ -10,6 +10,8 @@
   border: 0.25em solid var(--color-brand-4);
   color: var(--color-body-alt);
   font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-m);
   outline: 0;
   box-shadow:
     var(--shadow-l),

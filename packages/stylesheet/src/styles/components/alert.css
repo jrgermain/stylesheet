@@ -4,7 +4,6 @@
   border-end-start-radius: calc(var(--space-2xs) + 2em);
   padding: var(--space-2xs);
   padding-inline-start: calc(var(--space-2xs) + 2em);
-  font-size: var(--font-size-m);
 
   &::before,
   &::after {
