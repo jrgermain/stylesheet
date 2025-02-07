@@ -10,16 +10,10 @@
     border-radius: var(--radius-m);
     box-shadow: var(--shadow-s);
     padding: var(--space-s);
-
-    .card-title {
-      font-size: var(--font-size-m);
-      margin-block-end: var(--space-2xs);
-    }
   }
 }
 
-/* TODO: fix specificity */
-.card-title.card-title.card-title {
+.card-title {
   font-family: var(--font-family-heading);
   line-height: 1.15;
   text-wrap: balance;
@@ -28,4 +22,9 @@
   font-weight: var(--font-weight-bold);
   color: var(--color-brand-3);
   margin-block: 0 var(--space-xs);
+}
+
+.card.secondary .card-title {
+  font-size: var(--font-size-m);
+  margin-block-end: var(--space-2xs);
 }
