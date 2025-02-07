@@ -1,3 +1,21 @@
+/* Style the label of a labeled switch, which is also the container that holds the switch itself */
+label.switch {
+  inline-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  gap: var(--space-3xs);
+  font-size: var(--font-size-m);
+}
+
+/* For small labeled switches, set the label text size to font-size-s */
+label.switch.small {
+  font-size: var(--font-size-s);
+}
+
+/* Style the switch itself */
 input[type="checkbox"].switch,
 label.switch input[type="checkbox"] {
   font-size: 1rem;
@@ -14,10 +32,6 @@ label.switch input[type="checkbox"] {
   transition-timing-function: ease;
   border: 0.1em solid var(--color-gray-7);
   cursor: pointer;
-
-  &.small {
-    font-size: 0.8rem;
-  }
 
   &::after {
     content: "";
@@ -72,11 +86,8 @@ label.switch input[type="checkbox"] {
   }
 }
 
-label.switch {
-  inline-size: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  font-weight: var(--font-weight-semibold);
+/* For small switches, scale the switch control to 80% of the normal size */
+input[type="checkbox"].switch.small,
+label.switch.small input[type="checkbox"] {
+  font-size: 0.8rem;
 }
