@@ -81,7 +81,7 @@
 
     /* Replacement marker element */
     &::before {
-      content: url("@/src/svg/dropdown.svg");
+      content: url("@/src/svg/dropdown-thick.svg");
       display: inline-block;
       position: absolute;
       inset-block: 0;
@@ -115,7 +115,7 @@
       }
 
       &::before {
-        content: url("@/src/svg/dropdown-invert.svg");
+        content: url("@/src/svg/dropdown-invert-thick.svg");
       }
     }
   }
