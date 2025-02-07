@@ -31,36 +31,33 @@
   background-image: none !important;
   print-color-adjust: exact;
 
-  /* TODO replace with new selectors */
-  &:is(p, .p, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+  /*************************************************************
+   * Special styles for "skeletonizing" specific element types *
+   *************************************************************/
+
+  /* Make block text take up the full width */
+  &.paragraph,
+  &.heading {
     inline-size: 100%;
   }
 
-  /* TODO replace with new selectors */
-  &:is(
-      p,
-      .p,
-      h1,
-      .h1,
-      h2,
-      .h2,
-      h3,
-      .h3,
-      h4,
-      .h4,
-      h5,
-      .h5,
-      h6,
-      .h6,
-      .chip
-    )::before {
+  /* For empty text elements, add filler content so it isn't 0 height. */
+  &:is(.paragraph, .heading, .chip, .card-title)::before {
     content: ".";
   }
 
+  /* Add a reasonable minimum width to buttons and chips */
   &:is(.button, .chip):empty {
     min-inline-size: 5em;
   }
 
+  /* Add a reasonable width to card titles */
+  &.card-title {
+    inline-size: 40%;
+    overflow: hidden;
+  }
+
+  /* Visually hide contents, but let them take up space so elements don't collapse to 0 height. */
   &::before,
   &::after,
   > * {
