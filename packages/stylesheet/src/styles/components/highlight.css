@@ -1,7 +1,7 @@
 .highlight,
 .markdown-output mark {
-  background-color: var(--color-yellow-8);
-  color: var(--color-yellow-2);
+  background-color: light-dark(var(--color-yellow-8), var(--color-yellow-7));
+  color: light-dark(var(--color-yellow-2), var(--color-yellow-1));
   print-color-adjust: exact;
 }
 
@@ -34,6 +34,6 @@
 .highlight.target,
 ::target-text {
   background-color: var(--color-brand-8);
-  color: var(--color-brand-2);
+  color: light-dark(var(--color-brand-2), var(--color-brand-1));
   print-color-adjust: exact;
 }
