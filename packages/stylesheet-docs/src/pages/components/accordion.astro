@@ -1,0 +1,89 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Accordion"
+  description="A stack of panels that can be expanded or collapsed."
+>
+  <UsageExample
+    name="Standard Accordion"
+    description="To create an accordion, wrap one or more [`details`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) elements in a `div` with the class `accordion`."
+    code={`
+      <div class="accordion">
+        <details>
+          <summary>Section 1</summary>
+          Content for section 1
+        </details>
+        <details>
+          <summary>Section 2</summary>
+          Content for section 2
+        </details>
+        <details>
+          <summary>Section 3</summary>
+          Content for section 3
+        </details>
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Single Panel"
+    description="To create a single collapsible panel, follow the same pattern, only using one `details` element."
+    code={`
+      <div class="accordion">
+        <details>
+          <summary>Hello World</summary>
+
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </details>
+      </div>
+  `}
+  />
+
+  <UsageExample
+    name="Multiple Panels (Exclusive)"
+    description="To create an accordion with multiple panels **where only one panel can be open at a time**, add a `name` attribute to each `details` element inside the accordion.\n\nMake sure to use the same name for **all** the `details` elements within a given accordion, and that no two accordions share the same name.\n\n_Hint: this behavior is similar to how you group radio buttons._"
+    code={`
+      <div class="accordion">
+        <details name="accordion-1">
+          <summary>Section 1</summary>
+          Content for section 1
+        </details>
+        <details name="accordion-1">
+          <summary>Section 2</summary>
+          Content for section 2
+        </details>
+        <details name="accordion-1">
+          <summary>Section 3</summary>
+          Content for section 3
+        </details>
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Subtle"
+    description="You can use a borderless **subtle** variant by adding the `subtle` class in addition to the `accordion` class."
+    code={`
+      <div class="accordion subtle">
+        <details>
+          <summary>Section 1</summary>
+          Content for section 1
+        </details>
+        <details>
+          <summary>Section 2</summary>
+          Content for section 2
+        </details>
+        <details>
+          <summary>Section 3</summary>
+          Content for section 3
+        </details>
+      </div>
+    `}
+  />
+</ComponentDocumentation>

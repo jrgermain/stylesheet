@@ -1,0 +1,39 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+---
+
+<ComponentDocumentation
+  name="Heading"
+  description="A title for a section of the page."
+>
+  <UsageExample
+    name="Hierarchy"
+    description={trimMarkdownPadding(`
+      The HTML spec defines 6 levels of headings (\`h1\`-\`h6\`). Each creates a
+      layer in the document's hierarchy, starting with \`h1\` at the root.
+
+      Every page should have an \`h1\` and should use the other levels as needed
+      (starting with \`h2\`).
+
+      If you don't want a page to have a heading, use an invisible \`h1\` so
+      screen reader users can still understand the page's hierarchy. To do this,
+      add the class \`visually-hidden\` to the \`h1\`.
+
+      For all other headings, add the class \`heading-n\` (where _n_ is a number
+      1-6) to set the visual appearance of the heading. These numbers correspond
+      to the levels of headings in the HTML spec, but the classes and tag names
+      don't have to align; this allows you to visually skip levels while still
+      keeping the document hierarchy consistent.
+    `)}
+    code={`
+      <h1 class="heading-1">Level 1</h1>
+      <h2 class="heading-2">Level 2</h2>
+      <h3 class="heading-3">Level 3</h3>
+      <h4 class="heading-4">Level 4</h4>
+      <h5 class="heading-5">Level 5</h5>
+      <h6 class="heading-6">Level 6</h6>
+    `}
+  />
+</ComponentDocumentation>

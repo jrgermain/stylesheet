@@ -1,0 +1,27 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Link"
+  description="An interactive text element used to navigate to a different page or external resource."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="Any element can be styled as a link by applying the class `link`. Most of the time, this class should only be used on `a` elements."
+    code={`
+      <a href="#" class="link">This is a link.</a>
+      <span class="link">This is a span with the link class.</span>
+    `}
+    outputWrapperClass="flow"
+  />
+  <UsageExample
+    name="New Tab"
+    description="Links that open in a new tab (i.e., have `target='blank'`) will automatically have an icon appended to the text. This can be disabled by adding the class `no-external-icon`."
+    code={`
+      <a href="#" class="link" target="_blank">I open in a new tab</a>
+      <a href="#" class="link no-external-icon" target="_blank">I open in a new tab, but have my icon disabled</a>
+    `}
+  />
+</ComponentDocumentation>

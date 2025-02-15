@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -6,8 +7,12 @@ export default defineConfig({
     "/": { destination: "/getting-started/introduction", status: 307 },
   },
   vite: {
-    css: {
-      transformer: "lightningcss",
+    server: {
+      fs: {
+        allow: [".."],
+      },
     },
   },
+
+  integrations: [alpinejs()],
 });

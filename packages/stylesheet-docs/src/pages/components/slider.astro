@@ -1,0 +1,15 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Slider"
+  description="A form control allowing the user to select a value from a predefined range."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="You can create a slider by creating an `input` element with a type of `range` and giving it the `slider` class."
+    code={'<input class="slider" type="range" min="0" max="100" value="50">'}
+  />
+</ComponentDocumentation>

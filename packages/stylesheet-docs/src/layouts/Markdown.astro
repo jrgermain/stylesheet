@@ -4,7 +4,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <div class="markdown">
+  <div class="markdown markdown-output">
     <slot />
   </div>
 </Layout>
@@ -12,10 +12,5 @@ const { frontmatter } = Astro.props;
 <style is:global>
   .markdown > :first-child {
     margin-top: 0;
-  }
-
-  .markdown .astro-code {
-    padding: var(--space-2xs);
-    border-radius: var(--radius-m);
   }
 </style>

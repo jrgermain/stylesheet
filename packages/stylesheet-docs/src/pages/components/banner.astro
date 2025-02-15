@@ -1,0 +1,89 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+---
+
+<ComponentDocumentation name="Banner" description="A site-wide alert message.">
+  <UsageExample
+    name="Statuses"
+    description={trimMarkdownPadding(`
+      To create a banner, create a \`div\` with the class \`banner\`.
+      Every banner must have a status, which you can set by adding one
+      of the following additional classes:
+      
+      - \`info\`
+      - \`success\`
+      - \`warning\`
+      - \`error\`
+    `)}
+    code={`
+      <div class="banner info">
+        Welcome to the new and improved client portal!
+        <span class="link">See what's new</span>.
+      </div>
+      <div class="banner success">
+        You've successfully enrolled in beta tests. You can switch back to the
+        stable version at any time by visiting your <span class="link">user
+        settings</span>.
+      </div>
+      <div class="banner warning">
+        We're aware of intermittent internet connectivity issues. As we work on a fix, try re-running
+        any jobs that failed due to a network-related error.
+      </div>
+      <div class="banner error">
+        The application is currently down for maintenance. We'll be back online shortly.
+      </div>
+    `}
+    outputWrapperClass=""
+  />
+
+  <UsageExample
+    name="Title"
+    description="To add a title to the banner, add the class `banner-title` to the first child of the banner."
+    code={`
+      <div class="banner warning">
+        <p class="banner-title">Maintenance Reminder</p>
+        The application will be unavailable tonight starting at 8:00 PM.
+        The outage is expected to take 15 minutes or less.
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Dismiss Button"
+    description="If you want to make the banner dismissible, add a button with the classes `button` and `dismiss`. Make sure to add an `aria-label` attribute to the button to describe its purpose, and a click event handler to handle hiding the banner."
+    code={`
+      <div class="banner warning">
+        Node.js 16 is nearing the end of support. Please update your scripts to use a newer version of Node.js.
+        <button class="button dismiss" aria-label="Dismiss"></button>
+      </div>
+    `}
+  />
+
+  <div class="card">
+    <h2 class="card-title" id="playground">Playground</h2>
+    <div class="stack vertical dense">
+      <p>Click the button below to test out adding a banner to this page.</p>
+      <button
+        class="button primary"
+        onclick="
+          document
+            .querySelector('.app')
+            .prepend(document.querySelector('#banner-template').content.firstElementChild.cloneNode(true));
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        "
+        >Add Site-wide Banner</button
+      >
+      <template id="banner-template">
+        <div class="banner error">
+          The sky is falling!
+          <button
+            class="button dismiss"
+            aria-label="Dismiss"
+            onclick="this.parentElement.remove()"></button>
+        </div>
+      </template>
+    </div>
+  </div>
+</ComponentDocumentation>

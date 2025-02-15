@@ -1,16 +1,24 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-
-const exampleCode = `
-<!-- Low -->
-<meter min="0" max="100" low="33" high="67" optimum="100" value="10"></meter>
-
-<!-- Medium -->
-<meter min="0" max="100" low="33" high="67" optimum="100" value="50"></meter>
-
-<!-- High -->
-<meter min="0" max="100" low="33" high="67" optimum="100" value="90"></meter>
-`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
 ---
 
-<ComponentDocs name="Meter" exampleCode={exampleCode} />
+<ComponentDocumentation
+  name="Meter"
+  description="A visualization of where a value falls within a given range."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="You can style `meter` elements by giving them the `meter` class. Meters change color based on how their value compares with the `low`, `high`, and `optimum` attributes."
+    code={`
+      <!-- Low -->
+      <meter class="meter" min="0" max="100" low="33" high="67" optimum="100" value="10"></meter>
+
+      <!-- Medium -->
+      <meter class="meter" min="0" max="100" low="33" high="67" optimum="100" value="50"></meter>
+
+      <!-- High -->
+      <meter class="meter" min="0" max="100" low="33" high="67" optimum="100" value="90"></meter>
+    `}
+  />
+</ComponentDocumentation>

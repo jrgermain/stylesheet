@@ -1,30 +1,52 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-import ComponentOption from "../../components/ComponentOption.astro";
-
-const exampleCode = `
-<!-- Use the 'field' class as a wrapper for form fields to style both the field and related label/help/error text. Use either of the two formats below for the markup: -->
-
-<!-- Option 1 -->
-<label class="field">
-  Email Address
-  <input type="email" />
-</label>
-
-<!-- Option 2 -->
-<div class="field">
-  <label for="field1">Email Address</label>
-  <input id="field1" type="email" />
-</div>
-`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 ---
 
-<ComponentDocs name="Form Field" exampleCode={exampleCode}>
-  <ComponentOption name="Supported Form Controls">
-    <p slot="details">
-      The <code>field</code> wrapper supports the following form control elements:
-    </p>
-    <Fragment slot="examples">
+<ComponentDocumentation
+  name="Field"
+  description="A wrapper for text boxes, dropdowns, and other controls within a form that provides styling."
+>
+  <UsageExample
+    name="Usage Patterns"
+    description={trimMarkdownPadding(`
+      You can use the \`field\` class to style form fields and their labels, as
+      well as any associated help and error text.
+
+      There are 2 supported patterns:
+
+      1. Create a \`label\` element with the class \`field\` and place both the
+         label text and the control (e.g., an \`input\` element) inside it.
+      2. Create a \`div\` element with the class \`field\`. Inside it, place the
+         label text in a \`label\` element and the control next to it. Make sure
+         the control has an \`id\` attribute that matches the \`for\` attribute
+         of the label.
+
+      For more information about how labels are associated to controls, see
+      [this MDN article](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label).
+      
+      Both patterns are shown below.
+    `)}
+    code={`
+      <!-- Option 1 -->
+      <label class="field">
+        Email Address
+        <input type="email" />
+      </label>
+
+      <!-- Option 2 -->
+      <div class="field">
+        <label for="field1">Email Address</label>
+        <input id="field1" type="email" />
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Supported Controls"
+    description="Below are some examples of different control types inside a Field."
+    code={`
       <label class="field">
         Select
         <select>
@@ -85,26 +107,29 @@ const exampleCode = `
         Week Input
         <input type="week" />
       </label>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Read-only/Disabled">
-    <p slot="details">
-      Fields with the <code>disabled</code> or <code>readonly</code> attributes will
-      have styling applied. The styles for each are slightly different, as readonly
-      fields are focusable and disabled fields are not.
-    </p>
-    <Fragment slot="examples">
-      <label class="field"
-        >Disabled <input type="text" value="Testing" disabled /></label
-      >
-      <label class="field"
-        >Read-only <input type="text" value="Testing" readonly /></label
-      >
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Help & Error Text">
-    <p slot="details">Fields may have help text, error text, or both.</p>
-    <Fragment slot="examples">
+    `}
+    outputWrapperClass="field-example-columns"
+  />
+
+  <UsageExample
+    name="Read-only/Disabled"
+    description="Fields whose controls have the `disabled` or `readonly` attributes will have slightly different styling applied, as read-only fields are focusable and disabled fields are not."
+    code={`
+      <label class="field">
+        Disabled
+        <input type="text" value="Testing" disabled />
+      </label>
+      <label class="field">
+        Read-only
+        <input type="text" value="Testing" readonly />
+      </label>
+    `}
+  />
+
+  <UsageExample
+    name="Help & Error Text"
+    description="Fields may have help text, error text, or both. To see the error text in the example below, try typing a single letter in the field and clicking or tabbing out of it."
+    code={`
       <div class="field">
         <label for="employee-id">Employee ID Number</label>
         <div class="help-text" id="employee-id-help-text">
@@ -122,58 +147,39 @@ const exampleCode = `
           Your ID Number must be 8 digits long.
         </div>
       </div>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Compact Variant">
-    <p slot="details">
-      Fields can be given a more condensed look by adding the <code
-        >compact</code
-      > class to either the field itself or to the containing <code>form</code>, <code
-        >.form</code
-      >, or <code>fieldset</code> element.
-    </p>
-    <Fragment slot="examples">
-      <form class="compact dense vertical stack">
-        <h2 class="h6">Compact Form</h2>
-        <label class="field">
-          Text Input
-          <input type="text" />
-        </label>
-        <label class="field">
-          Dropdown
-          <select>
-            <option>a</option>
-            <option>b</option>
-            <option>c</option>
-          </select>
-        </label>
-      </form>
+    `}
+  />
 
-      <form class="dense vertical stack">
-        <h2 class="h6">Regular Form</h2>
+  <UsageExample
+    name="Compact"
+    description="Fields can be made more condensed by adding the `compact` class to either the field itself or to the containing `fieldset`."
+    code={`
+      <label class="field compact">
+        Compact Text Input
+        <input type="text" />
+      </label>
+
+      <fieldset class="fieldset compact">
+        <legend>Compact Fieldset</legend>
         <label class="field">
-          Normal Text Input
+          (Implicitly) Compact Text Input
           <input type="text" />
         </label>
-        <label class="compact field">
-          Compact Text Input
-          <input type="text" />
-        </label>
-      </form>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Prefix/Suffix">
-    <p slot="details">
+      </fieldset>
+    `}
+  />
+
+  <UsageExample
+    name="Prefix/Suffix"
+    description={trimMarkdownPadding(`
       Fields may have a prefix (label that comes before) and/or suffix (label
       that comes after). This may be useful for providing context on how the
-      data in the input field will be used. Use the class <code>prefix</code> if
-      the item is <em>before</em> the input field in the markup, or <code
-        >suffix</code
-      > if it comes after. Wrap any prefixes, suffixes, and inputs in a div with
-      the class
-      <code>input-group</code>.
-    </p>
-    <Fragment slot="examples">
+      data in the input field will be used. Use the class \`prefix\` if
+      the item is before the input field in the markup, or \`suffix\` if it
+      comes after. Wrap any prefixes, suffixes, and controls in a div with the
+      class \`input-group\`.
+    `)}
+    code={`
       <label class="field">
         Subdomain
         <div class="input-group">
@@ -188,20 +194,30 @@ const exampleCode = `
           <div class="suffix">.jrgermain.dev</div>
         </div>
       </label>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Action">
-    <p slot="details">
+    `}
+  />
+
+  <UsageExample
+    name="Action"
+    description={trimMarkdownPadding(`
       Fields may have a button attached to the beginning or end. Similarly to
       prefixes and suffixes, you'll need to wrap the input (or select) and
-      action button in a div that has the class <code>input-group</code>. The
-      action button must also have the class <code>action</code>.
-    </p>
-    <Fragment slot="examples">
-      <label class="field" x-data="{ isVisible: false }">
+      action button in a div that has the class \`input-group\`. The action
+      button must also have the class \`action\`.
+
+      Below is an example of a password field with a button that toggles the
+      visibility of the password.
+    `)}
+    code={`
+      <noscript>
+        <div class="alert error">
+          This example requires JavaScript to run.
+        </div>
+      </noscript>
+      <label class="field" x-data="{ isVisible: false }" x-cloak>
         Password
         <div class="input-group">
-          <input x-bind:type="isVisible ? 'text' : 'password'" />
+          <input x-bind:type="isVisible ? 'text' : 'password'" autocomplete="off" />
           <button
             class="action"
             x-bind:title="isVisible ? 'Hide Password' : 'Show Password'"
@@ -232,16 +248,14 @@ const exampleCode = `
           </button>
         </div>
       </label>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Fieldset">
-    <p slot="details">
-      You can use a <code>fieldset</code> element with a corresponding <code
-        >legend</code
-      > to define a group of related input fields.
-    </p>
-    <Fragment slot="examples">
-      <fieldset>
+    `}
+  />
+
+  <UsageExample
+    name="Fieldset"
+    description="You can use a \`fieldset\` element with a corresponding \`legend\` to define a group of related input fields. The \`fieldset\` element must have the class \`fieldset\` to be styled."
+    code={`
+      <fieldset class="fieldset">
         <legend>Deposit Amount</legend>
         <label class="field">
           Amount
@@ -256,23 +270,15 @@ const exampleCode = `
           </select>
         </label>
       </fieldset>
-      <fieldset>
-        <legend>Console</legend>
-        <div class="densest vertical stack">
-          <label>
-            <input type="radio" name="radio" />
-            Nintendo Switch
-          </label>
-          <label>
-            <input type="radio" name="radio" />
-            Xbox
-          </label>
-          <label>
-            <input type="radio" name="radio" />
-            PlayStation
-          </label>
-        </div>
-      </fieldset>
-    </Fragment>
-  </ComponentOption>
-</ComponentDocs>
+    `}
+    outputWrapperClass="flow"
+  />
+</ComponentDocumentation>
+
+<style is:global>
+  .field-example-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-s);
+  }
+</style>

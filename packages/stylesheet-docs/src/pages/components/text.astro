@@ -1,64 +1,134 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-
-const exampleCode = `
-<div>
-  <h1>Heading 1</h1>
-  <h2>Heading 2</h2>
-  <h3>Heading 3</h3>
-  <h4>Heading 4</h4>
-  <h5>Heading 5</h5>
-  <h6>Heading 6</h6>
-  <p>I did a good amount of reading on typography.</p>
-  <p>
-    In my research, I learned about a bunch of subtle ways to make text
-    look good. For example, I slightly reduce the weights of text in dark
-    mode, since the eye perceives white text on a dark background to be
-    thicker than it is. I also set a nice roomy line height on paragraphs,
-    and a more condensed one on headings. Consecutive paragraphs have a
-    little breathing room between, and
-    <code>text-wrap</code> is used in browsers that support it.
-  </p>
-  <p>
-    The stylesheet includes styles for <strong>bolding</strong>,
-    <em>italicizing</em>, <mark>highlighting</mark>, as well as formatting <code
-      >code</code
-    > and <a>links</a>. There are also styles for the <sub>sub</sub> and <sup
-      >sup</sup
-    > elements, the <small>small</small> element, the <abbr
-      title="abbreviation">abbr</abbr
-    > element. If you use the correct semantic elements, these styles get applied
-    automatically. Otherwise, you can fall back on classes that do the same
-    thing.
-  </p>
-  <p>
-    <a href="." target="_blank">Links that open in a new tab</a>
-    automatically have an icon appended, but this can be suppressed.
-  </p>
-  <p>There is also styling for blockquotes:</p>
-  <blockquote cite="https://www.huxley.net/bnw/four.html">
-    <p>
-      Words can be like X-rays, if you use them properly—they’ll go
-      through anything. You read and you’re pierced.
-    </p>
-    <footer>—Aldous Huxley, <cite>Brave New World</cite></footer>
-  </blockquote>
-  <p>
-    There is also support for some of the less common elements like 
-    <del>del (for highlighting deleted text)</del> and
-    <ins>ins (for highlighting added text)</ins>.
-  </p>
-  <p>
-    Have you heard of the <code>samp</code> element? This can be used to show
-    the output of a computer program. For example, we can use it to show what
-    happens when you run the command <code>rm -rf /</code>.
-  </p>
-  <samp>
-    rm: it is dangerous to operate recursively on '/'<br />rm: use
-    --no-preserve-root to override this failsafe
-  </samp>
-</div>
-`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
 ---
 
-<ComponentDocs name="Text" exampleCode={exampleCode} />
+<ComponentDocumentation
+  name="Text"
+  description="A collection of styles for different types of body text."
+>
+  <UsageExample
+    name="Paragraph"
+    description="A block element containing one or more sentences. Typically represented by a `p` element. To create one, use the class `paragraph`."
+    code={`
+      <p class="paragraph">This is a paragraph.</p>
+      <p class="paragraph">This is a second paragraph. Notice how all paragraphs get their own line.</p>
+      <p class="paragraph">
+        You can nest the other elements below inside of a paragraph,
+        as well as other inline, text-based components like the
+        <span class="link">link</span>
+        or
+        <mark class="highlight">highlight</mark>.
+      </p>
+    `}
+    outputWrapperClass=""
+  />
+  <UsageExample
+    name="Abbreviation"
+    description="An inline element containing abbreviated text. Put the non-abbreviated version in the `title` attribute. Typically represented by an `abbr` element. To create one, use the class `abbreviation`."
+    code={`
+      <p class="paragraph">
+        It's commonly believed that the first usage of the term
+        <abbr class="abbreviation" title="Oh My God">OMG</abbr>
+        was in a letter written to Winston Churchill in 1917.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Bold"
+    description="An inline element containing bold text. Typically represented by a `strong` element. To create one, use the class `bold`."
+    code={`
+      <p class="paragraph">
+        The term <strong class="bold">bold</strong> refers to text that's
+        thicker than the text around it.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Italic"
+    description="An inline element containing italicized text. Typically represented by an `em` element. To create one, use the class `italic`."
+    code={`
+      <p class="paragraph">
+        The reason the standard HTML element for italic text is called <code class="code">em</code> is because it stands for
+        <span class="italic">em</span>phasis.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Underline"
+    description="An inline element containing underlined text. To create one, use the class `underline`."
+    code={`
+      <p class="paragraph">
+        This text is <span class="underline">underlined</span>.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Strikethrough"
+    description="An inline element containing text with a line through it. Typically represented by an `s` element. To create one, use the class `strikethrough`."
+    code={`
+      <p class="paragraph">
+        This text is <s class="strikethrough">strikethroughed</s>
+        
+        <s class="strikethrough">striked through</s>
+
+        crossed out.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Underline and Strikethrough"
+    description="You can combine the `underline` and `strikethrough` classes, even though they both use the same CSS property underneath."
+    code={`
+      <p class="paragraph">
+        This text is <s class="strikethrough underline">both</s>.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Small Text"
+    description="An inline element containing text that's smaller than the text around it. Typically represented by a `small` element. To create one, use the class `small-text`."
+    code={`
+      <p class="paragraph">
+        I'm just a <small class="small-text">little</small> confused.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Subscript"
+    description="An inline element for a subscript. Typically represented by a `sub` element. To create one, use the class `subscript`."
+    code={`
+      <p class="paragraph">
+        The formula for water is H<sub class="subscript">2</sub>O.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Superscript"
+    description="An inline element for a superscript. Typically represented by a `sup` element. To create one, use the class `superscript`."
+    code={`
+      <p class="paragraph">
+        The speed of light is 3.00 x 10<sup class="superscript">8</sup> m/s.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Code"
+    description="An inline element containing code. Typically represented by a `code` element. To create one, use the class `code`."
+    code={`
+      <p class="paragraph">
+        To print "Hello, World!" in Python, you would write <code class="code">print("Hello, World!")</code>.
+      </p>
+    `}
+  />
+  <UsageExample
+    name="Key"
+    description="An inline element representing a key on a keyboard. Typically represented by a `kbd` element. To create one, use the class `key`."
+    code={`
+      <p class="paragraph">
+        To save a file in most applications, you can press <kbd class="key">Ctrl</kbd> + <kbd class="key">S</kbd>
+        (or <kbd class="key">⌘</kbd> + <kbd class="key">S</kbd> on a Mac).
+      </p>
+    `}
+  />
+</ComponentDocumentation>

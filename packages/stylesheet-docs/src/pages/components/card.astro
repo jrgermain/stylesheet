@@ -1,23 +1,16 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-import ComponentOption from "../../components/ComponentOption.astro";
-
-const exampleCode = `
-<div class="card">
-  <h1 class="card-title">Optional Title</h1>
-  <p>Content</p>
-</div>
-`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
 ---
 
-<ComponentDocs name="Card" exampleCode={exampleCode}>
-  <ComponentOption name="Variant">
-    <p slot="details">
-      Cards can either be <strong>Primary</strong> or <strong>Secondary</strong
-      >. All cards default to the Primary variant. To make a card secondary, add
-      the class <code>secondary</code>.
-    </p>
-    <Fragment slot="examples">
+<ComponentDocumentation
+  name="Card"
+  description="A container for a unit of content that appears raised on the page."
+>
+  <UsageExample
+    name="Variants"
+    description="Create a card by giving a container element the class `card`. Cards can either be **Primary** or **Secondary** and default to the primary variant. To make a card secondary, add the `secondary` class."
+    code={`
       <div class="card">
         <p>This is an example of a Primary card.</p>
       </div>
@@ -26,20 +19,18 @@ const exampleCode = `
       </div>
       <div class="card">
         <p>One use case for Secondary cards is creating nested cards.</p>
-        <hr class="invisible" />
+        <hr class="divider invisible" />
         <div class="secondary card">
           <p>This Secondary card is nested within a Primary one.</p>
         </div>
       </div>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Title">
-    <p slot="details">
-      You can add a title to the card by adding a child element with the class <code
-        >card-title</code
-      >.
-    </p>
-    <Fragment slot="examples">
+    `}
+  />
+
+  <UsageExample
+    name="Title"
+    description="You can add a title to the card by adding a child element with the class `card-title`."
+    code={`
       <div class="card">
         <h1 class="card-title">Hey</h1>
         <p>I have a title.</p>
@@ -48,6 +39,6 @@ const exampleCode = `
         <h1 class="card-title">Hey</h1>
         <p>Me too!</p>
       </div>
-    </Fragment>
-  </ComponentOption>
-</ComponentDocs>
+    `}
+  />
+</ComponentDocumentation>

@@ -1,0 +1,32 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Quote"
+  description="A quotation offset from the text around it."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="You can style quotes (typically `blockquote` elements) by giving them the `quote` class."
+    code={`
+      <blockquote class="quote">
+        And he said, <q>don't quote me on this, but...</q>
+      </blockquote>
+    `}
+  />
+  <UsageExample
+    name="Citation"
+    description="To add a citation to a quote, add a `footer` element that optionally contains a `cite` element."
+    code={`
+      <blockquote class="quote" cite="https://www.huxley.net/bnw/four.html">
+        <p>
+          Words can be like X-rays, if you use them properly—they’ll go
+          through anything. You read and you’re pierced.
+        </p>
+        <footer>—Aldous Huxley, <cite>Brave New World</cite></footer>
+      </blockquote>
+    `}
+  />
+</ComponentDocumentation>

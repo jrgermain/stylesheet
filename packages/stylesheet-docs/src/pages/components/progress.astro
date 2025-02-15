@@ -1,17 +1,21 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-import ComponentOption from "../../components/ComponentOption.astro";
-
-const exampleCode = `<progress value="50" max="100"></progress>`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
 ---
 
-<ComponentDocs name="Progress" exampleCode={exampleCode}>
-  <ComponentOption name="Indeterminate">
-    <p slot="details">
-      To make a progress bar Indeterminate, omit the <code>value</code> attribute.
-    </p>
-    <Fragment slot="examples">
-      <progress></progress>
-    </Fragment>
-  </ComponentOption>
-</ComponentDocs>
+<ComponentDocumentation
+  name="Progress"
+  description="An indicator of how far along a process currently is."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="You can style `progress` elements by giving them the `progress` class."
+    code={'<progress class="progress" value="50" max="100"></progress>'}
+  />
+
+  <UsageExample
+    name="Indeterminate"
+    description="To make a progress bar indeterminate, omit the `value` attribute."
+    code={'<progress class="progress"></progress>'}
+  />
+</ComponentDocumentation>

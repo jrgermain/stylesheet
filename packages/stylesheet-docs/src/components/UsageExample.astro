@@ -1,0 +1,32 @@
+---
+import ExampleWithCode from "./ExampleWithCode.astro";
+import { marked } from "marked";
+
+interface Props {
+  name: string;
+  description: string;
+  code: string;
+  outputWrapperClass?: string;
+}
+const {
+  name,
+  description,
+  code,
+  outputWrapperClass = "vertical stack",
+} = Astro.props;
+
+const descriptionHtml = marked.parse(description);
+---
+
+<div class="card">
+  <h2 class="card-title">{name}</h2>
+  <div class="stack vertical dense">
+    <div class="markdown-output" set:html={descriptionHtml} />
+    <ExampleWithCode
+      language="html"
+      code={code}
+      outputWrapperClass={outputWrapperClass}
+      outputWrapperId={`example-output--${name.toLowerCase().replace(/\W+/g, "-")}`}
+    />
+  </div>
+</div>

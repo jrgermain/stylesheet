@@ -1,0 +1,45 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Divider"
+  description="An element designed to visually separate or partition others."
+>
+  <UsageExample
+    name="Defaults"
+    description="To create a divider, create an element with the class `divider`."
+    code={`
+      <p>Some content</p>
+      <hr class="divider"/>
+      <p>More content</p>
+    `}
+    outputWrapperClass=""
+  />
+
+  <UsageExample
+    name="Orientation"
+    description="You can change the direction of a divider by adding the classes `horizontal` (default) or `vertical`."
+    code={`
+      <div class="card secondary">
+        <div class="horizontal flow">
+          <p>Some content</p>
+          <hr class="divider vertical"/>
+          <p>More content</p>
+        </div>
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Visibility"
+    description="To add space between elements without a visible line, add the class `invisible`."
+    code={`
+      <p>Some content</p>
+      <hr class="divider invisible"/>
+      <p>More content</p>
+    `}
+    outputWrapperClass=""
+  />
+</ComponentDocumentation>

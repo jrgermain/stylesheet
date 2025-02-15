@@ -1,31 +1,33 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-import ComponentOption from "../../components/ComponentOption.astro";
-
-const exampleCode = `<span class="blue chip">Hello</span>`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 ---
 
-<ComponentDocs name="Chip" exampleCode={exampleCode}>
-  <ComponentOption name="Color">
-    <Fragment slot="details">
-      <p>To set the color of a chip, add one of the following classes:</p>
-      <ul>
-        <li><code>red</code></li>
-        <li><code>orange</code></li>
-        <li><code>yellow</code></li>
-        <li><code>green</code></li>
-        <li><code>sky</code></li>
-        <li><code>blue</code></li>
-        <li><code>purple</code></li>
-        <li><code>magenta</code></li>
-        <li><code>black</code></li>
-        <li><code>white</code></li>
-        <li><code>gray</code></li>
-        <li><code>brand</code></li>
-      </ul>
-      <p class="warning alert">You must set exactly one of these.</p>
-    </Fragment>
-    <Fragment slot="examples">
+<ComponentDocumentation
+  name="Chip"
+  description="A small, colorful text element that can represent a tag, filter, or badge."
+>
+  <UsageExample
+    name="Color"
+    description={trimMarkdownPadding(`
+      To set the color of a chip, add one of the following classes:
+
+      - \`brand\` (default)
+      - \`red\`
+      - \`orange\`
+      - \`yellow\`
+      - \`green\`
+      - \`sky\`
+      - \`blue\`
+      - \`purple\`
+      - \`magenta\`
+      - \`black\`
+      - \`white\`
+      - \`gray\`
+    `)}
+    code={`
+      <div class="chip">Brand</div>
       <div class="red chip">Red</div>
       <div class="orange chip">Orange</div>
       <div class="yellow chip">Yellow</div>
@@ -37,17 +39,15 @@ const exampleCode = `<span class="blue chip">Hello</span>`;
       <div class="black chip">Black</div>
       <div class="white chip">White</div>
       <div class="gray chip">Gray</div>
-      <div class="brand chip">Brand</div>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Clickable">
-    <Fragment slot="details">
-      <p>
-        To make a chip clickable, add the <code>clickable</code> class. It's also
-        a good idea to use a <code>button</code> element for the chip itself.
-      </p>
-    </Fragment>
-    <Fragment slot="examples">
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="Clickable"
+    description="To make a chip clickable, add the `clickable` class. It's also a good idea to use a `button` element for the chip itself."
+    code={`
+      <button class="clickable chip">Brand</button>
       <button class="clickable red chip">Red</button>
       <button class="clickable orange chip">Orange</button>
       <button class="clickable yellow chip">Yellow</button>
@@ -59,32 +59,63 @@ const exampleCode = `<span class="blue chip">Hello</span>`;
       <button class="clickable black chip">Black</button>
       <button class="clickable white chip">White</button>
       <button class="clickable gray chip">Gray</button>
-      <button class="clickable brand chip">Brand</button>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Deletable">
-    <Fragment slot="details">
-      <p>
-        To make a chip deletable, add a button element inside the chip with the
-        class <code>delete</code>.
-      </p>
-    </Fragment>
-    <Fragment slot="examples">
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="Deletable"
+    description="To make a chip deletable, add a button element inside the chip with the class `chip-delete`."
+    code={`
+      <div class="chip">
+        Brand
+        <button class="chip-delete" title="Delete"></button>
+      </div>
       <div class="red chip">
         Red
-        <button class="delete"></button>
+        <button class="chip-delete" title="Delete"></button>
       </div>
-      <div class="orange chip">Orange <button class="delete"></button></div>
-      <div class="yellow chip">Yellow <button class="delete"></button></div>
-      <div class="green chip">Green <button class="delete"></button></div>
-      <div class="sky chip">Sky <button class="delete"></button></div>
-      <div class="blue chip">Blue <button class="delete"></button></div>
-      <div class="purple chip">Purple <button class="delete"></button></div>
-      <div class="magenta chip">Magenta <button class="delete"></button></div>
-      <div class="black chip">Black <button class="delete"></button></div>
-      <div class="white chip">White <button class="delete"></button></div>
-      <div class="gray chip">Gray <button class="delete"></button></div>
-      <div class="brand chip">Brand <button class="delete"></button></div>
-    </Fragment>
-  </ComponentOption>
-</ComponentDocs>
+      <div class="orange chip">
+        Orange
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="yellow chip">
+        Yellow
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="green chip">
+        Green
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="sky chip">
+        Sky
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="blue chip">
+        Blue
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="purple chip">
+        Purple
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="magenta chip">
+        Magenta
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="black chip">
+        Black
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="white chip">
+        White
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="gray chip">
+        Gray
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+</ComponentDocumentation>

@@ -1,17 +1,28 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-
-const exampleCode = `
-<!-- You can use 'skeleton' as a modifier class on headings, paragraphs, buttons, chips, or other elements to turn them into skeletons.
-
-Note: if you're turning an interactive element into a skeleton, make sure to disable it! -->
-
-<div class="card" style="width:400px">
-  <h1 class="skeleton"></h1>
-  <p class="skeleton"></p>
-  <p class="skeleton"></p>
-</div>
-`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 ---
 
-<ComponentDocs name="Skeleton" exampleCode={exampleCode} />
+<ComponentDocumentation
+  name="Skeleton"
+  description="A placeholder for a pending value or a not-yet-interactive control."
+>
+  <UsageExample
+    name="Basic Usage"
+    description={trimMarkdownPadding(`
+      You can use \`skeleton\` as a modifier class on headings, paragraphs,
+      buttons, chips, or other elements to turn them into skeletons.
+      
+      Note: if you're turning an interactive element into a skeleton, make sure
+       to disable it!
+    `)}
+    code={`
+      <div class="card" style="width:400px">
+        <p class="card-title skeleton"></p>
+        <p class="paragraph skeleton"></p>
+        <p class="paragraph skeleton"></p>
+      </div>
+    `}
+  />
+</ComponentDocumentation>

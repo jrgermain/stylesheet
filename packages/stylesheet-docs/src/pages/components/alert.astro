@@ -1,79 +1,39 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-import ComponentOption from "../../components/ComponentOption.astro";
-
-const exampleCode = `
-<div class="success alert">
-  <p class="alert-title">Profile Updated</p>
-  <p>Please note that it may take up to 24 hours for everyone to see your changes.</p>
-</div>
-`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
 ---
 
-<ComponentDocs name="Alert" exampleCode={exampleCode}>
-  <ComponentOption name="Status">
-    <Fragment slot="details">
-      <p>To set the status of an alert, add one of the following classes:</p>
-      <ul>
-        <li><code>info</code></li>
-        <li><code>success</code></li>
-        <li><code>warning</code></li>
-        <li><code>error</code></li>
-      </ul>
-    </Fragment>
-    <div class="densest vertical stack" slot="examples">
-      <div class="info alert">
-        <p>This is an <strong>info</strong> alert.</p>
+<ComponentDocumentation
+  name="Alert"
+  description="A message that shows the status of a validation, request, or other operation."
+>
+  <UsageExample
+    name="Statuses"
+    description="To create an alert, create a `div` with the class `alert`. Every alert *must* have a status, which you can set by adding one of the following additional classes:\n\n- `info`\n- `success`\n- `warning`\n- `error`\n\nFailing to include a status is undefined behavior."
+    code={`
+      <div class="alert info">
+        No payment is due at this time.
       </div>
-      <div class="success alert">
-        <p>This is a <strong>success</strong> alert.</p>
+      <div class="alert success">
+        Your profile was updated successfully.
       </div>
-      <div class="warning alert">
-        <p>This is a <strong>warning</strong> alert.</p>
+      <div class="alert warning">
+        Your connection is unstable.
       </div>
-      <div class="error alert">
-        <p>This is an <strong>error</strong> alert.</p>
+      <div class="alert error">
+        Please enter a valid email address.
       </div>
-    </div>
-  </ComponentOption>
-  <ComponentOption name="Title">
-    <p slot="details">
-      To add a title to the alert, add an element with the class <code
-        >alert-title</code
-      > as the first child.
-    </p>
-    <div slot="examples" class="info alert">
-      <p class="alert-title">Fun Fact</p>
-      <p>The tip of a shoelace is called an aglet.</p>
-    </div>
-  </ComponentOption>
-  <ComponentOption name="Banner">
-    <p slot="details">
-      An alert can be used as a <strong>banner</strong> by adding the class <code
-        >banner</code
-      >. This is intended to be used for site-wide messages and should be placed
-      at the top of the page. You can add a button with the class <code
-        >dismiss</code
-      > to allow users to close the banner.
-    </p>
-    <div slot="examples">
-      <button
-        class="primary button"
-        onclick="document.querySelector('.app').prepend(document.querySelector('#banner-template').content.firstElementChild.cloneNode(true)); window.scrollTo({ top: 0, behavior: 'smooth' });"
-        >Add Site-wide Alert</button
-      >
-      <template id="banner-template">
-        <div class="alert banner info">
-          <p>
-            You're viewing the documentation for v2. To see documentation for
-            v1, click <a>here</a>.
-          </p>
-          <button
-            class="dismiss button"
-            title="Dismiss"
-            onclick="document.querySelector('.alert.banner').remove()"></button>
-        </div>
-      </template>
-    </div>
-  </ComponentOption>
-</ComponentDocs>
+    `}
+  />
+
+  <UsageExample
+    name="Title"
+    description="To add a title to the alert, add the class `alert-title` to the first child of the alert."
+    code={`
+      <div class="alert info">
+        <p class="alert-title">Fun Fact</p>
+        <p>The tip of a shoelace is called an aglet.</p>
+      </div>
+    `}
+  />
+</ComponentDocumentation>

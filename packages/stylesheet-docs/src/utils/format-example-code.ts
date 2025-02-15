@@ -7,8 +7,7 @@ export const formatExampleCode = async (
   const formattedCode = await format(code, {
     parser: language,
     printWidth: 60,
-    htmlWhitespaceSensitivity: "ignore",
   });
 
-  return formattedCode.trim();
+  return formattedCode.trimStart();
 };

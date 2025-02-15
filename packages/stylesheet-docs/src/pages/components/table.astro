@@ -1,49 +1,54 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-import ComponentOption from "../../components/ComponentOption.astro";
-
-const exampleCode = `
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Job Area</th>
-      <th>Job Title</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>John</td>
-      <td>Johnson</td>
-      <td>Analytics</td>
-      <td>Data Analyst</td>
-    </tr>
-    <tr>
-      <td>Jack</td>
-      <td>Jackson</td>
-      <td>Analytics</td>
-      <td>Manager</td>
-    </tr>
-    <tr>
-      <td>Robin</td>
-      <td>Robinson</td>
-      <td>Engineering</td>
-      <td>Software Engineer</td>
-    </tr>
-  </tbody>
-</table>
-`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 ---
 
-<ComponentDocs name="Table" exampleCode={exampleCode}>
-  <ComponentOption name="Caption and Footer">
-    <p slot="details">
-      If you choose to include a title (using the <code>caption</code> element) or
-      a footer (using the <code>tfoot</code> element), they will be styled.
-    </p>
-    <Fragment slot="examples">
-      <table>
+<ComponentDocumentation
+  name="Table"
+  description="A grid designed to show large amounts of information using rows and columns."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="You can style a table by adding the `table` class to any `table` element."
+    code={`
+      <table class="table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Job Area</th>
+            <th>Job Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John</td>
+            <td>Johnson</td>
+            <td>Analytics</td>
+            <td>Data Analyst</td>
+          </tr>
+          <tr>
+            <td>Jack</td>
+            <td>Jackson</td>
+            <td>Analytics</td>
+            <td>Manager</td>
+          </tr>
+          <tr>
+            <td>Robin</td>
+            <td>Robinson</td>
+            <td>Engineering</td>
+            <td>Software Engineer</td>
+          </tr>
+        </tbody>
+      </table>
+    `}
+  />
+  <UsageExample
+    name="Caption/Footer"
+    description="The `caption` and `tfoot` elements are styled automatically."
+    code={`
+      <table class="table">
         <caption>Sales Figures</caption>
         <thead>
           <tr>
@@ -76,14 +81,13 @@ const exampleCode = `
           </tr>
         </tfoot>
       </table>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Subtle Variant">
-    <p slot="details">
-      You can make the styling softer by adding the class <code>subtle</code>.
-    </p>
-    <Fragment slot="examples">
-      <table class="subtle">
+    `}
+  />
+  <UsageExample
+    name="Subtle"
+    description="You can make the styling softer by adding the class `subtle` to the table element."
+    code={`
+      <table class="table subtle">
         <thead>
           <tr>
             <th>Quarter</th>
@@ -109,15 +113,13 @@ const exampleCode = `
           </tr>
         </tbody>
       </table>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Density">
-    <p slot="details">
-      You can make the table more compact by adding the class <code>dense</code
-      >, or more spread out by adding the class <code>sparse</code>.
-    </p>
-    <Fragment slot="examples">
-      <table class="dense">
+    `}
+  />
+  <UsageExample
+    name="Density"
+    description="You can make a table more compact by adding the class `dense`, or more spread out with the class `sparse`."
+    code={`
+      <table class="table dense">
         <caption>Dense</caption>
         <thead>
           <tr>
@@ -144,7 +146,7 @@ const exampleCode = `
           </tr>
         </tbody>
       </table>
-      <table class="sparse">
+      <table class="table sparse">
         <caption>Sparse</caption>
         <thead>
           <tr>
@@ -171,6 +173,6 @@ const exampleCode = `
           </tr>
         </tbody>
       </table>
-    </Fragment>
-  </ComponentOption>
-</ComponentDocs>
+    `}
+  />
+</ComponentDocumentation>

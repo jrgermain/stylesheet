@@ -1,0 +1,35 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Highlight"
+  description="Text that is highlighted for emphasis or to show that it was added or removed."
+>
+  <UsageExample
+    name="Defaults"
+    description="To highlight an element, add the class `highlight`."
+    code={'<mark class="highlight">This text is highlighted.</mark>'}
+    outputWrapperClass=""
+  />
+
+  <UsageExample
+    name="Added/Removed"
+    description="To highlight text that was added to, or removed from, a document, add the classes `highlight` and either `added` or `removed`."
+    code={`
+      We finish each other's
+      <del class="highlight removed">sandwiches</del>
+      <ins class="highlight added">sentences</ins>
+      .
+    `}
+    outputWrapperClass=""
+  />
+
+  <UsageExample
+    name="Target Text"
+    description="If the URL of the current page includes a text fragment, the target text will automatically have styling applied. To simulate this style on other text, add the classes `highlight` and `target`."
+    code={'<mark class="highlight target">This text is styled like the target of a text fragment.</mark>'}
+    outputWrapperClass=""
+  />
+</ComponentDocumentation>

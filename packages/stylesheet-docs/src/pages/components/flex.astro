@@ -1,0 +1,161 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+---
+
+<ComponentDocumentation
+  name="Flex"
+  description="Utility classes for managing spacing and layouts."
+>
+  <UsageExample
+    name="Layout"
+    description={trimMarkdownPadding(`
+      At a minimum, you must include exactly one of the following classes to
+      determine which type of layout to apply:
+      
+      - \`flow\`: children are placed a fixed distance apart, wrapping onto new lines as needed.
+      - \`stack\`: children are placed a fixed distance apart and guaranteed to stay on the same line.
+      - \`separate\`: children are placed as far apart as possible while staying on the same line.
+      - \`space\`: children are placed an even distance apart, wrapping onto new lines as needed. Unlike flow, the space between elements adjusts based on how much is available.
+
+      The examples below place children in a container with a fixed width to
+      better illustrate how each behaves.
+    `)}
+    code={`
+      <h3 class="h6">Flow</h3>
+      <div class="flex-example flow">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+      </div>
+      <h3 class="h6">Stack</h3>
+      <div class="flex-example stack">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+      </div>
+      <h3 class="h6">Separate</h3>
+      <div class="flex-example separate">
+        <div class="box">1</div>
+        <div class="box">2</div>
+      </div>
+      <h3 class="h6">Space</h3>
+      <div class="flex-example space">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Density"
+    description={trimMarkdownPadding(`
+      You can optionally add one of the following modifier classes to change
+      the spacing between children (ordered from most compact to most spread out):
+
+      - \`densest\`
+      - \`denser\`
+      - \`dense\`
+      - \`normal\` (default)
+      - \`sparse\`
+      - \`sparser\`
+      - \`sparsest\`
+    `)}
+    code={`
+      <h3 class="h6">Densest</h3>
+      <div class="flow densest">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+      <h3 class="h6">Denser</h3>
+      <div class="flow denser">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+      <h3 class="h6">Dense</h3>
+      <div class="flow dense">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+      <h3 class="h6">Normal</h3>
+      <div class="flow">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+      <h3 class="h6">Sparse</h3>
+      <div class="flow sparse">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+      <h3 class="h6">Sparser</h3>
+      <div class="flow sparser">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+      <h3 class="h6">Sparsest</h3>
+      <div class="flow sparsest">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Orientation"
+    description={trimMarkdownPadding(`
+      You can optionally add one of the following modifier classes to change
+      the axis along which the children are laid out:
+
+      - \`horizontal\` (default): elements are laid out along the x-axis
+      - \`vertical\`: elements are laid out along the y-axis
+    `)}
+    code={`
+      <h3 class="h6">Horizontal</h3>
+      <div class="stack horizontal">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+      <h3 class="h6">Vertical</h3>
+      <div class="stack vertical">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+  `}
+  />
+</ComponentDocumentation>
+<style is:global>
+  #example-output--layout .flex-example {
+    width: 16rem;
+    background: var(--color-brand-5);
+    padding: 0.5rem;
+  }
+
+  .box {
+    background: var(--color-gray-9);
+    border: var(--border-s) solid var(--color-outline);
+    color: var(--color-gray-1);
+    width: 4rem;
+    height: 4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-s);
+    flex: none;
+  }
+</style>

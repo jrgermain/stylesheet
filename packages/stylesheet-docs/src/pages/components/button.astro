@@ -1,112 +1,130 @@
 ---
-import ComponentDocs from "../../components/ComponentDocs.astro";
-import ComponentOption from "../../components/ComponentOption.astro";
-
-const exampleCode = `
-<!-- Buttons are styled automatically -->
-<button class="button">I'm a button</button>
-
-<!-- Other elements are styled as buttons with class "button" -->
-<a href="#" class="button">I'm a button too</a>
-`;
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 ---
 
-<ComponentDocs name="Button" exampleCode={exampleCode}>
-  <ComponentOption name="Variant">
-    <Fragment slot="details">
-      <p>To set the variant of a button, add one of the following classes:</p>
-      <ul>
-        <li><code>primary</code></li>
-        <li><code>secondary</code></li>
-        <li><code>subtle</code></li>
-      </ul>
-      <p>
-        If you don't add any of these, buttons default to the <strong
-          >secondary</strong
-        > variant.
-      </p>
-    </Fragment>
-    <Fragment slot="examples">
-      <button class="primary button">Primary</button>
-      <button class="secondary button">Secondary</button>
-      <button class="subtle button">Subtle</button>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Size">
-    <Fragment slot="details">
-      <p>To adjust the size of a button, add one of the following classes:</p>
-      <ul>
-        <li><code>small</code></li>
-        <li><code>medium</code></li>
-        <li><code>large</code></li>
-      </ul>
-      <p>
-        If you don't add any of these, buttons default to <strong>medium</strong
-        >.
-      </p>
-      <p class="info alert">
-        For finer-grained control over sizing, you can set the <code
-          >font-size</code
-        > style to an arbitrary value and the button will scale accordingly.
-      </p>
-    </Fragment>
-    <Fragment slot="examples">
-      <button class="small button">Small</button>
-      <button class="medium button">Medium</button>
-      <button class="large button">Large</button>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Disabled">
-    <Fragment slot="details">
-      <p>To give a button a disabled style, do one of the following:</p>
-      <ul>
-        <li>Add the <code>disabled</code> attribute</li>
-        <li>Add the <code>disabled</code> class</li>
-        <li>
-          Set the <code>aria-disabled</code> attribute to <code>true</code>
-        </li>
-      </ul>
-      <p class="warning alert">
-        If you use a method other than setting the <code>disabled</code> attribute,
-        make sure you are disabling the <em>behavior</em> of the button as well.
-        Otherwise, the button will look disabled but still function normally.
-      </p>
-    </Fragment>
-    <Fragment slot="examples">
+<ComponentDocumentation
+  name="Button"
+  description="A clickable element that performs an action."
+>
+  <UsageExample
+    name="Allowed Tags"
+    description="You can add the `button` class to any element to style it as a button, but you should typically only use it on a [`button`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) (most cases) or [`a`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) (if the button's a link). Using it on a `span` or other non-interactive element is discouraged as it can introduce usability concerns."
+    code={`
+      <button class="button">I'm a button</button>
+      <a href="#" class="button">I'm a link that looks like a button</a>
+      <span class="button">I'm a span that looks like a button</span>
+    `}
+    outputWrapperClass="dense horizontal flow"
+  />
+
+  <UsageExample
+    name="Variants"
+    description={trimMarkdownPadding(`
+      Buttons can have different styles, called **variants**. To set the variant
+      of a button, add one of the following classes:
+
+      - \`primary\`
+      - \`secondary\`
+      - \`subtle\`
+
+      If you don't add any of these, buttons default to **secondary**.
+    `)}
+    code={`
+      <button class="button primary">Primary</button>
+      <button class="button secondary">Secondary</button>
+      <button class="button subtle">Subtle</button>
+    `}
+    outputWrapperClass="dense horizontal flow"
+  />
+
+  <UsageExample
+    name="Sizes"
+    description={trimMarkdownPadding(`
+      To adjust the size of a button, add one of the following classes:
+
+      - \`small\`
+      - \`medium\`
+      - \`large\`
+
+      If you don't add any of these, buttons default to **medium**.
+
+      For finer-grained control over sizing, you can set the \`font-size\` style
+      to an arbitrary value and the button will scale accordingly.
+    `)}
+    code={`
+      <button class="button small">Small</button>
+      <button class="button medium">Medium</button>
+      <button class="button large">Large</button>
+      <button class="button" style="font-size: 1.5rem">Custom size (1.5rem)</button>
+    `}
+    outputWrapperClass="dense horizontal flow"
+  />
+
+  <UsageExample
+    name="Disabled"
+    description={trimMarkdownPadding(`
+      To give a button a disabled style, do one of the following:
+
+      - Add the \`disabled\` attribute
+      - Add the \`disabled\` class
+      - Set the \`aria-disabled\` attribute to \`true\`
+
+      If you use a method other than setting the \`disabled\` attribute, make sure
+      you are disabling the *behavior* of the button as well. Otherwise, the button
+      will look disabled but still function normally.
+    `)}
+    code={`
       <button disabled class="button">Disabled attribute</button>
       <button class="disabled button">Disabled class</button>
       <button aria-disabled="true" class="button">aria-disabled</button>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Loading">
-    <p slot="details">
-      To give a button a busy/loading style, add the class <code>loading</code>.
-      Many times, you will also want to disable the button, but this is not
-      required.
-    </p>
-    <Fragment slot="examples">
+    `}
+    outputWrapperClass="dense horizontal flow"
+  />
+
+  <UsageExample
+    name="Loading"
+    description={trimMarkdownPadding(`
+      To show that the action triggered by a button is currently in progress,
+      add the \`loading\` class to that button. This gives the user visual
+      feedback that the action is pending.
+
+      Most of the time, you'll want to disable the button while it's loading so
+      the user can't trigger the action again. In this case, also follow the
+      instructions above for disabling the button.
+    `)}
+    code={`
       <button disabled class="loading button">Disabled and loading</button>
       <button class="loading button">Just loading</button>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Link">
-    <p slot="details">
-      You can add the <code>button</code> class to an <code>a</code> element to style
-      the link as a button. Links that open in a new tab will automatically have
-      an icon added to the button.
-    </p>
-    <Fragment slot="examples">
+    `}
+    outputWrapperClass="dense horizontal flow"
+  />
+
+  <UsageExample
+    name="Link"
+    description={trimMarkdownPadding(`
+      You can add the \`button\` class to an \`a\` element to style the link as a button.
+
+      Links that open in a new tab will automatically have an icon added to the button.
+      To create a link button that opens in a new tab but doesn't have an icon, add the
+      class \`no-external-icon\` to the button.
+    `)}
+    code={`
       <a href="/" class="button">Go to Homepage</a>
       <a href="/" target="_blank" class="button">Go to Homepage</a>
-    </Fragment>
-  </ComponentOption>
-  <ComponentOption name="Icon Button">
-    <p slot="details">
-      You can add the <code>icon</code> class to a button to make it circular and
-      adjust the padding, to make it more suited to holding an icon. This class can
-      be combined with a variant, size, or other modifiers described here.
-    </p>
-    <Fragment slot="examples">
+    `}
+    outputWrapperClass="dense horizontal flow"
+  />
+
+  <UsageExample
+    name="Icon Button"
+    description={trimMarkdownPadding(`
+      You can add the \`icon\` class to a button to make it circular and adjust the padding,
+      to make it more suited to holding an icon. This class can be combined with a variant,
+      size, or other modifiers described here.
+    `)}
+    code={`
       <button class="icon button">
         <svg
           width="1.5em"
@@ -157,29 +175,29 @@ const exampleCode = `
             stroke-width="1.5"
             stroke-linejoin="round"></path>
         </svg>
-      </button></Fragment
-    >
-  </ComponentOption>
-  <ComponentOption name="Colors">
-    <Fragment slot="details">
-      <p>
-        Buttons with the <strong>Primary</strong> variant may also have an alternate
-        color. While they default to the <strong>brand</strong> color, you can override
-        this by adding one of the following classes:
-      </p>
-      <ul>
-        <li><code>red</code></li>
-        <li><code>orange</code></li>
-        <li><code>yellow</code></li>
-        <li><code>green</code></li>
-        <li><code>sky</code></li>
-        <li><code>blue</code></li>
-        <li><code>purple</code></li>
-        <li><code>magenta</code></li>
-        <li><code>gray</code></li>
-      </ul>
-    </Fragment>
-    <Fragment slot="examples">
+      </button>
+    `}
+    outputWrapperClass="dense horizontal flow"
+  />
+
+  <UsageExample
+    name="Colors"
+    description={trimMarkdownPadding(`
+      The **primary** and **subtle** variants support multiple color schemes. To set the color of a primary or subtle button, add one of the following classes:
+
+      - \`brand\` (default)
+      - \`red\`
+      - \`orange\`
+      - \`yellow\`
+      - \`green\`
+      - \`sky\`
+      - \`blue\`
+      - \`purple\`
+      - \`magenta\`
+      - \`gray\`
+    `)}
+    code={`
+      <button class="button primary">Brand</button>
       <button class="button primary red">Red</button>
       <button class="button primary orange">Orange</button>
       <button class="button primary yellow">Yellow</button>
@@ -189,6 +207,17 @@ const exampleCode = `
       <button class="button primary purple">Purple</button>
       <button class="button primary magenta">Magenta</button>
       <button class="button primary gray">Gray</button>
-    </Fragment>
-  </ComponentOption>
-</ComponentDocs>
+      <button class="button subtle">Brand</button>
+      <button class="button subtle red">Red</button>
+      <button class="button subtle orange">Orange</button>
+      <button class="button subtle yellow">Yellow</button>
+      <button class="button subtle green">Green</button>
+      <button class="button subtle sky">Sky</button>
+      <button class="button subtle blue">Blue</button>
+      <button class="button subtle purple">Purple</button>
+      <button class="button subtle magenta">Magenta</button>
+      <button class="button subtle gray">Gray</button>
+    `}
+    outputWrapperClass="dense horizontal flow"
+  />
+</ComponentDocumentation>
