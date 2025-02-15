@@ -81,7 +81,7 @@
     }
 
     &:disabled {
-      opacity: 0.7;
+      opacity: var(--opacity-disabled);
       cursor: not-allowed;
     }
 

@@ -27,6 +27,11 @@ const backgroundColor = `var(--color-${name})`;
     border-radius: var(--radius-s);
     border: var(--border-s) solid var(--color-outline);
     margin-inline-end: var(--space-xs);
+    flex-shrink: 0;
+  }
+
+  strong {
+    text-wrap: nowrap;
   }
 
   strong::after {

@@ -86,11 +86,3 @@ It's recommended to set the `theme-color` meta tag. To do this, copy the followi
   content="oklch(8% 2% 263deg)"
 />
 ```
-
-### Customizing
-
-To override aspects of the theme such as the brand color or fonts, simply define CSS Custom Properties ("CSS variables") with the same names as those defined in the stylesheet. The library will pick up the overridden values.
-
-Make sure that you add the overrides after the main stylesheet; otherwise, they won't work.
-
-For a full list of custom properties defined by the library, go to the Tokens page.

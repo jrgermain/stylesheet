@@ -3,6 +3,7 @@
   --opacity-low: 20%;
   --opacity-medium: 40%;
   --opacity-high: 70%;
+  --opacity-disabled: 65%;
 
   /* Brand */
   --color-brand-1: oklch(15% 55% 275deg);
@@ -255,6 +256,7 @@
     --opacity-low: 35%;
     --opacity-medium: 50%;
     --opacity-high: 80%;
+    --opacity-disabled: 50%;
   }
 
   /* Font sizes */

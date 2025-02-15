@@ -300,7 +300,7 @@
   }
 
   &:is(:disabled, .disabled, [aria-disabled="true"]) {
-    opacity: 0.7;
+    opacity: var(--opacity-disabled);
     cursor: not-allowed;
     transform: scale(1);
 
