@@ -4,18 +4,20 @@ const chokidar = require("chokidar");
 
 const rebuild = () => {
   console.time("Rebuilding stylesheet");
-  child_process.execSync("node build.cjs", {
-    stdio: "inherit",
-    cwd: __dirname,
-  });
+  try {
+    child_process.execSync("node build.cjs", {
+      stdio: "inherit",
+      cwd: __dirname,
+    });
+  } catch (error) {
+    console.error(error);
+  }
   console.timeEnd("Rebuilding stylesheet");
 };
 
 chokidar
   .watch([
     path.join(__dirname, "../src"),
-    path.join(__dirname, "../index.mjs"),
-    path.join(__dirname, "../index.cjs"),
     path.join(__dirname, "../package.json"),
   ])
   .on("change", (path) => {

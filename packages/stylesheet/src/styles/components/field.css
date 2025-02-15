@@ -87,7 +87,6 @@
 
     /* Not using :read-only because it matches additional elements (e.g., every color input) */
     &[readonly] {
-      cursor: not-allowed;
       border-style: dashed;
 
       &:focus {
@@ -292,6 +291,11 @@ fieldset.fieldset {
   legend {
     font-family: var(--font-family-heading);
     font-weight: var(--font-weight-bold);
+    transition: color 200ms ease;
+  }
+
+  &:focus-within legend {
+    color: var(--color-brand-5);
   }
 }
 

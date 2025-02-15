@@ -310,13 +310,17 @@
   }
 
   &.loading {
-    cursor: wait;
+    cursor: progress;
 
     &::before {
       opacity: 1 !important;
       height: 100% !important;
       border-radius: inherit !important;
       animation: button-loading-bg 1200ms ease-in-out infinite forwards;
+    }
+
+    &:is(:disabled, .disabled, [aria-disabled="true"]) {
+      cursor: wait;
     }
   }
 }

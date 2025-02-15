@@ -38,15 +38,10 @@
     ".": {
       "browser": "./dist/index.css",
       "unpkg": "./dist/index.css",
-      "require": "./index.cjs",
-      "default": "./index.mjs"
+      "default": "./dist/index.css"
     },
     "./index.css": "./dist/index.css",
-    "./index.min.css": "./dist/index.min.css",
-    "./index.js": {
-      "require": "./index.cjs",
-      "default": "./index.mjs"
-    }
+    "./index.min.css": "./dist/index.min.css"
   },
   "browserslist": [
     "defaults"

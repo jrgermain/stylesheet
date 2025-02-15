@@ -17,6 +17,13 @@
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-black);
 
+  /* 
+   * Since the Level 1 Heading will typically be the first item inside the App
+   * Content container (which already has padding at the top), we remove the top
+   * margin by default. We can always add it back for special cases.
+   */
+  margin-block-start: 0;
+
   .app-content > &:first-of-type {
     margin-block-start: 0;
   }
