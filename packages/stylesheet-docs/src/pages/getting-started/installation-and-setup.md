@@ -29,27 +29,6 @@ If you get a compilation error, you can try the following equivalent import stat
 import "@jrgermain/stylesheet/index.css";
 ```
 
-#### Framework-specific Notes
-
-<div class="accordion">
-<details>
-<summary>Astro</summary>
-
-You'll also need to add the following to your Astro config to ensure that the CSS loaded by the stylesheet package is processed correctly:
-
-```js
-{
-  vite: {
-    ssr: {
-      noExternal: ["@jrgermain/stylesheet"],
-    },
-  },
-}
-```
-
-</details>
-</div>
-
 ### Option 2: `<link>` Tags
 
 Alternatively, you can add a `<link>` tag to your document head with a `href` that references the stylesheet.

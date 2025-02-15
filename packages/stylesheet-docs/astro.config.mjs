@@ -6,13 +6,5 @@ export default defineConfig({
   redirects: {
     "/": { destination: "/getting-started/introduction", status: 307 },
   },
-  vite: {
-    server: {
-      fs: {
-        allow: [".."],
-      },
-    },
-  },
-
   integrations: [alpinejs()],
 });
