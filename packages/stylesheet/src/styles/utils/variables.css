@@ -40,17 +40,17 @@
   --color-orange-extra-transparent: light-dark(#b4510033, #b4510059);
 
   /* Yellow */
-  --color-yellow-1: light-dark(#140900, #ffeb97);
-  --color-yellow-2: light-dark(#2f1e00, #eec96c);
-  --color-yellow-3: light-dark(#4e3600, #d4a725);
-  --color-yellow-4: light-dark(#6f5000, #b58700);
-  --color-yellow-5: #916b00;
-  --color-yellow-6: light-dark(#b58700, #6f5000);
-  --color-yellow-7: light-dark(#d4a725, #4e3600);
-  --color-yellow-8: light-dark(#eec96c, #2f1e00);
-  --color-yellow-9: light-dark(#ffeb97, #140900);
-  --color-yellow-transparent: light-dark(#916b0066, #916b0080);
-  --color-yellow-extra-transparent: light-dark(#916b0033, #916b0059);
+  --color-yellow-1: light-dark(#140900, #f8edc1);
+  --color-yellow-2: light-dark(#2f1e00, #efcb72);
+  --color-yellow-3: light-dark(#4e3700, #dfb22b);
+  --color-yellow-4: light-dark(#7a5700, #c89808);
+  --color-yellow-5: #a57c00;
+  --color-yellow-6: light-dark(#c89808, #7a5700);
+  --color-yellow-7: light-dark(#dfb22b, #4e3700);
+  --color-yellow-8: light-dark(#efcb72, #2f1e00);
+  --color-yellow-9: light-dark(#f8edc1, #140900);
+  --color-yellow-transparent: light-dark(#a57c0066, #a57c0080);
+  --color-yellow-extra-transparent: light-dark(#a57c0033, #a57c0059);
 
   /* Green */
   --color-green-1: light-dark(#011000, #dafbc4);
