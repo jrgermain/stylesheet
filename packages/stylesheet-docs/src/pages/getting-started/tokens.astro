@@ -1,8 +1,6 @@
 ---
 import { Code } from "astro:components";
 import Layout from "../../layouts/Layout.astro";
-import { marked } from "marked";
-import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 import MarkdownChunk from "../../components/MarkdownChunk.astro";
 import SemanticColor from "../../components/tokens-page/SemanticColor.astro";
 
@@ -22,6 +20,7 @@ const colors = [
 const shades = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 ---
 
+<!-- TODO: refactor -->
 <Layout title="Tokens">
   <MarkdownChunk
     content={`

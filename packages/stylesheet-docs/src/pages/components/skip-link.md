@@ -7,7 +7,7 @@ title: Skip Link
 
 It's a best practice to add a **Skip to Main Content** link for accessibility reasons. This allows users to easily move focus past the header and navigation elements to the main content of the page, which helps both keyboard users and screen reader users navigate the application more easily.
 
-Add your skip link as the first child of your App Root. You should use the following HTML markup (copied verbatim):
+Add your skip link as the first child of your [App Root](/components/app#app-root). You should use the following HTML markup (copied verbatim):
 
 ```html
 <a class="skip-link" href="#main-content">Skip to Main Content <kbd>↵</kbd></a>
