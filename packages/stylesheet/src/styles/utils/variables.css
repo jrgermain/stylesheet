@@ -1,263 +1,142 @@
 :root,
 ::backdrop {
-  --opacity-low: 20%;
-  --opacity-medium: 40%;
-  --opacity-high: 70%;
-  --opacity-disabled: 65%;
-
   /* Brand */
-  --color-brand-1: oklch(15% 55% 275deg);
-  --color-brand-2: oklch(25% 52% 275deg);
-  --color-brand-3: oklch(35% 52% 275deg);
-  --color-brand-4: oklch(45% 55% 275deg);
-  --color-brand-5: oklch(55% 52% 275deg);
-  --color-brand-6: oklch(65% 50% 275deg);
-  --color-brand-7: oklch(75% 45% 275deg);
-  --color-brand-8: oklch(85% 42% 275deg);
-  --color-brand-9: oklch(95% 36% 275deg);
-  --color-brand-transparent: oklch(55% 52% 275deg / var(--opacity-medium));
-  --color-brand-extra-transparent: oklch(55% 52% 275deg / var(--opacity-low));
+  --color-brand-1: light-dark(#08003b, #e5edff);
+  --color-brand-2: light-dark(#190074, #bbc9ff);
+  --color-brand-3: light-dark(#290fa3, #93a4ff);
+  --color-brand-4: light-dark(#3c35cb, #6f7dff);
+  --color-brand-5: #545be7;
+  --color-brand-6: light-dark(#6f7dff, #3c35cb);
+  --color-brand-7: light-dark(#93a4ff, #290fa3);
+  --color-brand-8: light-dark(#bbc9ff, #190074);
+  --color-brand-9: light-dark(#e5edff, #08003b);
+  --color-brand-transparent: light-dark(#545be766, #545be780);
+  --color-brand-extra-transparent: light-dark(#545be733, #545be759);
 
   /* Red */
-  --color-red-1: oklch(15% 55% 30deg);
-  --color-red-2: oklch(25% 52% 30deg);
-  --color-red-3: oklch(35% 54% 30deg);
-  --color-red-4: oklch(45% 50% 30deg);
-  --color-red-5: oklch(55% 50% 30deg);
-  --color-red-6: oklch(65% 50% 30deg);
-  --color-red-7: oklch(75% 45% 30deg);
-  --color-red-8: oklch(85% 45% 30deg);
-  --color-red-9: oklch(95% 38% 30deg);
-  --color-red-transparent: oklch(55% 50% 30deg / var(--opacity-medium));
-  --color-red-extra-transparent: oklch(55% 50% 30deg / var(--opacity-low));
+  --color-red-1: light-dark(#240000, #ffe3dc);
+  --color-red-2: light-dark(#4d0000, #ffb4a5);
+  --color-red-3: light-dark(#7a0000, #ff7c68);
+  --color-red-4: light-dark(#a90000, #f0503d);
+  --color-red-5: #cc2a1b;
+  --color-red-6: light-dark(#f0503d, #a90000);
+  --color-red-7: light-dark(#ff7c68, #7a0000);
+  --color-red-8: light-dark(#ffb4a5, #4d0000);
+  --color-red-9: light-dark(#ffe3dc, #240000);
+  --color-red-transparent: light-dark(#cc2a1b66, #cc2a1b80);
+  --color-red-extra-transparent: light-dark(#cc2a1b33, #cc2a1b59);
 
   /* Orange */
-  --color-orange-1: oklch(15% 60% 55deg);
-  --color-orange-2: oklch(25% 60% 55deg);
-  --color-orange-3: oklch(35% 55% 55deg);
-  --color-orange-4: oklch(45% 50% 55deg);
-  --color-orange-5: oklch(55% 50% 55deg);
-  --color-orange-6: oklch(65% 40% 55deg);
-  --color-orange-7: oklch(75% 40% 55deg);
-  --color-orange-8: oklch(85% 40% 55deg);
-  --color-orange-9: oklch(95% 38% 55deg);
-  --color-orange-transparent: oklch(55% 50% 55deg / var(--opacity-medium));
-  --color-orange-extra-transparent: oklch(55% 50% 55deg / var(--opacity-low));
+  --color-orange-1: light-dark(#1c0300, #ffe6cc);
+  --color-orange-2: light-dark(#3e1200, #ffb87e);
+  --color-orange-3: light-dark(#632500, #f98f3a);
+  --color-orange-4: light-dark(#8b3a00, #d76f04);
+  --color-orange-5: #b45100;
+  --color-orange-6: light-dark(#d76f04, #8b3a00);
+  --color-orange-7: light-dark(#f98f3a, #632500);
+  --color-orange-8: light-dark(#ffb87e, #3e1200);
+  --color-orange-9: light-dark(#ffe6cc, #1c0300);
+  --color-orange-transparent: light-dark(#b4510066, #b4510080);
+  --color-orange-extra-transparent: light-dark(#b4510033, #b4510059);
 
   /* Yellow */
-  --color-yellow-1: oklch(15% 55% 88deg);
-  --color-yellow-2: oklch(25% 55% 88deg);
-  --color-yellow-3: oklch(35% 55% 88deg);
-  --color-yellow-4: oklch(45% 45% 88deg);
-  --color-yellow-5: oklch(55% 45% 88deg);
-  --color-yellow-6: oklch(65% 40% 88deg);
-  --color-yellow-7: oklch(75% 36% 88deg);
-  --color-yellow-8: oklch(85% 30% 88deg);
-  --color-yellow-9: oklch(95% 28% 88deg);
-  --color-yellow-transparent: oklch(55% 45% 88deg / var(--opacity-medium));
-  --color-yellow-extra-transparent: oklch(55% 45% 88deg / var(--opacity-low));
+  --color-yellow-1: light-dark(#140900, #ffeb97);
+  --color-yellow-2: light-dark(#2f1e00, #eec96c);
+  --color-yellow-3: light-dark(#4e3600, #d4a725);
+  --color-yellow-4: light-dark(#6f5000, #b58700);
+  --color-yellow-5: #916b00;
+  --color-yellow-6: light-dark(#b58700, #6f5000);
+  --color-yellow-7: light-dark(#d4a725, #4e3600);
+  --color-yellow-8: light-dark(#eec96c, #2f1e00);
+  --color-yellow-9: light-dark(#ffeb97, #140900);
+  --color-yellow-transparent: light-dark(#916b0066, #916b0080);
+  --color-yellow-extra-transparent: light-dark(#916b0033, #916b0059);
 
   /* Green */
-  --color-green-1: oklch(15% 55% 133deg);
-  --color-green-2: oklch(25% 50% 133deg);
-  --color-green-3: oklch(35% 48% 133deg);
-  --color-green-4: oklch(45% 46% 133deg);
-  --color-green-5: oklch(55% 46% 133deg);
-  --color-green-6: oklch(65% 46% 133deg);
-  --color-green-7: oklch(75% 46% 133deg);
-  --color-green-8: oklch(85% 40% 133deg);
-  --color-green-9: oklch(95% 20% 133deg);
-  --color-green-transparent: oklch(55% 46% 133deg / var(--opacity-medium));
-  --color-green-extra-transparent: oklch(55% 46% 133deg / var(--opacity-low));
+  --color-green-1: light-dark(#011000, #dafbc4);
+  --color-green-2: light-dark(#0c2a00, #a4e472);
+  --color-green-3: light-dark(#1d4600, #7dc53a);
+  --color-green-4: light-dark(#2f6500, #5fa500);
+  --color-green-5: #438500;
+  --color-green-6: light-dark(#5fa500, #2f6500);
+  --color-green-7: light-dark(#7dc53a, #1d4600);
+  --color-green-8: light-dark(#a4e472, #0c2a00);
+  --color-green-9: light-dark(#dafbc4, #011000);
+  --color-green-transparent: light-dark(#43850066, #43850080);
+  --color-green-extra-transparent: light-dark(#43850033, #43850059);
 
   /* Sky */
-  --color-sky-1: oklch(15% 55% 195deg);
-  --color-sky-2: oklch(25% 55% 195deg);
-  --color-sky-3: oklch(35% 50% 195deg);
-  --color-sky-4: oklch(45% 50% 195deg);
-  --color-sky-5: oklch(55% 52% 195deg);
-  --color-sky-6: oklch(65% 45% 195deg);
-  --color-sky-7: oklch(75% 35% 195deg);
-  --color-sky-8: oklch(85% 25% 195deg);
-  --color-sky-9: oklch(95% 12% 195deg);
-  --color-sky-transparent: oklch(55% 52% 195deg / var(--opacity-medium));
-  --color-sky-extra-transparent: oklch(55% 52% 195deg / var(--opacity-low));
+  --color-sky-1: light-dark(#001011, #caf9f8);
+  --color-sky-2: light-dark(#002a2b, #76e2e2);
+  --color-sky-3: light-dark(#004747, #00c8c9);
+  --color-sky-4: light-dark(#006566, #00a7a8);
+  --color-sky-5: #008586;
+  --color-sky-6: light-dark(#00a7a8, #006566);
+  --color-sky-7: light-dark(#00c8c9, #004747);
+  --color-sky-8: light-dark(#76e2e2, #002a2b);
+  --color-sky-9: light-dark(#caf9f8, #001011);
+  --color-sky-transparent: light-dark(#00858666, #00858680);
+  --color-sky-extra-transparent: light-dark(#00858633, #00858659);
 
   /* Blue */
-  --color-blue-1: oklch(15% 52% 260deg);
-  --color-blue-2: oklch(25% 48% 260deg);
-  --color-blue-3: oklch(35% 46% 260deg);
-  --color-blue-4: oklch(45% 48% 260deg);
-  --color-blue-5: oklch(55% 50% 260deg);
-  --color-blue-6: oklch(65% 52% 260deg);
-  --color-blue-7: oklch(75% 48% 260deg);
-  --color-blue-8: oklch(85% 45% 260deg);
-  --color-blue-9: oklch(95% 42% 260deg);
-  --color-blue-transparent: oklch(55% 50% 260deg / var(--opacity-medium));
-  --color-blue-extra-transparent: oklch(55% 50% 260deg / var(--opacity-low));
+  --color-blue-1: light-dark(#00003e, #ddf0ff);
+  --color-blue-2: light-dark(#00007a, #a9cfff);
+  --color-blue-3: light-dark(#002b97, #74adff);
+  --color-blue-4: light-dark(#004abd, #3988ff);
+  --color-blue-5: #1c69e3;
+  --color-blue-6: light-dark(#3988ff, #004abd);
+  --color-blue-7: light-dark(#74adff, #002b97);
+  --color-blue-8: light-dark(#a9cfff, #00007a);
+  --color-blue-9: light-dark(#ddf0ff, #00003e);
+  --color-blue-transparent: light-dark(#1c69e366, #1c69e380);
+  --color-blue-extra-transparent: light-dark(#1c69e333, #1c69e359);
 
   /* Purple */
-  --color-purple-1: oklch(15% 55% 310deg);
-  --color-purple-2: oklch(25% 55% 310deg);
-  --color-purple-3: oklch(35% 53% 310deg);
-  --color-purple-4: oklch(45% 52% 310deg);
-  --color-purple-5: oklch(55% 52% 310deg);
-  --color-purple-6: oklch(65% 51% 310deg);
-  --color-purple-7: oklch(75% 42% 310deg);
-  --color-purple-8: oklch(85% 42% 310deg);
-  --color-purple-9: oklch(95% 40% 310deg);
-  --color-purple-transparent: oklch(55% 52% 310deg / var(--opacity-medium));
-  --color-purple-extra-transparent: oklch(55% 52% 310deg / var(--opacity-low));
+  --color-purple-1: light-dark(#170029, #fbe4ff);
+  --color-purple-2: light-dark(#370054, #e8b6ff);
+  --color-purple-3: light-dark(#5a0085, #ce8dfc);
+  --color-purple-4: light-dark(#7819a8, #b562ea);
+  --color-purple-5: #9640ca;
+  --color-purple-6: light-dark(#b562ea, #7819a8);
+  --color-purple-7: light-dark(#ce8dfc, #5a0085);
+  --color-purple-8: light-dark(#e8b6ff, #370054);
+  --color-purple-9: light-dark(#fbe4ff, #170029);
+  --color-purple-transparent: light-dark(#9640ca66, #9640ca80);
+  --color-purple-extra-transparent: light-dark(#9640ca33, #9640ca59);
 
   /* Magenta */
-  --color-magenta-1: oklch(15% 55% 356deg);
-  --color-magenta-2: oklch(25% 55% 356deg);
-  --color-magenta-3: oklch(35% 54% 356deg);
-  --color-magenta-4: oklch(45% 46% 356deg);
-  --color-magenta-5: oklch(55% 50% 356deg);
-  --color-magenta-6: oklch(65% 48% 356deg);
-  --color-magenta-7: oklch(75% 42% 356deg);
-  --color-magenta-8: oklch(85% 36% 356deg);
-  --color-magenta-9: oklch(95% 34% 356deg);
-  --color-magenta-transparent: oklch(55% 50% 356deg / var(--opacity-medium));
-  --color-magenta-extra-transparent: oklch(55% 50% 356deg / var(--opacity-low));
+  --color-magenta-1: light-dark(#21000c, #ffe1f0);
+  --color-magenta-2: light-dark(#480023, #ffadd0);
+  --color-magenta-3: light-dark(#73003d, #fe7cb1);
+  --color-magenta-4: light-dark(#9b0058, #e45193);
+  --color-magenta-5: #c32775;
+  --color-magenta-6: light-dark(#e45193, #9b0058);
+  --color-magenta-7: light-dark(#fe7cb1, #73003d);
+  --color-magenta-8: light-dark(#ffadd0, #480023);
+  --color-magenta-9: light-dark(#ffe1f0, #21000c);
+  --color-magenta-transparent: light-dark(#c3277566, #c3277580);
+  --color-magenta-extra-transparent: light-dark(#c3277533, #c3277559);
 
   /* Gray */
-  --color-gray-1: oklch(15% 2% 263deg);
-  --color-gray-2: oklch(25% 2% 263deg);
-  --color-gray-3: oklch(35% 2% 263deg);
-  --color-gray-4: oklch(45% 2% 263deg);
-  --color-gray-5: oklch(55% 2% 263deg);
-  --color-gray-6: oklch(65% 2% 263deg);
-  --color-gray-7: oklch(75% 2% 263deg);
-  --color-gray-8: oklch(85% 2% 263deg);
-  --color-gray-9: oklch(95% 2% 263deg);
-  --color-gray-transparent: oklch(55% 2% 263deg / var(--opacity-medium));
-  --color-gray-extra-transparent: oklch(55% 2% 263deg / var(--opacity-low));
+  --color-gray-1: light-dark(#090b0f, #eceff4);
+  --color-gray-2: light-dark(#202226, #cbced3);
+  --color-gray-3: light-dark(#383b3f, #abaeb3);
+  --color-gray-4: light-dark(#53555a, #8d8f94);
+  --color-gray-5: #6f7276;
+  --color-gray-6: light-dark(#8d8f94, #53555a);
+  --color-gray-7: light-dark(#abaeb3, #383b3f);
+  --color-gray-8: light-dark(#cbced3, #202226);
+  --color-gray-9: light-dark(#eceff4, #090b0f);
+  --color-gray-transparent: light-dark(#6f727666, #6f727680);
+  --color-gray-extra-transparent: light-dark(#6f727633, #6f727659);
 
-  /* Individual colors */
-  --color-body: oklch(98.5% 0.8% 263deg);
-  --color-body-alt: white;
-  --color-body-text: oklch(10% 2% 263deg);
-  --color-body-text-alt: oklch(38% 2% 263deg);
-  --color-shadow: oklch(40% 2% 263deg / 15%);
-  --color-outline: oklch(89% 2% 263deg);
-
-  @media (prefers-color-scheme: dark) {
-    /* Brand */
-    --color-brand-9: oklch(15% 55% 275deg);
-    --color-brand-8: oklch(25% 52% 275deg);
-    --color-brand-7: oklch(35% 52% 275deg);
-    --color-brand-6: oklch(45% 55% 275deg);
-    --color-brand-4: oklch(65% 50% 275deg);
-    --color-brand-3: oklch(75% 45% 275deg);
-    --color-brand-2: oklch(85% 42% 275deg);
-    --color-brand-1: oklch(95% 36% 275deg);
-
-    /* Red */
-    --color-red-9: oklch(15% 55% 30deg);
-    --color-red-8: oklch(25% 52% 30deg);
-    --color-red-7: oklch(35% 54% 30deg);
-    --color-red-6: oklch(45% 50% 30deg);
-    --color-red-4: oklch(65% 50% 30deg);
-    --color-red-3: oklch(75% 45% 30deg);
-    --color-red-2: oklch(85% 45% 30deg);
-    --color-red-1: oklch(95% 38% 30deg);
-
-    /* Orange */
-    --color-orange-9: oklch(15% 60% 55deg);
-    --color-orange-8: oklch(25% 60% 55deg);
-    --color-orange-7: oklch(35% 55% 55deg);
-    --color-orange-6: oklch(45% 50% 55deg);
-    --color-orange-4: oklch(65% 40% 55deg);
-    --color-orange-3: oklch(75% 40% 55deg);
-    --color-orange-2: oklch(85% 40% 55deg);
-    --color-orange-1: oklch(95% 38% 55deg);
-
-    /* Yellow */
-    --color-yellow-9: oklch(15% 55% 88deg);
-    --color-yellow-8: oklch(25% 55% 88deg);
-    --color-yellow-7: oklch(35% 55% 88deg);
-    --color-yellow-6: oklch(45% 45% 88deg);
-    --color-yellow-4: oklch(65% 40% 88deg);
-    --color-yellow-3: oklch(75% 36% 88deg);
-    --color-yellow-2: oklch(85% 30% 88deg);
-    --color-yellow-1: oklch(95% 28% 88deg);
-
-    /* Green */
-    --color-green-9: oklch(15% 55% 133deg);
-    --color-green-8: oklch(25% 50% 133deg);
-    --color-green-7: oklch(35% 48% 133deg);
-    --color-green-6: oklch(45% 46% 133deg);
-    --color-green-4: oklch(65% 46% 133deg);
-    --color-green-3: oklch(75% 46% 133deg);
-    --color-green-2: oklch(85% 40% 133deg);
-    --color-green-1: oklch(95% 20% 133deg);
-
-    /* Sky */
-    --color-sky-9: oklch(15% 55% 195deg);
-    --color-sky-8: oklch(25% 55% 195deg);
-    --color-sky-7: oklch(35% 50% 195deg);
-    --color-sky-6: oklch(45% 50% 195deg);
-    --color-sky-4: oklch(65% 45% 195deg);
-    --color-sky-3: oklch(75% 35% 195deg);
-    --color-sky-2: oklch(85% 25% 195deg);
-    --color-sky-1: oklch(95% 12% 195deg);
-
-    /* Blue */
-    --color-blue-9: oklch(15% 52% 260deg);
-    --color-blue-8: oklch(25% 48% 260deg);
-    --color-blue-7: oklch(35% 46% 260deg);
-    --color-blue-6: oklch(45% 48% 260deg);
-    --color-blue-4: oklch(65% 52% 260deg);
-    --color-blue-3: oklch(75% 48% 260deg);
-    --color-blue-2: oklch(85% 45% 260deg);
-    --color-blue-1: oklch(95% 42% 260deg);
-
-    /* Purple */
-    --color-purple-9: oklch(15% 55% 310deg);
-    --color-purple-8: oklch(25% 55% 310deg);
-    --color-purple-7: oklch(35% 53% 310deg);
-    --color-purple-6: oklch(45% 52% 310deg);
-    --color-purple-4: oklch(65% 51% 310deg);
-    --color-purple-3: oklch(75% 42% 310deg);
-    --color-purple-2: oklch(85% 42% 310deg);
-    --color-purple-1: oklch(95% 40% 310deg);
-
-    /* Magenta */
-    --color-magenta-9: oklch(15% 55% 356deg);
-    --color-magenta-8: oklch(25% 55% 356deg);
-    --color-magenta-7: oklch(35% 54% 356deg);
-    --color-magenta-6: oklch(45% 46% 356deg);
-    --color-magenta-4: oklch(65% 48% 356deg);
-    --color-magenta-3: oklch(75% 42% 356deg);
-    --color-magenta-2: oklch(85% 36% 356deg);
-    --color-magenta-1: oklch(95% 34% 356deg);
-
-    /* Gray */
-    --color-gray-9: oklch(15% 2% 263deg);
-    --color-gray-8: oklch(25% 2% 263deg);
-    --color-gray-7: oklch(35% 2% 263deg);
-    --color-gray-6: oklch(45% 2% 263deg);
-    --color-gray-4: oklch(65% 2% 263deg);
-    --color-gray-3: oklch(75% 2% 263deg);
-    --color-gray-2: oklch(85% 2% 263deg);
-    --color-gray-1: oklch(95% 2% 263deg);
-
-    /* Darker replacements for semantic colors */
-    --color-body: oklch(20% 2% 263deg);
-    --color-body-alt: oklch(8% 2% 263deg);
-    --color-body-text: white;
-    --color-body-text-alt: oklch(85% 1% 263deg);
-    --color-shadow: oklch(5% 2% 263deg / 40%);
-    --color-outline: oklch(39% 2% 263deg);
-
-    /* Slightly increase opacity */
-    --opacity-low: 35%;
-    --opacity-medium: 50%;
-    --opacity-high: 80%;
-    --opacity-disabled: 50%;
-  }
+  /* Semantic colors */
+  --color-body: light-dark(#f9fafc, #14161a);
+  --color-body-alt: light-dark(#fff, #010203);
+  --color-body-text: light-dark(#030305, #fff);
+  --color-body-text-alt: light-dark(#404247, #ccced0);
+  --color-shadow: light-dark(#45484c26, #00000166);
+  --color-outline: light-dark(#d8dbe0, #434549);
 
   /* Font sizes */
   --font-size-xs: clamp(0.6944rem, 0.6855rem + 0.0446vw, 0.72rem);
