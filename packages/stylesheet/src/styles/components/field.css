@@ -58,7 +58,7 @@
   select,
   textarea {
     color: var(--color-body-text);
-    background-color: white;
+    background-color: light-dark(white, black);
     border: var(--border-s) solid var(--color-outline);
     font-size: 1em;
     padding: var(--field-padding);
@@ -67,10 +67,6 @@
     transition-property: color, box-shadow, border-color;
     transition-timing-function: ease;
     font-family: inherit;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: black;
-    }
 
     &:focus {
       outline: 0;
@@ -139,17 +135,16 @@
   }
 
   select {
-    background-image: url("@/src/svg/dropdown.svg");
+    background-image: light-dark(
+      url("@/src/svg/dropdown.svg"),
+      url("@/src/svg/dropdown-invert.svg")
+    );
     background-position: center right 0.25em;
     background-size: auto 75%;
     background-repeat: no-repeat;
     cursor: pointer;
     appearance: none;
     padding-inline-end: calc(2 * var(--space-2xs) + 1em);
-
-    @media (prefers-color-scheme: dark) {
-      background-image: url("@/src/svg/dropdown-invert.svg");
-    }
 
     &:dir(rtl) {
       background-position: center left 0.25em;

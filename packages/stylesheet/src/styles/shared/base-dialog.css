@@ -9,18 +9,13 @@
   --dialog-ending-opacity: 0;
   --dialog-ending-transform: translateY(-4px) scale(0.97);
   --dialog-backdrop-starting-opacity: 0;
-  --dialog-backdrop-open-opacity: 0.75;
+  --dialog-backdrop-open-opacity: light-dark(0.75, 0.85);
   --dialog-backdrop-ending-opacity: 0;
-  --dialog-backdrop-color: var(--color-gray-2);
+  --dialog-backdrop-color: light-dark(var(--color-gray-2), var(--color-gray-8));
 
   @media (prefers-reduced-motion) {
     --dialog-starting-transform: translate(0);
     --dialog-ending-transform: translate(0);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    --dialog-backdrop-color: var(--color-gray-8);
-    --dialog-backdrop-open-opacity: 0.85;
   }
 }
 

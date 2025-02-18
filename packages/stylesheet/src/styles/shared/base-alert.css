@@ -49,14 +49,10 @@
 
   &::after {
     z-index: 1;
-    background-color: #fffe;
+    background-color: light-dark(#fffe, #000e);
     border-radius: var(--radius-full);
     border: 3px solid var(--alert-border-start-color);
     scale: 0.75;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: #000e;
-    }
   }
 
   &.error {

@@ -2,7 +2,7 @@
 .markdown-output blockquote {
   display: block;
   margin: 0;
-  color: var(--color-gray-4);
+  color: var(--color-body-text-alt);
   border-inline-start: var(--border-l) solid var(--color-gray-transparent);
   padding: var(--space-3xs);
   padding-inline-start: var(--space-xs);
@@ -11,10 +11,6 @@
   font-family: var(--font-family-body);
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-normal);
-
-  @media (prefers-color-scheme: dark) {
-    color: var(--color-gray-2);
-  }
 
   footer {
     margin-block-start: 0.5em;

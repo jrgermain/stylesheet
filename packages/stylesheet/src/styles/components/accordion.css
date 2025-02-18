@@ -35,12 +35,15 @@
       padding-block-end: var(--space-xs);
 
       summary {
-        color: var(--color-brand-3);
         border-block-end-color: var(--color-outline);
         margin-block-end: var(--space-xs);
 
         &::before {
           rotate: 0deg;
+        }
+
+        &:not(:active, .active, :hover, .hover) {
+          color: var(--color-brand-3);
         }
       }
     }
@@ -70,11 +73,11 @@
     }
 
     &:is(:hover, .hover) {
-      color: var(--color-brand-4) !important;
+      color: light-dark(var(--color-brand-4), var(--color-brand-2));
     }
 
     &:is(:active, .active) {
-      color: var(--color-brand-2) !important;
+      color: light-dark(var(--color-brand-2), var(--color-brand-4));
     }
 
     /* Hides ::-webkit-details-marker pseudo element in favor of ::before (better cross browser consistency) */
@@ -84,7 +87,10 @@
 
     /* Replacement marker element */
     &::before {
-      content: url("@/src/svg/dropdown-thick.svg");
+      content: light-dark(
+        url("@/src/svg/dropdown-thick.svg"),
+        url("@/src/svg/dropdown-invert-thick.svg")
+      );
       display: inline-block;
       position: absolute;
       inset-block: 0;
@@ -105,20 +111,6 @@
 
       &::before {
         transition: none;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      &:is(:hover, .hover) {
-        color: var(--color-brand-2) !important;
-      }
-
-      &:is(:active, .active) {
-        color: var(--color-brand-4) !important;
-      }
-
-      &::before {
-        content: url("@/src/svg/dropdown-invert-thick.svg");
       }
     }
   }
