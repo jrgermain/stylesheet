@@ -1,6 +1,6 @@
 import { format, type BuiltInParserName } from "prettier";
 
-export const formatExampleCode = async (
+export const formatCode = async (
   code: string,
   language: BuiltInParserName = "html"
 ) => {

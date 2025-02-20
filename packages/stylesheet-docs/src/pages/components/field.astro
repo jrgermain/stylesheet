@@ -1,7 +1,7 @@
 ---
 import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
-import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 ---
 
 <ComponentDocumentation
@@ -10,7 +10,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 >
   <UsageExample
     name="Usage Patterns"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       You can use the \`field\` class to style form fields and their labels, as
       well as any associated help and error text.
 
@@ -171,7 +171,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 
   <UsageExample
     name="Prefix/Suffix"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       Fields may have a prefix (label that comes before) and/or suffix (label
       that comes after). This may be useful for providing context on how the
       data in the input field will be used. Use the class \`prefix\` if
@@ -199,7 +199,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 
   <UsageExample
     name="Action"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       Fields may have a button attached to the beginning or end. Similarly to
       prefixes and suffixes, you'll need to wrap the input (or select) and
       action button in a div that has the class \`input-group\`. The action

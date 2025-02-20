@@ -3,7 +3,6 @@ layout: ../../layouts/Markdown.astro
 title: Tokens
 ---
 
-import { Code } from "astro:components";
 import CodeBlock from "../../components/CodeBlock.astro";
 import SemanticColor from "../../components/tokens-page/SemanticColor.astro";
 import ColorsContainer from "../../components/tokens-page/ColorsContainer.astro";
@@ -12,7 +11,7 @@ import ShadowExample from "../../components/tokens-page/ShadowExample.astro";
 import FontExample from "../../components/tokens-page/FontExample.astro";
 import SpacingExample from '../../components/tokens-page/SpacingExample.astro';
 import BorderExample from '../../components/tokens-page/BorderExample.astro';
-import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 
 # Tokens
 
@@ -50,7 +49,7 @@ example of how to reference these colors in a stylesheet:
 
 <CodeBlock
   language="css"
-  code={trimMarkdownPadding(`
+  code={trimTextPadding(`
     .red {
       background-color: var(--color-red-1);
     }

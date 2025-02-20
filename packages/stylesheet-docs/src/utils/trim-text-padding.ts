@@ -9,8 +9,8 @@ const getLeadingSpaceCount = (str: string) => {
   return count;
 };
 
-/** Removes extra whitespace from all sides of a block of markdown. */
-export const trimMarkdownPadding = (str: string) => {
+/** Removes extra whitespace from all sides of a block of text. */
+export const trimTextPadding = (str: string) => {
   // Split the string into lines, then remove trailing whitespace from each line
   const lines = str.split("\n").map((line) => line.trimEnd()); // RIGHT
 

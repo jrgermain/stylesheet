@@ -1,7 +1,7 @@
 ---
 import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
-import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 ---
 
 <ComponentDocumentation
@@ -10,7 +10,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 >
   <UsageExample
     name="Hierarchy"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       The HTML spec defines 6 levels of headings (\`h1\`-\`h6\`). Each creates a
       layer in the document's hierarchy, starting with \`h1\` at the root.
 

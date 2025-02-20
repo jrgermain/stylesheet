@@ -1,5 +1,5 @@
 ---
-import { formatExampleCode } from "../utils/format-example-code";
+import { formatCode } from "../utils/format-code";
 import CodeBlock, { type Language } from "./CodeBlock.astro";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { code, language, outputWrapperClass, outputWrapperId } = Astro.props;
-const formattedCode = await formatExampleCode(code);
+const formattedCode = await formatCode(code);
 ---
 
 <div class="example-wrapper" x-data="{ showCode: false }">

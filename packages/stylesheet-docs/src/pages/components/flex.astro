@@ -1,7 +1,7 @@
 ---
 import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
-import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 ---
 
 <ComponentDocumentation
@@ -10,7 +10,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 >
   <UsageExample
     name="Layout"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       At a minimum, you must include exactly one of the following classes to
       determine which type of layout to apply:
       
@@ -56,7 +56,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 
   <UsageExample
     name="Density"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       You can optionally add one of the following modifier classes to change
       the spacing between children (ordered from most compact to most spread out):
 
@@ -116,7 +116,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 
   <UsageExample
     name="Orientation"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       You can optionally add one of the following modifier classes to change
       the axis along which the children are laid out:
 

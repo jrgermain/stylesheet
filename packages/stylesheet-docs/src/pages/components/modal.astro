@@ -1,7 +1,7 @@
 ---
 import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
-import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 ---
 
 <ComponentDocumentation
@@ -10,7 +10,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 >
   <UsageExample
     name="Defaults"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       You can create a modal by creating a [\`dialog\`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
       element with the class \`modal\`.
 
@@ -46,7 +46,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
   />
   <UsageExample
     name="Sizes"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       You can control the width of a modal by adding one of the following
       additional classes to the \`dialog\` element:
       

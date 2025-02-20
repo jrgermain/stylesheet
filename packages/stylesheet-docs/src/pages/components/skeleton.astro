@@ -1,7 +1,7 @@
 ---
 import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
-import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 ---
 
 <ComponentDocumentation
@@ -10,7 +10,7 @@ import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 >
   <UsageExample
     name="Basic Usage"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       You can use \`skeleton\` as a modifier class on headings, paragraphs,
       buttons, chips, or other elements to turn them into skeletons.
       

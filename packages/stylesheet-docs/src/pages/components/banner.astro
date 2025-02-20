@@ -1,13 +1,13 @@
 ---
 import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
-import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 ---
 
 <ComponentDocumentation name="Banner" description="A site-wide alert message.">
   <UsageExample
     name="Statuses"
-    description={trimMarkdownPadding(`
+    description={trimTextPadding(`
       To create a banner, create a \`div\` with the class \`banner\`.
       Every banner must have a status, which you can set by adding one
       of the following additional classes:

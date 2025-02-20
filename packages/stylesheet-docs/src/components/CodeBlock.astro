@@ -1,6 +1,6 @@
 ---
 import { Code } from "astro:components";
-import { formatExampleCode } from "../utils/format-example-code";
+import { formatCode } from "../utils/format-code";
 import type { BuiltInParserName } from "prettier";
 
 export type Language = "html" | "css" | "scss" | "js" | "jsx" | "ts" | "tsx";
@@ -34,7 +34,7 @@ const displayNameForLanguage: Record<Language, string> = {
 };
 
 const formattedCode = format
-  ? await formatExampleCode(code, parserForLanguage[language])
+  ? await formatCode(code, parserForLanguage[language])
   : code;
 
 const random = Math.random().toString(36).slice(2, 10);
