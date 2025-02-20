@@ -10,6 +10,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 >
   <UsageExample
     name="Defaults"
+    isJavaScriptRequired={true}
     description={trimTextPadding(`
       You can create a drawer by creating a [\`dialog\`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
       element with the class \`drawer\`. You'll also need to add one of the
@@ -64,6 +65,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
   <UsageExample
     name="Sizes"
+    isJavaScriptRequired={true}
     description={trimTextPadding(`
       You can control the width of a drawer (or the height, if the drawer is
       attached to the top or bottom of the screen) by adding one of the
@@ -110,6 +112,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
   <UsageExample
     name="Dismiss Button"
+    isJavaScriptRequired={true}
     description={trimTextPadding(`
       You can add a close button to the header of the drawer by creating a
       \`button\` element with the classes \`button\` and \`dismiss\`. The close
@@ -145,84 +148,87 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       </dialog>
     `}
   />
-
-  <div class="card">
-    <h2 class="card-title">Playground</h2>
-    <div
-      class="stack vertical dense"
-      x-data="{ side: 'left', size: 'medium', closeButton: true, header: true, body: true, footer: true }"
-    >
-      <label class="field">
-        Side
-        <select x-model="side">
-          <option value="left">Left</option>
-          <option value="right">Right</option>
-          <option value="top">Top</option>
-          <option value="bottom">Bottom</option>
-        </select>
-      </label>
-      <label class="field">
-        Size
-        <select x-model="size">
-          <option value="">Unset (auto)</option>
-          <option value="small">Small</option>
-          <option value="medium">Medium</option>
-          <option value="large">Large</option>
-        </select>
-      </label>
-      <label class="switch">
-        Include Close Button
-        <input type="checkbox" x-model="closeButton" />
-      </label>
-      <label class="switch">
-        Include Header
-        <input type="checkbox" x-model="header" />
-      </label>
-      <label class="switch">
-        Include Body
-        <input type="checkbox" x-model="body" />
-      </label>
-      <label class="switch">
-        Include Footer
-        <input type="checkbox" x-model="footer" />
-      </label>
-      <hr class="divider" />
-      <button class="button primary" x-on:click="$refs.drawer.showModal()">
-        Open Drawer
-      </button>
-      <dialog x-ref="drawer" class="drawer" x-bind:class="side + ' ' + size">
-        <div x-show="header" class="drawer-header">
-          <h1>User Settings</h1>
-          <button
-            x-show="closeButton"
-            class="button dismiss"
-            x-on:click="$refs.drawer.close()"></button>
-        </div>
-        <div x-show="body" class="drawer-body">
-          <p class="paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
-            ultricies lacus sed turpis tincidunt id. Rhoncus mattis rhoncus urna
-            neque viverra justo nec.
-          </p>
-          <p class="paragraph">
-            Pretium nibh ipsum consequat nisl vel pretium lectus quam. Ac
-            placerat vestibulum lectus mauris ultrices. Elementum sagittis vitae
-            et leo duis ut diam. Odio facilisis mauris sit amet massa. Cras
-            semper auctor neque vitae tempus quam. Cursus metus aliquam eleifend
-            mi in. Fermentum iaculis eu non diam. Diam quam nulla porttitor
-            massa id neque aliquam
-          </p>
-        </div>
-        <div x-show="footer" class="drawer-footer">
-          <button class="button" x-on:click="$refs.drawer.close()">
-            Cancel
-          </button>
-          <button class="button primary" x-on:click="$refs.drawer.close()">
-            Save
-          </button>
-        </div>
-      </dialog>
-    </div>
-  </div>
+  <UsageExample
+    name="Playground"
+    allowShowCode={false}
+    isJavaScriptRequired={true}
+    code={`
+      <div
+        class="stack vertical dense"
+        x-data="{ side: 'left', size: 'medium', closeButton: true, header: true, body: true, footer: true }"
+      >
+        <label class="field">
+          Side
+          <select x-model="side">
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+            <option value="top">Top</option>
+            <option value="bottom">Bottom</option>
+          </select>
+        </label>
+        <label class="field">
+          Size
+          <select x-model="size">
+            <option value="">Unset (auto)</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </label>
+        <label class="switch">
+          Include Close Button
+          <input type="checkbox" x-model="closeButton" />
+        </label>
+        <label class="switch">
+          Include Header
+          <input type="checkbox" x-model="header" />
+        </label>
+        <label class="switch">
+          Include Body
+          <input type="checkbox" x-model="body" />
+        </label>
+        <label class="switch">
+          Include Footer
+          <input type="checkbox" x-model="footer" />
+        </label>
+        <hr class="divider" />
+        <button class="button primary" x-on:click="$refs.drawer.showModal()">
+          Open Drawer
+        </button>
+        <dialog x-ref="drawer" class="drawer" x-bind:class="side + ' ' + size">
+          <div x-show="header" class="drawer-header">
+            <h1>User Settings</h1>
+            <button
+              x-show="closeButton"
+              class="button dismiss"
+              x-on:click="$refs.drawer.close()"></button>
+          </div>
+          <div x-show="body" class="drawer-body">
+            <p class="paragraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
+              ultricies lacus sed turpis tincidunt id. Rhoncus mattis rhoncus urna
+              neque viverra justo nec.
+            </p>
+            <p class="paragraph">
+              Pretium nibh ipsum consequat nisl vel pretium lectus quam. Ac
+              placerat vestibulum lectus mauris ultrices. Elementum sagittis vitae
+              et leo duis ut diam. Odio facilisis mauris sit amet massa. Cras
+              semper auctor neque vitae tempus quam. Cursus metus aliquam eleifend
+              mi in. Fermentum iaculis eu non diam. Diam quam nulla porttitor
+              massa id neque aliquam
+            </p>
+          </div>
+          <div x-show="footer" class="drawer-footer">
+            <button class="button" x-on:click="$refs.drawer.close()">
+              Cancel
+            </button>
+            <button class="button primary" x-on:click="$refs.drawer.close()">
+              Save
+            </button>
+          </div>
+        </dialog>
+      </div>
+    `}
+  />
 </ComponentDocumentation>

@@ -61,9 +61,11 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     `}
   />
 
-  <div class="card">
-    <h2 class="card-title" id="playground">Playground</h2>
-    <div class="stack vertical dense">
+  <UsageExample
+    name="Playground"
+    allowShowCode={false}
+    isJavaScriptRequired={true}
+    code={`
       <p>Click the button below to test out adding a banner to this page.</p>
       <button
         class="button primary"
@@ -73,8 +75,9 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
             .prepend(document.querySelector('#banner-template').content.firstElementChild.cloneNode(true));
           window.scrollTo({ top: 0, behavior: 'smooth' });
         "
-        >Add Site-wide Banner</button
       >
+        Add Site-wide Banner
+      </button>
       <template id="banner-template">
         <div class="banner error">
           The sky is falling!
@@ -84,6 +87,6 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
             onclick="this.parentElement.remove()"></button>
         </div>
       </template>
-    </div>
-  </div>
+    `}
+  />
 </ComponentDocumentation>

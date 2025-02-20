@@ -199,6 +199,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
   <UsageExample
     name="Action"
+    isJavaScriptRequired={true}
     description={trimTextPadding(`
       Fields may have a button attached to the beginning or end. Similarly to
       prefixes and suffixes, you'll need to wrap the input (or select) and
@@ -209,12 +210,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       visibility of the password.
     `)}
     code={`
-      <noscript>
-        <div class="alert error">
-          This example requires JavaScript to run.
-        </div>
-      </noscript>
-      <label class="field" x-data="{ isVisible: false }" x-cloak>
+      <label class="field" x-data="{ isVisible: false }">
         Password
         <div class="input-group">
           <input x-bind:type="isVisible ? 'text' : 'password'" autocomplete="off" />

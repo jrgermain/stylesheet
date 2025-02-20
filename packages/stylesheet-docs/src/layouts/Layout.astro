@@ -75,7 +75,7 @@ const navSections = [
       content="oklch(8% 2% 263deg)"
     />
   </head>
-  <body class="app">
+  <body class="app js-disabled">
     <a class="skip-link" href="#main-content"
       >Skip to Main Content <kbd>↵</kbd></a
     >
@@ -166,6 +166,7 @@ const navSections = [
       </main>
     </div>
     <script>
+      document.body.classList.remove("js-disabled");
       document.body.classList.add("js-enabled");
     </script>
   </body>
@@ -222,5 +223,9 @@ const navSections = [
 
   .astro-code code {
     background-color: transparent !important;
+  }
+
+  body.js-disabled .js-required {
+    display: none !important;
   }
 </style>

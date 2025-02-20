@@ -1,32 +1,136 @@
 ---
-import ExampleWithCode from "./ExampleWithCode.astro";
+import { formatCode } from "../utils/format-code";
+import CodeBlock from "./CodeBlock.astro";
 import { marked } from "marked";
 
 interface Props {
   name: string;
-  description: string;
+  description?: string;
   code: string;
   outputWrapperClass?: string;
+  outputWrapperId?: string;
+  allowShowCode?: boolean;
+  isJavaScriptRequired?: boolean;
 }
 const {
   name,
-  description,
+  description = "",
   code,
   outputWrapperClass = "vertical stack",
+  outputWrapperId,
+  allowShowCode = true,
+  isJavaScriptRequired = false,
 } = Astro.props;
 
 const descriptionHtml = marked.parse(description);
+const formattedCode = await formatCode(code);
 ---
 
 <div class="card">
   <h2 class="card-title">{name}</h2>
   <div class="stack vertical dense">
-    <div class="markdown-output" set:html={descriptionHtml} />
-    <ExampleWithCode
-      language="html"
-      code={code}
-      outputWrapperClass={outputWrapperClass}
-      outputWrapperId={`example-output--${name.toLowerCase().replace(/\W+/g, "-")}`}
-    />
+    {description && <div class="markdown-output" set:html={descriptionHtml} />}
+    <div
+      class:list={[
+        "example-wrapper",
+        { "example-with-js": isJavaScriptRequired },
+      ]}
+    >
+      {
+        isJavaScriptRequired && (
+          <noscript class="alert error">
+            This example requires JavaScript to run. Please enable JavaScript in
+            your browser to view this example.
+          </noscript>
+        )
+      }
+      <div
+        id={outputWrapperId}
+        class:list={[
+          "example-output",
+          { "js-required": isJavaScriptRequired },
+          outputWrapperClass,
+        ]}
+        set:html={formattedCode}
+      />
+      {
+        allowShowCode && (
+          <>
+            <div
+              class:list={[
+                "example-code",
+                { "js-required": isJavaScriptRequired },
+              ]}
+            >
+              <CodeBlock
+                variant="inline"
+                language="html"
+                code={formattedCode}
+              />
+            </div>
+            <div
+              class:list={[
+                "example-code-toggle-toolbar",
+                { "js-required": isJavaScriptRequired },
+              ]}
+            >
+              <label class="switch small show-example-code">
+                Show Code
+                <input type="checkbox" />
+              </label>
+            </div>
+          </>
+        )
+      }
+    </div>
   </div>
 </div>
+<style>
+  .example-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-body-alt);
+    border: var(--border-s) solid var(--color-outline);
+    border-radius: var(--radius-s);
+  }
+
+  .example-output {
+    padding: var(--space-s);
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .example-code {
+    overflow-y: hidden;
+    max-height: 0;
+    transition: max-height 250ms ease;
+  }
+
+  @media (prefers-reduced-motion) {
+    .example-code {
+      transition: none;
+    }
+  }
+
+  .example-code:has(~ .example-code-toggle-toolbar input:checked) {
+    max-height: 100svh;
+  }
+
+  .example-code-toggle-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: var(--border-s) solid var(--color-outline);
+    padding: var(--space-2xs);
+  }
+
+  .show-example-code {
+    width: auto;
+    margin-inline-start: auto;
+  }
+
+  body.js-disabled .example-with-js {
+    border: 0;
+  }
+</style>
