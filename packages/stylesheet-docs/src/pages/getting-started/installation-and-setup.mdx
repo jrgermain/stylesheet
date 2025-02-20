@@ -2,6 +2,8 @@
 layout: ../../layouts/Markdown.astro
 title: Installation & Setup
 ---
+import CodeBlock from "../../components/CodeBlock.astro";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 
 # Installation & Setup
 
@@ -13,21 +15,25 @@ There are multiple ways to add the stylesheet to your project. The most common s
 
 First, install `@jrgermain/stylesheet` as a dependency. For example, if you're using NPM, you'd run the following command:
 
-```sh
-npm install @jrgermain/stylesheet
-```
+<CodeBlock
+  language="sh"
+  code="npm install @jrgermain/stylesheet"
+/>
 
 Then, in the entrypoint of your project (typically a file named root, index, or main), add the following import statement:
 
-```js
-import "@jrgermain/stylesheet";
-```
+<CodeBlock
+  language="js"
+  code='import "@jrgermain/stylesheet";'
+/>
 
 If you get a compilation error, you can try the following equivalent import statement:
 
-```js
-import "@jrgermain/stylesheet/index.css";
-```
+<CodeBlock
+  language="js"
+  code='import "@jrgermain/stylesheet/index.css";'
+/>
+
 
 ### Option 2: `<link>` Tags
 
@@ -35,21 +41,27 @@ Alternatively, you can add a `<link>` tag to your document head with a `href` th
 
 You can either copy the CSS files (`index.min.css` and optionally `index.min.css.map`) into your public directory and reference the local copy **or** link to a CDN.
 
-```html
-<!-- Use stylesheet that was copied into $PUBLIC_DIR/styles -->
-<link rel="stylesheet" type="text/css" href="/styles/index.min.css" />
-```
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <!-- Use stylesheet that was copied into $PUBLIC_DIR/styles -->
+    <link rel="stylesheet" type="text/css" href="/styles/index.min.css" />
+  `)}
+/>
 
 <br/>
 
-```html
-<!-- Pull version 0.3.0 of stylesheet from a CDN -->
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://cdn.jsdelivr.net/npm/@jrgermain/stylesheet@0.3.0"
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <!-- Pull version 0.3.0 of stylesheet from a CDN -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@jrgermain/stylesheet@0.3.0"
+    />
+  `)}
 />
-```
 
 ## Setup
 
@@ -57,11 +69,14 @@ You can either copy the CSS files (`index.min.css` and optionally `index.min.css
 
 It's recommended to set the `theme-color` meta tag. To do this, copy the following into your document `head`:
 
-```html
-<meta name="theme-color" content="#fff" />
-<meta
-  name="theme-color"
-  media="(prefers-color-scheme: dark)"
-  content="oklch(8% 2% 263deg)"
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <meta name="theme-color" content="#fff" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="oklch(8% 2% 263deg)"
+    />
+  `)}
 />
-```

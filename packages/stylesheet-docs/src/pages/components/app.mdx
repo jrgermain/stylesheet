@@ -2,6 +2,8 @@
 layout: ../../layouts/Markdown.astro
 title: App
 ---
+import CodeBlock from "../../components/CodeBlock.astro";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 
 # App
 
@@ -11,29 +13,35 @@ The `App` component is really a _collection of related components_ that, togethe
 
 The root element of your app should have the class `app`. The rest of your application will go inside this container.
 
-```html
-<html>
-  <head>
-    ...
-  </head>
-  <body class="app">
-    ...
-  </body>
-</html>
-```
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <html>
+      <head>
+        ...
+      </head>
+      <body class="app">
+        ...
+      </body>
+    </html>
+  `)}
+/>
 
 Another valid option (e.g., for a react SPA) would be something like this:
 
-```html
-<html>
-  <head>
-    ...
-  </head>
-  <body>
-    <div id="root" class="app">...</div>
-  </body>
-</html>
-```
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <html>
+      <head>
+        ...
+      </head>
+      <body>
+        <div id="root" class="app"></div>
+      </body>
+    </html>
+  `)}
+/>
 
 ## App Header
 
@@ -41,30 +49,36 @@ Most apps will have a header. The header should be an immediate child of the App
 
 The header will always have the following structure:
 
-```html
-<header class="app-header">
-  <div class="app-header-content">
-    <!-- 0 or more of the following: -->
-    <div class="app-header-section">
-      <!-- 0 or more of the following: -->
-      <div class="app-header-item"></div>
-    </div>
-  </div>
-</header>
-```
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <header class="app-header">
+      <div class="app-header-content">
+        <!-- 0 or more of the following: -->
+        <div class="app-header-section">
+          <!-- 0 or more of the following: -->
+          <div class="app-header-item"></div>
+        </div>
+      </div>
+    </header>
+  `)}
+/>
 
 Note that, up to this point, the tag names can vary, but you should stick to the classes used above.
 
 If you have a sidebar, you'll also want to add a toggle button to the final header section. This allows the user to show/hide the sidebar when the screen isn't wide enough to keep it visible. The toggle will automatically disappear once the screen is wide enough.
 
-```html
-<label class="app-header-item app-sidebar-toggle">
-  <input type="checkbox" title="Toggle navigation" />
-  <div></div>
-  <div></div>
-  <div></div>
-</label>
-```
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <label class="app-header-item app-sidebar-toggle">
+      <input type="checkbox" title="Toggle navigation">
+      <div></div>
+      <div></div>
+      <div></div>
+    </label>
+  `)}
+/>
 
 Unlike the other code samples here, both the tag names _and_ classes for the toggle button should be copied verbatim.
 
@@ -74,14 +88,17 @@ All apps should have a body. Note that this is different from the document `body
 
 The body will always have the following structure:
 
-```html
-<div class="app-body">
-  <!-- Optional -->
-  <nav class="app-sidebar">...</nav>
-  <!-- Required; id is needed if you're using the Skip Link component -->
-  <main id="main-content" class="app-content">...</main>
-</div>
-```
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <div class="app-body">
+      <!-- Optional -->
+      <nav class="app-sidebar">...</nav>
+      <!-- Required; id is needed if you're using the Skip Link component -->
+      <main id="main-content" class="app-content">...</main>
+    </div>
+  `)}
+/>
 
 As with the header, the tag names can vary, but you should stick to the classes used above.
 
@@ -93,15 +110,18 @@ If you choose to use a sidebar, it should be an immediate child of the App Body.
 
 The sidebar will always have the following structure:
 
-```html
-<nav class="app-sidebar">
-  <!-- One or more of the following -->
-  <section class="app-sidebar-section">
-    <h1 class="app-sidebar-heading">Heading</h1>
-    <a class="app-sidebar-item" aria-current="page">Current Page</a>
-    <a class="app-sidebar-item">Other Page</a>
-  </section>
-</nav>
-```
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <nav class="app-sidebar">
+      <!-- One or more of the following -->
+      <section class="app-sidebar-section">
+        <h1 class="app-sidebar-heading">Heading</h1>
+        <a class="app-sidebar-item" aria-current="page">Current Page</a>
+        <a class="app-sidebar-item">Other Page</a>
+      </section>
+    </nav>
+  `)}
+/>
 
 Note that the tag names can vary, but you should stick to the classes used above.

@@ -2,6 +2,8 @@
 layout: ../../layouts/Markdown.astro
 title: Skip Link
 ---
+import CodeBlock from "../../components/CodeBlock.astro";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 
 ## Skip Link
 
@@ -9,9 +11,10 @@ It's a best practice to add a **Skip to Main Content** link for accessibility re
 
 Add your skip link as the first child of your [App Root](/components/app#app-root). You should use the following HTML markup (copied verbatim):
 
-```html
-<a class="skip-link" href="#main-content">Skip to Main Content <kbd>↵</kbd></a>
-```
+<CodeBlock
+  language="html"
+  code='<a class="skip-link" href="#main-content">Skip to Main Content <kbd>↵</kbd></a>'
+/>
 
 Note that the markup above assumes that the container holding the main content of the page has an `id` of `main-content`. If you choose to use a different `id`, make sure to update the `href` of the skip link to match.
 

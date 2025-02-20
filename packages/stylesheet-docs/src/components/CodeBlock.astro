@@ -3,7 +3,9 @@ import { Code } from "astro:components";
 import { formatCode } from "../utils/format-code";
 import type { BuiltInParserName } from "prettier";
 
-export type Language = "html" | "css" | "scss" | "js" | "jsx" | "ts" | "tsx";
+// Currently need to separate type definition and export statement due to bug in Astro compiler
+type Language = "html" | "css" | "scss" | "js" | "jsx" | "ts" | "tsx" | "sh";
+export type { Language };
 
 interface Props {
   language: Language;
@@ -14,7 +16,7 @@ interface Props {
 
 const { language, code, format = true, variant = "standalone" } = Astro.props;
 
-const parserForLanguage: Record<Language, BuiltInParserName> = {
+const parserForLanguage: Record<Language, BuiltInParserName | null> = {
   html: "html",
   css: "css",
   scss: "scss",
@@ -22,7 +24,9 @@ const parserForLanguage: Record<Language, BuiltInParserName> = {
   jsx: "babel",
   ts: "typescript",
   tsx: "typescript",
+  sh: null,
 };
+
 const displayNameForLanguage: Record<Language, string> = {
   html: "HTML",
   css: "CSS",
@@ -31,11 +35,11 @@ const displayNameForLanguage: Record<Language, string> = {
   jsx: "JSX",
   ts: "TypeScript",
   tsx: "TSX",
+  sh: "Shell",
 };
 
-const formattedCode = format
-  ? await formatCode(code, parserForLanguage[language])
-  : code;
+const parser = parserForLanguage[language];
+const formattedCode = format && parser ? await formatCode(code, parser) : code;
 
 const random = Math.random().toString(36).slice(2, 10);
 const codeId = `code-${random}`;
