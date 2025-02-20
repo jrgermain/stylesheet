@@ -4,6 +4,7 @@ title: Tokens
 ---
 
 import { Code } from "astro:components";
+import CodeBlock from "../../components/CodeBlock.astro";
 import SemanticColor from "../../components/tokens-page/SemanticColor.astro";
 import ColorsContainer from "../../components/tokens-page/ColorsContainer.astro";
 import ColorRow from "../../components/tokens-page/ColorRow.astro";
@@ -11,6 +12,7 @@ import ShadowExample from "../../components/tokens-page/ShadowExample.astro";
 import FontExample from "../../components/tokens-page/FontExample.astro";
 import SpacingExample from '../../components/tokens-page/SpacingExample.astro';
 import BorderExample from '../../components/tokens-page/BorderExample.astro';
+import { trimMarkdownPadding } from "../../utils/trim-markdown-padding";
 
 # Tokens
 
@@ -46,14 +48,18 @@ lightness 1 is defined as `--color-red-1`, while `red` with high
 transparency is defined as `--color-red-extra-transparent`. Below is an
 example of how to reference these colors in a stylesheet:
 
----
+<CodeBlock
+  language="css"
+  code={trimMarkdownPadding(`
+    .red {
+      background-color: var(--color-red-1);
+    }
 
-<Code
-  code=".red {\n  background-color: var(--color-red-1);\n}\n\n.transparent-red {\n  background-color: var(--color-red-extra-transparent);\n}"
-  lang="css"
+    .transparent-red {
+      background-color: var(--color-red-extra-transparent);
+    }
+  `)}
 />
-
----
 
 Below are samples of all the colors in shades 1 through 9:
 
@@ -79,7 +85,7 @@ In addition to the standard palette, the stylesheet defines a set of
   the primary background color for the document
 </SemanticColor>
 <SemanticColor name="body-alt">
-  the secondary backgroud color, used on surfaces like cards
+  the secondary background color, used on surfaces like cards
 </SemanticColor>
 <SemanticColor name="body-text">
   the primary text color for the document

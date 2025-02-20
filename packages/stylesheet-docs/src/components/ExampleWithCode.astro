@@ -1,10 +1,10 @@
 ---
-import { Code } from "astro:components";
 import { formatExampleCode } from "../utils/format-example-code";
+import CodeBlock, { type Language } from "./CodeBlock.astro";
 
 interface Props {
   code: string;
-  language: string;
+  language: Language;
   outputWrapperClass?: string;
   outputWrapperId?: string;
 }
@@ -20,33 +20,7 @@ const formattedCode = await formatExampleCode(code);
     set:html={formattedCode}
   />
   <div class="example-code">
-    <div class="example-code-toolbar">
-      <span class="example-code-language">{language}</span>
-      <button
-        class="button icon subtle copy-button"
-        x-cloak
-        :tabindex="showCode ? 0 : -1"
-        @click="navigator.clipboard.writeText($refs.codeBlock.textContent)"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 256 256"
-          ><path
-            fill="currentColor"
-            d="M216 32H88a8 8 0 0 0-8 8v40H40a8 8 0 0 0-8 8v128a8 8 0 0 0 8 8h128a8 8 0 0 0 8-8v-40h40a8 8 0 0 0 8-8V40a8 8 0 0 0-8-8m-56 176H48V96h112Zm48-48h-32V88a8 8 0 0 0-8-8H96V48h112Z"
-          ></path></svg
-        >
-      </button>
-    </div>
-    <Code
-      lang="html"
-      code={formattedCode}
-      theme="github-dark"
-      tabindex={-1}
-      x-ref="codeBlock"
-    />
+    <CodeBlock variant="inline" code={formattedCode} language={language} />
   </div>
   <div class="example-code-toggle-toolbar">
     <label class="switch small show-example-code">
@@ -96,43 +70,8 @@ const formattedCode = await formatExampleCode(code);
     padding: var(--space-2xs);
   }
 
-  .example-code-toolbar {
-    background-color: var(--color-body);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 var(--space-2xs);
-    /* background-color: var(--color-body-alt); */
-    border-block: var(--border-s) solid var(--color-outline);
-    padding: var(--space-2xs);
-  }
-
   .show-example-code {
     width: auto;
     margin-inline-start: auto;
-  }
-
-  .example-code-language {
-    font-size: var(--font-size-s);
-    color: var(--color-brand-4);
-    font-weight: var(--font-weight-bold);
-    text-transform: uppercase;
-    margin-inline-start: var(--space-3xs);
-  }
-
-  .copy-button {
-    margin: calc(-1 * var(--space-3xs)) !important;
-  }
-</style>
-<style is:inline>
-  .example-code pre {
-    padding: var(--space-2xs);
-    margin: 0;
-    border-radius: 0;
-    font-size: var(--font-size-s);
-  }
-
-  .example-code code {
-    background-color: transparent !important;
   }
 </style>

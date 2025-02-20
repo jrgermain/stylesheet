@@ -165,6 +165,9 @@ const navSections = [
         <slot />
       </main>
     </div>
+    <script>
+      document.body.classList.add("js-enabled");
+    </script>
   </body>
 </html>
 <style>
@@ -215,11 +218,6 @@ const navSections = [
 <style is:global>
   [x-cloak] {
     display: none !important;
-  }
-
-  .astro-code {
-    padding: var(--space-2xs);
-    border-radius: var(--radius-s);
   }
 
   .astro-code code {

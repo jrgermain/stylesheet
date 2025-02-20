@@ -1,0 +1,180 @@
+---
+import { Code } from "astro:components";
+import { formatExampleCode } from "../utils/format-example-code";
+import type { BuiltInParserName } from "prettier";
+
+export type Language = "html" | "css" | "scss" | "js" | "jsx" | "ts" | "tsx";
+
+interface Props {
+  language: Language;
+  code: string;
+  format?: boolean;
+  variant?: "standalone" | "inline";
+}
+
+const { language, code, format = true, variant = "standalone" } = Astro.props;
+
+const parserForLanguage: Record<Language, BuiltInParserName> = {
+  html: "html",
+  css: "css",
+  scss: "scss",
+  js: "babel",
+  jsx: "babel",
+  ts: "typescript",
+  tsx: "typescript",
+};
+const displayNameForLanguage: Record<Language, string> = {
+  html: "HTML",
+  css: "CSS",
+  scss: "SCSS",
+  js: "JavaScript",
+  jsx: "JSX",
+  ts: "TypeScript",
+  tsx: "TSX",
+};
+
+const formattedCode = format
+  ? await formatExampleCode(code, parserForLanguage[language])
+  : code;
+
+const random = Math.random().toString(36).slice(2, 10);
+const codeId = `code-${random}`;
+
+const languageText = displayNameForLanguage[language];
+---
+
+<div class:list={["container", variant]}>
+  <div class="toolbar">
+    <span class="language">{languageText}</span>
+    <span class="copy-button-container">
+      <span class="copied-message">Copied!</span>
+      <button
+        aria-label="Copy code to clipboard"
+        title="Copy"
+        class="button icon subtle copy-button"
+        data-code-id={codeId}
+        onclick="
+          navigator.clipboard.writeText(document.getElementById(this.dataset.codeId).textContent)
+            .then(() => {
+              this.parentElement.classList.add('copied');
+              setTimeout(() => {
+                this.parentElement.classList.remove('copied');
+              }, 2500);
+            });
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 256 256"
+          ><path
+            fill="currentColor"
+            d="M216 32H88a8 8 0 0 0-8 8v40H40a8 8 0 0 0-8 8v128a8 8 0 0 0 8 8h128a8 8 0 0 0 8-8v-40h40a8 8 0 0 0 8-8V40a8 8 0 0 0-8-8m-56 176H48V96h112Zm48-48h-32V88a8 8 0 0 0-8-8H96V48h112Z"
+          ></path></svg
+        >
+      </button>
+    </span>
+  </div>
+  <Code
+    id={codeId}
+    class="rendered-code"
+    lang={language}
+    code={formattedCode}
+    theme="github-dark"
+    tabindex={-1}
+  />
+</div>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-body-alt);
+    overflow: hidden;
+  }
+
+  .toolbar {
+    background-color: var(--color-body);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2xs);
+  }
+
+  .language {
+    font-size: var(--font-size-s);
+    color: var(--color-brand-4);
+    font-weight: var(--font-weight-bold);
+    margin-inline-start: var(--space-3xs);
+  }
+
+  .copy-button-container {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+
+  .copied-message {
+    background-color: var(--color-green-5);
+    border: var(--border-s) solid var(--color-green-6);
+    color: white;
+    padding: 0.2em 0.6em;
+    margin-block: -1px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .copy-button {
+    margin: calc(-1 * var(--space-3xs)) !important;
+  }
+
+  .copy-button-container:not(.copied) .copied-message,
+  .copy-button-container.copied .copy-button {
+    display: none;
+  }
+
+  .rendered-code {
+    padding: var(--space-xs);
+    margin: 0;
+    border-radius: 0;
+    font-size: var(--font-size-s);
+  }
+
+  .container.inline .toolbar {
+    border-block: var(--border-s) solid var(--color-outline);
+  }
+
+  .container.standalone {
+    border: var(--border-s) solid #52575d;
+    box-shadow: var(--shadow-s);
+    border-radius: var(--radius-m);
+  }
+
+  .container.standalone .toolbar {
+    background-color: #383d43;
+    border-bottom: var(--border-s) solid #52575d;
+  }
+
+  .container.standalone .copy-button {
+    --button-fg-color: #fff;
+    --button-hover-bg-color: #d8dbde33;
+  }
+
+  .container.standalone .copy-button:focus-visible {
+    --button-bg-color: #d8dbde66;
+  }
+
+  .container.standalone .language {
+    color: white;
+    font-size: var(--font-size-m);
+  }
+
+  .container.standalone .rendered-code {
+    font-size: var(--font-size-m);
+  }
+
+  body:not(.js-enabled) .copy-button-container {
+    display: none;
+  }
+</style>
