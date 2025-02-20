@@ -1,0 +1,29 @@
+---
+interface Props {
+  propName: "radius" | "border";
+  propValue: string;
+}
+
+const { propName, propValue } = Astro.props;
+
+const fullPropName = propName === "radius" ? "border-radius" : "border-width";
+const fullPropValue = `var(--${propName}-${propValue})`;
+---
+
+<div class="box" style={{ [fullPropName]: fullPropValue }}>
+  {propName}-{propValue}
+</div>
+<style>
+  .box {
+    border: var(--border-m) solid var(--color-brand-5);
+    height: 10rem;
+    width: 12rem;
+    font-family: var(--font-family-mono);
+    border-radius: var(--radius-m);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-body-alt);
+    height: "10rem";
+  }
+</style>

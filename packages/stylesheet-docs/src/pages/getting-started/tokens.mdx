@@ -1,0 +1,202 @@
+---
+layout: ../../layouts/Markdown.astro
+title: Tokens
+---
+
+import { Code } from "astro:components";
+import SemanticColor from "../../components/tokens-page/SemanticColor.astro";
+import ColorsContainer from "../../components/tokens-page/ColorsContainer.astro";
+import ColorRow from "../../components/tokens-page/ColorRow.astro";
+import ShadowExample from "../../components/tokens-page/ShadowExample.astro";
+import FontExample from "../../components/tokens-page/FontExample.astro";
+import SpacingExample from '../../components/tokens-page/SpacingExample.astro';
+import BorderExample from '../../components/tokens-page/BorderExample.astro';
+
+# Tokens
+
+All design tokens are defined as CSS Custom Properties (also known as "CSS
+Variables"). You should reference these properties when creating custom
+styles.
+
+This page walks through each type of token and shows examples of what each
+value looks like.
+
+## Colors
+
+All colors are prefixed with `--color-`. The stylesheet defines 2 sets
+of colors: the **standard palette** and **semantic colors**.
+
+### Standard Palette
+
+The stylesheet defines multiple shades for each of the following colors:
+`brand`, `red`, `orange`, `yellow`, `green`, `sky`, `blue`, `purple`, `magenta`,
+and `gray`.
+
+There are 9 shades for each color, ranging from 1 to 9. Lower numbers will
+have the most contrast with the page background, while higher numbers will
+have the least. In other words, shade 1 is the darkest shade in light mode,
+but the lightest shade in dark mode.
+
+There are also 2 transparent variants for each color: `transparent` and
+`extra-transparent`.
+
+The variables for these colors all use the standard `--color-` prefix,
+followed by the color name and shade. For example, the color `red` with
+lightness 1 is defined as `--color-red-1`, while `red` with high
+transparency is defined as `--color-red-extra-transparent`. Below is an
+example of how to reference these colors in a stylesheet:
+
+---
+
+<Code
+  code=".red {\n  background-color: var(--color-red-1);\n}\n\n.transparent-red {\n  background-color: var(--color-red-extra-transparent);\n}"
+  lang="css"
+/>
+
+---
+
+Below are samples of all the colors in shades 1 through 9:
+
+<ColorsContainer>
+  <ColorRow name="brand" />
+  <ColorRow name="red" />
+  <ColorRow name="orange" />
+  <ColorRow name="yellow" />
+  <ColorRow name="green" />
+  <ColorRow name="sky" />
+  <ColorRow name="blue" />
+  <ColorRow name="purple" />
+  <ColorRow name="magenta" />
+  <ColorRow name="gray" />
+</ColorsContainer>
+
+### Semantic Colors
+
+In addition to the standard palette, the stylesheet defines a set of
+"semantic" colors. These colors are named after their intended use cases:
+
+<SemanticColor name="body">
+  the primary background color for the document
+</SemanticColor>
+<SemanticColor name="body-alt">
+  the secondary backgroud color, used on surfaces like cards
+</SemanticColor>
+<SemanticColor name="body-text">
+  the primary text color for the document
+</SemanticColor>
+<SemanticColor name="body-text-alt">
+  the secondary text color for the document
+</SemanticColor>
+<SemanticColor name="shadow">
+  a transparent gray used for box shadows
+</SemanticColor>
+<SemanticColor name="outline">
+  a gray used for borders and outlines
+</SemanticColor>
+
+Unlike standard palette colors, these don't come in multiple shades.
+
+## Shadows
+
+The variables for shadows are all prefixed with `--shadow-`. They are
+designed to be used with the `box-shadow` property and are given T-shirt
+sizes describing how large the shadow should be.
+
+<ShadowExample size="none" />
+<ShadowExample size="s" />
+<ShadowExample size="m" />
+<ShadowExample size="l" />
+<ShadowExample size="xl" />
+
+
+## Font Sizes
+
+The variables for font sizes are all prefixed with `--font-size-`, which
+is followed by a T-shirt size between `xs` and `4xl`. For example, the
+font size `m` represents a medium size for text and can be referenced as
+`--font-size-m`.
+
+<div class="card">
+  <FontExample propName="size" propValue="xs" />
+  <FontExample propName="size" propValue="s" />
+  <FontExample propName="size" propValue="m" />
+  <FontExample propName="size" propValue="l" />
+  <FontExample propName="size" propValue="xl" />
+  <FontExample propName="size" propValue="2xl" />
+  <FontExample propName="size" propValue="3xl" />
+  <FontExample propName="size" propValue="4xl" />
+</div>
+
+## Font Weights
+
+The variables for font weights are all prefixed with `--font-weight-`. For
+example, the font weight `normal` can be referenced as `--font-weight-normal`.
+
+<div class="card">
+  <FontExample propName="weight" propValue="light" />
+  <FontExample propName="weight" propValue="normal" />
+  <FontExample propName="weight" propValue="semibold" />
+  <FontExample propName="weight" propValue="bold" />
+  <FontExample propName="weight" propValue="black" />
+</div>
+
+## Font Families
+
+The variables for font families are all prefixed with `--font-family-`. For
+example, the font family `body` can be referenced as `--font-family-body`.
+
+<div class="card">
+  <FontExample propName="family" propValue="body" />
+  <FontExample propName="family" propValue="heading" />
+  <FontExample propName="family" propValue="mono" />
+</div>
+
+## Spacing
+
+Spacing tokens scale with the screen width, becoming slightly more spread out
+as the screen widens. The variables for spacing are prefixed with `--space-`
+and are implemented as T-shirt sizes between 3xs and 3xl.
+
+There's also a token called `space-body` that scales from `xs` on small
+screens to `m` on large screens. This token is used for the margins around the
+app.
+
+<div class="card">
+  <SpacingExample space="3xs" />
+  <SpacingExample space="2xs" />
+  <SpacingExample space="xs" />
+  <SpacingExample space="s" />
+  <SpacingExample space="m" />
+  <SpacingExample space="l" />
+  <SpacingExample space="xl" />
+  <SpacingExample space="2xl" />
+  <SpacingExample space="3xl" />
+</div>
+
+## Radii
+
+The variables for radii are all prefixed with `--radius-`. They're designed to
+be used with the `border-radius` property.
+
+<div class="flow">
+  <BorderExample propName="radius" propValue="none" />
+  <BorderExample propName="radius" propValue="s" />
+  <BorderExample propName="radius" propValue="m" />
+  <BorderExample propName="radius" propValue="l" />
+  <BorderExample propName="radius" propValue="xl" />
+  <BorderExample propName="radius" propValue="2xl" />
+  <BorderExample propName="radius" propValue="full" />
+</div>
+
+## Border Widths
+
+The variables for border widths are all prefixed with `--border-`. They're
+designed to be used with the `border-width` property.
+
+<div class="flow">
+  <BorderExample propName="border" propValue="none" />
+  <BorderExample propName="border" propValue="s" />
+  <BorderExample propName="border" propValue="m" />
+  <BorderExample propName="border" propValue="l" />
+  <BorderExample propName="border" propValue="xl" />
+</div>

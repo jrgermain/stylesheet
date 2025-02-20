@@ -1,0 +1,61 @@
+---
+interface Props {
+  space: string;
+}
+
+const { space } = Astro.props;
+---
+
+<div class="space-example-container">
+  <p class="space-name">{space}</p>
+  <div class="space-example">
+    <div class="space-example-block"></div>
+    <div
+      class="space-example-spacer"
+      style={{ width: `var(--space-${space})` }}
+    >
+    </div>
+    <div class="space-example-block"></div>
+  </div>
+</div>
+<style>
+  .space-example-container + .space-example-container {
+    margin-block-start: var(--space-m);
+  }
+
+  .space-name {
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-heading);
+    margin-block-end: var(--space-3xs);
+  }
+
+  .space-example {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-block-end: var(--space-s);
+  }
+
+  .space-example-block {
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: var(--color-body-text);
+    flex: none;
+    background-color: var(--color-blue-5);
+  }
+
+  .space-example-block:not(:first-child) {
+    background-color: var(--color-red-5);
+  }
+
+  .space-example-spacer {
+    display: inline-block;
+    position: relative;
+    height: var(--border-s);
+    background-color: var(--color-body-text);
+    flex: none;
+    margin: auto 0;
+  }
+</style>

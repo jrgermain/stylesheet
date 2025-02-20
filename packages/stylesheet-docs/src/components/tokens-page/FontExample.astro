@@ -1,0 +1,14 @@
+---
+interface Props {
+  propName: "size" | "weight" | "family";
+  propValue: string;
+}
+
+const { propName, propValue } = Astro.props;
+const fullPropName = `font-${propName}`;
+const fullPropValue = `var(--font-${propName}-${propValue})`;
+---
+
+<p class="paragraph" style={{ [fullPropName]: fullPropValue }}>
+  This text has a {propName} of <em>{propValue}</em>.
+</p>

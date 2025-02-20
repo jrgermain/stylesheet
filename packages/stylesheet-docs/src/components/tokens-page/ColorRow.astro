@@ -1,0 +1,62 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<div class="color-row">
+  {
+    [1, 2, 3, 4, 5, 6, 7, 8, 9].map((shade) => (
+      <span
+        class="color-cell"
+        style={{
+          background: `var(--color-${name}-${shade})`,
+          color:
+            shade < 6 ? `var(--color-${name}-9)` : `var(--color-${name}-1)`,
+        }}
+      >
+        {shade}
+      </span>
+    ))
+  }
+
+  <div class="color-name" style={{ color: `var(--color-${name}-9)` }}>
+    {name}
+  </div>
+</div>
+<style>
+  .color-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    width: auto;
+    margin-block-end: auto;
+    max-width: 72rem;
+  }
+
+  .color-row .color-name {
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+  }
+
+  .color-row .color-cell {
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    min-width: 5rem;
+    max-width: 8rem;
+    aspect-ratio: 1;
+    width: 100%;
+    padding: 4px;
+    font-size: var(--font-size-s);
+    margin: 0;
+  }
+</style>
