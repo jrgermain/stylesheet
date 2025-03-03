@@ -158,8 +158,8 @@
   /* Font families */
   --font-family-body: "Avenir Next", avenir, corbel, source-sans-pro,
     "DejaVu Sans", ui-sans-serif, sans-serif;
-  --font-family-heading: seravek, "Gill Sans Nova", verdana, "DejaVu Sans",
-    source-sans-pro, ui-sans-serif, sans-serif;
+  --font-family-heading: seravek, "Gill Sans Nova", cantarell, verdana,
+    "DejaVu Sans", ui-sans-serif, sans-serif;
   --font-family-mono: ui-monospace, "Source Code Pro", ui-monospace, monospace;
 
   /* Spacing */
