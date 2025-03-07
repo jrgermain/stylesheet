@@ -57,6 +57,7 @@ const languageText = displayNameForLanguage[language];
         title="Copy"
         class="button icon subtle copy-button"
         data-code-id={codeId}
+        tabindex="-1"
         onclick="
           navigator.clipboard.writeText(document.getElementById(this.dataset.codeId).textContent)
             .then(() => {
