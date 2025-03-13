@@ -28,7 +28,7 @@
     color: var(--color-brand-5);
   }
 
-  &:has(:user-invalid, &[aria-invalid="true"]) {
+  &:has(:user-invalid, [aria-invalid="true"]) {
     color: var(--color-red-5);
 
     .error-message {
@@ -38,10 +38,6 @@
 
   &:has([readonly]):focus-within {
     color: var(--color-gray-5);
-  }
-
-  &:user-invalid {
-    color: var(--color-red-5);
   }
 
   input:not(
@@ -194,6 +190,10 @@
       z-index: 1;
     }
 
+    > :is(:user-invalid, [aria-invalid="true"]) {
+      z-index: 2;
+    }
+
     > :first-child {
       border-start-start-radius: var(--field-radius) !important;
       border-end-start-radius: var(--field-radius) !important;
@@ -205,7 +205,7 @@
     }
 
     > :focus-visible {
-      z-index: 2;
+      z-index: 3;
     }
 
     > :is(.prefix, .suffix, .action) {
