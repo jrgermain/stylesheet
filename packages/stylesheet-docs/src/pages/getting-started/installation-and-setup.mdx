@@ -39,13 +39,13 @@ If you get a compilation error, you can try the following equivalent import stat
 
 Alternatively, you can add a `<link>` tag to your document head with a `href` that references the stylesheet.
 
-You can either copy the CSS files (`index.min.css` and optionally `index.min.css.map`) into your public directory and reference the local copy **or** link to a CDN.
+You can either copy the CSS files (`index.css` and optionally `index.css.map`) into your public directory and reference the local copy **or** link to a CDN.
 
 <CodeBlock
   language="html"
   code={trimTextPadding(`
     <!-- Use stylesheet that was copied into $PUBLIC_DIR/styles -->
-    <link rel="stylesheet" type="text/css" href="/styles/index.min.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/index.css" />
   `)}
 />
 

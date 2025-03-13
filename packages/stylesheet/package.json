@@ -40,8 +40,7 @@
       "unpkg": "./dist/index.css",
       "default": "./dist/index.css"
     },
-    "./index.css": "./dist/index.css",
-    "./index.min.css": "./dist/index.min.css"
+    "./index.css": "./dist/index.css"
   },
   "browserslist": [
     "defaults"

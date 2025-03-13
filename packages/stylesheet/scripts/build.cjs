@@ -83,16 +83,6 @@ const processCssFile = async (sourcePath, destPath, options = {}) => {
 
   // Process files
   await processCssFile("src/styles/index.css", "dist/index.css", {
-    sourceMap: true,
-  });
-  await processCssFile("src/styles/index.css", "dist/index.min.css", {
-    minify: true,
-    sourceMap: true,
-  });
-  await processCssFile("src/styles/base.css", "dist/base.css", {
-    sourceMap: true,
-  });
-  await processCssFile("src/styles/base.css", "dist/base.min.css", {
     minify: true,
     sourceMap: true,
   });
