@@ -17,9 +17,33 @@
     border-block-start-width: 0;
   }
 
+  &.error {
+    --banner-dismiss-icon-color: var(--color-red-4);
+    --banner-dismiss-hover-bg: var(--color-red-extra-transparent);
+    --banner-dismiss-focus-bg: var(--color-red-transparent);
+  }
+
+  &.warning {
+    --banner-dismiss-icon-color: var(--color-yellow-4);
+    --banner-dismiss-hover-bg: var(--color-yellow-extra-transparent);
+    --banner-dismiss-focus-bg: var(--color-yellow-transparent);
+  }
+
+  &.success {
+    --banner-dismiss-icon-color: var(--color-green-4);
+    --banner-dismiss-hover-bg: var(--color-green-extra-transparent);
+    --banner-dismiss-focus-bg: var(--color-green-transparent);
+  }
+
+  &.info {
+    --banner-dismiss-icon-color: var(--color-sky-4);
+    --banner-dismiss-hover-bg: var(--color-sky-extra-transparent);
+    --banner-dismiss-focus-bg: var(--color-sky-transparent);
+  }
+
   .button.dismiss {
-    --button-fg-color: var(--alert-dismiss-icon-color);
-    --button-hover-bg-color: var(--alert-dismiss-hover-bg);
+    --button-fg-color: var(--banner-dismiss-icon-color);
+    --button-hover-bg-color: var(--banner-dismiss-hover-bg);
 
     position: absolute;
     inset-block: 0;
@@ -27,7 +51,7 @@
     margin: auto;
 
     &:is(:focus-visible, .focus) {
-      --button-bg-color: var(--alert-dismiss-focus-bg);
+      --button-bg-color: var(--banner-dismiss-focus-bg);
     }
   }
 }

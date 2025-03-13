@@ -89,6 +89,13 @@ const processCssFile = async (sourcePath, destPath, options = {}) => {
     minify: true,
     sourceMap: true,
   });
+  await processCssFile("src/styles/base.css", "dist/base.css", {
+    sourceMap: true,
+  });
+  await processCssFile("src/styles/base.css", "dist/base.min.css", {
+    minify: true,
+    sourceMap: true,
+  });
 })().catch((e) => {
   console.error(e);
   process.exit(1);
