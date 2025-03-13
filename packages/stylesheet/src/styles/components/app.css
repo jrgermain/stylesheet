@@ -367,3 +367,9 @@
    */
   overflow: hidden;
 }
+
+@starting-style {
+  .app > .sidebar {
+    opacity: 0;
+  }
+}
