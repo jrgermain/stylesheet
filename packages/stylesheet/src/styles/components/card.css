@@ -16,7 +16,12 @@
   }
 }
 
-.card-title {
+/* 
+ * The Link component also defines .card-title[href]. We specifically add that
+ * selector here so the styles in this file override the former.
+ */
+.card-title,
+.card-title[href] {
   font-family: var(--font-family-heading);
   line-height: 1.15;
   text-wrap: balance;
@@ -25,6 +30,7 @@
   font-weight: var(--font-weight-bold);
   color: var(--color-brand-3);
   margin-block: 0 var(--space-xs);
+  display: block;
 }
 
 .card.secondary .card-title {

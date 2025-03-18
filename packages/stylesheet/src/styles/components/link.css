@@ -1,4 +1,5 @@
 .link,
+.card-title[href],
 .markdown-output a {
   color: var(--color-sky-4);
   font-weight: var(--font-weight-semibold);

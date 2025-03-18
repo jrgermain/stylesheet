@@ -8,7 +8,6 @@
 @import url("./components/app.css");
 @import url("./components/banner.css");
 @import url("./components/button.css");
-@import url("./components/card.css");
 @import url("./components/chip.css");
 @import url("./components/divider.css");
 @import url("./components/drawer.css");
@@ -28,3 +27,10 @@
 @import url("./components/table.css");
 @import url("./components/text.css");
 @import url("./components/visually-hidden.css");
+
+/*
+ * Card needs to be loaded after Link so .card-title[href]
+ * in the former overrides the same selector in the latter
+  * without a bunch of "!important" declarations.
+ */
+@import url("./components/card.css");
