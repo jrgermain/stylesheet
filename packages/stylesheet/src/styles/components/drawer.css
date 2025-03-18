@@ -88,10 +88,6 @@
   }
 }
 
-.drawer-header {
-  font-size: var(--font-size-l);
-}
-
 .drawer-body {
   height: 100%;
 }
