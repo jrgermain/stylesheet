@@ -103,13 +103,13 @@ const languageText = displayNameForLanguage[language];
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-2xs);
+    padding: var(--space-3xs) var(--space-2xs);
   }
 
   .language {
     font-size: var(--font-size-s);
     color: var(--color-brand-4);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold);
     margin-inline-start: var(--space-3xs);
   }
 
@@ -159,6 +159,7 @@ const languageText = displayNameForLanguage[language];
   .container.standalone .toolbar {
     background-color: #383d43;
     border-bottom: var(--border-s) solid #52575d;
+    height: 2.25rem;
   }
 
   .container.standalone .copy-button {
@@ -172,7 +173,7 @@ const languageText = displayNameForLanguage[language];
 
   .container.standalone .language {
     color: white;
-    font-size: var(--font-size-m);
+    font-size: calc(var(--font-size-m) * 0.9);
   }
 
   .container.standalone .rendered-code {
