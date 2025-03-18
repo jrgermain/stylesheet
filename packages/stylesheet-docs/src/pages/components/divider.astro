@@ -15,21 +15,52 @@ import UsageExample from "../../components/UsageExample.astro";
       <hr class="divider"/>
       <p>More content</p>
     `}
-    outputWrapperClass=""
+    outputWrapperClass="stack vertical densest"
   />
 
   <UsageExample
     name="Orientation"
     description="You can change the direction of a divider by adding the classes `horizontal` (default) or `vertical`."
     code={`
-      <div class="card secondary">
-        <div class="horizontal flow">
-          <p>Some content</p>
-          <hr class="divider vertical"/>
-          <p>More content</p>
-        </div>
+      <p>Some content</p>
+      <hr class="divider vertical"/>
+      <p>More content</p>
+    `}
+    outputWrapperClass="stack horizontal densest"
+  />
+
+  <UsageExample
+    name="Thickness"
+    description="To make the divider thicker, add the class `thick` or `thicker`."
+    code={`
+      <p>Some content</p>
+      <hr class="divider thick"/>
+      <div class="horizontal flow">
+        <p>More content</p>
+        <hr class="divider thick vertical"/>
+        <p>Even more content</p>
+      </div>
+      <hr class="divider thicker"/>
+      <div class="horizontal flow">
+        <p>More content</p>
+        <hr class="divider thicker vertical"/>
+        <p>Even more content</p>
       </div>
     `}
+    outputWrapperClass="stack vertical densest"
+  />
+
+  <UsageExample
+    name="Style"
+    description="You can change the style of a divider by adding the classes `dashed` or `dotted`."
+    code={`
+      <p>Some content</p>
+      <hr class="divider dashed"/>
+      <p>More content</p>
+      <hr class="divider dotted"/>
+      <p>Even more content</p>
+    `}
+    outputWrapperClass="stack vertical densest"
   />
 
   <UsageExample
@@ -40,6 +71,6 @@ import UsageExample from "../../components/UsageExample.astro";
       <hr class="divider invisible"/>
       <p>More content</p>
     `}
-    outputWrapperClass=""
+    outputWrapperClass="stack vertical densest"
   />
 </ComponentDocumentation>

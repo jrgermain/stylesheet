@@ -1,24 +1,47 @@
 .divider,
 .markdown-output :is(hr, br) {
-  background-color: var(--color-outline);
-  border: 0;
+  --divider-thickness: var(--border-s);
+
+  display: block;
+  border-style: solid;
+  border-color: var(--color-outline);
+  border-width: 0;
+  border-top-width: var(--divider-thickness);
+  margin: var(--space-xs) 0;
   outline: 0;
   width: 100%;
-  height: var(--border-s);
-  display: block;
-  margin: var(--space-xs) 0;
+  height: 0;
   print-color-adjust: exact;
+  position: relative;
 
   &.vertical {
     display: inline-block;
-    width: var(--border-s);
+    border-top-width: 0;
+    border-left-width: var(--divider-thickness);
+    margin: auto var(--space-xs);
+    width: 0;
     height: 100%;
     min-height: 1em;
-    margin: 0 var(--space-xs);
   }
 }
 
 .divider.invisible,
 .markdown-output br {
   visibility: hidden;
+}
+
+.divider.thick {
+  --divider-thickness: var(--border-m);
+}
+
+.divider.thicker {
+  --divider-thickness: var(--border-l);
+}
+
+.divider.dashed {
+  border-style: dashed;
+}
+
+.divider.dotted {
+  border-style: dotted;
 }
