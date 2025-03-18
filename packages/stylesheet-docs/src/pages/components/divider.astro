@@ -15,7 +15,7 @@ import UsageExample from "../../components/UsageExample.astro";
       <hr class="divider"/>
       <p>More content</p>
     `}
-    outputWrapperClass="stack vertical densest"
+    outputWrapperClass="stack vertical no-gap"
   />
 
   <UsageExample
@@ -26,7 +26,7 @@ import UsageExample from "../../components/UsageExample.astro";
       <hr class="divider vertical"/>
       <p>More content</p>
     `}
-    outputWrapperClass="stack horizontal densest"
+    outputWrapperClass="stack horizontal no-gap"
   />
 
   <UsageExample
@@ -35,19 +35,19 @@ import UsageExample from "../../components/UsageExample.astro";
     code={`
       <p>Some content</p>
       <hr class="divider thick"/>
-      <div class="horizontal flow">
+      <div class="stack horizontal no-gap">
         <p>More content</p>
         <hr class="divider thick vertical"/>
         <p>Even more content</p>
       </div>
       <hr class="divider thicker"/>
-      <div class="horizontal flow">
+      <div class="stack horizontal no-gap">
         <p>More content</p>
         <hr class="divider thicker vertical"/>
         <p>Even more content</p>
       </div>
     `}
-    outputWrapperClass="stack vertical densest"
+    outputWrapperClass="stack vertical no-gap"
   />
 
   <UsageExample
@@ -60,7 +60,7 @@ import UsageExample from "../../components/UsageExample.astro";
       <hr class="divider dotted"/>
       <p>Even more content</p>
     `}
-    outputWrapperClass="stack vertical densest"
+    outputWrapperClass="stack vertical no-gap"
   />
 
   <UsageExample
@@ -71,6 +71,6 @@ import UsageExample from "../../components/UsageExample.astro";
       <hr class="divider invisible"/>
       <p>More content</p>
     `}
-    outputWrapperClass="stack vertical densest"
+    outputWrapperClass="stack vertical no-gap"
   />
 </ComponentDocumentation>

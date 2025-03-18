@@ -60,6 +60,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       You can optionally add one of the following modifier classes to change
       the spacing between children (ordered from most compact to most spread out):
 
+      - \`no-gap\`
       - \`densest\`
       - \`denser\`
       - \`dense\`
@@ -69,6 +70,12 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       - \`sparsest\`
     `)}
     code={`
+      <h3 class="h6">No Gap</h3>
+      <div class="flow no-gap">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
       <h3 class="h6">Densest</h3>
       <div class="flow densest">
         <div class="box">1</div>

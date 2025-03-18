@@ -5,6 +5,10 @@
   display: flex !important;
   gap: var(--space-s);
 
+  &.no-gap {
+    gap: 0;
+  }
+
   &.densest {
     gap: var(--space-3xs);
   }
