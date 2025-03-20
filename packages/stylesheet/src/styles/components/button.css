@@ -150,8 +150,8 @@
   /* .secondary, default */
   &:not(.primary, .subtle, .close, .dismiss) {
     --button-fg-color: var(--color-body-text);
-    --button-bg-color: var(--color-gray-9);
-    --button-border-color: var(--color-gray-8);
+    --button-bg-color: light-dark(var(--color-gray-9), var(--color-gray-8));
+    --button-border-color: light-dark(var(--color-gray-8), var(--color-gray-7));
     --button-font-weight: var(--font-weight-normal);
     --button-focus-ring-color: var(--color-gray-extra-transparent);
   }
