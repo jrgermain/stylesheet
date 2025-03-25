@@ -1,12 +1,8 @@
 .chip {
   --chip-fg-color: white;
   --chip-bg-color: var(--color-brand-6);
-  --chip-border-color: light-dark(var(--color-brand-7), var(--color-brand-5));
+  --chip-border-color: var(--color-brand-5);
   --chip-focus-color: var(--color-brand-transparent);
-  --chip-bg-color-active: light-dark(
-    var(--color-brand-5),
-    var(--color-brand-7)
-  );
 
   display: inline-flex;
   align-items: center;
@@ -21,7 +17,7 @@
   color: var(--chip-fg-color);
   flex-shrink: 0;
   cursor: default;
-  transition-property: box-shadow, background-color, border-color;
+  transition-property: box-shadow, background-color, border-color, transform;
   transition-duration: 200ms;
   transition-timing-function: ease;
   text-decoration: none;
@@ -35,6 +31,7 @@
   &.clickable {
     cursor: pointer;
     box-shadow: var(--shadow-s);
+    transform: scale(1);
 
     &:is(:focus-visible, .focus) {
       outline: 0;
@@ -48,136 +45,93 @@
     }
 
     &:is(:active, .active) {
-      background-color: var(--chip-bg-color-active);
-      border-color: var(--chip-bg-color-active);
+      transform: scale(0.96);
+
+      /*
+       * On low-resolution screens, the scale effect makes text jump
+       * around awkwardly, so we use an alternative.
+       */
+      @media screen and (resolution < 2x) {
+        transform: translateY(1px);
+      }
     }
   }
 
   &.red {
     --chip-bg-color: var(--color-red-6);
-    --chip-border-color: light-dark(var(--color-red-7), var(--color-red-5));
+    --chip-border-color: var(--color-red-5);
     --chip-focus-color: var(--color-red-transparent);
-    --chip-bg-color-active: light-dark(var(--color-red-5), var(--color-red-7));
   }
 
   &.orange {
     --chip-bg-color: var(--color-orange-6);
-    --chip-border-color: light-dark(
-      var(--color-orange-7),
-      var(--color-orange-5)
-    );
+    --chip-border-color: var(--color-orange-5);
     --chip-focus-color: var(--color-orange-transparent);
-    --chip-bg-color-active: light-dark(
-      var(--color-orange-5),
-      var(--color-orange-7)
-    );
   }
 
   &.yellow {
     --chip-bg-color: var(--color-yellow-6);
-    --chip-border-color: light-dark(
-      var(--color-yellow-7),
-      var(--color-yellow-5)
-    );
+    --chip-border-color: var(--color-yellow-5);
     --chip-focus-color: var(--color-yellow-transparent);
-    --chip-bg-color-active: light-dark(
-      var(--color-yellow-5),
-      var(--color-yellow-7)
-    );
   }
 
   &.green {
     --chip-bg-color: var(--color-green-6);
-    --chip-border-color: light-dark(var(--color-green-7), var(--color-green-5));
+    --chip-border-color: var(--color-green-5);
     --chip-focus-color: var(--color-green-transparent);
-    --chip-bg-color-active: light-dark(
-      var(--color-green-5),
-      var(--color-green-7)
-    );
   }
 
   &.sky {
     --chip-bg-color: var(--color-sky-6);
-    --chip-border-color: light-dark(var(--color-sky-7), var(--color-sky-5));
+    --chip-border-color: var(--color-sky-5);
     --chip-focus-color: var(--color-sky-transparent);
-    --chip-bg-color-active: light-dark(var(--color-sky-5), var(--color-sky-7));
   }
 
   &.blue {
     --chip-bg-color: var(--color-blue-6);
-    --chip-border-color: light-dark(var(--color-blue-7), var(--color-blue-5));
+    --chip-border-color: var(--color-blue-5);
     --chip-focus-color: var(--color-blue-transparent);
-    --chip-bg-color-active: light-dark(
-      var(--color-blue-5),
-      var(--color-blue-7)
-    );
   }
 
   &.purple {
     --chip-bg-color: var(--color-purple-6);
-    --chip-border-color: light-dark(
-      var(--color-purple-7),
-      var(--color-purple-5)
-    );
+    --chip-border-color: var(--color-purple-5);
     --chip-focus-color: var(--color-purple-transparent);
-    --chip-bg-color-active: light-dark(
-      var(--color-purple-5),
-      var(--color-purple-7)
-    );
   }
 
   &.magenta {
     --chip-bg-color: var(--color-magenta-6);
-    --chip-border-color: light-dark(
-      var(--color-magenta-7),
-      var(--color-magenta-5)
-    );
+    --chip-border-color: var(--color-magenta-5);
     --chip-focus-color: var(--color-magenta-transparent);
-    --chip-bg-color-active: light-dark(
-      var(--color-magenta-5),
-      var(--color-magenta-7)
-    );
   }
 
   &.gray {
     --chip-bg-color: var(--color-gray-6);
-    --chip-border-color: light-dark(var(--color-gray-7), var(--color-gray-5));
+    --chip-border-color: var(--color-gray-5);
     --chip-focus-color: var(--color-gray-transparent);
-    --chip-bg-color-active: light-dark(
-      var(--color-gray-5),
-      var(--color-gray-7)
-    );
   }
 
   &.black {
     --chip-bg-color: black;
-    --chip-border-color: light-dark(var(--color-gray-4), var(--color-gray-7));
+    --chip-border-color: #555;
     --chip-focus-color: var(--color-gray-transparent);
-    --chip-bg-color-active: light-dark(
-      var(--color-gray-1),
-      var(--color-gray-8)
-    );
   }
 
   &.white {
     --chip-fg-color: black;
     --chip-bg-color: white;
-    --chip-border-color: light-dark(var(--color-gray-8), var(--color-gray-2));
+    --chip-border-color: #ddd;
     --chip-focus-color: var(--color-gray-transparent);
-    --chip-bg-color-active: light-dark(
-      var(--color-gray-7),
-      var(--color-gray-3)
-    );
   }
 }
 
 .chip-delete {
-  outline: 0;
+  outline: 1px solid transparent;
   margin-inline: var(--space-3xs) calc(-1 * var(--space-2xs));
   font-size: 0.6em;
-  border: var(--border-s) solid var(--chip-border-color);
+  border: 0;
   border-radius: var(--radius-full);
-  transition-property: background-color, border-color;
+  transition-property: background-color, outline-color, filter;
   transition-duration: 200ms;
   transition-timing-function: ease;
   position: relative;
@@ -186,7 +140,7 @@
   height: 2em;
   width: 2em;
   user-select: none;
-  background-color: #0002;
+  background-color: var(--chip-border-color);
   padding: 0;
   display: inline-flex;
   box-shadow: none;
@@ -204,14 +158,14 @@
   }
 
   &:is(:focus-visible, .focus) {
-    border-color: var(--chip-fg-color);
+    outline-color: var(--chip-fg-color);
   }
 
-  &:is(:hover, .hover, :focus-visible, .focus) {
-    background-color: #0001;
+  &:is(:hover, .hover) {
+    background-color: hsl(from var(--chip-border-color) h s calc(l + 5));
   }
 
   &:is(:active, .active) {
-    background-color: #0003;
+    background-color: hsl(from var(--chip-border-color) h s calc(l - 20));
   }
 }

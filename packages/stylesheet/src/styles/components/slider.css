@@ -54,7 +54,7 @@ input[type="range"].slider {
     block-size: 0.25em;
     inline-size: 100%;
     border-radius: var(--radius-full);
-    background-color: light-dark(var(--color-gray-8), var(--color-gray-6));
+    background-color: var(--color-gray-8);
     print-color-adjust: exact;
   }
 
@@ -62,7 +62,7 @@ input[type="range"].slider {
     block-size: 0.25em;
     inline-size: 100%;
     border-radius: var(--radius-full);
-    background-color: light-dark(var(--color-gray-8), var(--color-gray-6));
+    background-color: var(--color-gray-8);
     print-color-adjust: exact;
   }
 

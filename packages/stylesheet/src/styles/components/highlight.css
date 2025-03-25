@@ -1,14 +1,14 @@
 .highlight,
 .markdown-output mark {
-  background-color: light-dark(var(--color-yellow-8), var(--color-yellow-7));
-  color: light-dark(var(--color-yellow-2), var(--color-yellow-1));
+  background-color: var(--color-yellow-8);
+  color: var(--color-yellow-1);
   print-color-adjust: exact;
 }
 
 .highlight.removed,
 .markdown-output del {
   background-color: var(--color-red-8);
-  color: var(--color-red-2);
+  color: var(--color-red-1);
   transition: text-decoration-color 150ms ease;
   text-decoration-line: line-through;
   text-decoration-skip-ink: none;
@@ -24,7 +24,7 @@
 .highlight.added,
 .markdown-output ins {
   background-color: var(--color-green-8);
-  color: var(--color-green-2);
+  color: var(--color-green-1);
   text-decoration-thickness: var(--border-m);
   text-decoration-color: var(--color-green-4);
   text-underline-offset: 0.1em;
@@ -34,6 +34,6 @@
 .highlight.target,
 ::target-text {
   background-color: var(--color-brand-8);
-  color: light-dark(var(--color-brand-2), var(--color-brand-1));
+  color: var(--color-brand-1);
   print-color-adjust: exact;
 }
