@@ -18,8 +18,8 @@
   flex-shrink: 0;
   cursor: default;
   transition-property: box-shadow, background-color, border-color, transform;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+  transition-duration: var(--duration-medium);
+  transition-timing-function: var(--ease-default);
   text-decoration: none;
   appearance: none;
   line-height: 1.2;
@@ -132,8 +132,8 @@
   border: 0;
   border-radius: var(--radius-full);
   transition-property: background-color, outline-color, filter;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+  transition-duration: var(--duration-short);
+  transition-timing-function: var(--ease-default);
   position: relative;
   overflow: hidden;
   cursor: pointer;

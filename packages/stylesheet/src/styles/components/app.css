@@ -96,8 +96,8 @@
   text-decoration: none;
   color: inherit;
   transition-property: color, background-color;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+  transition-duration: var(--duration-short);
+  transition-timing-function: var(--ease-default);
   display: flex;
   align-items: center;
   position: relative;
@@ -151,9 +151,10 @@
 }
 
 .app-sidebar {
-  transition:
-    opacity 150ms ease,
-    display 150ms allow-discrete;
+  transition-property: opacity, display;
+  transition-duration: var(--duration-long);
+  transition-timing-function: var(--ease-default);
+  transition-behavior: allow-discrete;
   width: var(--app-sidebar-width);
   flex: none;
   opacity: 1;
@@ -198,8 +199,8 @@
   font-size: 1rem;
   user-select: none;
   transition-property: color, background-color, box-shadow;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+  transition-duration: var(--duration-short);
+  transition-timing-function: var(--ease-default);
 
   &:hover {
     background-color: var(--color-brand-extra-transparent);
@@ -227,8 +228,8 @@
 .app-sidebar-toggle {
   /* TODO simplify */
   transition-property: color, background-color;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+  transition-duration: var(--duration-short);
+  transition-timing-function: var(--ease-default);
   display: none;
   width: 2.75rem;
   margin-inline-start: 1rem;
@@ -250,8 +251,8 @@
 
   > div {
     transition-property: transform, opacity;
-    transition-duration: 200ms;
-    transition-timing-function: ease;
+    transition-duration: var(--duration-medium);
+    transition-timing-function: var(--ease-default);
     position: absolute;
     width: 1.75rem;
     height: 2px;

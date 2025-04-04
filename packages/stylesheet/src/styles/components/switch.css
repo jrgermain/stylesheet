@@ -29,8 +29,8 @@ label.switch input[type="checkbox"] {
   position: relative;
   flex: none;
   transition-property: background-color, box-shadow, border-color;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+  transition-duration: var(--duration-medium);
+  transition-timing-function: var(--ease-default);
   border: 0.1em solid var(--color-gray-6);
   cursor: pointer;
 
@@ -45,8 +45,8 @@ label.switch input[type="checkbox"] {
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-s);
     transition-property: border-color, transform;
-    transition-duration: 200ms;
-    transition-timing-function: ease;
+    transition-duration: var(--duration-medium);
+    transition-timing-function: var(--ease-default);
     transform: translateX(0);
   }
 

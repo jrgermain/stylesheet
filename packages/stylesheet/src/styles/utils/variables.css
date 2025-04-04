@@ -201,4 +201,12 @@
 
   /* Opacity */
   --opacity-disabled: light-dark(0.65, 0.5);
+
+  /* Easing functions */
+  --ease-default: cubic-bezier(0.8, 0.5, 0.4, 0.9);
+
+  /* Durations */
+  --duration-short: 100ms;
+  --duration-medium: 150ms;
+  --duration-long: 250ms;
 }

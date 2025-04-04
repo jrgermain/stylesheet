@@ -11,8 +11,8 @@
   border-style: solid;
   transform: scale(1);
   transition-property: box-shadow, background-color, transform, opacity;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+  transition-duration: var(--duration-medium);
+  transition-timing-function: var(--ease-default);
   text-decoration: none;
   position: relative;
   align-items: center;
@@ -36,8 +36,8 @@
     inset: 0;
     margin: auto;
     transition-property: opacity, width, height, border-radius;
-    transition-duration: 200ms;
-    transition-timing-function: ease;
+    transition-duration: var(--duration-medium);
+    transition-timing-function: var(--ease-default);
     z-index: -1;
     border-radius: 2em;
     width: 4em;
