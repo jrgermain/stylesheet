@@ -195,6 +195,13 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       - \`purple\`
       - \`magenta\`
       - \`gray\`
+      - \`black\`
+      - \`white\`
+
+      Be careful using black or white subtle buttons, since white text is
+      invisible on a white background (common in light mode), and black text is
+      invisible on a black background (common in dark mode). You can see this in
+      the example below.
     `)}
     code={`
       <button class="button primary">Brand</button>
@@ -207,6 +214,8 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       <button class="button primary purple">Purple</button>
       <button class="button primary magenta">Magenta</button>
       <button class="button primary gray">Gray</button>
+      <button class="button primary black">Black</button>
+      <button class="button primary white">White</button>
       <button class="button subtle">Brand</button>
       <button class="button subtle red">Red</button>
       <button class="button subtle orange">Orange</button>
@@ -217,6 +226,8 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       <button class="button subtle purple">Purple</button>
       <button class="button subtle magenta">Magenta</button>
       <button class="button subtle gray">Gray</button>
+      <button class="button subtle black">Black</button>
+      <button class="button subtle white">White</button>
     `}
     outputWrapperClass="dense horizontal flow"
   />

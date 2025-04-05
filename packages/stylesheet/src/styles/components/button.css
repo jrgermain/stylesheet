@@ -145,6 +145,19 @@
       --button-border-color: var(--color-gray-4);
       --button-focus-ring-color: var(--color-gray-transparent);
     }
+
+    &.black {
+      --button-bg-color: black;
+      --button-border-color: #3d3d3d;
+      --button-focus-ring-color: var(--color-gray-transparent);
+    }
+
+    &.white {
+      --button-fg-color: black;
+      --button-bg-color: white;
+      --button-border-color: #d0d0d0;
+      --button-focus-ring-color: var(--color-gray-transparent);
+    }
   }
 
   /* .secondary, default */
@@ -242,13 +255,26 @@
       }
     }
 
-    &.gray {
-      --button-fg-color: var(--color-gray-4);
+    &.gray,
+    &.black,
+    &.white {
       --button-hover-bg-color: var(--color-gray-extra-transparent);
 
       &:is(:focus-visible, .focus) {
         --button-bg-color: var(--color-gray-transparent);
       }
+    }
+
+    &.gray {
+      --button-fg-color: var(--color-gray-4);
+    }
+
+    &.black {
+      --button-fg-color: black;
+    }
+
+    &.white {
+      --button-fg-color: white;
     }
   }
 

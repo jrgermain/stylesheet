@@ -113,14 +113,14 @@
 
   &.black {
     --chip-bg-color: black;
-    --chip-border-color: #555;
+    --chip-border-color: #3d3d3d;
     --chip-focus-color: var(--color-gray-transparent);
   }
 
   &.white {
     --chip-fg-color: black;
     --chip-bg-color: white;
-    --chip-border-color: #ddd;
+    --chip-border-color: #d0d0d0;
     --chip-focus-color: var(--color-gray-transparent);
   }
 }
