@@ -57,7 +57,9 @@ label.switch input[type="checkbox"] {
 
   &:is(:focus-visible, .focus) {
     border-color: var(--color-gray-6);
-    box-shadow: 0 0 0 0.2em var(--color-gray-transparent);
+    box-shadow:
+      0 0 0 0.08em var(--color-gray-6),
+      0 0 0 calc(0.16em + var(--border-s)) var(--color-gray-transparent);
     outline: 0;
   }
 
@@ -70,7 +72,9 @@ label.switch input[type="checkbox"] {
     }
 
     &:is(:focus-visible, .focus) {
-      box-shadow: 0 0 0 0.2em var(--color-brand-transparent);
+      box-shadow:
+        0 0 0 0.08em var(--color-brand-5),
+        0 0 0 calc(0.16em + var(--border-s)) var(--color-brand-transparent);
     }
   }
 

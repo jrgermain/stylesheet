@@ -24,10 +24,6 @@
   appearance: none;
   line-height: 1.2;
 
-  &:is(:focus-visible, .focus) {
-    box-shadow: 0 0 0 0.2em var(--chip-focus-color);
-  }
-
   &.clickable {
     cursor: pointer;
     box-shadow: var(--shadow-s);
@@ -37,7 +33,8 @@
       outline: 0;
       box-shadow:
         var(--shadow-s),
-        0 0 0 0.2em var(--chip-focus-color);
+        0 0 0 0.1em var(--chip-border-color),
+        0 0 0 calc(0.2em + var(--border-s)) var(--chip-focus-color);
     }
 
     &:is(:hover, .hover) {

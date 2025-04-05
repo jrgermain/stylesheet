@@ -1,8 +1,8 @@
 input[type="range"].slider {
   --slider-shadow-resting: var(--shadow-s);
-  --slider-shadow-focused: var(--shadow-s), 0 0 0 0.05em var(--color-brand-5),
-    0 0 0 calc(0.1em + var(--border-s)) var(--color-brand-transparent);
-  --slider-shadow-active: var(--shadow-s), 0 0 0 0.05em var(--color-brand-5);
+  --slider-shadow-focused: var(--shadow-s), 0 0 0 0.08em var(--color-brand-5),
+    0 0 0 calc(0.16em + var(--border-s)) var(--color-brand-transparent);
+  --slider-shadow-active: var(--shadow-s), 0 0 0 0.08em var(--color-brand-5);
 
   font-size: 1.2rem;
   block-size: 1.25em;
@@ -37,11 +37,21 @@ input[type="range"].slider {
     &::-webkit-slider-thumb {
       border-color: var(--color-brand-5);
       box-shadow: var(--slider-shadow-active);
+      transform: scale(1);
+
+      @media screen and (resolution >= 2x) {
+        transform: scale(0.9);
+      }
     }
 
     &::-moz-range-thumb {
       border-color: var(--color-brand-5);
       box-shadow: var(--slider-shadow-active);
+      transform: scale(1);
+
+      @media screen and (resolution >= 2x) {
+        transform: scale(0.9);
+      }
     }
   }
 
@@ -69,7 +79,7 @@ input[type="range"].slider {
     background-color: white;
     box-shadow: var(--slider-shadow-resting);
     border: var(--border-s) solid var(--color-outline);
-    transition-property: border-color, box-shadow;
+    transition-property: border-color, box-shadow, transform;
     transition-duration: var(--duration-short);
     transition-timing-function: var(--ease-default);
 
@@ -85,7 +95,7 @@ input[type="range"].slider {
     background-color: white;
     box-shadow: var(--slider-shadow-resting);
     border: var(--border-s) solid var(--color-outline);
-    transition-property: border-color, box-shadow;
+    transition-property: border-color, box-shadow, transform;
     transition-duration: var(--duration-short);
     transition-timing-function: var(--ease-default);
   }
