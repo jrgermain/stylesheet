@@ -134,7 +134,8 @@
     }
   }
 
-  select {
+  select,
+  input[list] {
     background-image: light-dark(
       url("@/src/svg/dropdown.svg"),
       url("@/src/svg/dropdown-invert.svg")
@@ -142,13 +143,16 @@
     background-position: center right 0.25em;
     background-size: auto 75%;
     background-repeat: no-repeat;
-    cursor: pointer;
     appearance: none;
     padding-inline-end: calc(2 * var(--space-2xs) + 1em);
 
     &:dir(rtl) {
       background-position: center left 0.25em;
     }
+  }
+
+  select {
+    cursor: pointer;
   }
 
   .help-text {
