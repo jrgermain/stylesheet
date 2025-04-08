@@ -13,6 +13,8 @@ There are multiple ways to add the stylesheet to your project. The most common s
 
 ### Option 1: `import`
 
+This option uses your package manager and bundler to add the stylesheet to your project. This is the recommended approach if you're already using these tools.
+
 First, install `@jrgermain/stylesheet` as a dependency. For example, if you're using NPM, you'd run the following command:
 
 <CodeBlock
@@ -37,7 +39,7 @@ If you get a compilation error, you can try the following equivalent import stat
 
 ### Option 2: `<link>` Tags
 
-Alternatively, you can add a `<link>` tag to your document head with a `href` that references the stylesheet.
+Alternatively, you can add a `<link>` tag to your document head with a `href` that references the stylesheet. This is useful if you don't have a build step, or if you aren't using the tools mentioned above.
 
 You can either copy the CSS files (`index.css` and optionally `index.css.map`) into your public directory and reference the local copy **or** link to a CDN.
 
@@ -76,7 +78,7 @@ It's recommended to set the `theme-color` meta tag. To do this, copy the followi
     <meta
       name="theme-color"
       media="(prefers-color-scheme: dark)"
-      content="oklch(8% 2% 263deg)"
+      content="#010203"
     />
   `)}
 />
