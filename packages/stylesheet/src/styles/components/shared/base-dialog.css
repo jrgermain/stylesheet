@@ -65,6 +65,21 @@
     font-weight: inherit;
     margin: 0;
   }
+
+  .button.dismiss {
+    --button-fg-color: var(--color-brand-3);
+    --button-hover-bg-color: var(--color-brand-extra-transparent);
+
+    font-size: 0.8rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: -0.5rem;
+    padding: 0.25rem;
+
+    &:is(:focus-visible, .focus) {
+      --button-bg-color: var(--color-brand-transparent);
+    }
+  }
 }
 
 .modal-body,

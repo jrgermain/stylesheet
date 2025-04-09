@@ -9,10 +9,24 @@
   font-size: 0.75rem;
   width: 3em;
   height: 3em;
+  border-radius: var(--radius-m);
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 1;
+  padding: 0.3em;
 
   &:is(:focus-visible, .focus) {
     --button-bg-color: var(--color-gray-transparent);
     --button-hover-bg-color: transparent;
+  }
+
+  /* Don't use pseudo element for hover style */
+  &::before {
+    content: unset;
+  }
+
+  &:is(:hover, .hover) {
+    background-color: var(--button-hover-bg-color);
   }
 
   &::after {

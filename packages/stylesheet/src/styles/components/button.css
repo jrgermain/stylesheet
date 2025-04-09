@@ -1,4 +1,9 @@
 .button {
+  --button-fg-color: var(--color-body-text);
+  --button-bg-color: var(--color-gray-9);
+  --button-border-color: var(--color-gray-8);
+  --button-font-weight: var(--font-weight-normal);
+  --button-focus-ring-color: var(--color-gray-extra-transparent);
   --button-shadow: var(--shadow-s);
   --button-hover-bg-color: var(--button-border-color);
 
@@ -28,6 +33,10 @@
   box-shadow: var(--button-shadow);
   user-select: none;
   font-size: 1rem;
+  color: var(--button-fg-color);
+  background-color: var(--button-bg-color);
+  border-color: var(--button-border-color);
+  font-weight: var(--button-font-weight);
 
   &::before {
     content: "";
@@ -79,11 +88,6 @@
       background-color: var(--button-hover-bg-color);
     }
   }
-
-  color: var(--button-fg-color);
-  background-color: var(--button-bg-color);
-  border-color: var(--button-border-color);
-  font-weight: var(--button-font-weight);
 
   &.primary {
     --button-fg-color: white;
@@ -160,16 +164,7 @@
     }
   }
 
-  /* .secondary, default */
-  &:not(.primary, .subtle, .close, .dismiss) {
-    --button-fg-color: var(--color-body-text);
-    --button-bg-color: var(--color-gray-9);
-    --button-border-color: var(--color-gray-8);
-    --button-font-weight: var(--font-weight-normal);
-    --button-focus-ring-color: var(--color-gray-extra-transparent);
-  }
-
-  &:is(.subtle, .close) {
+  &.subtle {
     --button-fg-color: var(--color-brand-4);
     --button-bg-color: transparent;
     --button-border-color: transparent;
@@ -278,7 +273,7 @@
     }
   }
 
-  &:is(.small, .close, .dismiss) {
+  &.small {
     font-size: 0.8rem;
   }
 
@@ -286,13 +281,15 @@
     font-size: 1.2rem;
   }
 
-  &:is(.icon, .close, .dismiss) {
+  &.icon {
     border-radius: var(--radius-full);
     min-width: 0;
     min-height: 0;
     aspect-ratio: 1;
+    padding: 0.5em;
 
-    &:is(.subtle, .close) {
+    /* Subtle icon buttons use normal pseudo element hover effect */
+    &.subtle {
       &::before {
         width: 75%;
         height: 75%;
@@ -305,16 +302,8 @@
       }
     }
 
-    &.icon {
-      padding: 0.5em;
-    }
-
-    &.close,
-    &.dismiss {
-      padding: 0.3em;
-    }
-
-    &:not(.subtle, .close, .dismiss) {
+    /* Normal icon buttons just change background color */
+    &:not(.subtle) {
       &::before {
         content: unset;
       }
