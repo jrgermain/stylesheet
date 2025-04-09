@@ -163,6 +163,7 @@
   --font-family-mono: ui-monospace, "Source Code Pro", ui-monospace, monospace;
 
   /* Spacing */
+  --space-none: 0;
   --space-3xs: clamp(4px, 3.6528px + 0.1087vw, 5px);
   --space-2xs: clamp(8px, 7.6528px + 0.1087vw, 9px);
   --space-xs: clamp(12px, 11.304px + 0.2174vw, 14px);
@@ -172,9 +173,7 @@
   --space-xl: clamp(48px, 45.9136px + 0.6522vw, 54px);
   --space-2xl: clamp(64px, 61.2176px + 0.8696vw, 72px);
   --space-3xl: clamp(96px, 91.8256px + 1.3043vw, 108px);
-
-  /* Between xs and m based on screen width */
-  --space-body: clamp(12px, 6.7824px + 1.6304vw, 27px);
+  --space-body: clamp(20px, 17.5652px + 0.7609vw, 27px);
 
   /* Radii */
   --radius-none: 0;
