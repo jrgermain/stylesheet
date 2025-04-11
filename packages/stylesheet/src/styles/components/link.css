@@ -9,9 +9,7 @@
   text-decoration-thickness: var(--border-m);
   text-underline-offset: 0.1em;
   cursor: pointer;
-  transition-property: text-decoration-color;
-  transition-duration: var(--duration-short);
-  transition-timing-function: var(--ease-default);
+  transition: text-decoration-color var(--duration-short) var(--ease-default);
 
   &:is(:hover, .hover) {
     text-decoration-color: currentcolor;

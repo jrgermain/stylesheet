@@ -32,7 +32,7 @@
     color: var(--color-red-5);
 
     .error-message {
-      opacity: 1;
+      display: flex;
     }
   }
 
@@ -163,17 +163,14 @@
     position: relative;
   }
 
+  /* Todo glitches */
   .error-message {
-    transition-property: opacity;
-    transition-duration: var(--duration-medium);
-    transition-timing-function: var(--ease-default);
-    opacity: 0;
+    display: none;
     font-size: 0.9em;
     border: 0;
     padding: 0;
     margin: 0;
     font-weight: var(--font-weight-semibold);
-    display: flex;
     align-items: center;
     gap: 2px;
 
@@ -296,9 +293,7 @@ fieldset.fieldset {
   legend {
     font-family: var(--font-family-heading);
     font-weight: var(--font-weight-bold);
-    transition-property: color;
-    transition-duration: var(--duration-medium);
-    transition-timing-function: var(--ease-default);
+    transition: color var(--duration-medium) var(--ease-default);
   }
 
   &:focus-within legend {

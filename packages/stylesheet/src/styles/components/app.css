@@ -90,7 +90,6 @@
 }
 
 .app-header-item {
-  /* TODO simplify */
   height: 100%;
   cursor: pointer;
   text-decoration: none;
@@ -226,19 +225,18 @@
 }
 
 .app-sidebar-toggle {
-  /* TODO simplify */
-  transition-property: color, background-color;
-  transition-duration: var(--duration-short);
-  transition-timing-function: var(--ease-default);
+  transition: background-color var(--duration-short) var(--ease-default);
   display: none;
   width: 2.75rem;
   margin-inline-start: 1rem;
 
   &:has(input:focus-visible) {
+    background-color: var(--color-brand-extra-transparent);
     outline: var(--border-m) solid var(--color-brand-5);
     outline-offset: calc(-1 * var(--border-m));
   }
 
+  /* Add vertical separator before button */
   &::before {
     content: "";
     position: absolute;
@@ -249,6 +247,7 @@
     background-color: var(--color-outline);
   }
 
+  /* Style the 3 lines inside the button */
   > div {
     transition-property: transform, opacity;
     transition-duration: var(--duration-medium);
@@ -275,6 +274,7 @@
     }
   }
 
+  /* When the sidebar is visible, turn the 3 lines into an X  */
   &:has(input:checked) > div {
     &:nth-of-type(1) {
       transform: translateY(-50%) translateX(-50%) rotate(45deg);

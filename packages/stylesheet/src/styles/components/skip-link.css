@@ -19,9 +19,7 @@
   text-decoration: none;
   vertical-align: middle;
   opacity: 0.25;
-  transition-property: opacity;
-  transition-duration: var(--duration-medium);
-  transition-timing-function: var(--ease-default);
+  transition: opacity var(--duration-medium) var(--ease-default);
   pointer-events: none;
   line-height: 1;
 

@@ -9,9 +9,7 @@
 .markdown-output del {
   background-color: var(--color-red-8);
   color: var(--color-red-1);
-  transition-property: text-decoration-color;
-  transition-duration: var(--duration-short);
-  transition-timing-function: var(--ease-default);
+  transition: text-decoration-color var(--duration-short) var(--ease-default);
   text-decoration-line: line-through;
   text-decoration-skip-ink: none;
   text-decoration-thickness: var(--border-m);
