@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Stylesheet: Build and Watch",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/packages/stylesheet",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "watch"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Docs: Start Dev Server",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/packages/stylesheet-docs",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run All - Development Mode",
+      "configurations": [
+        "Docs: Start Dev Server",
+        "Stylesheet: Build and Watch"
+      ]
+    }
+  ]
+}
