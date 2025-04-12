@@ -63,6 +63,7 @@
     transition-duration: var(--duration-medium);
     transition-timing-function: var(--ease-default);
     font-family: inherit;
+    line-height: 1.25;
 
     &:focus {
       outline: 0;
@@ -121,15 +122,15 @@
 
     &::-webkit-color-swatch {
       border: 0;
-      block-size: 1em;
-      inline-size: 1.62em;
+      block-size: 1.25em;
+      inline-size: 100%;
       border-radius: var(--radius-s);
     }
 
     &::-moz-color-swatch {
       border: 0;
-      block-size: 1em;
-      inline-size: 1.62em;
+      block-size: 1.25em;
+      inline-size: 100%;
       border-radius: var(--radius-s);
     }
   }
