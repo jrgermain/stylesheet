@@ -19,6 +19,19 @@
   }
 }
 
+/*
+ * Remove the top margin from paragraphs immediately after a heading, since we
+ * want to use the (slightly smaller) bottom margin of the heading instead.
+ *
+ * This ensures that headings are visibly closer to their content than the
+ * content above them, using spacing intentionally to denote hierarchy.
+ */
+:is(.heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6)
+  + .paragraph,
+.markdown-output :is(h1, h2, h3, h4, h5, h6) + p {
+  margin-block-start: 0;
+}
+
 .abbreviation,
 .markdown-output abbr[title] {
   display: inline;
