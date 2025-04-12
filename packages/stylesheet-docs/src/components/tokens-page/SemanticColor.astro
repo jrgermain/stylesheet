@@ -8,36 +8,20 @@ const { name } = Astro.props;
 const backgroundColor = `var(--color-${name})`;
 ---
 
-<div class="semantic-color">
-  <div class="swatch" style={{ backgroundColor }}></div>
-  <strong>{name}</strong>
-  <span><slot /></span>
-</div>
+<div class="swatch" style={{ backgroundColor }}></div>
+<strong>{name}</strong>
+<span><slot /></span>
 
 <style>
-  .semantic-color {
-    display: flex;
-    align-items: center;
-    margin-block: var(--space-3xs);
-  }
-
   .swatch {
     height: 2rem;
     width: 2rem;
     border-radius: var(--radius-s);
     border: var(--border-s) solid var(--color-outline);
-    margin-inline-end: var(--space-xs);
     flex-shrink: 0;
   }
 
   strong {
     text-wrap: nowrap;
-  }
-
-  strong::after {
-    content: "–";
-    font-weight: var(--font-weight-light);
-    color: var(--color-body-text-alt);
-    margin-inline: 0.5ch;
   }
 </style>

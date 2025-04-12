@@ -4,6 +4,7 @@ title: Tokens
 ---
 
 import CodeBlock from "../../components/CodeBlock.astro";
+import SemanticColors from "../../components/tokens-page/SemanticColors.astro";
 import SemanticColor from "../../components/tokens-page/SemanticColor.astro";
 import ColorsContainer from "../../components/tokens-page/ColorsContainer.astro";
 import ColorRow from "../../components/tokens-page/ColorRow.astro";
@@ -84,24 +85,26 @@ Below are samples of all the colors in shades 1 through 9:
 In addition to the standard palette, the stylesheet defines a set of
 "semantic" colors. These colors are named after their intended use cases:
 
-<SemanticColor name="body">
-  the primary background color for the document
-</SemanticColor>
-<SemanticColor name="body-alt">
-  the secondary background color, used on surfaces like cards
-</SemanticColor>
-<SemanticColor name="body-text">
-  the primary text color for the document
-</SemanticColor>
-<SemanticColor name="body-text-alt">
-  the secondary text color for the document
-</SemanticColor>
-<SemanticColor name="shadow">
-  a transparent gray used for box shadows
-</SemanticColor>
-<SemanticColor name="outline">
-  a gray used for borders and outlines
-</SemanticColor>
+<SemanticColors>
+  <SemanticColor name="body">
+    the primary background color for the document
+  </SemanticColor>
+  <SemanticColor name="body-alt">
+    the secondary background color, used on surfaces like cards
+  </SemanticColor>
+  <SemanticColor name="body-text">
+    the primary text color for the document
+  </SemanticColor>
+  <SemanticColor name="body-text-alt">
+    the secondary text color for the document
+  </SemanticColor>
+  <SemanticColor name="shadow">
+    a transparent gray used for box shadows
+  </SemanticColor>
+  <SemanticColor name="outline">
+    a gray used for borders and outlines
+  </SemanticColor>
+</SemanticColors>
 
 Unlike standard palette colors, these don't come in multiple shades.
 
@@ -164,13 +167,12 @@ example, the font family `body` can be referenced as `--font-family-body`.
 
 Spacing tokens scale with the screen width, becoming slightly more spread out
 as the screen widens. The variables for spacing are prefixed with `--space-`
-and are implemented as T-shirt sizes between 3xs and 3xl.
-
-There's also a token called `space-body` that scales from `xs` on small
-screens to `m` on large screens. This token is used for the margins around the
-app.
+and are implemented as T-shirt sizes between `3xs` and `3xl`, plus 2 additional
+sizes: `none` and `body`. The `none` size is used to represent no spacing, while
+`body` is used for the padding around the edges of the app.
 
 <div class="card">
+  <SpacingExample space="none" />
   <SpacingExample space="3xs" />
   <SpacingExample space="2xs" />
   <SpacingExample space="xs" />
@@ -180,6 +182,7 @@ app.
   <SpacingExample space="xl" />
   <SpacingExample space="2xl" />
   <SpacingExample space="3xl" />
+  <SpacingExample space="body" />
 </div>
 
 ## Radii
