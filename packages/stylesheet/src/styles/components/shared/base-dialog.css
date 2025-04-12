@@ -75,6 +75,7 @@
     height: 2.25rem;
     margin: -0.5rem;
     padding: 0.25rem;
+    border-radius: var(--radius-full);
 
     &:is(:focus-visible, .focus) {
       --button-bg-color: var(--color-brand-transparent);
