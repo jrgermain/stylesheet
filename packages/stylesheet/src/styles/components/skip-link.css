@@ -2,8 +2,8 @@
   position: fixed;
   display: inline-block;
   z-index: 100;
-  top: var(--space-body);
-  left: var(--space-body);
+  top: var(--space-body-y);
+  left: var(--space-body-x);
   background-color: var(--color-brand-5);
   padding: var(--space-xs);
   border-radius: var(--radius-m);
