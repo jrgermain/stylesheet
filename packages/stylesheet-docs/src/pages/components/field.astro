@@ -6,7 +6,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
 <ComponentDocumentation
   name="Field"
-  description="A wrapper for text boxes, dropdowns, and other controls within a form that provides styling."
+  description="A wrapper for text boxes, dropdowns, and other form controls that provides consistent styling."
 >
   <UsageExample
     name="Usage Patterns"
@@ -169,7 +169,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
   <UsageExample
     name="Read-only/Disabled"
-    description="Fields whose controls have the `disabled` or `readonly` attributes will have slightly different styling applied, as read-only fields are focusable and disabled fields are not."
+    description="Fields whose controls have the `disabled` or `readonly` attributes will have slightly different styling applied, as read-only inputs are focusable and disabled ones are not."
     code={`
       <label class="field">
         Disabled
@@ -184,7 +184,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
   <UsageExample
     name="Help & Error Text"
-    description="Fields may have help text, error text, or both. To see the error text in the example below, try typing a single letter in the field and clicking or tabbing out of it."
+    description="Fields may have **help text**, **error text**, or both. To see the error text in the example below, try typing a single letter in the Field and clicking or tabbing out of it."
     code={`
       <div class="field">
         <label for="employee-id">Employee ID Number</label>
@@ -208,7 +208,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
   <UsageExample
     name="Compact"
-    description="Fields can be made more condensed by adding the `compact` class to either the field itself or to the containing `fieldset`."
+    description="Fields can be made more condensed by adding the `compact` class to either the Field itself or to the containing `fieldset`."
     code={`
       <label class="field compact">
         Compact Text Input
@@ -228,12 +228,11 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Prefix/Suffix"
     description={trimTextPadding(`
-      Fields may have a prefix (label that comes before) and/or suffix (label
-      that comes after). This may be useful for providing context on how the
-      data in the input field will be used. Use the class \`prefix\` if
-      the item is before the input field in the markup, or \`suffix\` if it
-      comes after. Wrap any prefixes, suffixes, and controls in a div with the
-      class \`input-group\`.
+      Fields may have a **prefix** (label that comes before) and/or **suffix** 
+      (label that comes after). This may be useful for providing context on how
+      the data in the Field will be used. Use the class \`prefix\` if the item
+      is before the control in the markup or \`suffix\` if it comes after. Wrap
+      any prefixes, suffixes, and controls in a \`div\` with the class \`input-group\`.
     `)}
     code={`
       <label class="field">
@@ -257,7 +256,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     name="Action"
     isJavaScriptRequired={true}
     description={trimTextPadding(`
-      Fields may have a button attached to the beginning or end. Similarly to
+      Fields may have a **action** button attached to the beginning or end. Like
       prefixes and suffixes, you'll need to wrap the input (or select) and
       action button in a div that has the class \`input-group\`. The action
       button must also have the class \`action\`.

@@ -1,6 +1,7 @@
 ---
 import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 ---
 
 <ComponentDocumentation
@@ -9,7 +10,18 @@ import UsageExample from "../../components/UsageExample.astro";
 >
   <UsageExample
     name="Statuses"
-    description="To create an alert, create a `div` with the class `alert`. Every alert *must* have a status, which you can set by adding one of the following additional classes:\n\n- `info`\n- `success`\n- `warning`\n- `error`\n\nFailing to include a status is undefined behavior."
+    description={trimTextPadding(`
+      To create an Alert, create a \`div\` with the class \`alert\`. Every Alert
+      must have a **status**, which you can set by adding one of the following
+      additional classes:
+      
+      - \`info\`
+      - \`success\`
+      - \`warning\`
+      - \`error\`
+      
+      Failing to include a status is undefined behavior.
+    `)}
     code={`
       <div class="alert info">
         No payment is due at this time.
@@ -29,7 +41,7 @@ import UsageExample from "../../components/UsageExample.astro";
 
   <UsageExample
     name="Title"
-    description="To add a title to the alert, add the class `alert-title` to the first child of the alert."
+    description="To add a **title** to an Alert, add the class `alert-title` to the first child element."
     code={`
       <div class="alert info">
         <p class="alert-title">Fun Fact</p>

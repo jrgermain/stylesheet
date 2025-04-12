@@ -8,8 +8,8 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Statuses"
     description={trimTextPadding(`
-      To create a banner, create a \`div\` with the class \`banner\`.
-      Every banner must have a status, which you can set by adding one
+      To create a Banner, create a \`div\` with the class \`banner\`.
+      Every Banner must have a **status**, which you can set by adding one
       of the following additional classes:
       
       - \`info\`
@@ -40,7 +40,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
   <UsageExample
     name="Title"
-    description="To add a title to the banner, add the class `banner-title` to the first child of the banner."
+    description="To add a **title** to the Banner, add the class `banner-title` to its first child."
     code={`
       <div class="banner warning">
         <p class="banner-title">Maintenance Reminder</p>
@@ -52,7 +52,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
   <UsageExample
     name="Dismiss Button"
-    description="If you want to make the banner dismissible, add a button with the classes `button` and `dismiss`. Make sure to add an `aria-label` attribute to the button to describe its purpose, and a click event handler to handle hiding the banner."
+    description="If you want to make the Banner **dismissible**, add a button with the classes `button` and `dismiss`. Make sure to add an `aria-label` attribute to the button to describe its purpose, and a click event handler to handle hiding the Banner."
     code={`
       <div class="banner warning">
         Node.js 16 is nearing the end of support. Please update your scripts to use a newer version of Node.js.
@@ -66,7 +66,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     allowShowCode={false}
     isJavaScriptRequired={true}
     code={`
-      <p>Click the button below to test out adding a banner to this page.</p>
+      <p>Click the button below to test out adding a Banner to this page.</p>
       <button
         class="button primary"
         onclick="

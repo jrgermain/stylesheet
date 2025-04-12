@@ -5,7 +5,7 @@ title: Markdown Output
 
 # Markdown Output
 
-You can add the class `markdown-output` to a container to automatically style everything inside it without the classes defined in this library. This is helpful when working with HTML that was rendered from some other format, like Markdown.
+You can add the class `markdown-output` to a container to automatically style everything inside it without needing to manually apply classes. This is helpful when working with HTML that was rendered from some other format, like Markdown.
 
 The table below shows the mappings between different element types and the classes they will appear to have:
 

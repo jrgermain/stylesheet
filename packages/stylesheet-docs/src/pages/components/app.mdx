@@ -7,11 +7,14 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
 # App
 
-The `App` component is really a _collection of related components_ that, together, form the global layout of the page. They define the style and size of the global header, main content, and optional sidebar areas.
+The App component is really a _collection of related components_ that, together, form the global layout of the page.
+They define the style and size of the global header, main content, and optional sidebar areas.
 
 ## App Root
 
-The root element of your app should have the class `app`. The rest of your application will go inside this container.
+The root element of your application should have the class `app`. Everything else will go inside this container.
+
+Here is one example of a typical App Root:
 
 <CodeBlock
   language="html"
@@ -45,9 +48,9 @@ Another valid option (e.g., for a react SPA) would be something like this:
 
 ## App Header
 
-Most apps will have a header. The header should be an immediate child of the App Root.
+Most applications will have a header. The App Header should be an immediate child of the App Root.
 
-The header will always have the following structure:
+The App Header will always have the following structure:
 
 <CodeBlock
   language="html"
@@ -66,7 +69,9 @@ The header will always have the following structure:
 
 Note that, up to this point, the tag names can vary, but you should stick to the classes used above.
 
-If you have a sidebar, you'll also want to add a toggle button to the final header section. This allows the user to show/hide the sidebar when the screen isn't wide enough to keep it visible. The toggle will automatically disappear once the screen is wide enough.
+If you have an App Sidebar (see below), you'll also want to add a toggle button to the final header section.
+This allows the user to show/hide the sidebar when the screen isn't wide enough to fit both the sidebar and the content.
+The toggle will automatically disappear when the screen is wide enough.
 
 <CodeBlock
   language="html"
@@ -84,9 +89,9 @@ Unlike the other code samples here, both the tag names _and_ classes for the tog
 
 ## App Body
 
-All apps should have a body. Note that this is different from the document `body` tag; the App Body represents the main content area of your application (i.e., the part after the header). The body should be an immediate child of the App Root.
+All Apps will have a body. Note that this is different from the document `body` tag; the App Body holds all content under the App Header.
 
-The body will always have the following structure:
+The App Body will always have the following structure:
 
 <CodeBlock
   language="html"
@@ -125,3 +130,24 @@ The sidebar will always have the following structure:
 />
 
 Note that the tag names can vary, but you should stick to the classes used above.
+
+## App Content
+
+Lastly, all Apps will have a content area. This is where the shell of the App ends and the actual content begins.
+If you don't have a sidebar, the App Content will be the only child of the App Body. Otherwise, it should go after the sidebar.
+
+Typically, the App Content will be a `<main>` element. 
+
+If you're using a Skip Link, it should have an `id` matching the `href` of the Skip Link.
+
+Here's an example of a typical App Content:
+
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <main id="main-content" class="app-content">
+      <h1>Page Title</h1>
+      <p>Page content.</p>
+    </main>
+  `)}
+/>

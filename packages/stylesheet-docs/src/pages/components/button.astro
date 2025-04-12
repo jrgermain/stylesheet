@@ -10,7 +10,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 >
   <UsageExample
     name="Allowed Tags"
-    description="You can add the `button` class to any element to style it as a button, but you should typically only use it on a [`button`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) (most cases) or [`a`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) (if the button's a link). Using it on a `span` or other non-interactive element is discouraged as it can introduce usability concerns."
+    description="You can add the `button` class to any element to style it as a Button, but you should typically only use it on a [`button`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) (most cases) or [`a`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) (if the Button's a link). Using it on a `span` or other non-interactive element is discouraged as it can introduce accessibility concerns."
     code={`
       <button class="button">I'm a button</button>
       <a href="#" class="button">I'm a link that looks like a button</a>
@@ -22,14 +22,12 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Variants"
     description={trimTextPadding(`
-      Buttons can have different styles, called **variants**. To set the variant
-      of a button, add one of the following classes:
+      Buttons can have different styles, called **variants**. To set the **variant**
+      of a Button, add one of the following classes:
 
       - \`primary\`
-      - \`secondary\`
+      - \`secondary\` (default)
       - \`subtle\`
-
-      If you don't add any of these, buttons default to **secondary**.
     `)}
     code={`
       <button class="button primary">Primary</button>
@@ -42,16 +40,14 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Sizes"
     description={trimTextPadding(`
-      To adjust the size of a button, add one of the following classes:
+      To adjust the **size** of a Button, add one of the following classes:
 
       - \`small\`
-      - \`medium\`
+      - \`medium\` (default)
       - \`large\`
 
-      If you don't add any of these, buttons default to **medium**.
-
       For finer-grained control over sizing, you can set the \`font-size\` style
-      to an arbitrary value and the button will scale accordingly.
+      to an arbitrary value and the Button will scale accordingly.
     `)}
     code={`
       <button class="button small">Small</button>
@@ -65,15 +61,15 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Disabled"
     description={trimTextPadding(`
-      To give a button a disabled style, do one of the following:
+      To give a Button a **disabled** style, do one of the following:
 
       - Add the \`disabled\` attribute
       - Add the \`disabled\` class
       - Set the \`aria-disabled\` attribute to \`true\`
 
       If you use a method other than setting the \`disabled\` attribute, make sure
-      you are disabling the *behavior* of the button as well. Otherwise, the button
-      will look disabled but still function normally.
+      you are disabling the *behavior* of the Button as well. Otherwise, the Button
+      will _look_ disabled but still function normally.
     `)}
     code={`
       <button disabled class="button">Disabled attribute</button>
@@ -86,13 +82,13 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Loading"
     description={trimTextPadding(`
-      To show that the action triggered by a button is currently in progress,
-      add the \`loading\` class to that button. This gives the user visual
-      feedback that the action is pending.
+      To show that the action triggered by a Button is currently pending,
+      add the \`loading\` class to that Button. This gives the user visual
+      feedback that the action is in progress.
 
-      Most of the time, you'll want to disable the button while it's loading so
-      the user can't trigger the action again. In this case, also follow the
-      instructions above for disabling the button.
+      Most of the time, you'll want to disable the Button while it's loading so
+      the user can't kick of the action multiple times. In this case, also
+      follow the instructions above for disabling the Button.
     `)}
     code={`
       <button disabled class="loading button">Disabled and loading</button>
@@ -104,11 +100,12 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Link"
     description={trimTextPadding(`
-      You can add the \`button\` class to an \`a\` element to style the link as a button.
+      You can add the \`button\` class to an \`a\` element to create a link
+      styled as a Button.
 
-      Links that open in a new tab will automatically have an icon added to the button.
-      To create a link button that opens in a new tab but doesn't have an icon, add the
-      class \`no-external-icon\` to the button.
+      Link Buttons that open in a new tab will have an external icon added to the end.
+      To create a Link Button that opens in a new tab but doesn't have an icon, add
+      the class \`no-external-icon\`.
     `)}
     code={`
       <a href="/" class="button">Go to Homepage</a>
@@ -120,9 +117,11 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Icon Button"
     description={trimTextPadding(`
-      You can add the \`icon\` class to a button to make it circular and adjust the padding,
-      to make it more suited to holding an icon. This class can be combined with a variant,
-      size, or other modifiers described here.
+      You can add the \`icon\` class to a Button to make it circular and adjust the padding,
+      making it more suited to holding an icon. This class can be combined with the
+      **variant**, **size**, or other modifiers described here.
+
+      Make sure to add an accessible label to your Icon Button using the \`aria-label\` attribute.
     `)}
     code={`
       <button class="icon button">
@@ -183,7 +182,8 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Colors"
     description={trimTextPadding(`
-      The **primary** and **subtle** variants support multiple color schemes. To set the color of a primary or subtle button, add one of the following classes:
+      The **primary** and **subtle** variants support multiple color schemes.
+      To set the **color** of a primary or subtle Button, add one of the following classes:
 
       - \`brand\` (default)
       - \`red\`
@@ -198,7 +198,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       - \`black\`
       - \`white\`
 
-      Be careful using black or white subtle buttons, since white text is
+      Be careful using black or white subtle Buttons, since white text is
       invisible on a white background (common in light mode), and black text is
       invisible on a black background (common in dark mode). You can see this in
       the example below.

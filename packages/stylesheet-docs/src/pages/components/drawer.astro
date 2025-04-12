@@ -12,9 +12,9 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     name="Defaults"
     isJavaScriptRequired={true}
     description={trimTextPadding(`
-      You can create a drawer by creating a [\`dialog\`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
+      You can create a Drawer by creating a [\`dialog\`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
       element with the class \`drawer\`. You'll also need to add one of the
-      following classes to specify the side of the screen the drawer should
+      following classes to specify the side of the screen the Drawer should
       slide out from:
       
       - \`left\`
@@ -22,16 +22,16 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       - \`top\`
       - \`bottom\`
 
-      Inside your drawer, you can add a header, body, and footer.
+      Inside your Drawer, you can add a **header**, **body**, and **footer**.
       
-      The header should have the class \`drawer-header\` and contain a title
+      The **header** should have the class \`drawer-header\` and contain a title
       and, optionally, a close button (a \`button\` with the classes \`button\`
       and \`dismiss\`).
       
-      The body should have the class \`drawer-body\` and contain the main
-      content of the drawer.
+      The **body** should have the class \`drawer-body\` and contain the main
+      content of the Drawer.
 
-      The footer should have the class \`drawer-footer\` and contain any action
+      The **footer** should have the class \`drawer-footer\` and contain any action
       buttons or other controls that should appear at the bottom.
     `)}
     code={`
@@ -67,7 +67,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     name="Sizes"
     isJavaScriptRequired={true}
     description={trimTextPadding(`
-      You can control the width of a drawer (or the height, if the drawer is
+      You can control the width of a Drawer (or the height, if the Drawer is
       attached to the top or bottom of the screen) by adding one of the
       following classes to the \`dialog\` element:
       
@@ -76,10 +76,10 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       - \`medium\`
       - \`large\`
 
-      If the size is \`auto\`, the drawer will be as large as necessary to fit
+      If the size is \`auto\`, the Drawer will be as large as necessary to fit
       its content without extending past the edge of the screen.
 
-      Below is an example of a drawer with the class \`small\`.
+      Below is an example of a Drawer with the class \`small\`.
     `)}
     code={`
       <button class="button" onclick="document.querySelector('#drawer-2').showModal()">
@@ -114,7 +114,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     name="Dismiss Button"
     isJavaScriptRequired={true}
     description={trimTextPadding(`
-      You can add a close button to the header of the drawer by creating a
+      You can add a close button to the header of the Drawer by creating a
       \`button\` element with the classes \`button\` and \`dismiss\`. The close
       button should call the \`close\` method on the \`dialog\` element when
       clicked.

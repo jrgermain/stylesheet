@@ -11,22 +11,22 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Hierarchy"
     description={trimTextPadding(`
-      The HTML spec defines 6 levels of headings (\`h1\`-\`h6\`). Each creates a
+      The HTML spec defines 6 levels of Headings (\`h1\`-\`h6\`). Each creates a
       layer in the document's hierarchy, starting with \`h1\` at the root.
 
       Every page should have an \`h1\` and should use the other levels as needed
       (starting with \`h2\`).
 
-      If you don't want a page to have a heading, use an invisible \`h1\` so
+      If you don't want a page to have a Heading, use an invisible \`h1\` so
       screen reader users can still understand the page's hierarchy. To do this,
       add the class [\`visually-hidden\`](/components/visually-hidden) to the
       \`h1\`.
 
-      For all other headings, add the class \`heading-n\` (where _n_ is a number
-      1-6) to set the visual appearance of the heading. These numbers correspond
-      to the levels of headings in the HTML spec, but the classes and tag names
-      don't have to align; this allows you to visually skip levels while still
-      keeping the document hierarchy consistent.
+      For all other Headings, add the class \`heading-n\` (where _n_ is a number
+      1-6) to set the visual appearance of the Heading. These numbers correspond
+      to the elements \`h1\`-\`h6\` in the HTML spec, but the classes and tag
+      names don't have to align; this allows you to visually skip levels while
+      still keeping the document hierarchy consistent.
     `)}
     code={`
       <h1 class="heading-1">Level 1</h1>

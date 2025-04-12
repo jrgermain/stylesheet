@@ -1,7 +1,6 @@
 ---
 import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
-import { trimTextPadding } from "../../utils/trim-text-padding";
 ---
 
 <ComponentDocumentation
@@ -10,7 +9,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 >
   <UsageExample
     name="Basic Usage"
-    description="You can style a table by adding the `table` class to any `table` element."
+    description="You can style a Table by adding the `table` class to any `table` element."
     code={`
       <table class="table">
         <thead>
@@ -85,7 +84,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
   <UsageExample
     name="Subtle"
-    description="You can make the styling softer by adding the class `subtle` to the table element."
+    description="You can make the styling softer by adding the class `subtle` to the `table` element."
     code={`
       <table class="table subtle">
         <thead>
@@ -117,7 +116,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
   <UsageExample
     name="Density"
-    description="You can make a table more compact by adding the class `dense` or more spread out with the class `sparse`."
+    description="You can make a Table more compact by adding the class `dense` or more spread out with the class `sparse`."
     code={`
       <table class="table dense">
         <caption>Dense</caption>

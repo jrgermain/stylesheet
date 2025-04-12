@@ -11,17 +11,17 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Basic Usage"
     description={trimTextPadding(`
-      You can create a spinner by giving a \`div\` element the \`spinner\`
+      You can create a Spinner by giving a \`div\` element the \`spinner\`
       class.
       
-      All spinners should have a role of \`progressbar\`. Additionally, spinners
+      All Spinners should have a role of \`progressbar\`. Additionally, Spinners
       without a label should have an \`aria-label\` attribute.
     `)}
     code='<div class="spinner" role="progressbar" aria-label="loading"></div>'
   />
   <UsageExample
     name="Label"
-    description="You can add a label to the spinner by placing text inside the `div` element."
+    description="You can add a **label** to the Spinner by placing text inside the `div` element."
     code={`
       <div class="spinner" role="progressbar">
         Loading...
@@ -30,7 +30,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
   <UsageExample
     name="Complex Labels"
-    description="If you label consists of more than one node, wrap it in a `span` or similar element to group it into a single node."
+    description="If your label consists of more than one node, wrap it in a `span` or similar element to group it into a single node."
     code={`
       <div class="spinner" role="progressbar">
         <span class="flow densest">
@@ -66,7 +66,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
   <UsageExample
     name="Size"
-    description="You can make a spinner smaller using the `small` class, or larger using the `large` class."
+    description="You can make a Spinner smaller by adding the `small` class or larger by adding the `large` class."
     code={`
       <div class="spinner small label-right" role="progressbar">Small</div>
       <div class="spinner label-right" role="progressbar">Medium (default)</div>
