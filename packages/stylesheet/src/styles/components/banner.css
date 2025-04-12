@@ -1,16 +1,16 @@
 .banner {
   border-inline-width: 0;
   width: 100%;
-  padding: var(--space-xs);
-  padding-inline-start: calc(var(--space-xs) + 2em);
+  padding: var(--space-xs) var(--space-body-x);
+  padding-inline-start: calc(var(--space-body-x) + 2em);
 
   &:has(.button.dismiss) {
-    padding-inline-end: calc(var(--space-xs) + 2em);
+    padding-inline-end: calc(var(--space-body-x) + 2em);
   }
 
   &::before,
   &::after {
-    inset-inline-start: calc(var(--space-xs) * 0.5);
+    inset-inline-start: calc(var(--space-body-x) * 0.5);
   }
 
   & + & {
@@ -47,7 +47,7 @@
 
     position: absolute;
     inset-block: 0;
-    inset-inline-end: var(--space-3xs);
+    inset-inline-end: calc(var(--space-body-x) * 0.5);
     margin: auto;
 
     &:is(:focus-visible, .focus) {
