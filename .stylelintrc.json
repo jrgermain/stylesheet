@@ -1,6 +1,6 @@
 {
   "extends": "stylelint-config-standard",
-  "ignoreFiles": "dist/**",
+  "ignoreFiles": ["dist/**", "docs/**"],
   "rules": {
     "no-descending-specificity": null
   }

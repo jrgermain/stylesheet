@@ -16,11 +16,8 @@ jobs:
           node-version: 20.x
           registry-url: https://registry.npmjs.org
       - run: npm ci
-        working-directory: ./packages/stylesheet
       - run: npm run lint
-        working-directory: ./packages/stylesheet
       - run: npm run build
-        working-directory: ./packages/stylesheet
   build-docs:
     runs-on: ubuntu-latest
     needs: build-stylesheet
@@ -31,8 +28,8 @@ jobs:
           node-version: 20.x
           registry-url: https://registry.npmjs.org
       - run: npm ci
-        working-directory: ./packages/stylesheet-docs
+        working-directory: ./docs
       - run: npm run lint
-        working-directory: ./packages/stylesheet-docs
+        working-directory: ./docs
       - run: npm run build
-        working-directory: ./packages/stylesheet-docs
+        working-directory: ./docs

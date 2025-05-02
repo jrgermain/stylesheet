@@ -5,7 +5,7 @@
       "name": "Stylesheet: Build and Watch",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/packages/stylesheet",
+      "cwd": "${workspaceFolder}",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "watch"],
       "console": "integratedTerminal"
@@ -14,7 +14,7 @@
       "name": "Docs: Start Dev Server",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/packages/stylesheet-docs",
+      "cwd": "${workspaceFolder}/docs",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "console": "integratedTerminal"
