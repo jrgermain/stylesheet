@@ -1,16 +1,15 @@
 {
   "name": "@jrgermain/stylesheet",
-  "version": "0.7.1",
-  "description": "A stylesheet for apps I build",
+  "version": "0.7.2",
+  "description": "A CSS stylesheet for the cool stuff I'm building",
   "homepage": "https://stylesheet.jrgermain.dev",
   "author": {
-    "name": "jrgermain",
+    "name": "Joey Germain (jrgermain)",
     "url": "https://jrgermain.dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jrgermain/stylesheet.git",
-    "directory": "packages/stylesheet"
+    "url": "git+https://github.com/jrgermain/stylesheet.git"
   },
   "license": "MIT",
   "type": "module",

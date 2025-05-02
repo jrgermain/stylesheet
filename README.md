@@ -1,7 +1,7 @@
-# Stylesheet
+# @jrgermain/stylesheet
 
-This repository contains the source code for a CSS stylesheet I use in my apps, as well as the documentation for that stylesheet.
+![NPM Version](https://img.shields.io/npm/v/%40jrgermain%2Fstylesheet)
 
-The stylesheet is published to [NPM](https://www.npmjs.com/package/@jrgermain/stylesheet), while the documentation site is live at https://stylesheet.jrgermain.dev/.
+A lightweight, framework-agnostic design system written in pure CSS. Designed for me, available to all.
 
-While I don't expect anyone else to use this, I'm publishing it to NPM so I can easily pull it into future projects, and maintaining docs to help my future self.
+For information on how to use this in your project, plus examples of all the components and their options, see https://stylesheet.jrgermain.dev
