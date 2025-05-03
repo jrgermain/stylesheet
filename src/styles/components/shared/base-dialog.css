@@ -98,41 +98,41 @@
 }
 
 /* Fade in/out (mixed browser support as of March 2025) */
-dialog:is(.modal, .drawer)[open] {
+:is(.modal, .drawer)[open] {
   display: flex;
   transform: var(--dialog-open-transform);
   opacity: var(--dialog-open-opacity);
 }
 
-dialog:is(.modal, .drawer)[open]::backdrop {
+:is(.modal, .drawer)[open]::backdrop {
   opacity: var(--dialog-backdrop-open-opacity);
 }
 
-dialog:is(.modal, .drawer),
-dialog:is(.modal, .drawer)::backdrop {
+:is(.modal, .drawer),
+:is(.modal, .drawer)::backdrop {
   transition-property: transform, opacity, display, overlay;
   transition-duration: var(--duration-long);
   transition-behavior: allow-discrete;
 }
 
-dialog:is(.modal, .drawer) {
+:is(.modal, .drawer) {
   transform: var(--dialog-ending-transform);
   opacity: var(--dialog-ending-opacity);
   transition-timing-function: var(--ease-out);
 }
 
-dialog:is(.modal, .drawer)::backdrop {
+:is(.modal, .drawer)::backdrop {
   opacity: var(--dialog-backdrop-ending-opacity);
   transition-timing-function: var(--ease-default);
 }
 
 @starting-style {
-  dialog:is(.modal, .drawer)[open] {
+  :is(.modal, .drawer)[open] {
     transform: var(--dialog-starting-transform);
     opacity: var(--dialog-starting-opacity);
   }
 
-  dialog:is(.modal, .drawer)[open]::backdrop {
+  :is(.modal, .drawer)[open]::backdrop {
     opacity: var(--dialog-backdrop-starting-opacity);
   }
 }
