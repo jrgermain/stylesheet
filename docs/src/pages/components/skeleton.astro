@@ -25,4 +25,45 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       </div>
     `}
   />
+  <UsageExample
+    name="Skeleton Controller"
+    description={trimTextPadding(`
+      If you want to turn multiple elements into Skeletons at the same time, you can use a
+      **Skeleton Controller**. These can be useful when a large or complex component is loading.
+
+      To create a Skeleton Controller, create an element with the class \`skeleton-controller\`.
+      Skeleton Controllers default to a style of \`display: contents\`, so they will not affect
+      the layout of the page. 
+
+      To each of the elements inside the Skeleton Controller that should be turned into a Skeleton
+      while the Controller is loading, add the class \`skeleton-item\`.
+
+      You can control the loading state of the Skeleton Controller by adding or removing the class
+      \`loading\` to/from the Controller.
+
+      The same caveats apply as with the previous example: if you're turning an interactive element
+      into a Skeleton, make sure to disable it.
+    `)}
+    code={`
+      <div class="card" style="width:400px">
+        <span class="skeleton-controller">
+          <p class="card-title skeleton-item">Title</p>
+          <p class="paragraph skeleton-item">Line 1</p>
+          <p class="paragraph skeleton-item">Line 2</p>
+        </span>
+
+        <div class="js-required">
+          <hr class="divider" />
+          <label class="switch">
+            Loading
+            <input
+              type="checkbox"
+              class="switch"
+              onchange="document.querySelector('.skeleton-controller').classList.toggle('loading', this.checked)"
+            />
+          </label>
+        </div>
+      </div>
+    `}
+  />
 </ComponentDocumentation>

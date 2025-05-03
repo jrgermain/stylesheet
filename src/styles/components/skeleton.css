@@ -18,8 +18,10 @@
   }
 }
 
-.skeleton {
-  animation: skeleton-pulse-light 1s ease alternate 0s infinite !important;
+.skeleton,
+.skeleton-controller.loading .skeleton-item {
+  animation: skeleton-pulse-light 1s var(--ease-both-subtle) alternate 0s
+    infinite !important;
   border-radius: var(--radius-s) !important;
   background-color: var(--color-gray-5) !important;
   border: 0 !important;
@@ -29,6 +31,7 @@
   color: transparent !important;
   mask-image: none !important;
   background-image: none !important;
+  user-select: none !important;
   print-color-adjust: exact;
 
   /*************************************************************
@@ -67,4 +70,8 @@
   @media (prefers-color-scheme: dark) {
     animation-name: skeleton-pulse-dark !important;
   }
+}
+
+.skeleton-controller {
+  display: contents;
 }
