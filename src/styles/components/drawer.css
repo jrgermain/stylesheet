@@ -1,6 +1,7 @@
 /* See utils/base-dialog for more */
 .drawer {
-  --dialog-starting-opacity: 0.5;
+  --dialog-starting-opacity: 1;
+  --dialog-ending-opacity: 1;
 
   position: fixed;
   inset: 0;
@@ -8,13 +9,14 @@
   margin: 0;
   border: 0;
   overflow: auto;
+  transition-duration: var(--duration-extra-long) !important;
 
   &.left {
     right: auto;
 
     @media (prefers-reduced-motion: no-preference) {
-      --dialog-starting-transform: translateX(-16px);
-      --dialog-ending-transform: translateX(-16px);
+      --dialog-starting-transform: translateX(-100%);
+      --dialog-ending-transform: translateX(-100%);
     }
   }
 
@@ -22,8 +24,8 @@
     bottom: auto;
 
     @media (prefers-reduced-motion: no-preference) {
-      --dialog-starting-transform: translateY(-16px);
-      --dialog-ending-transform: translateY(-16px);
+      --dialog-starting-transform: translateY(-100%);
+      --dialog-ending-transform: translateY(-100%);
     }
   }
 
@@ -31,8 +33,8 @@
     left: auto;
 
     @media (prefers-reduced-motion: no-preference) {
-      --dialog-starting-transform: translateX(16px);
-      --dialog-ending-transform: translateX(16px);
+      --dialog-starting-transform: translateX(100%);
+      --dialog-ending-transform: translateX(100%);
     }
   }
 
@@ -40,8 +42,8 @@
     top: auto;
 
     @media (prefers-reduced-motion: no-preference) {
-      --dialog-starting-transform: translateY(16px);
-      --dialog-ending-transform: translateY(16px);
+      --dialog-starting-transform: translateY(100%);
+      --dialog-ending-transform: translateY(100%);
     }
   }
 

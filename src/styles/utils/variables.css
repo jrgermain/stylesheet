@@ -214,4 +214,5 @@
   --duration-short: 100ms;
   --duration-medium: 150ms;
   --duration-long: 250ms;
+  --duration-extra-long: 350ms;
 }

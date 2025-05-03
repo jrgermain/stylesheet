@@ -1,26 +1,27 @@
-.modal,
-.drawer,
 .modal::backdrop,
 .drawer::backdrop {
-  --dialog-starting-opacity: 0.25;
-  --dialog-starting-transform: translateY(8px);
-  --dialog-open-opacity: 1;
-  --dialog-open-transform: translate(0);
-  --dialog-ending-opacity: 0;
-  --dialog-ending-transform: translateY(-4px) scale(0.97);
   --dialog-backdrop-starting-opacity: 0;
   --dialog-backdrop-open-opacity: light-dark(0.75, 0.85);
   --dialog-backdrop-ending-opacity: 0;
   --dialog-backdrop-color: light-dark(var(--color-gray-2), var(--color-gray-8));
 
-  @media (prefers-reduced-motion) {
-    --dialog-starting-transform: translate(0);
-    --dialog-ending-transform: translate(0);
-  }
+  background-color: var(--dialog-backdrop-color);
 }
 
 .modal,
 .drawer {
+  --dialog-starting-opacity: 1;
+  --dialog-starting-transform: translateY(8px);
+  --dialog-open-opacity: 1;
+  --dialog-open-transform: translate(0);
+  --dialog-ending-opacity: 0;
+  --dialog-ending-transform: scale(0.97);
+
+  @media (prefers-reduced-motion) {
+    --dialog-starting-transform: translate(0);
+    --dialog-ending-transform: translate(0);
+  }
+
   box-shadow: var(--shadow-xl);
   border: var(--border-s) solid var(--color-outline);
   border-radius: var(--radius-l);
@@ -29,10 +30,6 @@
   padding: 0;
   flex-direction: column;
   gap: 0;
-
-  &::backdrop {
-    background-color: var(--dialog-backdrop-color);
-  }
 
   &[open] {
     display: flex;
@@ -115,17 +112,18 @@ dialog:is(.modal, .drawer),
 dialog:is(.modal, .drawer)::backdrop {
   transition-property: transform, opacity, display, overlay;
   transition-duration: var(--duration-long);
-  transition-timing-function: var(--ease-default);
   transition-behavior: allow-discrete;
 }
 
 dialog:is(.modal, .drawer) {
   transform: var(--dialog-ending-transform);
   opacity: var(--dialog-ending-opacity);
+  transition-timing-function: var(--ease-out);
 }
 
 dialog:is(.modal, .drawer)::backdrop {
   opacity: var(--dialog-backdrop-ending-opacity);
+  transition-timing-function: var(--ease-default);
 }
 
 @starting-style {
