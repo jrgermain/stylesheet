@@ -115,7 +115,7 @@
       width: 1em;
       height: 1em;
       rotate: -90deg;
-      transition: rotate var(--duration-medium) var(--ease-both);
+      transition: rotate var(--duration-long) var(--ease-spring);
     }
 
     &:dir(rtl)::before {
@@ -135,18 +135,18 @@
     details {
       box-shadow: none;
       border: 0;
-      padding-inline: var(--space-2xs);
       background-color: transparent;
+      padding-inline-start: calc(var(--space-xs) + 1em);
 
       &[open] summary {
-        margin-block-end: var(--space-2xs);
+        margin-block-end: var(--space-3xs);
       }
     }
 
     summary {
       border-block-end: 0;
-      padding: var(--space-2xs);
-      padding-inline-start: calc(var(--space-2xs) + 1em);
+      padding-block: var(--space-2xs);
+      margin-inline-start: calc(-1 * (var(--space-xs) + 1em));
     }
   }
 }
