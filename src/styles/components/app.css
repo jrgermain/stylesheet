@@ -151,7 +151,7 @@
 
 .app-sidebar {
   transition-property: opacity, display;
-  transition-duration: var(--duration-long);
+  transition-duration: var(--duration-medium);
   transition-timing-function: var(--ease-default);
   transition-behavior: allow-discrete;
   width: var(--app-sidebar-width);

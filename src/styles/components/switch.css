@@ -46,7 +46,7 @@ label.switch input[type="checkbox"] {
     box-shadow: var(--shadow-s);
     transition-property: border-color, transform;
     transition-duration: var(--duration-medium);
-    transition-timing-function: var(--ease-default);
+    transition-timing-function: var(--ease-both);
     transform: translateX(0);
   }
 

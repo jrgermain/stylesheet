@@ -203,7 +203,12 @@
   --opacity-disabled: light-dark(0.65, 0.5);
 
   /* Easing functions */
-  --ease-default: cubic-bezier(0.8, 0.5, 0.4, 0.9);
+  --ease-default: cubic-bezier(0.6, 0.22, 0.45, 0.9);
+  --ease-out: cubic-bezier(0.17, 0.84, 0.44, 1);
+  --ease-in: cubic-bezier(0.7, 0.1, 0.8, 0.65);
+  --ease-both: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --ease-both-subtle: cubic-bezier(0.45, 0.12, 0.55, 0.88);
+  --ease-spring: cubic-bezier(0.95, -0.55, 0.05, 1.55);
 
   /* Durations */
   --duration-short: 100ms;

@@ -61,7 +61,8 @@ progress.progress {
   border-color: var(--color-blue-5);
   opacity: 0.5;
   inline-size: 100% !important;
-  animation: indeterminate-progress 1s linear infinite alternate;
+  animation: indeterminate-progress 1s var(--ease-both-subtle) infinite
+    alternate;
 }
 
 .progress:indeterminate::-moz-progress-bar {
@@ -69,5 +70,6 @@ progress.progress {
   border-color: var(--color-blue-5);
   opacity: 0.5;
   inline-size: 100% !important;
-  animation: indeterminate-progress 1s linear infinite alternate;
+  animation: indeterminate-progress 1s var(--ease-both-subtle) infinite
+    alternate;
 }

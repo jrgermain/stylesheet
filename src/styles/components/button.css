@@ -331,7 +331,8 @@
       opacity: 1 !important;
       height: 100% !important;
       border-radius: inherit !important;
-      animation: button-loading-bg 1200ms ease-in-out infinite forwards;
+      animation: button-loading-bg 1200ms var(--ease-both-subtle) infinite
+        forwards;
     }
 
     &:is(:disabled, .disabled, [aria-disabled="true"]) {

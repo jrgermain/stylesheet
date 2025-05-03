@@ -14,7 +14,7 @@
     font-weight: var(--font-weight-normal);
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: 150ms padding ease;
+      transition: padding var(--duration-long) var(--ease-out);
       interpolate-size: allow-keywords;
     }
 
@@ -37,11 +37,10 @@
       block-size: 0;
       overflow-y: clip;
       transition-property: content-visibility, opacity, block-size;
-      transition-duration: 150ms;
-      transition-timing-function: ease;
+      transition-duration: var(--duration-long);
+      transition-timing-function: var(--ease-out);
       transition-behavior: allow-discrete;
     }
-  
 
     &[open] {
       padding-block-end: var(--space-xs);
@@ -77,9 +76,9 @@
     padding-inline-start: calc(var(--space-xs) + 1em);
     margin-block: 0;
     margin-inline: calc(-1 * var(--space-xs));
-    transition-duration: 150ms;
+    transition-duration: var(--duration-short);
     transition-property: color, border-color;
-    transition-timing-function: ease;
+    transition-timing-function: var(--ease-default);
     position: relative;
     list-style: none; /* Hides ::marker pseudo element in favor of ::before (better cross browser consistency) */
     color: var(--color-body-text);
@@ -116,7 +115,7 @@
       width: 1em;
       height: 1em;
       rotate: -90deg;
-      transition: rotate 200ms ease;
+      transition: rotate var(--duration-medium) var(--ease-both);
     }
 
     &:dir(rtl)::before {
