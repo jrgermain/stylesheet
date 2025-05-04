@@ -60,13 +60,13 @@ meter.meter {
 }
 
 .meter::-webkit-meter-suboptimum-value {
-  background: light-dark(var(--color-yellow-7), var(--color-yellow-4));
-  border-color: light-dark(var(--color-yellow-6), var(--color-yellow-3));
+  background: light-dark(var(--color-yellow-7), var(--color-yellow-5));
+  border-color: light-dark(var(--color-yellow-6), var(--color-yellow-4));
 }
 
 .meter:-moz-meter-sub-optimum::-moz-meter-bar {
-  background: light-dark(var(--color-yellow-7), var(--color-yellow-4));
-  border-color: light-dark(var(--color-yellow-6), var(--color-yellow-3));
+  background: light-dark(var(--color-yellow-7), var(--color-yellow-5));
+  border-color: light-dark(var(--color-yellow-6), var(--color-yellow-4));
 }
 
 .meter::-webkit-meter-even-less-good-value {
