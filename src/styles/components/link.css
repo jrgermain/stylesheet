@@ -20,23 +20,57 @@
   }
 }
 
-[target="_blank"]:is(.link, .button, .markdown-output a):not(
+/* External and Download icons */
+a[target="_blank"]:is(.link, .button, .markdown-output a):not(
     .no-external-icon
-  )::after {
-  content: "";
-  print-color-adjust: exact;
-  mask-image: url("@/src/svg/external.svg");
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  background-color: var(--color-gray-5);
-  display: inline-block;
-  height: 0.85em;
-  width: 0.85em;
-  vertical-align: baseline;
-  margin-left: 0.1em;
-}
+  ),
+a[download]:is(.link, .button, .markdown-output a):not(.no-download-icon) {
+  &::after {
+    content: "";
+    print-color-adjust: exact;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: var(--color-gray-5);
+    display: inline-block;
+    vertical-align: baseline;
+    margin-inline-start: 0.25em;
+    transition: background-color var(--duration-short) var(--ease-default);
+  }
 
-/* For buttons, match external icon color to button text */
-a.button[target="_blank"]:not(.no-external-icon)::after {
-  background-color: currentcolor;
+  &:hover::after {
+    background-color: var(--color-gray-4);
+  }
+
+  &.button::after {
+    background-color: currentcolor !important;
+    margin-inline-start: initial;
+  }
+
+  /* External icon */
+  &[target="_blank"] {
+    &::after {
+      mask-image: url("@/src/svg/external.svg");
+      height: 0.85em;
+      width: 0.85em;
+      transform: translateY(9%);
+    }
+
+    &.button::after {
+      transform: translateY(-8%);
+    }
+  }
+
+  /* Download icon */
+  &[download] {
+    &::after {
+      mask-image: url("@/src/svg/download.svg");
+      height: 1em;
+      width: 1em;
+      transform: translateY(10%);
+    }
+
+    &.button::after {
+      transform: translateY(-15%);
+    }
+  }
 }

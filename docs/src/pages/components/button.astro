@@ -106,10 +106,15 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       Link Buttons that open in a new tab will have an external icon added to the end.
       To create a Link Button that opens in a new tab but doesn't have an icon, add
       the class \`no-external-icon\`.
+
+      Link Buttons that download a file will have a download icon added to the end.
+      To create a Link Button that downloads a file but doesn't have an icon, add
+      the class \`no-download-icon\`.
     `)}
     code={`
       <a href="/" class="button">Go to Homepage</a>
       <a href="/" target="_blank" class="button">Go to Homepage</a>
+      <a href="/download.txt" download="Download.txt" class="button">Download</a>
     `}
     outputWrapperClass="dense horizontal flow"
   />
