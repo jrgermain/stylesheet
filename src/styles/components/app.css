@@ -6,7 +6,7 @@
    * centered.
    */
   --app-max-content-width: 110rem;
-  --app-header-height: clamp(50px, 3.5rem, 70px);
+  --app-header-height: clamp(50px, 3.8rem, 70px);
   --app-sidebar-width: clamp(300px, 18rem, 400px);
 
   position: relative;
@@ -36,6 +36,7 @@
   max-width: var(--app-max-content-width);
   margin-inline: auto;
   padding-inline: var(--space-body-x);
+  padding-block: 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -100,10 +101,10 @@
   display: flex;
   align-items: center;
   position: relative;
+  font-size: 1rem;
   font-weight: var(--font-weight-semibold);
   padding-inline: var(--space-xs);
   border-radius: var(--radius-m);
-  border: var(--border-m) solid var(--color-body-alt);
 
   &:hover {
     background-color: var(--color-brand-extra-transparent);
@@ -131,7 +132,7 @@
     position: absolute;
     width: 100%;
     height: var(--border-l);
-    bottom: calc(-1 * (var(--border-l) + var(--border-m)));
+    bottom: calc(-1 * (var(--border-l) + 6px));
     left: 0;
     background-color: currentcolor;
     opacity: 0;
