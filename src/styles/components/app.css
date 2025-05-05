@@ -35,7 +35,7 @@
   width: 100%;
   max-width: var(--app-max-content-width);
   margin-inline: auto;
-  padding-inline: var(--space-body-x);
+  padding-inline: calc(var(--space-body-x) - var(--space-xs));
   padding-block: 6px;
   display: flex;
   align-items: center;
@@ -57,26 +57,6 @@
   /* Otherwise, align the first to the left and the rest to the right */
   &:first-child {
     margin-inline-end: auto;
-  }
-
-  /*
-   * The content of the first header item should be var(--space-body-x) from the
-   * left edge of the app. Since there is var(--space-body-x) padding in the
-   * header and var(--space-xs) padding in the header items, we just need to
-   * move it back by var(--space-xs).
-   */
-  &:first-child .app-header-item:first-child {
-    margin-inline-start: calc(-1 * var(--space-xs));
-  }
-
-  /* 
-   * The content of the last header item should be var(--space-body-x) from the
-   * right edge of the app. Since there is var(--space-body-x) padding in the
-   * header and var(--space-xs) padding in the header items, we just need to
-   * move it forward by var(--space-xs).
-   */
-  &:last-child .app-header-item:last-child {
-    margin-inline-end: calc(-1 * var(--space-xs));
   }
 
   /* Put a spacer between consecutive right-aligned sections (3rd onward) */
@@ -138,6 +118,32 @@
     opacity: 0;
     border-radius: 1px;
   }
+}
+
+.app-icon {
+  background-color: var(--color-brand-3);
+  height: 2rem;
+  width: 2rem;
+  border: var(--border-m) solid transparent;
+  border-radius: var(--radius-full);
+}
+
+.app-title-separator {
+  content: "";
+  background-color: var(--color-brand-transparent);
+  width: var(--border-m);
+  height: 1.5rem;
+  rotate: 22deg;
+  margin-inline: var(--space-2xs);
+  position: relative;
+  left: 1px;
+}
+
+.app-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
 }
 
 .app-body {
@@ -226,26 +232,12 @@
 }
 
 .app-sidebar-toggle {
-  transition: background-color var(--duration-short) var(--ease-default);
-  display: none;
   width: 2.75rem;
-  margin-inline-start: 1rem;
 
   &:has(input:focus-visible) {
     background-color: var(--color-brand-extra-transparent);
     outline: var(--border-m) solid var(--color-brand-5);
     outline-offset: calc(-1 * var(--border-m));
-  }
-
-  /* Add vertical separator before button */
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -0.5rem;
-    height: 100%;
-    width: var(--border-s);
-    background-color: var(--color-outline);
   }
 
   /* Style the 3 lines inside the button */
@@ -303,6 +295,10 @@
   width: calc(100% - var(--app-sidebar-width));
 }
 
+.app-header-section:has(.app-sidebar-toggle) {
+  display: none;
+}
+
 @media (width < 55rem) {
   /* 
    * If there's a sidebar, DON'T factor its width into the content width since
@@ -329,8 +325,8 @@
     }
   }
 
-  .app-sidebar-toggle {
-    display: initial;
+  .app-header-section:has(.app-sidebar-toggle) {
+    display: flex;
   }
 
   .app-sidebar-content {

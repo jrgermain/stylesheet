@@ -83,11 +83,10 @@ const navSections = [
     <header class="app-header">
       <div class="app-header-content">
         <div class="app-header-section">
-          <a class="app-header-item title" href="/">
-            <img aria-hidden="true" src={joey.src} />
-            <span aria-hidden="true" class="slash"></span>
-            <span class="sr-only">jrgermain/</span>
-            stylesheet
+          <a class="app-header-item" href="/">
+            <img class="app-icon" aria-hidden="true" src={joey.src} />
+            <span class="app-title-separator"></span>
+            <span class="app-title">stylesheet</span>
           </a>
         </div>
         <div class="app-header-section">
@@ -119,6 +118,8 @@ const navSections = [
             </svg>
             <span class="sr-only">NPM</span>
           </a>
+        </div>
+        <div class="app-header-section">
           <label class="app-header-item app-sidebar-toggle">
             <input type="checkbox" title="Toggle navigation" />
             <div></div>
@@ -173,30 +174,6 @@ const navSections = [
   </body>
 </html>
 <style>
-  .title {
-    margin: auto;
-    font-family: var(--font-family-heading);
-    font-size: 1.25rem;
-    display: flex;
-    align-items: center;
-  }
-
-  .title img {
-    background-color: var(--color-brand-3);
-    height: 1.6em;
-    width: 1.6em;
-    border: var(--border-m) solid transparent;
-    border-radius: var(--radius-full);
-  }
-
-  .slash {
-    background-color: var(--color-brand-transparent);
-    width: var(--border-m);
-    height: 1.25em;
-    rotate: 22deg;
-    margin-inline: var(--space-2xs);
-  }
-
   .github-logo {
     width: 1.6rem;
   }
