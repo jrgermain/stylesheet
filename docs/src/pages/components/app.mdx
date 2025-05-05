@@ -2,6 +2,7 @@
 layout: ../../layouts/Markdown.astro
 title: App
 ---
+
 import CodeBlock from "../../components/CodeBlock.astro";
 import { trimTextPadding } from "../../utils/trim-text-padding";
 
@@ -69,19 +70,21 @@ The App Header will always have the following structure:
 
 Note that, up to this point, the tag names can vary, but you should stick to the classes used above.
 
-If you have an App Sidebar (see below), you'll also want to add a toggle button to the final header section.
+If you have an App Sidebar (see below), you'll also want to add a toggle button to the end of the header.
 This allows the user to show/hide the sidebar when the screen isn't wide enough to fit both the sidebar and the content.
 The toggle will automatically disappear when the screen is wide enough.
 
 <CodeBlock
   language="html"
   code={trimTextPadding(`
-    <label class="app-header-item app-sidebar-toggle">
-      <input type="checkbox" title="Toggle navigation">
-      <div></div>
-      <div></div>
-      <div></div>
-    </label>
+    <div class="app-header-section">
+      <label class="app-header-item app-sidebar-toggle">
+        <input type="checkbox" title="Toggle navigation">
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+    </div>
   `)}
 />
 
@@ -136,7 +139,7 @@ Note that the tag names can vary, but you should stick to the classes used above
 Lastly, all Apps will have a content area. This is where the shell of the App ends and the actual content begins.
 If you don't have a sidebar, the App Content will be the only child of the App Body. Otherwise, it should go after the sidebar.
 
-Typically, the App Content will be a `<main>` element. 
+Typically, the App Content will be a `<main>` element.
 
 If you're using a Skip Link, it should have an `id` matching the `href` of the Skip Link.
 
