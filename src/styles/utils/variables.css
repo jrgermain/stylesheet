@@ -156,11 +156,11 @@
   --font-weight-black: 900;
 
   /* Font families */
-  --font-family-body: "Avenir Next", avenir, corbel, source-sans-pro,
-    "DejaVu Sans", ui-sans-serif, sans-serif;
-  --font-family-heading: seravek, "Gill Sans Nova", cantarell, verdana,
-    "DejaVu Sans", ui-sans-serif, sans-serif;
-  --font-family-mono: ui-monospace, "Source Code Pro", ui-monospace, monospace;
+  --font-family-body: "Avenir Next", avenir, "Segoe UI Variable Display",
+    "Segoe UI", "URW Gothic", source-sans-pro, ui-sans-serif, sans-serif;
+  --font-family-heading: seravek, "Gill Sans Nova", "Gill Sans MT", cantarell,
+    "DejaVu Sans", source-sans-pro, ui-sans-serif, sans-serif;
+  --font-family-mono: ui-monospace, "Cascadia Code", menlo, hack, monospace;
 
   /* Spacing */
   --space-none: 0;
