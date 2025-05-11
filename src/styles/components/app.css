@@ -191,6 +191,7 @@
 .app-sidebar-heading {
   font-size: 1.2rem;
   margin: 0 var(--space-body-x) var(--space-3xs);
+  font-family: var(--font-family-heading);
   font-weight: var(--font-weight-semibold);
 }
 
