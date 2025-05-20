@@ -1,5 +1,7 @@
 :root,
-::backdrop {
+::backdrop,
+.light-mode,
+.dark-mode {
   /* Brand */
   --color-brand-1: light-dark(#08003b, #e9f0ff);
   --color-brand-2: light-dark(#190074, #cad6ff);

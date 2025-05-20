@@ -1,6 +1,7 @@
 /* Misc styles */
-@import url("./utils/reset.css");
-@import url("./utils/variables.css");
+@import url("./misc/reset.css");
+@import url("./misc/utility-classes.css");
+@import url("./misc/variables.css");
 
 /* Styles used in multiple components */
 @import url("./components/shared/base-alert.css");
@@ -32,7 +33,6 @@
 @import url("./components/switch.css");
 @import url("./components/table.css");
 @import url("./components/text.css");
-@import url("./components/visually-hidden.css");
 
 /*
  * Card needs to be loaded after Link so .card-title[href] in the former

@@ -27,7 +27,7 @@
   border-block-start: var(--border-s) solid var(--color-outline);
   margin: 0;
 
-  @media screen and (width <= 500px) {
+  @media screen and (width < 30rem) {
     flex-direction: column;
     width: 100%;
     justify-content: stretch;

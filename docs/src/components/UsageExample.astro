@@ -51,7 +51,7 @@ const codeId = `example-code-${random}`;
         x-data="{}"
         class:list={[
           "example-output",
-          { "js-required": isJavaScriptRequired },
+          { "if-js-enabled": isJavaScriptRequired },
           outputWrapperClass,
         ]}
         set:html={formattedCode}
@@ -63,7 +63,7 @@ const codeId = `example-code-${random}`;
               id={codeId}
               class:list={[
                 "example-code",
-                { "js-required": isJavaScriptRequired },
+                { "if-js-enabled": isJavaScriptRequired },
               ]}
             >
               <CodeBlock
@@ -75,7 +75,7 @@ const codeId = `example-code-${random}`;
             <div
               class:list={[
                 "example-code-toggle-toolbar",
-                { "js-required": isJavaScriptRequired },
+                { "if-js-enabled": isJavaScriptRequired },
               ]}
             >
               <label class="switch small show-example-code">

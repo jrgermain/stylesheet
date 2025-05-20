@@ -50,7 +50,7 @@ const languageText = displayNameForLanguage[language];
 <div class:list={["container", variant]}>
   <div class="toolbar">
     <span class="language">{languageText}</span>
-    <span class="copy-button-container">
+    <span class="copy-button-container if-js-enabled">
       <span class="copied-message">Copied!</span>
       <button
         aria-label="Copy code to clipboard"
@@ -178,9 +178,5 @@ const languageText = displayNameForLanguage[language];
 
   .container.standalone .rendered-code {
     font-size: var(--font-size-m);
-  }
-
-  body:not(.js-enabled) .copy-button-container {
-    display: none;
   }
 </style>

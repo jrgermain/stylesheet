@@ -1,0 +1,63 @@
+/***********************************
+ * Conditionally show/hide content *
+ ***********************************/
+
+.js-disabled .if-js-enabled {
+  display: none !important;
+}
+
+.js-enabled .if-js-disabled {
+  display: none !important;
+}
+
+@media screen and (width < 30rem) {
+  /* Narrow viewport */
+  :is(.if-medium-viewport, .if-wide-viewport):not(.if-narrow-viewport) {
+    display: none !important;
+  }
+}
+
+@media screen and (30rem <= width < 55rem) {
+  /* Medium viewport */
+  :is(.if-narrow-viewport, .if-wide-viewport):not(.if-medium-viewport) {
+    display: none !important;
+  }
+}
+
+@media screen and (width >= 55rem) {
+  /* Wide viewport */
+  :is(.if-narrow-viewport, .if-medium-viewport):not(.if-wide-viewport) {
+    display: none !important;
+  }
+}
+
+/*************************************************
+ * Override color mode for a section of the page *
+ *************************************************/
+
+.light-mode {
+  color-scheme: only light;
+  color: var(--color-body-text);
+}
+
+.dark-mode {
+  color-scheme: only dark;
+  color: var(--color-body-text);
+}
+
+/*****************************************************
+ * Make elements invisible, except to screenreaders  *
+ *****************************************************/
+
+.visually-hidden,
+.app-sidebar-toggle input,
+.skip-link:not(:focus, .static) {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
