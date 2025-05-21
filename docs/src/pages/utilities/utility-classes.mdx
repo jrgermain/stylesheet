@@ -11,9 +11,20 @@ The stylesheet provides a set of utility classes that can be used to quickly sty
 
 There are multiple classes that can be used to conditionally show or hide content based on the user's environment. These classes are useful for progressive enhancement and responsive design.
 
+
+### Based on JavaScript Support
+
 - To only show an item **when JavaScript is enabled** in the user's browser, add the class `if-js-enabled` to the element.
 
 - To only show an item **when JavaScript is disabled** in the user's browser, add the class `if-js-disabled` to the element.
+
+<br/>
+<div class="alert info">
+To make these classes work, initialize the `body` element or App component with the class `js-disabled`, then replace the class with `js-enabled` in a script.
+</div>
+
+
+### Based on Viewport Size
 
 - To only show an item **when the screen is narrow** (e.g., on an iPhone), add the class `if-narrow-viewport` to the element.
 
@@ -26,19 +37,19 @@ to show an item only on a narrow or medium viewport, use both classes: `if-narro
 Adding all 3 classes is equivalent to not adding any viewport classes at all; in either case, the element will
 be visible at any viewport size.
 
-<div class="card">
-    <h3 class="card-title">Examples</h3>
-    <p>For each of the classes listed below, you will see a checkmark (✅) next to the class's name if the condition is currently met.</p>
-    <p>Try resizing your browser window or turning JavaScript on/off to see how the checkmarks change.</p>
-    <div class="stack vertical">
-        {["if-js-enabled", "if-js-disabled", "if-narrow-viewport", "if-medium-viewport", "if-wide-viewport", "if-narrow-viewport if-medium-viewport", "if-medium-viewport if-wide-viewport"].map((className) => (
-            <div class="card secondary">
-                <code>{className}</code>
-                <span class={className}> ✅</span>
-            </div>
-        ))}
-    </div>
+### Examples
+
+<p>For each of the classes listed below, you will see a checkmark (✅) next to the class's name if the condition is currently met.</p>
+<p>Try resizing your browser window or turning JavaScript on/off to see how the checkmarks change.</p>
+<div class="stack vertical">
+    {["if-js-enabled", "if-js-disabled", "if-narrow-viewport", "if-medium-viewport", "if-wide-viewport", "if-narrow-viewport if-medium-viewport", "if-medium-viewport if-wide-viewport"].map((className) => (
+        <div class="card secondary">
+            <code>{className}</code>
+            <span class={className}> ✅</span>
+        </div>
+    ))}
 </div>
+
 
 
 ## Override Color Mode
@@ -79,13 +90,12 @@ You can use the class `visually-hidden` to make text visible to screen readers b
 ## Styling Markdown, etc.
 
 There are times when you may want to embed HTML that was generated from some other format, like Markdown.
-In these cases, you can add the class `style-semantic-elements` to the element that contains the generated HTML.
-This will apply the default styles to the generated HTML elements, such as headings, paragraphs, and lists,
+In these cases, you can add the class `style-semantic-elements` to the element holding the generated HTML.
+This will apply default styles to the generated HTML elements, such as headings, paragraphs, and lists,
 without needing to add the classes manually.
 
-These styles are given a lower priority than the default styles, so you can still use the normal classes 
-on elements inside your Markdown and they should work as expected.
-
+These styles are given a lower priority than the other styles in the stylesheet, so any classes you add
+to the elements inside the Markdown should work as expected. 
 
 The table below shows the mappings between different element types and the classes they will appear to have:
 
