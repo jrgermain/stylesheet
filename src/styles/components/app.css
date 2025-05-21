@@ -6,8 +6,8 @@
    * centered.
    */
   --app-max-content-width: 110rem;
-  --app-header-height: clamp(50px, 3.8rem, 70px);
-  --app-sidebar-width: clamp(300px, 18rem, 400px);
+  --app-header-height: clamp(50px, 3.8rem, 100px);
+  --app-sidebar-width: clamp(300px, 18rem, 450px);
 
   position: relative;
   width: 100%;

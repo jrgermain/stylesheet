@@ -53,18 +53,18 @@
     max-width: unset;
     height: auto;
     max-height: 100dvh;
-    min-height: min(100dvh, 250px);
+    min-height: min(100dvh, 16rem);
 
     &.small {
-      height: 300px;
+      height: 18rem;
     }
 
     &.medium {
-      height: 450px;
+      height: 28rem;
     }
 
     &.large {
-      height: 600px;
+      height: 38rem;
     }
   }
 
@@ -73,19 +73,19 @@
     height: 100dvh;
     max-height: unset;
     width: auto;
-    min-width: min(100dvw, 300px);
+    min-width: min(100dvw, 18rem);
     max-width: 100dvw;
 
     &.small {
-      width: 350px;
+      width: 22rem;
     }
 
     &.medium {
-      width: 450px;
+      width: 32rem;
     }
 
     &.large {
-      width: 700px;
+      width: 42rem;
     }
   }
 }

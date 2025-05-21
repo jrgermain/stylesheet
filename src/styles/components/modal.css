@@ -5,15 +5,15 @@
   margin: auto;
 
   &.small {
-    width: 400px;
+    width: 25rem;
   }
 
   &.medium {
-    width: 650px;
+    width: 40rem;
   }
 
   &.large {
-    width: 900px;
+    width: 55rem;
   }
 }
 

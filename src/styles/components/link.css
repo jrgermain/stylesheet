@@ -6,7 +6,7 @@
   text-decoration-line: underline;
   text-decoration-color: var(--color-sky-transparent);
   text-decoration-skip-ink: all;
-  text-decoration-thickness: var(--border-m);
+  text-decoration-thickness: 0.1em;
   text-underline-offset: 0.1em;
   cursor: pointer;
   transition: text-decoration-color var(--duration-short) var(--ease-default);
