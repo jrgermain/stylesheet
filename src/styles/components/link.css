@@ -1,6 +1,6 @@
 .link,
 .card-title[href],
-.markdown-output a {
+:where(.style-semantic-elements a) {
   color: var(--color-sky-4);
   font-weight: var(--font-weight-semibold);
   text-decoration-line: underline;
@@ -21,10 +21,10 @@
 }
 
 /* External and Download icons */
-a[target="_blank"]:is(.link, .button, .markdown-output a):not(
-    .no-external-icon
-  ),
-a[download]:is(.link, .button, .markdown-output a):not(.no-download-icon) {
+a[target="_blank"]:is(.link, .button):not(.no-external-icon),
+:where(.style-semantic-elements a[target="_blank"]:not(.no-external-icon)),
+a[download]:is(.link, .button):not(.no-download-icon),
+:where(.style-semantic-elements a[download]:not(.no-download-icon)) {
   &::after {
     content: "";
     print-color-adjust: exact;

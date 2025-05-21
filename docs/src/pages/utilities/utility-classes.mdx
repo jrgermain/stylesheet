@@ -1,0 +1,118 @@
+---
+layout: ../../layouts/Markdown.astro
+title: Utility Classes
+---
+
+# Utility Classes
+
+The stylesheet provides a set of utility classes that can be used to quickly style elements, reducing the need for one-off styles.
+
+## Conditionally Show/Hide Content
+
+There are multiple classes that can be used to conditionally show or hide content based on the user's environment. These classes are useful for progressive enhancement and responsive design.
+
+- To only show an item **when JavaScript is enabled** in the user's browser, add the class `if-js-enabled` to the element.
+
+- To only show an item **when JavaScript is disabled** in the user's browser, add the class `if-js-disabled` to the element.
+
+- To only show an item **when the screen is narrow** (e.g., on an iPhone), add the class `if-narrow-viewport` to the element.
+
+- To only show an item **when the screen is a medium width**, add the class `if-medium-viewport` to the element.
+
+- To only show an item **when the screen is wide** (e.g., on a desktop), add the class `if-wide-viewport` to the element.
+
+To show an element at multiple viewport sizes, simply combine the classes for your desired sizes. For example,
+to show an item only on a narrow or medium viewport, use both classes: `if-narrow-viewport if-medium-viewport`.
+Adding all 3 classes is equivalent to not adding any viewport classes at all; in either case, the element will
+be visible at any viewport size.
+
+<div class="card">
+    <h3 class="card-title">Examples</h3>
+    <p>For each of the classes listed below, you will see a checkmark (✅) next to the class's name if the condition is currently met.</p>
+    <p>Try resizing your browser window or turning JavaScript on/off to see how the checkmarks change.</p>
+    <div class="stack vertical">
+        {["if-js-enabled", "if-js-disabled", "if-narrow-viewport", "if-medium-viewport", "if-wide-viewport", "if-narrow-viewport if-medium-viewport", "if-medium-viewport if-wide-viewport"].map((className) => (
+            <div class="card secondary">
+                <code>{className}</code>
+                <span class={className}> ✅</span>
+            </div>
+        ))}
+    </div>
+</div>
+
+
+## Override Color Mode
+
+To force an element (and its children) to display in light mode, add the class `light-mode` to the element.
+
+<div class="card light-mode">
+    <h3 class="card-title">Light Mode Example</h3>
+    <p>This card always appears in light mode. So do the following elements inside it:</p>
+    <div class="flow">
+        <div class="chip blue">This Chip</div>
+        <button class="button">This Button</button>
+        <a class="link">and this Link</a>
+    </div>
+</div>
+
+
+To force an element (and its children) to display in dark mode, add the class `dark-mode` to the element.
+
+<div class="card dark-mode">
+    <h3 class="card-title">Dark Mode Example</h3>
+    <p>This card always appears in dark mode. So do the following elements inside it:</p>
+    <div class="flow">
+        <div class="chip blue">This Chip</div>
+        <button class="button">This Button</button>
+        <a class="link">and this Link</a>
+    </div>
+</div>
+
+## Accessibility
+
+You can use the class `visually-hidden` to make text visible to screen readers but hidden from sighted users. This allows you to add context for users who can't physically see the webpage without cluttering the design with additional text.
+
+<span class="visually-hidden">
+    This text is only visible to screen readers.
+</span>
+
+## Styling Markdown, etc.
+
+There are times when you may want to embed HTML that was generated from some other format, like Markdown.
+In these cases, you can add the class `style-semantic-elements` to the element that contains the generated HTML.
+This will apply the default styles to the generated HTML elements, such as headings, paragraphs, and lists,
+without needing to add the classes manually.
+
+These styles are given a lower priority than the default styles, so you can still use the normal classes 
+on elements inside your Markdown and they should work as expected.
+
+
+The table below shows the mappings between different element types and the classes they will appear to have:
+
+| Element         | Styled Like          |
+| --------------- | -------------------- |
+| `hr`            | `.divider`           |
+| `br`            | `.divider.invisible` |
+| `h1`            | `.heading-1`         |
+| `h2`            | `.heading-2`         |
+| `h3`            | `.heading-3`         |
+| `h4`            | `.heading-4`         |
+| `h5`            | `.heading-5`         |
+| `h6`            | `.heading-6`         |
+| `mark`          | `.highlight`         |
+| `del`           | `.highlight.removed` |
+| `ins`           | `.highlight.added`   |
+| `a`             | `.link`              |
+| `blockquote`    | `.quote`             |
+| `table`         | `.table`             |
+| `p`             | `.paragraph`         |
+| `abbr`          | `.abbreviation`      |
+| `strong` or `b` | `.bold`              |
+| `em`            | `.italic`            |
+| `s`             | `.strikethrough`     |
+| `small`         | `.small-text`        |
+| `sub`           | `.subscript`         |
+| `sup`           | `.superscript`       |
+| `code`          | `.code`              |
+| `kbd`           | `.key`               |
+

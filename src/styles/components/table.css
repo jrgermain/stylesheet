@@ -1,5 +1,5 @@
 table.table,
-.markdown-output table {
+:where(.style-semantic-elements table) {
   --table-bg-odd: var(--color-body-alt);
   --table-bg-even: var(--color-body);
   --table-vertical-border: var(--border-s);

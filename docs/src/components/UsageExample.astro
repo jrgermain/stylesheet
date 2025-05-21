@@ -31,7 +31,11 @@ const codeId = `example-code-${random}`;
 <div class="card">
   <h2 class="card-title">{name}</h2>
   <div class="stack vertical dense">
-    {description && <div class="markdown-output" set:html={descriptionHtml} />}
+    {
+      description && (
+        <div class="style-semantic-elements" set:html={descriptionHtml} />
+      )
+    }
     <div
       class:list={[
         "example-wrapper",

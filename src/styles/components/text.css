@@ -1,7 +1,7 @@
 /* stylelint-disable declaration-block-no-redundant-longhand-properties -- text-decoration shorthand doesn't work properly for Safari */
 
 .paragraph,
-.markdown-output p {
+:where(.style-semantic-elements p) {
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-normal);
   line-height: 1.6;
@@ -28,12 +28,12 @@
  */
 :is(.heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6)
   + .paragraph,
-.markdown-output :is(h1, h2, h3, h4, h5, h6) + p {
+:where(.style-semantic-elements :is(h1, h2, h3, h4, h5, h6) + p) {
   margin-block-start: 0;
 }
 
 .abbreviation,
-.markdown-output abbr[title] {
+:where(.style-semantic-elements abbr[title]) {
   display: inline;
   text-decoration-line: underline;
   text-decoration-style: dotted;
@@ -43,13 +43,12 @@
 }
 
 .bold,
-.markdown-output strong,
-.markdown-output b {
+:where(.style-semantic-elements strong, .style-semantic-elements b) {
   font-weight: var(--font-weight-bold);
 }
 
 .italic,
-.markdown-output em {
+:where(.style-semantic-elements em) {
   font-style: italic;
 }
 
@@ -58,7 +57,7 @@
 }
 
 .strikethrough,
-.markdown-output s {
+:where(.style-semantic-elements s) {
   text-decoration-line: line-through;
 }
 
@@ -67,15 +66,14 @@
 }
 
 .small-text,
-.markdown-output small {
+:where(.style-semantic-elements small) {
   font-size: 0.75em;
   vertical-align: baseline;
 }
 
 .subscript,
 .superscript,
-.markdown-output sub,
-.markdown-output sup {
+:where(.style-semantic-elements sub, .style-semantic-elements sup) {
   font-size: 0.75em;
   line-height: 0;
   position: relative;
@@ -83,17 +81,17 @@
 }
 
 .subscript,
-.markdown-output sub {
+:where(.style-semantic-elements sub) {
   inset-block-end: -0.25em;
 }
 
 .superscript,
-.markdown-output sup {
+:where(.style-semantic-elements sup) {
   inset-block-start: -0.5em;
 }
 
 .code,
-.markdown-output code {
+:where(.style-semantic-elements code) {
   font-family: var(--font-family-mono);
   background-color: var(--color-gray-extra-transparent);
   color: var(--color-gray-1);
@@ -108,7 +106,7 @@
 }
 
 .link .code,
-.markdown-output a code {
+:where(.style-semantic-elements a code) {
   text-decoration: inherit;
   text-decoration-color: inherit;
   text-decoration-thickness: inherit;
@@ -117,7 +115,7 @@
 
 .key,
 .skip-link kbd,
-.markdown-output kbd {
+:where(.style-semantic-elements kbd) {
   display: inline;
   padding: 0 0.5ch;
   margin: 0 0.25ch;

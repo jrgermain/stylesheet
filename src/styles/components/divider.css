@@ -1,5 +1,5 @@
 .divider,
-.markdown-output :is(hr, br) {
+:where(.style-semantic-elements hr, .style-semantic-elements br) {
   --divider-thickness: var(--border-s);
 
   display: block;
@@ -26,7 +26,7 @@
 }
 
 .divider.invisible,
-.markdown-output br {
+:where(.style-semantic-elements br) {
   visibility: hidden;
 }
 
