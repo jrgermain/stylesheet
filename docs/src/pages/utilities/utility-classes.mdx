@@ -11,72 +11,127 @@ The stylesheet provides a set of utility classes that can be used to quickly sty
 
 There are multiple classes that can be used to conditionally show or hide content based on the user's environment. These classes are useful for progressive enhancement and responsive design.
 
-
 ### Based on JavaScript Support
 
 - To only show an item **when JavaScript is enabled** in the user's browser, add the class `if-js-enabled` to the element.
 
 - To only show an item **when JavaScript is disabled** in the user's browser, add the class `if-js-disabled` to the element.
 
-<br/>
+<br />
 <div class="alert info">
-To make these classes work, initialize the `body` element or App component with the class `js-disabled`, then replace the class with `js-enabled` in a script.
+  To make these classes work, initialize the `body` element or App component
+  with the class `js-disabled`, then replace the class with `js-enabled` in a
+  script.
 </div>
-
 
 ### Based on Viewport Size
 
-- To only show an item **when the screen is narrow** (e.g., on an iPhone), add the class `if-narrow-viewport` to the element.
+- To only show an item **when the screen is wide**, add the class `if-wide-viewport` to the element.
 
 - To only show an item **when the screen is a medium width**, add the class `if-medium-viewport` to the element.
 
-- To only show an item **when the screen is wide** (e.g., on a desktop), add the class `if-wide-viewport` to the element.
+- To only show an item **when the screen is narrow** (e.g., on an iPhone), add the class `if-narrow-viewport` to the element.
 
-To show an element at multiple viewport sizes, simply combine the classes for your desired sizes. For example,
+To show an element **at multiple viewport sizes**, simply combine the classes for your desired sizes. For example,
 to show an item only on a narrow or medium viewport, use both classes: `if-narrow-viewport if-medium-viewport`.
 Adding all 3 classes is equivalent to not adding any viewport classes at all; in either case, the element will
 be visible at any viewport size.
 
-### Examples
-
-<p>For each of the classes listed below, you will see a checkmark (✅) next to the class's name if the condition is currently met.</p>
-<p>Try resizing your browser window or turning JavaScript on/off to see how the checkmarks change.</p>
-<div class="stack vertical">
-    {["if-js-enabled", "if-js-disabled", "if-narrow-viewport", "if-medium-viewport", "if-wide-viewport", "if-narrow-viewport if-medium-viewport", "if-medium-viewport if-wide-viewport"].map((className) => (
-        <div class="card secondary">
-            <code>{className}</code>
-            <span class={className}> ✅</span>
-        </div>
-    ))}
+<div
+  style="
+    background-color: var(--color-red-9);
+    color: var(--color-red-3);
+    border: var(--border-m) solid currentcolor;
+    padding: var(--padding-m);
+    width: 55rem;
+    padding: var(--space-xs);
+  "
+>
+  <strong>Wide</strong>
+  <p style="font-size: 0.9em">The viewport is considered <q>wide</q> if it is at least as wide as this box.</p>
+  <div
+    style="
+      background-color: var(--color-purple-9);
+      color: var(--color-purple-3);
+      border: var(--border-m) solid currentcolor;
+      padding: var(--padding-m);
+      width: 30rem;
+      padding: var(--space-xs);
+    "
+  >
+    <strong>Medium</strong>
+    <p style="font-size: 0.9em">The viewport is considered <q>medium</q> if it is at least as wide as this box, but fits within the outer box.</p>
+    <div
+      style="
+        background-color: var(--color-blue-9);
+        color: var(--color-blue-3);
+        border: var(--border-m) solid currentcolor;
+        padding: var(--padding-m);
+        width: 15rem;
+        padding: var(--space-xs);
+      "
+    >
+      <strong>Narrow</strong>
+      <p style="font-size: 0.9em">The viewport is considered <q>narrow</q> if it fits inside the outer two boxes.</p>
+    </div>
+  </div>
 </div>
 
+### Examples
 
+For each of the classes listed below, you will see a checkmark (✅) next to
+the class's name if the condition is currently met.
+
+Try resizing your browser window or turning JavaScript on/off to see how the
+checkmarks change.
+
+<div class="stack vertical">
+  {[
+    "if-js-enabled",
+    "if-js-disabled",
+    "if-narrow-viewport",
+    "if-medium-viewport",
+    "if-wide-viewport",
+    "if-narrow-viewport if-medium-viewport",
+    "if-medium-viewport if-wide-viewport",
+  ].map((className) => (
+    <div class="card secondary">
+      <code>{className}</code>
+      <span class={className}> ✅</span>
+    </div>
+  ))}
+</div>
 
 ## Override Color Mode
 
 To force an element (and its children) to display in light mode, add the class `light-mode` to the element.
 
 <div class="card light-mode">
-    <h3 class="card-title">Light Mode Example</h3>
-    <p>This card always appears in light mode. So do the following elements inside it:</p>
-    <div class="flow">
-        <div class="chip blue">This Chip</div>
-        <button class="button">This Button</button>
-        <a class="link">and this Link</a>
-    </div>
+  <h3 class="card-title">Light Mode Example</h3>
+  <p>
+    This card always appears in light mode. So do the following elements inside
+    it:
+  </p>
+  <div class="flow">
+    <div class="chip blue">This Chip</div>
+    <button class="button">This Button</button>
+    <a class="link">and this Link</a>
+  </div>
 </div>
-
 
 To force an element (and its children) to display in dark mode, add the class `dark-mode` to the element.
 
 <div class="card dark-mode">
-    <h3 class="card-title">Dark Mode Example</h3>
-    <p>This card always appears in dark mode. So do the following elements inside it:</p>
-    <div class="flow">
-        <div class="chip blue">This Chip</div>
-        <button class="button">This Button</button>
-        <a class="link">and this Link</a>
-    </div>
+  <h3 class="card-title">Dark Mode Example</h3>
+  <p>
+    This card always appears in dark mode. So do the following elements inside
+    it:
+  </p>
+  <div class="flow">
+    <div class="chip blue">This Chip</div>
+    <button class="button">This Button</button>
+    <a class="link">and this Link</a>
+  </div>
 </div>
 
 ## Accessibility
@@ -84,7 +139,7 @@ To force an element (and its children) to display in dark mode, add the class `d
 You can use the class `visually-hidden` to make text visible to screen readers but hidden from sighted users. This allows you to add context for users who can't physically see the webpage without cluttering the design with additional text.
 
 <span class="visually-hidden">
-    This text is only visible to screen readers.
+  This text is only visible to screen readers.
 </span>
 
 ## Styling Markdown, etc.
@@ -95,7 +150,7 @@ This will apply default styles to the generated HTML elements, such as headings,
 without needing to add the classes manually.
 
 These styles are given a lower priority than the other styles in the stylesheet, so any classes you add
-to the elements inside the Markdown should work as expected. 
+to the elements inside the Markdown should work as expected.
 
 The table below shows the mappings between different element types and the classes they will appear to have:
 
@@ -115,6 +170,7 @@ The table below shows the mappings between different element types and the class
 | `a`             | `.link`              |
 | `blockquote`    | `.quote`             |
 | `table`         | `.table`             |
+| `ol` or `ul`    | `.list`             |
 | `p`             | `.paragraph`         |
 | `abbr`          | `.abbreviation`      |
 | `strong` or `b` | `.bold`              |
@@ -125,4 +181,3 @@ The table below shows the mappings between different element types and the class
 | `sup`           | `.superscript`       |
 | `code`          | `.code`              |
 | `kbd`           | `.key`               |
-
