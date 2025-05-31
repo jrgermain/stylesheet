@@ -1,0 +1,83 @@
+/*
+ * Note: for most of the styles applied using `style-semantic-elements`, we use the
+ * `:where()` selector to reduce specificity so we can more easily override them.
+ * However, this breaks the styling for nested lists, which relies on the specificity
+ * of the selectors for each level of nesting being higher than the last. Therefore,
+ * we don't use this technique for Lists.
+ */
+
+/* Add space between subsequent items and nested lists */
+.list li + li,
+.list .list,
+.style-semantic-elements li + li,
+.style-semantic-elements :is(ol, ul) :is(ol, ul) {
+  margin-block-start: var(--space-2xs);
+}
+
+/* Style ordered list markers */
+ol.list li::marker,
+.style-semantic-elements ol li::marker {
+  color: var(--color-body-text-alt);
+  font-size: 0.85em;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-semibold);
+  line-height: 0;
+}
+
+/* Style unordered list markers */
+ul.list li::marker,
+.style-semantic-elements ul li::marker {
+  color: var(--color-body-text-alt);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Cycle through list marker types in nested lists */
+ol.list,
+ol.list ol.list ol.list ol.list,
+.style-semantic-elements ol,
+.style-semantic-elements ol ol ol ol {
+  list-style: decimal;
+}
+
+ol.list ol.list,
+ol.list ol.list ol.list ol.list ol.list,
+.style-semantic-elements ol ol,
+.style-semantic-elements ol ol ol ol ol {
+  list-style: lower-latin;
+}
+
+ol.list ol.list ol.list,
+ol.list ol.list ol.list ol.list ol.list ol.list,
+.style-semantic-elements ol ol ol,
+.style-semantic-elements ol ol ol ol ol ol {
+  list-style: lower-roman;
+}
+
+ul.list,
+ul.list ul.list ul.list ul.list,
+.style-semantic-elements ul,
+.style-semantic-elements ul ul ul ul {
+  list-style: disc;
+}
+
+ul.list ul.list,
+ul.list ul.list ul.list ul.list ul.list,
+.style-semantic-elements ul ul,
+.style-semantic-elements ul ul ul ul ul {
+  list-style: circle;
+}
+
+ul.list ul.list ul.list,
+ul.list ul.list ul.list ul.list ul.list ul.list,
+.style-semantic-elements ul ul ul,
+.style-semantic-elements ul ul ul ul ul ul {
+  list-style: square;
+}
+
+/* Make the markers a different color for their second appearance in a nested list */
+ol.list ol.list ol.list ol.list li::marker,
+ul.list ul.list ul.list ul.list li::marker,
+.style-semantic-elements ol ol ol ol li::marker,
+.style-semantic-elements ul ul ul ul li::marker {
+  color: var(--color-brand-3);
+}

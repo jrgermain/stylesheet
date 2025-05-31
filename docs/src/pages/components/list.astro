@@ -1,0 +1,76 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="List"
+  description="A series of items marked with numbers or bullet points."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="You can add the class `list` to any `ol` or `ul` element to style it."
+    code={`
+      <ol class="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ol>
+      <ul class="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    `}
+    outputWrapperClass="flow"
+  />
+  <UsageExample
+    name="Nested Lists"
+    description="You can nest Lists inside each other, even mixing ordered and unordered Lists. Make sure to add the `list` class to each nested List."
+    code={`
+      <ol class="list">
+        <li>
+          Item 1
+          <ol class="list">
+            <li>Sub-item 1</li>
+            <li>
+              Sub-item 2
+              <ol class="list">
+                <li>Sub-sub-item 1</li>
+                <li>
+                  Sub-sub-item 2
+                  <ol class="list">
+                    <li>Sub-sub-sub-item 1</li>
+                    <li>Sub-sub-sub-item 2</li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <ul class="list">
+        <li>
+          Item 1
+          <ul class="list">
+            <li>Sub-item 1</li>
+            <li>
+              Sub-item 2
+              <ul class="list">
+                <li>Sub-sub-item 1</li>
+                <li>
+                  Sub-sub-item 2
+                  <ul class="list">
+                    <li>Sub-sub-sub-item 1</li>
+                    <li>Sub-sub-sub-item 2</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    `}
+    outputWrapperClass="flow"
+  />
+</ComponentDocumentation>
