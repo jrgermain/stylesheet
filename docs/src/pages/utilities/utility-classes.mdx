@@ -37,42 +37,44 @@ to show an item only on a narrow or medium viewport, use both classes: `if-narro
 Adding all 3 classes is equivalent to not adding any viewport classes at all; in either case, the element will
 be visible at any viewport size.
 
-<div
-  style="
-    background-color: var(--color-red-9);
-    color: var(--color-red-3);
-    border: var(--border-m) solid currentcolor;
-    padding: var(--padding-m);
-    width: 55rem;
-    padding: var(--space-xs);
-  "
->
-  <strong>Wide</strong>
-  <p style="font-size: 0.9em">The viewport is considered <q>wide</q> if it is at least as wide as this box.</p>
+<div style="max-width: 100%; overflow-x: auto;">
   <div
     style="
-      background-color: var(--color-purple-9);
-      color: var(--color-purple-3);
+      background-color: var(--color-red-9);
+      color: var(--color-red-3);
       border: var(--border-m) solid currentcolor;
       padding: var(--padding-m);
-      width: 30rem;
+      width: 55rem;
       padding: var(--space-xs);
     "
   >
-    <strong>Medium</strong>
-    <p style="font-size: 0.9em">The viewport is considered <q>medium</q> if it is at least as wide as this box, but fits within the outer box.</p>
+    <strong>Wide</strong>
+    <p style="font-size: 0.9em">The viewport is considered <q>wide</q> if it is at least as wide as this box.</p>
     <div
       style="
-        background-color: var(--color-blue-9);
-        color: var(--color-blue-3);
+        background-color: var(--color-purple-9);
+        color: var(--color-purple-3);
         border: var(--border-m) solid currentcolor;
         padding: var(--padding-m);
-        width: 15rem;
+        width: 30rem;
         padding: var(--space-xs);
       "
     >
-      <strong>Narrow</strong>
-      <p style="font-size: 0.9em">The viewport is considered <q>narrow</q> if it fits inside the outer two boxes.</p>
+      <strong>Medium</strong>
+      <p style="font-size: 0.9em">The viewport is considered <q>medium</q> if it is at least as wide as this box, but fits within the outer box.</p>
+      <div
+        style="
+          background-color: var(--color-blue-9);
+          color: var(--color-blue-3);
+          border: var(--border-m) solid currentcolor;
+          padding: var(--padding-m);
+          width: 15rem;
+          padding: var(--space-xs);
+        "
+      >
+        <strong>Narrow</strong>
+        <p style="font-size: 0.9em">The viewport is considered <q>narrow</q> if it fits inside the outer two boxes.</p>
+      </div>
     </div>
   </div>
 </div>
