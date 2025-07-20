@@ -61,10 +61,11 @@
     display: block;
     height: 3em;
     width: 3em;
-    border-radius: 50%;
-    border: 0.5em solid transparent;
-    border-top-color: var(--spinner-primary-color);
-    border-right-color: var(--spinner-primary-color);
+    mask-image: url("@/src/svg/loading-arc.svg");
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: var(--spinner-primary-color);
     animation: spinner-spin 0.85s linear infinite;
   }
 
@@ -72,8 +73,7 @@
     position: absolute;
     inset: 0 0 auto;
     margin: auto;
-    border-top-color: var(--spinner-secondary-color);
-    border-right-color: var(--spinner-secondary-color);
+    background-color: var(--spinner-secondary-color);
     animation-duration: 1.05s;
   }
 }
