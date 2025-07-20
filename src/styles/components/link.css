@@ -56,7 +56,7 @@ a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
     }
 
     &.button::after {
-      transform: translateY(-8%);
+      transform: translateY(2%);
     }
   }
 
@@ -64,13 +64,13 @@ a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
   &[download] {
     &::after {
       mask-image: url("@/src/svg/download.svg");
-      height: 1em;
-      width: 1em;
-      transform: translateY(10%);
+      height: 0.95em;
+      width: 0.95em;
+      transform: translateY(7%);
     }
 
     &.button::after {
-      transform: translateY(-15%);
+      transform: translateY(-5%);
     }
   }
 }
