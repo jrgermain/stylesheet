@@ -244,8 +244,8 @@
   /* Style the 3 lines inside the button */
   > div {
     transition-property: transform, opacity;
-    transition-duration: var(--duration-medium);
-    transition-timing-function: var(--ease-default);
+    transition-duration: var(--duration-long);
+    transition-timing-function: var(--ease-out);
     position: absolute;
     width: 1.75rem;
     height: 2px;
