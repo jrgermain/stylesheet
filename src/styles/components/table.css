@@ -19,6 +19,8 @@ table.table,
     --table-bg-even: transparent;
     --table-vertical-border: 0;
 
+    background-color: transparent;
+    color: inherit;
     border: 0;
   }
 
