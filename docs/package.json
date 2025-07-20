@@ -14,7 +14,7 @@
     "@astrojs/alpinejs": "^0.4.8",
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.2.6",
-    "@jrgermain/stylesheet": "0.10.0",
+    "@jrgermain/stylesheet": "0.10.1",
     "alpinejs": "^3.14.8",
     "astro": "^5.7.10",
     "marked": "^15.0.6",
