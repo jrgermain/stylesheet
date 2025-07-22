@@ -207,6 +207,25 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
 
   <UsageExample
+    name="Required Fields"
+    description="To show that a field is required, add an asterisk to its label. Wrap the asterisk in a `span` with the class `required-indicator`.\n\nIf you're using the pattern where the root of your Field is a `label` element (with the control inside it), you'll need to group the label text and the asterisk in an additional span so they appear on the same line."
+    code={`
+      <label class="field">
+        <span>
+          Email Address
+          <span class="required-indicator">*</span>
+        </span>
+        <input type="email" />
+      </label>
+
+      <div class="field">
+        <label for="required-email"> Email Address <span class="required-indicator">*</span> </label>
+        <input id="required-email" type="email" />
+      </div>
+    `}
+  />
+
+  <UsageExample
     name="Compact"
     description="Fields can be made more condensed by adding the `compact` class to either the Field itself or to the containing `fieldset`."
     code={`

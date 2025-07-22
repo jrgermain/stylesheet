@@ -278,6 +278,16 @@
       }
     }
   }
+
+  .required-indicator {
+    display: inline;
+    position: relative;
+    inset-block-end: 0.15em;
+    inset-inline-start: 0.15em;
+    color: var(--color-red-5);
+    font-size: 0.9em;
+    font-weight: var(--font-weight-semibold);
+  }
 }
 
 input[type="checkbox"],
