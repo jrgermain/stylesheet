@@ -12,6 +12,7 @@ import ShadowExample from "../../components/tokens-page/ShadowExample.astro";
 import FontExample from "../../components/tokens-page/FontExample.astro";
 import SpacingExample from '../../components/tokens-page/SpacingExample.astro';
 import BorderExample from '../../components/tokens-page/BorderExample.astro';
+import AnimationExample from '../../components/tokens-page/AnimationExample.astro';
 import { trimTextPadding } from "../../utils/trim-text-padding";
 
 # Tokens
@@ -212,4 +213,30 @@ designed to be used with the `border-width` property.
   <BorderExample propName="border" propValue="m" />
   <BorderExample propName="border" propValue="l" />
   <BorderExample propName="border" propValue="xl" />
+</div>
+
+## Easing Functions
+
+The variables for easing functions are all prefixed with `--ease-`. They're
+designed to be used with the `animation-timing-function` property.
+
+<div class="stack vertical">
+  <AnimationExample easingFunctionName="default">
+    A general-purpose easing function that works well for most use cases.
+  </AnimationExample>
+  <AnimationExample easingFunctionName="out">
+    An easing function that starts fast and slows down at the end.
+  </AnimationExample>
+  <AnimationExample easingFunctionName="in">
+    An easing function that starts slow and speeds up at the end.
+  </AnimationExample>
+  <AnimationExample easingFunctionName="both">
+    An easing function that starts slow, speeds up in the middle, and slows back down at the end.
+  </AnimationExample>
+  <AnimationExample easingFunctionName="both-subtle">
+    An easing function that is nearly linear but speeds up slightly in the middle.
+  </AnimationExample>
+  <AnimationExample easingFunctionName="spring">
+    An easing function that moves slightly backwards at the beginning, moves quickly in the middle, and slightly overshoots the target state before settling at the end.
+  </AnimationExample>
 </div>
