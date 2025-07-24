@@ -103,10 +103,12 @@
 
     /* Replacement marker element */
     &::before {
-      content: light-dark(
-        url("@/src/svg/dropdown-thick.svg"),
-        url("@/src/svg/dropdown-invert-thick.svg")
-      );
+      content: "";
+      background-color: var(--color-body-text-alt);
+      mask-image: url("@/src/svg/dropdown-thick.svg");
+      mask-position: center;
+      mask-size: contain;
+      mask-repeat: no-repeat;
       display: inline-block;
       position: absolute;
       inset-block: 0;

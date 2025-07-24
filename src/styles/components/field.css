@@ -41,16 +41,16 @@
   }
 
   input:not(
-      [type="button"],
-      [type="checkbox"],
-      [type="file"],
-      [type="hidden"],
-      [type="image"],
-      [type="radio"],
-      [type="range"],
-      [type="reset"],
-      [type="submit"]
-    ),
+    [type="button"],
+    [type="checkbox"],
+    [type="file"],
+    [type="hidden"],
+    [type="image"],
+    [type="radio"],
+    [type="range"],
+    [type="reset"],
+    [type="submit"]
+  ),
   select,
   textarea {
     color: var(--color-body-text);
@@ -137,10 +137,7 @@
 
   select,
   input[list] {
-    background-image: light-dark(
-      url("@/src/svg/dropdown.svg"),
-      url("@/src/svg/dropdown-invert.svg")
-    );
+    background-image: url("@/src/svg/dropdown.svg");
     background-position: center right 0.25em;
     background-size: auto 75%;
     background-repeat: no-repeat;
@@ -149,6 +146,10 @@
 
     &:dir(rtl) {
       background-position: center left 0.25em;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url("@/src/svg/dropdown-invert.svg");
     }
   }
 

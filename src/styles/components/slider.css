@@ -1,6 +1,7 @@
 input[type="range"].slider {
   --slider-shadow-resting: var(--shadow-s);
-  --slider-shadow-focused: var(--shadow-s), 0 0 0 0.08em var(--color-brand-5),
+  --slider-shadow-focused:
+    var(--shadow-s), 0 0 0 0.08em var(--color-brand-5),
     0 0 0 calc(0.16em + var(--border-s)) var(--color-brand-transparent);
   --slider-shadow-active: var(--shadow-s), 0 0 0 0.08em var(--color-brand-5);
 
