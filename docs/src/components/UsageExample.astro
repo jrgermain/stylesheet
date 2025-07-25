@@ -1,7 +1,8 @@
 ---
+import { marked } from "marked";
+import GithubSlugger from "github-slugger";
 import { formatCode } from "../utils/format-code";
 import CodeBlock from "./CodeBlock.astro";
-import { marked } from "marked";
 
 interface Props {
   name: string;
@@ -12,6 +13,7 @@ interface Props {
   allowShowCode?: boolean;
   isJavaScriptRequired?: boolean;
 }
+
 const {
   name,
   description = "",
@@ -22,14 +24,16 @@ const {
   isJavaScriptRequired = false,
 } = Astro.props;
 
+const slugger = new GithubSlugger();
 const descriptionHtml = marked.parse(description);
 const formattedCode = await formatCode(code);
 const random = Math.random().toString(36).substring(2);
 const codeId = `example-code-${random}`;
+const slug = slugger.slug(name);
 ---
 
 <div class="card">
-  <h2 class="card-title">{name}</h2>
+  <h2 class="card-title" id={slug}>{name}</h2>
   <div class="stack vertical dense">
     {
       description && (
@@ -145,5 +149,9 @@ const codeId = `example-code-${random}`;
 
   body.js-disabled .example-with-js {
     border: 0;
+  }
+
+  .card-title {
+    scroll-margin: var(--space-l);
   }
 </style>
