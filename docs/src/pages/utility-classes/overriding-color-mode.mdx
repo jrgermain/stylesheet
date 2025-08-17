@@ -1,0 +1,48 @@
+---
+layout: ../../layouts/Markdown.astro
+title: Overriding Color Mode
+---
+
+import UsageExample from "../../components/UsageExample.astro";
+
+# Overriding Color Mode
+
+To force an element (and its children) to display in light mode, add the class `light-mode` to the element.
+
+<UsageExample
+  name="Example"
+  code={`
+    <div class="card light-mode">
+      <h3 class="card-title">Light Mode Example</h3>
+      <p>
+        This card always appears in light mode. So do the following elements inside
+        it:
+      </p>
+      <div class="flow">
+        <div class="chip blue">This Chip</div>
+        <button class="button">This Button</button>
+        <a class="link">and this Link</a>
+      </div>
+    </div>
+  `}
+/>
+
+To force an element (and its children) to display in dark mode, add the class `dark-mode` to the element.
+
+<UsageExample
+  name="Example"
+  code={`
+    <div class="card dark-mode">
+      <h3 class="card-title">Dark Mode Example</h3>
+      <p>
+        This card always appears in dark mode. So do the following elements inside
+        it:
+      </p>
+      <div class="flow">
+        <div class="chip blue">This Chip</div>
+        <button class="button">This Button</button>
+        <a class="link">and this Link</a>
+      </div>
+    </div>
+  `}
+/>

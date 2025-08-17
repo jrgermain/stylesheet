@@ -1,17 +1,13 @@
 ---
 layout: ../../layouts/Markdown.astro
-title: Utility Classes
+title: Showing/Hiding Content
 ---
 
-# Utility Classes
-
-The stylesheet provides a set of utility classes that can be used to quickly style elements, reducing the need for one-off styles.
-
-## Conditionally Show/Hide Content
+# Showing/Hiding Content
 
 There are multiple classes that can be used to conditionally show or hide content based on the user's environment. These classes are useful for progressive enhancement and responsive design.
 
-### Based on JavaScript Support
+## Based on JavaScript Support
 
 - To only show an item **when JavaScript is enabled** in the user's browser, add the class `if-js-enabled` to the element.
 
@@ -24,7 +20,7 @@ There are multiple classes that can be used to conditionally show or hide conten
   script.
 </div>
 
-### Based on Viewport Size
+## Based on Viewport Size
 
 - To only show an item **when the screen is wide**, add the class `if-wide-viewport` to the element.
 
@@ -79,7 +75,7 @@ be visible at any viewport size.
   </div>
 </div>
 
-### Examples
+## Examples
 
 For each of the classes listed below, you will see a checkmark (✅) next to
 the class's name if the condition is currently met.
@@ -104,81 +100,3 @@ checkmarks change.
   ))}
 </div>
 
-## Override Color Mode
-
-To force an element (and its children) to display in light mode, add the class `light-mode` to the element.
-
-<div class="card light-mode">
-  <h3 class="card-title">Light Mode Example</h3>
-  <p>
-    This card always appears in light mode. So do the following elements inside
-    it:
-  </p>
-  <div class="flow">
-    <div class="chip blue">This Chip</div>
-    <button class="button">This Button</button>
-    <a class="link">and this Link</a>
-  </div>
-</div>
-
-To force an element (and its children) to display in dark mode, add the class `dark-mode` to the element.
-
-<div class="card dark-mode">
-  <h3 class="card-title">Dark Mode Example</h3>
-  <p>
-    This card always appears in dark mode. So do the following elements inside
-    it:
-  </p>
-  <div class="flow">
-    <div class="chip blue">This Chip</div>
-    <button class="button">This Button</button>
-    <a class="link">and this Link</a>
-  </div>
-</div>
-
-## Accessibility
-
-You can use the class `visually-hidden` to make text visible to screen readers but hidden from sighted users. This allows you to add context for users who can't physically see the webpage without cluttering the design with additional text.
-
-<span class="visually-hidden">
-  This text is only visible to screen readers.
-</span>
-
-## Styling Markdown, etc.
-
-There are times when you may want to embed HTML that was generated from some other format, like Markdown.
-In these cases, you can add the class `style-semantic-elements` to the element holding the generated HTML.
-This will apply default styles to the generated HTML elements, such as headings, paragraphs, and lists,
-without needing to add the classes manually.
-
-These styles are given a lower priority than the other styles in the stylesheet, so any classes you add
-to the elements inside the Markdown should work as expected.
-
-The table below shows the mappings between different element types and the classes they will appear to have:
-
-| Element         | Styled Like          |
-| --------------- | -------------------- |
-| `hr`            | `.divider`           |
-| `br`            | `.divider.invisible` |
-| `h1`            | `.heading-1`         |
-| `h2`            | `.heading-2`         |
-| `h3`            | `.heading-3`         |
-| `h4`            | `.heading-4`         |
-| `h5`            | `.heading-5`         |
-| `h6`            | `.heading-6`         |
-| `mark`          | `.highlight`         |
-| `del`           | `.highlight.removed` |
-| `ins`           | `.highlight.added`   |
-| `a`             | `.link`              |
-| `blockquote`    | `.quote`             |
-| `table`         | `.table`             |
-| `ol` or `ul`    | `.list`             |
-| `p`             | `.paragraph`         |
-| `abbr`          | `.abbreviation`      |
-| `strong` or `b` | `.bold`              |
-| `em`            | `.italic`            |
-| `s`             | `.strikethrough`     |
-| `sub`           | `.subscript`         |
-| `sup`           | `.superscript`       |
-| `code`          | `.code`              |
-| `kbd`           | `.key`               |
