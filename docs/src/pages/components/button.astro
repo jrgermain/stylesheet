@@ -27,12 +27,12 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
       - \`primary\`
       - \`secondary\` (default)
-      - \`subtle\`
+      - \`tertiary\`
     `)}
     code={`
       <button class="button primary">Primary</button>
       <button class="button secondary">Secondary</button>
-      <button class="button subtle">Subtle</button>
+      <button class="button tertiary">Tertiary</button>
     `}
     outputWrapperClass="dense horizontal flow"
   />
@@ -163,7 +163,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
             stroke-linejoin="round"></path>
         </svg>
       </button>
-      <button class="subtle icon button">
+      <button class="tertiary icon button">
         <svg
           width="1.5em"
           height="1.5em"
@@ -187,8 +187,8 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Colors"
     description={trimTextPadding(`
-      The **primary** and **subtle** variants support multiple color schemes.
-      To set the **color** of a primary or subtle Button, add one of the following classes:
+      The **primary** and **tertiary** variants support multiple color schemes.
+      To set the **color** of a primary or tertiary Button, add one of the following classes:
 
       - \`brand\` (default)
       - \`red\`
@@ -203,7 +203,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       - \`black\`
       - \`white\`
 
-      Be careful using black or white subtle Buttons, since white text is
+      Be careful using black or white tertiary Buttons, since white text is
       invisible on a white background (common in light mode), and black text is
       invisible on a black background (common in dark mode). You can see this in
       the example below.
@@ -221,18 +221,18 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       <button class="button primary gray">Gray</button>
       <button class="button primary black">Black</button>
       <button class="button primary white">White</button>
-      <button class="button subtle">Brand</button>
-      <button class="button subtle red">Red</button>
-      <button class="button subtle orange">Orange</button>
-      <button class="button subtle yellow">Yellow</button>
-      <button class="button subtle green">Green</button>
-      <button class="button subtle sky">Sky</button>
-      <button class="button subtle blue">Blue</button>
-      <button class="button subtle purple">Purple</button>
-      <button class="button subtle magenta">Magenta</button>
-      <button class="button subtle gray">Gray</button>
-      <button class="button subtle black">Black</button>
-      <button class="button subtle white">White</button>
+      <button class="button tertiary">Brand</button>
+      <button class="button tertiary red">Red</button>
+      <button class="button tertiary orange">Orange</button>
+      <button class="button tertiary yellow">Yellow</button>
+      <button class="button tertiary green">Green</button>
+      <button class="button tertiary sky">Sky</button>
+      <button class="button tertiary blue">Blue</button>
+      <button class="button tertiary purple">Purple</button>
+      <button class="button tertiary magenta">Magenta</button>
+      <button class="button tertiary gray">Gray</button>
+      <button class="button tertiary black">Black</button>
+      <button class="button tertiary white">White</button>
     `}
     outputWrapperClass="dense horizontal flow"
   />

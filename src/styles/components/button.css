@@ -164,7 +164,7 @@
     }
   }
 
-  &.subtle {
+  &.tertiary {
     --button-fg-color: var(--color-brand-4);
     --button-bg-color: transparent;
     --button-border-color: transparent;
@@ -288,8 +288,8 @@
     aspect-ratio: 1;
     padding: 0.5em;
 
-    /* Subtle icon buttons use normal pseudo element hover effect */
-    &.subtle {
+    /* Tertiary icon buttons use normal pseudo element hover effect */
+    &.tertiary {
       &::before {
         width: 75%;
         height: 75%;
@@ -303,7 +303,7 @@
     }
 
     /* Normal icon buttons just change background color */
-    &:not(.subtle) {
+    &:not(.tertiary) {
       &::before {
         content: unset;
       }
