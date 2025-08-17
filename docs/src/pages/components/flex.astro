@@ -51,6 +51,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
         <div class="box">5</div>
       </div>
     `}
+    outputWrapperClass="stack vertical densest"
   />
 
   <UsageExample
@@ -146,10 +147,11 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
 </ComponentDocumentation>
 <style is:global>
-  #example-output--layout .flex-example {
+  .flex-example {
     width: 16rem;
     background: var(--color-brand-5);
     padding: 0.5rem;
+    margin-block-end: var(--space-s);
   }
 
   .box {
