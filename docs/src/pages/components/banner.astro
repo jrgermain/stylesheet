@@ -9,6 +9,9 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     name="Statuses"
     description={trimTextPadding(`
       To create a Banner, create a \`div\` with the class \`banner\`.
+      Inside it, create another \`div\` with the class \`banner-content\`.
+      Place all child content inside the inner \`div\`.
+
       Every Banner must have a **status**, which you can set by adding one
       of the following additional classes:
       
@@ -19,20 +22,28 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     `)}
     code={`
       <div class="banner info">
-        Welcome to the new and improved client portal!
-        <span class="link">See what's new</span>.
+        <div class="banner-content">
+          Welcome to the new and improved client portal!
+          <span class="link">See what's new</span>.
+        </div>
       </div>
       <div class="banner success">
-        You've successfully enrolled in beta tests. You can switch back to the
-        stable version at any time by visiting your <span class="link">user
-        settings</span>.
+        <div class="banner-content">
+          You've successfully enrolled in beta tests. You can switch back to the
+          stable version at any time by visiting your <span class="link">user
+          settings</span>.
+        </div>
       </div>
       <div class="banner warning">
-        We're aware of intermittent internet connectivity issues. As we work on a fix, try re-running
-        any jobs that failed due to a network-related error.
+        <div class="banner-content">
+          We're aware of intermittent internet connectivity issues. As we work on a fix, try re-running
+          any jobs that failed due to a network-related error.
+        </div>
       </div>
       <div class="banner error">
-        The application is currently down for maintenance. We'll be back online shortly.
+        <div class="banner-content">
+          The application is currently down for maintenance. We'll be back online shortly.
+        </div>
       </div>
     `}
     outputWrapperClass=""
@@ -43,9 +54,11 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     description="To add a **title** to the Banner, add the class `banner-title` to its first child."
     code={`
       <div class="banner warning">
-        <p class="banner-title">Maintenance Reminder</p>
-        The application will be unavailable tonight starting at 8:00 PM.
-        The outage is expected to take 15 minutes or less.
+        <div class="banner-content">
+          <p class="banner-title">Maintenance Reminder</p>
+          The application will be unavailable tonight starting at 8:00 PM.
+          The outage is expected to take 15 minutes or less.
+        </div>
       </div>
     `}
   />
@@ -55,8 +68,10 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     description="If you want to make the Banner **dismissible**, add a button with the classes `button` and `dismiss`. Make sure to add an `aria-label` attribute to the button to describe its purpose, and a click event handler to handle hiding the Banner."
     code={`
       <div class="banner warning">
-        Node.js 16 is nearing the end of support. Please update your scripts to use a newer version of Node.js.
-        <button class="button dismiss" aria-label="Dismiss"></button>
+        <div class="banner-content">
+          Node.js 16 is nearing the end of support. Please update your scripts to use a newer version of Node.js.
+          <button class="button dismiss" aria-label="Dismiss"></button>
+        </div>
       </div>
     `}
   />
@@ -80,11 +95,13 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       </button>
       <template id="banner-template">
         <div class="banner error">
-          The sky is falling!
-          <button
-            class="button dismiss"
-            aria-label="Dismiss"
-            onclick="this.parentElement.remove()"></button>
+          <div class="banner-content">
+            The sky is falling!
+            <button
+              class="button dismiss"
+              aria-label="Dismiss"
+              onclick="this.parentElement.parentElement.remove()"></button>
+          </div>
         </div>
       </template>
     `}

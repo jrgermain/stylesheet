@@ -1,57 +1,80 @@
 .banner {
-  border-inline-width: 0;
+  font-size: 1rem;
+  color: var(--color-body-text-invert);
+  border-block: var(--border-m) solid var(--banner-secondary-color);
   width: 100%;
-  padding: var(--space-xs) var(--space-body-x);
-  padding-inline-start: calc(var(--space-body-x) + 2em);
+  background-color: var(--banner-bg-color);
 
-  &:has(.button.dismiss) {
-    padding-inline-end: calc(var(--space-body-x) + 2em);
+  &.error {
+    --banner-bg-color: var(--color-red-4);
+    --banner-secondary-color: var(--color-red-5);
+    --banner-icon: url("@/src/svg/x-thick.svg");
   }
 
-  &::before,
-  &::after {
-    inset-inline-start: calc(var(--space-body-x) * 0.5);
+  &.warning {
+    --banner-bg-color: var(--color-yellow-4);
+    --banner-secondary-color: var(--color-yellow-5);
+    --banner-icon: url("@/src/svg/warning-thick.svg");
+  }
+
+  &.success {
+    --banner-bg-color: var(--color-green-4);
+    --banner-secondary-color: var(--color-green-5);
+    --banner-icon: url("@/src/svg/check-thick.svg");
+  }
+
+  &.info {
+    --banner-bg-color: var(--color-sky-4);
+    --banner-secondary-color: var(--color-sky-5);
+    --banner-icon: url("@/src/svg/info-thick.svg");
+  }
+
+  .link {
+    color: var(--color-body-text-invert);
+    text-decoration-color: rgb(from var(--color-body-text-invert) r g b / 40%);
+  }
+
+  &:has(.button.dismiss) .banner-content {
+    padding-inline-end: calc(var(--space-body-x) + 2em);
   }
 
   & + & {
     border-block-start-width: 0;
   }
 
-  &.error {
-    --banner-dismiss-icon-color: var(--color-red-4);
-    --banner-dismiss-hover-bg: var(--color-red-extra-transparent);
-    --banner-dismiss-focus-bg: var(--color-red-transparent);
-  }
-
-  &.warning {
-    --banner-dismiss-icon-color: var(--color-yellow-4);
-    --banner-dismiss-hover-bg: var(--color-yellow-extra-transparent);
-    --banner-dismiss-focus-bg: var(--color-yellow-transparent);
-  }
-
-  &.success {
-    --banner-dismiss-icon-color: var(--color-green-4);
-    --banner-dismiss-hover-bg: var(--color-green-extra-transparent);
-    --banner-dismiss-focus-bg: var(--color-green-transparent);
-  }
-
-  &.info {
-    --banner-dismiss-icon-color: var(--color-sky-4);
-    --banner-dismiss-hover-bg: var(--color-sky-extra-transparent);
-    --banner-dismiss-focus-bg: var(--color-sky-transparent);
-  }
-
   .button.dismiss {
-    --button-fg-color: var(--banner-dismiss-icon-color);
-    --button-hover-bg-color: var(--banner-dismiss-hover-bg);
+    --button-fg-color: currentcolor;
+    --button-hover-bg-color: var(--banner-secondary-color);
 
     position: absolute;
     inset-block: 0;
     inset-inline-end: calc(var(--space-body-x) * 0.5);
     margin: auto;
+    font-size: 0.67em;
 
     &:is(:focus-visible, .focus) {
-      --button-bg-color: var(--banner-dismiss-focus-bg);
+      --button-bg-color: var(--banner-secondary-color);
+      --button-border-color: currentcolor;
     }
+  }
+}
+
+.banner-content {
+  position: relative;
+  max-width: var(--app-max-content-width);
+  margin-inline: auto;
+  padding: var(--space-2xs) var(--space-body-x);
+  padding-inline-start: calc(var(--space-body-x) + 2em);
+
+  &::before {
+    inset-inline-start: calc(var(--space-body-x) * 0.5 + 0.375em);
+    mask-image: var(--banner-icon);
+    background-color: var(--banner-secondary-color);
+  }
+
+  &::after {
+    inset-inline-start: calc(var(--space-body-x) * 0.5 + 0.15em);
+    background-color: currentcolor;
+    border: var(--border-m) solid var(--banner-secondary-color);
   }
 }

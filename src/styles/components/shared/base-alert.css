@@ -2,85 +2,12 @@
 .banner {
   display: block;
   font-family: var(--font-family-body);
-  font-size: var(--font-size-m);
   font-weight: var(--font-weight-normal);
-  color: var(--color-body-text);
   position: relative;
-  background:
-    linear-gradient(var(--alert-bg-color), var(--alert-bg-color)) padding-box,
-    linear-gradient(
-        to right,
-        var(--alert-border-start-color),
-        var(--alert-border-end-color)
-      )
-      border-box;
-  border: var(--border-m) solid transparent;
   line-height: 1.4;
 
   > * {
     line-height: 1.4;
-  }
-
-  @media print {
-    & {
-      border-color: var(--alert-border-start-color);
-    }
-  }
-
-  &::before,
-  &::after {
-    content: "";
-    print-color-adjust: exact;
-    position: absolute;
-    inset-block: 0;
-    margin-block: auto;
-    width: 2em;
-    height: 2em;
-  }
-
-  &::before {
-    z-index: 2;
-    mask-image: var(--alert-icon);
-    mask-repeat: no-repeat;
-    mask-size: contain;
-    background-color: var(--alert-border-start-color);
-    scale: 0.5;
-  }
-
-  &::after {
-    z-index: 1;
-    background-color: light-dark(#fffe, #000e);
-    border-radius: var(--radius-full);
-    border: 3px solid var(--alert-border-start-color);
-    scale: 0.75;
-  }
-
-  &.error {
-    --alert-bg-color: var(--color-red-9);
-    --alert-border-start-color: var(--color-red-5);
-    --alert-border-end-color: var(--color-red-6);
-    --alert-icon: url("@/src/svg/x-thick.svg");
-  }
-
-  &.warning {
-    --alert-bg-color: var(--color-yellow-9);
-    --alert-border-start-color: var(--color-yellow-5);
-    --alert-border-end-color: var(--color-yellow-6);
-    --alert-icon: url("@/src/svg/warning-thick.svg");
-  }
-
-  &.success {
-    --alert-bg-color: var(--color-green-9);
-    --alert-border-start-color: var(--color-green-5);
-    --alert-border-end-color: var(--color-green-6);
-    --alert-icon: url("@/src/svg/check-thick.svg");
-  }
-
-  &.info {
-    --alert-bg-color: var(--color-sky-9);
-    --alert-border-start-color: var(--color-sky-5);
-    --alert-border-end-color: var(--color-sky-6);
-    --alert-icon: url("@/src/svg/info-thick.svg");
   }
 }
 
@@ -93,4 +20,41 @@
   font-size: 0.85em;
   margin: 0;
   margin-block-end: 0.15em;
+}
+
+.alert,
+.banner-content {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    margin-block: auto;
+  }
+
+  &::before {
+    z-index: 2;
+    width: 1.15em;
+    height: 1.15em;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    background-color: var(--alert-border-start-color);
+  }
+
+  &::after {
+    z-index: 1;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: var(--radius-full);
+  }
+
+  @media print {
+    &::before {
+      print-color-adjust: exact;
+    }
+
+    &::after {
+      background-color: transparent;
+    }
+  }
 }

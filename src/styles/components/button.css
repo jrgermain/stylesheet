@@ -15,7 +15,8 @@
   gap: 0.625em;
   border-style: solid;
   transform: scale(1);
-  transition-property: box-shadow, background-color, transform, opacity;
+  transition-property:
+    box-shadow, background-color, border-color, transform, opacity;
   transition-duration: var(--duration-medium);
   transition-timing-function: var(--ease-default);
   text-decoration: none;
