@@ -1,0 +1,31 @@
+.paragraph,
+:where(.style-semantic-elements p) {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  margin: 0.75em 0;
+  text-wrap: pretty;
+  hanging-punctuation: first;
+  overflow-wrap: break-word;
+
+  &:first-child {
+    margin-block-start: 0;
+  }
+
+  &:last-child {
+    margin-block-end: 0;
+  }
+}
+
+/*
+ * Remove the top margin from paragraphs immediately after a heading, since we
+ * want to use the (slightly smaller) bottom margin of the heading instead.
+ *
+ * This ensures that headings are visibly closer to their content than the
+ * content above them, using spacing intentionally to denote hierarchy.
+ */
+:is(.heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6)
+  + .paragraph,
+:where(.style-semantic-elements :is(h1, h2, h3, h4, h5, h6) + p) {
+  margin-block-start: 0;
+}

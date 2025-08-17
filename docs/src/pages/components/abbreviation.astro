@@ -1,0 +1,21 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Abbreviation"
+  description="A shortened form of a long word or phrase."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="Place abbreviated text in an `abbr` element with the class `abbreviation`. Put the non-abbreviated version in the `title` attribute."
+    code={`
+      <p class="paragraph">
+        It's commonly believed that the first usage of the term
+        <abbr class="abbreviation" title="Oh My God">OMG</abbr>
+        was in a letter written to Winston Churchill in 1917.
+      </p>
+    `}
+  />
+</ComponentDocumentation>

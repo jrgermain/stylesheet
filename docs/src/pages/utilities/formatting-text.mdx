@@ -1,0 +1,118 @@
+---
+layout: ../../layouts/Markdown.astro
+title: Formatting Text
+---
+
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+
+
+# Formatting Text
+
+## Bold
+
+You can make text bold by adding the class `bold`. Bold text typically uses a `strong` element.
+
+<UsageExample
+  name="Example"
+  code={`
+    <p class="paragraph">
+      The term <strong class="bold">bold</strong> refers to text that's
+      thicker than the text around it.
+    </p>
+  `}
+/>
+
+## Italic
+
+You can make text italic by adding the class `italic`. Italic text typically uses an `em` element.
+
+<UsageExample
+  name="Example"
+  code={`
+    <p class="paragraph">
+      The reason the standard HTML element for italic text is called <code class="code">em</code> is because it stands for
+      <span class="italic">em</span>phasis.
+    </p>
+  `}
+/>
+
+## Underline
+
+You can make text underlined by adding the class `underline`.
+
+<UsageExample
+  name="Example"
+  code={`
+    <p class="paragraph">
+      This text is <span class="underline">underlined</span>.
+    </p>
+  `}
+/>
+
+## Strikethrough
+
+You can create strikethrough text by adding the class `strikethrough`. Strikethrough text typically uses an `s` element.
+
+<UsageExample
+  name="Example"
+  code={`
+    <p class="paragraph">
+      This text is <s class="strikethrough">strikethroughed</s>
+      
+      <s class="strikethrough">striked through</s>
+
+      crossed out.
+    </p>
+  `}
+/>
+
+<br/>
+<div class="alert info">
+  <div class="alert-title">Combining Underline and Strikethrough</div>
+  <p>
+    Behind the scenes, underline and strikethrough both use the same CSS property.
+    The `underline` and `strikethrough` classes automatically handle this so you
+    can combine them without any issues.
+  </p>
+</div>
+
+## Subscript
+
+You can create subscript text by adding the class `subscript`. Subscript text typically uses a `sub` element.
+
+<UsageExample
+  name="Example"
+  code={`
+    <p class="paragraph">
+      The formula for water is H<sub class="subscript">2</sub>O.
+    </p>
+  `}
+/>
+
+## Superscript
+
+You can create superscript text by adding the class `superscript`. Superscript text typically uses a `sup` element.
+
+<UsageExample
+  name="Example"
+  code={`
+    <p class="paragraph">
+      The speed of light is 3.00 x 10<sup class="superscript">8</sup> m/s.
+    </p>
+  `}
+/>
+
+## Inline Code/Monospaced Text
+
+You can format inline code or monospaced text by adding the class `code`. There are multiple elements that can be used for monospaced text based on semantics.
+
+<UsageExample
+  name="Example"
+  code={`
+    <p class="paragraph">
+      To print "Hello, World!" in Python, you would write <code class="code">print("Hello, World!")</code>.
+    </p>
+  `}
+/>
+  

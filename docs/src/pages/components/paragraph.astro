@@ -1,0 +1,20 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Paragraph"
+  description="A block of text containing one or more sentences."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="Paragraphs give structure to large or text-heavy documents by breaking the content into more digestible pieces.\n\nTo create one, add the class `paragraph` to an element (typically a `p` element)."
+    code={`
+      <p class="paragraph">This is a paragraph.</p>
+      <p class="paragraph">This is a second paragraph. Notice how all paragraphs get their own line.</p>
+      <p class="paragraph">You can nest other types of elements, like <mark class="highlight">highlighted text</mark>, inside paragraphs. However, you should avoid nesting paragraphs within other paragraphs.</p>
+    `}
+    outputWrapperClass=""
+  />
+</ComponentDocumentation>

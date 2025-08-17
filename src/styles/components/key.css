@@ -1,0 +1,15 @@
+.key,
+.skip-link kbd,
+:where(.style-semantic-elements kbd) {
+  display: inline;
+  padding: 0 0.5ch;
+  margin: 0 0.25ch;
+  font-size: 0.9em;
+  border: var(--border-s) solid var(--color-gray-8);
+  border-bottom-width: 3px;
+  border-radius: var(--radius-m);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-body);
+  background-color: var(--color-gray-9);
+  color: var(--color-body-text);
+}

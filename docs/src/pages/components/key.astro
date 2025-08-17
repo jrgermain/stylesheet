@@ -1,0 +1,20 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Key"
+  description="An on-screen representation of a key on a computer keyboard."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="Add the class `key` to an element (typically a `kbd` element)."
+    code={`
+      <p class="paragraph">
+        To save a file in most applications, you can press <kbd class="key">Ctrl</kbd> + <kbd class="key">S</kbd>
+        (or <kbd class="key">⌘</kbd> + <kbd class="key">S</kbd> on a Mac).
+      </p>
+    `}
+  />
+</ComponentDocumentation>

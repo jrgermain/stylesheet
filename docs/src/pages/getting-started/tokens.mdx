@@ -39,10 +39,12 @@ The stylesheet defines multiple shades for each of the following colors:
 `brand`, `red`, `orange`, `yellow`, `green`, `sky`, `blue`, `purple`, `magenta`,
 and `gray`.
 
-There are 9 shades for each color, ranging from 1 to 9. Lower numbers will
-have the most contrast with the page background, while higher numbers will
-have the least. In other words, shade 1 is the darkest shade in light mode,
-but the lightest shade in dark mode.
+There are 9 shades for each color, ranging from 1 to 9, where lower numbers have
+the most contrast with the page background. In other words, shade 1 is the
+darkest shade in light mode, but the lightest shade in dark mode. Different
+design systems have different numbering schemes, but a good mental model for
+this one is that light mode is the canonical color scheme, and the number of a
+given color refers to its lightness.
 
 There are also 2 transparent variants for each color: `transparent` and
 `extra-transparent`.
@@ -61,7 +63,7 @@ example of how to reference these colors in a stylesheet:
     }
 
     .transparent-red {
-      background-color: var(--color-red-transparent);
+      background-color: var(--color-red-extra-transparent);
     }
   `)}
 />
@@ -128,6 +130,9 @@ The variables for font sizes are all prefixed with `--font-size-`, which
 is followed by a T-shirt size between `xs` and `4xl`. For example, the
 font size `m` represents a medium size for text and can be referenced as
 `--font-size-m`.
+
+Use sizes smaller than `m` sparingly, as overuse of small fonts can negatively
+impact the readability of the page and potentially force users to zoom in.
 
 <div class="card">
   <FontExample propName="size" propValue="xs" />

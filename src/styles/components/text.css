@@ -1,47 +1,3 @@
-/* stylelint-disable declaration-block-no-redundant-longhand-properties -- text-decoration shorthand doesn't work properly for Safari */
-
-.paragraph,
-:where(.style-semantic-elements p) {
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-normal);
-  line-height: 1.6;
-  margin: 0.75em 0;
-  text-wrap: pretty;
-  hanging-punctuation: first;
-  overflow-wrap: break-word;
-
-  &:first-child {
-    margin-block-start: 0;
-  }
-
-  &:last-child {
-    margin-block-end: 0;
-  }
-}
-
-/*
- * Remove the top margin from paragraphs immediately after a heading, since we
- * want to use the (slightly smaller) bottom margin of the heading instead.
- *
- * This ensures that headings are visibly closer to their content than the
- * content above them, using spacing intentionally to denote hierarchy.
- */
-:is(.heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6)
-  + .paragraph,
-:where(.style-semantic-elements :is(h1, h2, h3, h4, h5, h6) + p) {
-  margin-block-start: 0;
-}
-
-.abbreviation,
-:where(.style-semantic-elements abbr[title]) {
-  display: inline;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: var(--border-m);
-  text-decoration-color: var(--color-gray-6);
-  text-underline-offset: 0.1em;
-}
-
 .bold,
 :where(.style-semantic-elements strong, .style-semantic-elements b) {
   font-weight: var(--font-weight-bold);
@@ -63,12 +19,6 @@
 
 .underline.strikethrough {
   text-decoration-line: underline line-through;
-}
-
-.small-text,
-:where(.style-semantic-elements small) {
-  font-size: 0.75em;
-  vertical-align: baseline;
 }
 
 .subscript,
@@ -111,20 +61,4 @@
   text-decoration-color: inherit;
   text-decoration-thickness: inherit;
   color: inherit;
-}
-
-.key,
-.skip-link kbd,
-:where(.style-semantic-elements kbd) {
-  display: inline;
-  padding: 0 0.5ch;
-  margin: 0 0.25ch;
-  font-size: 0.9em;
-  border: var(--border-s) solid var(--color-gray-8);
-  border-bottom-width: 3px;
-  border-radius: var(--radius-m);
-  font-weight: var(--font-weight-semibold);
-  font-family: var(--font-family-body);
-  background-color: var(--color-gray-9);
-  color: var(--color-body-text);
 }
