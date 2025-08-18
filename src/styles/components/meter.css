@@ -36,6 +36,12 @@ meter.meter {
   border-radius: var(--radius-s);
   border: var(--border-s) solid transparent;
   box-sizing: border-box;
+  background-size: 100vw;
+  background-image: linear-gradient(
+    to right,
+    var(--meter-start-color),
+    var(--meter-end-color)
+  );
 }
 
 .meter::-webkit-meter-inner-element {
@@ -47,34 +53,66 @@ meter.meter {
   border-radius: var(--radius-s);
   border: var(--border-s) solid transparent;
   box-sizing: border-box;
+  background-size: 100vw;
+  background-image: linear-gradient(
+    to right,
+    var(--meter-start-color),
+    var(--meter-end-color)
+  );
 }
 
 .meter::-webkit-meter-optimum-value {
-  background: var(--color-green-6);
+  --meter-start-color: var(--color-green-6);
+  --meter-end-color: var(--color-green-4);
+
   border-color: var(--color-green-5);
 }
 
 .meter:-moz-meter-optimum::-moz-meter-bar {
-  background: var(--color-green-6);
+  --meter-start-color: var(--color-green-6);
+  --meter-end-color: var(--color-green-4);
+
   border-color: var(--color-green-5);
 }
 
 .meter::-webkit-meter-suboptimum-value {
-  background: light-dark(var(--color-yellow-7), var(--color-yellow-5));
-  border-color: light-dark(var(--color-yellow-6), var(--color-yellow-4));
+  --meter-start-color: var(--color-yellow-7);
+  --meter-end-color: var(--color-yellow-5);
+
+  border-color: var(--color-yellow-6);
+
+  @media (prefers-color-scheme: dark) {
+    --meter-start-color: var(--color-yellow-6);
+    --meter-end-color: var(--color-yellow-4);
+
+    border-color: var(--color-yellow-5);
+  }
 }
 
 .meter:-moz-meter-sub-optimum::-moz-meter-bar {
-  background: light-dark(var(--color-yellow-7), var(--color-yellow-5));
-  border-color: light-dark(var(--color-yellow-6), var(--color-yellow-4));
+  --meter-start-color: var(--color-yellow-7);
+  --meter-end-color: var(--color-yellow-5);
+
+  border-color: var(--color-yellow-6);
+
+  @media (prefers-color-scheme: dark) {
+    --meter-start-color: var(--color-yellow-6);
+    --meter-end-color: var(--color-yellow-4);
+
+    border-color: var(--color-yellow-5);
+  }
 }
 
 .meter::-webkit-meter-even-less-good-value {
-  background: var(--color-red-6);
+  --meter-start-color: var(--color-red-6);
+  --meter-end-color: var(--color-red-4);
+
   border-color: var(--color-red-5);
 }
 
 .meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-  background: var(--color-red-6);
+  --meter-start-color: var(--color-red-6);
+  --meter-end-color: var(--color-red-4);
+
   border-color: var(--color-red-5);
 }

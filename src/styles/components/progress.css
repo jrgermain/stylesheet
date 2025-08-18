@@ -42,18 +42,26 @@ progress.progress {
 
 .progress::-webkit-progress-value {
   border-radius: var(--radius-s);
-  border: var(--border-s) solid transparent;
+  border: var(--border-s) solid var(--color-blue-5);
   box-sizing: border-box;
-  background: var(--color-blue-6);
-  border-color: var(--color-blue-5);
+  background-size: 100vw;
+  background-image: linear-gradient(
+    to right,
+    var(--color-blue-6),
+    var(--color-blue-4)
+  );
 }
 
 .progress::-moz-progress-bar {
   border-radius: var(--radius-s);
-  border: var(--border-s) solid transparent;
+  border: var(--border-s) solid var(--color-blue-5);
   box-sizing: border-box;
-  background: var(--color-blue-6);
-  border-color: var(--color-blue-5);
+  background-size: 100vw;
+  background-image: linear-gradient(
+    to right,
+    var(--color-blue-6),
+    var(--color-blue-4)
+  );
 }
 
 .progress:indeterminate::-webkit-progress-value {
