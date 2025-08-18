@@ -205,7 +205,11 @@
   --border-xl: 8px;
 
   /* Opacity */
-  --opacity-disabled: light-dark(0.65, 0.5);
+  --opacity-disabled: 0.65;
+
+  @media (prefers-color-scheme: dark) {
+    --opacity-disabled: 0.5;
+  }
 
   /* Easing functions */
   --ease-default: cubic-bezier(0.6, 0.22, 0.45, 0.9);

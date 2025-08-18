@@ -1,9 +1,13 @@
 .modal::backdrop,
 .drawer::backdrop {
   --dialog-backdrop-starting-opacity: 0;
-  --dialog-backdrop-open-opacity: light-dark(0.75, 0.85);
+  --dialog-backdrop-open-opacity: 0.75;
   --dialog-backdrop-ending-opacity: 0;
   --dialog-backdrop-color: light-dark(var(--color-gray-2), var(--color-gray-8));
+
+  @media (prefers-color-scheme: dark) {
+    --dialog-backdrop-open-opacity: 0.85;
+  }
 
   background-color: var(--dialog-backdrop-color);
 }
