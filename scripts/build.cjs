@@ -1,12 +1,14 @@
 const fs = require("node:fs/promises");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
+const { execSync } = require("node:child_process");
 const { rimraf } = require("rimraf");
 const { bundle, browserslistToTargets } = require("lightningcss");
 const browserslist = require("browserslist");
 
 const projectRoot = path.join(__dirname, "..");
 const targets = browserslistToTargets(browserslist("defaults"));
+const tsc = path.join(projectRoot, "node_modules", ".bin", "tsc");
 
 const processCssFile = async (sourcePath, destPath, options = {}) => {
   const absoluteSourcePath = path.join(projectRoot, sourcePath);
@@ -86,6 +88,9 @@ const processCssFile = async (sourcePath, destPath, options = {}) => {
     minify: true,
     sourceMap: true,
   });
+
+  // Run TypeScript build
+  execSync(tsc, { cwd: projectRoot, stdio: "inherit" });
 })().catch((e) => {
   console.error(e);
   process.exit(1);
