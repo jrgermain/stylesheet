@@ -237,13 +237,109 @@ const buildResolver = (predicate: (x: unknown) => boolean, prefix: string) => {
   };
 };
 
+/**
+ * If the given value is a valid color token, replace it with the corresponding
+ * CSS variable reference. Otherwise, return the value as a string.
+ *
+ * @example
+ * resolveColor("red-5") // "var(--color-red-5)"
+ * resolveColor("#ff0000") // "#ff0000"
+ */
 export const resolveColor = buildResolver(isColor, "color");
+
+/**
+ * If the given value is a valid font size token, replace it with the
+ * corresponding CSS variable reference. Otherwise, return the value as a
+ * string.
+ *
+ * @example
+ * resolveFontSize("m") // "var(--font-size-m)"
+ * resolveFontSize("16px") // "16px"
+ */
 export const resolveFontSize = buildResolver(isFontSize, "font-size");
+
+/**
+ * If the given value is a valid font weight token, replace it with the
+ * corresponding CSS variable reference. Otherwise, return the value as a
+ * string.
+ *
+ * @example
+ * resolveFontWeight("semibold") // "var(--font-weight-semibold)"
+ * resolveFontWeight("700") // "700"
+ * resolveFontWeight(700) // "700"
+ */
 export const resolveFontWeight = buildResolver(isFontWeight, "font-weight");
+
+/**
+ * If the given value is a valid font family token, replace it with the
+ * corresponding CSS variable reference. Otherwise, return the value as a
+ * string.
+ *
+ * @example
+ * resolveFontFamily("body") // "var(--font-family-body)"
+ * resolveFontFamily("arial, sans-serif") // "arial, sans-serif"
+ */
 export const resolveFontFamily = buildResolver(isFontFamily, "font-family");
+
+/**
+ * If the given value is a valid spacing token, replace it with the
+ * corresponding CSS variable reference. Otherwise, return the value as a
+ * string.
+ *
+ * @example
+ * resolveSpace("xl") // "var(--space-xl)"
+ * resolveSpace("2rem") // "2rem"
+ */
 export const resolveSpace = buildResolver(isSpace, "space");
+
+/**
+ * If the given value is a valid radius token, replace it with the corresponding
+ * CSS variable reference. Otherwise, return the value as a string.
+ *
+ * @example
+ * resolveRadius("xl") // "var(--radius-xl)"
+ * resolveRadius("12px") // "12px"
+ */
 export const resolveRadius = buildResolver(isRadius, "radius");
+
+/**
+ * If the given value is a valid shadow token, replace it with the corresponding
+ * CSS variable reference. Otherwise, return the value as a string.
+ *
+ * @example
+ * resolveShadow("xl") // "var(--shadow-xl)"
+ * resolveShadow("0 0 1px #0005") // "0 0 1px #0005"
+ */
 export const resolveShadow = buildResolver(isShadow, "shadow");
+
+/**
+ * If the given value is a valid border token, replace it with the corresponding
+ * CSS variable reference. Otherwise, return the value as a string.
+ *
+ * @example
+ * resolveBorder("m") // "var(--border-m)"
+ * resolveBorder("2px") // "2px"
+ */
 export const resolveBorderWidth = buildResolver(isBorderWidth, "border");
+
+/**
+ * If the given value is a valid easing function token, replace it with the
+ * corresponding CSS variable reference. Otherwise, return the value as a
+ * string.
+ *
+ * @example
+ * resolveEasingFunction("in") // "var(--ease-in)"
+ * resolveEasingFunction("cubic-bezier(0.5, 0, 0.5, 1)") // "cubic-bezier(0.5, 0, 0.5, 1)"
+ */
 export const resolveEasingFunction = buildResolver(isEasingFunction, "ease");
+
+/**
+ * If the given value is a valid duration token, replace it with the
+ * corresponding CSS variable reference. Otherwise, return the value as a
+ * string.
+ *
+ * @example
+ * resolveDuration("short") // "var(--duration-short)"
+ * resolveDuration("2s") // "2s"
+ */
 export const resolveDuration = buildResolver(isDuration, "duration");
