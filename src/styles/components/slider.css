@@ -71,6 +71,7 @@ input[type="range"].slider {
     border-radius: var(--radius-full);
     background-color: var(--color-gray-8);
     print-color-adjust: exact;
+    box-shadow: 0 0 1px var(--color-gray-7) inset;
   }
 
   &::-webkit-slider-thumb {
@@ -100,4 +101,30 @@ input[type="range"].slider {
     transition-duration: var(--duration-short);
     transition-timing-function: var(--ease-default);
   }
+
+  /*
+   * Below is code to add color to the portion of the slider before the thumb.
+   *
+   * While it looks great, it's only supported in Firefox (as of 2025), and I'd
+   * rather not introduce this big of a difference between browsers. So it's
+   * currently commented out and only here for reference.
+   *
+   * There is a proposal to standardize the pseudo-elements for range inputs,
+   * which includes a "slider-fill" pseudo-element similar to Firefox's
+   * "moz-range-progress". If it lands in browsers, we can revisit this.
+   *
+   * Reference: https://drafts.csswg.org/css-forms-1/#pseudo-elements
+   */
+
+  /* &::-moz-range-progress {
+    background-size: 100vw;
+    background-image: linear-gradient(
+      to right,
+      var(--color-brand-6),
+      var(--color-brand-4)
+    );
+    border-radius: var(--radius-full);
+    block-size: 0.25em;
+    box-shadow: 0 0 1px var(--color-brand-4) inset;
+  } */
 }
