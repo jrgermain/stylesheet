@@ -23,15 +23,6 @@
   pointer-events: none;
   line-height: 1;
 
-  kbd {
-    margin-inline-start: var(--space-2xs) !important;
-    font-weight: initial;
-    border: 0 !important;
-    background-color: var(--color-brand-4) !important;
-    color: inherit !important;
-    font-size: 1.2em !important;
-  }
-
   &:focus,
   &.static {
     opacity: 1;

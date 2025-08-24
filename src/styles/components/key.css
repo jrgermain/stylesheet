@@ -1,5 +1,4 @@
 .key,
-.skip-link kbd,
 :where(.style-semantic-elements kbd) {
   display: inline;
   padding: 0 0.5ch;
