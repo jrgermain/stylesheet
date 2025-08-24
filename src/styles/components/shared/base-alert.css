@@ -16,7 +16,6 @@
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-bold);
   line-height: 1;
-  color: var(--alert-border-start-color);
   font-size: 0.85em;
   margin: 0;
   margin-block-end: 0.15em;

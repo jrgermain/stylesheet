@@ -88,11 +88,7 @@ const slug = slugger.slug(name);
             >
               <label class="switch small show-example-code">
                 Show Code
-                {/* onchange function makes the copy button only focusable when the code is shown */}
-                <input
-                  type="checkbox"
-                  onchange={`document.querySelector('#${codeId} .copy-button').tabIndex = (this.checked ? 0 : -1)`}
-                />
+                <input type="checkbox" />
               </label>
             </div>
           </>
@@ -118,9 +114,12 @@ const slug = slugger.slug(name);
   }
 
   .example-code {
+    display: none;
     overflow-y: hidden;
     max-height: 0;
-    transition: max-height 250ms ease;
+    transition:
+      max-height 250ms ease,
+      display 250ms allow-discrete;
   }
 
   @media (prefers-reduced-motion) {
@@ -130,6 +129,7 @@ const slug = slugger.slug(name);
   }
 
   .example-code:has(~ .example-code-toggle-toolbar input:checked) {
+    display: block;
     overflow-y: auto;
     max-height: 100svh;
   }

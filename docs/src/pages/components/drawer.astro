@@ -39,10 +39,10 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
         Open Drawer
       </button>
 
-      <dialog id="drawer-1" class="drawer left medium">
+      <dialog id="drawer-1" class="drawer left medium" aria-labelledby="drawer-1-title">
         <header class="drawer-header">
-          <h1>User Settings</h1>
-          <button class="button dismiss" onclick="document.querySelector('#drawer-1').close()"></button>
+          <h1 id="drawer-1-title">User Settings</h1>
+          <button class="button dismiss" onclick="document.querySelector('#drawer-1').close()" aria-label="Close"></button>
         </header>
         <div class="drawer-body">
           <p class="paragraph">
@@ -86,10 +86,10 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
         Open Drawer
       </button>
 
-      <dialog id="drawer-2" class="drawer left small">
+      <dialog id="drawer-2" class="drawer left small" aria-labelledby="drawer-2-title">
         <div class="drawer-header">
-          <h1>User Settings</h1>
-          <button class="button dismiss" onclick="document.querySelector('#drawer-2').close()"></button>
+          <h1 id="drawer-2-title">User Settings</h1>
+          <button class="button dismiss" onclick="document.querySelector('#drawer-2').close()" aria-label="Close"></button>
         </div>
         <div class="drawer-body">
           <p class="paragraph">
@@ -120,14 +120,14 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       clicked.
     `)}
     code={`
-      <button class="button" onclick="document.querySelector('#drawer-2').showModal()">
+      <button class="button" onclick="document.querySelector('#drawer-3').showModal()">
         Open Drawer
       </button>
 
-      <dialog id="drawer-2" class="drawer left small">
+      <dialog id="drawer-3" class="drawer left small" aria-labelledby="drawer-3-title">
         <div class="drawer-header">
-          <h1>User Settings</h1>
-          <button class="button dismiss" onclick="document.querySelector('#drawer-2').close()"></button>
+          <h1 id="drawer-3-title">User Settings</h1>
+          <button class="button dismiss" onclick="document.querySelector('#drawer-3').close()" aria-label="Close"></button>
         </div>
         <div class="drawer-body">
           <p class="paragraph">
@@ -138,10 +138,10 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
           </p>
         </div>
         <div class="drawer-footer">
-          <button class="button" onclick="document.querySelector('#drawer-2').close()">
+          <button class="button" onclick="document.querySelector('#drawer-3').close()">
             Cancel
           </button>
-          <button class="button primary" onclick="document.querySelector('#drawer-2').close()">
+          <button class="button primary" onclick="document.querySelector('#drawer-3').close()">
             Save
           </button>
         </div>
@@ -195,12 +195,13 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
         <button class="button primary" x-on:click="$refs.drawer.showModal()">
           Open Drawer
         </button>
-        <dialog x-ref="drawer" class="drawer" x-bind:class="side + ' ' + size">
+        <dialog x-ref="drawer" class="drawer" x-bind:class="side + ' ' + size" aria-labelledby="playground-drawer-title">
           <div x-show="header" class="drawer-header">
-            <h1>User Settings</h1>
+            <h1 id="playground-drawer-title">User Settings</h1>
             <button
               x-show="closeButton"
               class="button dismiss"
+              aria-label="Close"
               x-on:click="$refs.drawer.close()"></button>
           </div>
           <div x-show="body" class="drawer-body">

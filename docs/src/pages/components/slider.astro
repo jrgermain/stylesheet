@@ -1,6 +1,7 @@
 ---
 import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
+import { trimTextPadding } from "../../utils/trim-text-padding";
 ---
 
 <ComponentDocumentation
@@ -11,5 +12,15 @@ import UsageExample from "../../components/UsageExample.astro";
     name="Basic Usage"
     description="You can create a Slider by creating an [`input` element with a type of `range`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) and giving it the `slider` class."
     code={'<input class="slider" type="range" min="0" max="100" value="50">'}
+  />
+  <UsageExample
+    name="Label"
+    description="As an accessibility best practice, Sliders should have a label. One way to do this is to place them in a Field."
+    code={trimTextPadding(`
+      <div class="field">
+        <label for="volume-slider">Volume</label>
+        <input id="volume-slider" class="slider" type="range" min="0" max="100" value="50">
+      </div>
+    `)}
   />
 </ComponentDocumentation>

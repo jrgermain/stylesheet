@@ -57,7 +57,6 @@ const languageText = displayNameForLanguage[language];
         title="Copy"
         class="button icon tertiary copy-button"
         data-code-id={codeId}
-        tabindex="-1"
         onclick="
           navigator.clipboard.writeText(document.getElementById(this.dataset.codeId).textContent)
             .then(() => {
@@ -70,6 +69,7 @@ const languageText = displayNameForLanguage[language];
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
           width="16"
           height="16"
           viewBox="0 0 256 256"

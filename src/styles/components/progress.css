@@ -1,10 +1,10 @@
 @keyframes indeterminate-progress {
   from {
-    opacity: 0.2;
+    opacity: 0.25;
   }
 
   to {
-    opacity: 0.8;
+    opacity: 0.75;
   }
 }
 
@@ -65,8 +65,6 @@ progress.progress {
 }
 
 .progress:indeterminate::-webkit-progress-value {
-  background: var(--color-blue-6);
-  border-color: var(--color-blue-5);
   opacity: 0.5;
   inline-size: 100% !important;
   animation: indeterminate-progress 1s var(--ease-both-subtle) infinite
@@ -74,8 +72,6 @@ progress.progress {
 }
 
 .progress:indeterminate::-moz-progress-bar {
-  background: var(--color-blue-6);
-  border-color: var(--color-blue-5);
   opacity: 0.5;
   inline-size: 100% !important;
   animation: indeterminate-progress 1s var(--ease-both-subtle) infinite

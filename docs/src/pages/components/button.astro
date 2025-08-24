@@ -129,8 +129,9 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       Make sure to add an accessible label to your Icon Button using the \`aria-label\` attribute.
     `)}
     code={`
-      <button class="icon button">
+      <button class="icon button" aria-label="Like">
         <svg
+          aria-hidden="true"
           width="1.5em"
           height="1.5em"
           stroke-width="1.5"
@@ -146,8 +147,9 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
             stroke-linejoin="round"></path>
         </svg>
       </button>
-      <button class="red primary icon button">
+      <button class="red primary icon button" aria-label="Like">
         <svg
+          aria-hidden="true"
           width="1.5em"
           height="1.5em"
           stroke-width="1.5"
@@ -163,8 +165,9 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
             stroke-linejoin="round"></path>
         </svg>
       </button>
-      <button class="tertiary icon button">
+      <button class="tertiary icon button" aria-label="Like">
         <svg
+          aria-hidden="true"
           width="1.5em"
           height="1.5em"
           stroke-width="1.5"

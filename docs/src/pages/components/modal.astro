@@ -30,10 +30,10 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     code={`
       <button class="button" x-on:click="$refs.modal1.showModal()">Open Modal</button>
 
-      <dialog x-ref="modal1" class="modal">
+      <dialog x-ref="modal1" class="modal" aria-labelledby="modal1-title">
         <header class="modal-header">
-          <h1>Leave Without Saving?</h1>
-          <button class="button dismiss" x-on:click="$refs.modal1.close()"></button>
+          <h1 id="modal1-title">Leave Without Saving?</h1>
+          <button class="button dismiss" x-on:click="$refs.modal1.close()" aria-label="Close"></button>
         </header>
         <div class="modal-body">
           <p>You have unsaved edits. What would you like to do?</p>
@@ -65,10 +65,10 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     code={`
       <button class="button" x-on:click="$refs.modal2.showModal()">Open Modal</button>
 
-      <dialog x-ref="modal2" class="modal small">
+      <dialog x-ref="modal2" class="modal small" aria-labelledby="modal2-title">
         <header class="modal-header">
-          <h1>Leave Without Saving?</h1>
-          <button class="button dismiss" x-on:click="$refs.modal2.close()"></button>
+          <h1 id="modal2-title">Leave Without Saving?</h1>
+          <button class="button dismiss" x-on:click="$refs.modal2.close()" aria-label="Close"></button>
         </header>
         <div class="modal-body">
           <p class="paragraph">
@@ -92,10 +92,10 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     code={`
       <button class="button" x-on:click="$refs.modal3.showModal()">Open Modal</button>
 
-      <dialog x-ref="modal3" class="modal small">
+      <dialog x-ref="modal3" class="modal small" aria-labelledby="modal3-title">
         <header class="modal-header">
-          <h1>Leave Without Saving?</h1>
-          <button class="button dismiss" x-on:click="$refs.modal3.close()"></button>
+          <h1 id="modal3-title">Leave Without Saving?</h1>
+          <button class="button dismiss" x-on:click="$refs.modal3.close()" aria-label="Close"></button>
         </header>
         <div class="modal-body">
           <p style="
@@ -166,12 +166,13 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
         <button class="button primary" x-on:click="$refs.modal4.showModal()">
           Open Modal
         </button>
-        <dialog x-ref="modal4" x-bind:class="'modal ' + size">
+        <dialog x-ref="modal4" x-bind:class="'modal ' + size" aria-labelledby="modal4-title">
           <header x-show="header" class="modal-header">
-            <h1>User Settings</h1>
+            <h1 id="modal4-title">User Settings</h1>
             <button
-              x-show="closeButton"
               class="button dismiss"
+              aria-label="Close"
+              x-show="closeButton"
               x-on:click="$refs.modal4.close()"></button>
           </header>
           <div x-show="body" class="modal-body">
