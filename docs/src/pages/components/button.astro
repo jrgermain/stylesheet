@@ -87,8 +87,9 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       feedback that the action is in progress.
 
       Most of the time, you'll want to disable the Button while it's loading so
-      the user can't kick of the action multiple times. In this case, also
-      follow the instructions above for disabling the Button.
+      the user can't kick off additional instances of the onclick action (e.g.,
+      multiple identical API calls). In this case, also follow the instructions
+      above for disabling the Button.
     `)}
     code={`
       <button disabled class="loading button">Disabled and loading</button>
