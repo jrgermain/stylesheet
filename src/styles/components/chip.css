@@ -1,8 +1,10 @@
 .chip {
   --chip-fg-color: white;
-  --chip-bg-color: var(--color-brand-6);
-  --chip-border-color: var(--color-brand-5);
+  --chip-bg-color: var(--color-brand-5);
+  --chip-border-color: var(--color-brand-4);
   --chip-focus-color: var(--color-brand-transparent);
+  --chip-delete-hover-color: var(--color-brand-3);
+  --chip-delete-active-color: var(--color-brand-2);
 
   display: inline-flex;
   align-items: center;
@@ -23,6 +25,11 @@
   text-decoration: none;
   appearance: none;
   line-height: 1.2;
+
+  @media (prefers-color-scheme: dark) {
+    --chip-delete-hover-color: var(--color-brand-6);
+    --chip-delete-active-color: var(--color-brand-7);
+  }
 
   &.clickable {
     cursor: pointer;
@@ -55,70 +62,137 @@
   }
 
   &.red {
-    --chip-bg-color: var(--color-red-6);
-    --chip-border-color: var(--color-red-5);
+    --chip-bg-color: var(--color-red-5);
+    --chip-border-color: var(--color-red-4);
     --chip-focus-color: var(--color-red-transparent);
+    --chip-delete-hover-color: var(--color-red-3);
+    --chip-delete-active-color: var(--color-red-2);
+
+    @media (prefers-color-scheme: dark) {
+      --chip-delete-hover-color: var(--color-red-6);
+      --chip-delete-active-color: var(--color-red-7);
+    }
   }
 
   &.orange {
-    --chip-bg-color: var(--color-orange-6);
-    --chip-border-color: var(--color-orange-5);
+    --chip-bg-color: var(--color-orange-5);
+    --chip-border-color: var(--color-orange-4);
     --chip-focus-color: var(--color-orange-transparent);
+    --chip-delete-hover-color: var(--color-orange-3);
+    --chip-delete-active-color: var(--color-orange-2);
+
+    @media (prefers-color-scheme: dark) {
+      --chip-delete-hover-color: var(--color-orange-6);
+      --chip-delete-active-color: var(--color-orange-7);
+    }
   }
 
   &.yellow {
-    --chip-bg-color: var(--color-yellow-6);
-    --chip-border-color: var(--color-yellow-5);
+    --chip-bg-color: var(--color-yellow-5);
+    --chip-border-color: var(--color-yellow-4);
     --chip-focus-color: var(--color-yellow-transparent);
+    --chip-delete-hover-color: var(--color-yellow-3);
+    --chip-delete-active-color: var(--color-yellow-2);
+
+    @media (prefers-color-scheme: dark) {
+      --chip-delete-hover-color: var(--color-yellow-6);
+      --chip-delete-active-color: var(--color-yellow-7);
+    }
   }
 
   &.green {
-    --chip-bg-color: var(--color-green-6);
-    --chip-border-color: var(--color-green-5);
+    --chip-bg-color: var(--color-green-5);
+    --chip-border-color: var(--color-green-4);
     --chip-focus-color: var(--color-green-transparent);
+    --chip-delete-hover-color: var(--color-green-3);
+    --chip-delete-active-color: var(--color-green-2);
+
+    @media (prefers-color-scheme: dark) {
+      --chip-delete-hover-color: var(--color-green-6);
+      --chip-delete-active-color: var(--color-green-7);
+    }
   }
 
   &.sky {
-    --chip-bg-color: var(--color-sky-6);
-    --chip-border-color: var(--color-sky-5);
+    --chip-bg-color: var(--color-sky-5);
+    --chip-border-color: var(--color-sky-4);
     --chip-focus-color: var(--color-sky-transparent);
+    --chip-delete-hover-color: var(--color-sky-3);
+    --chip-delete-active-color: var(--color-sky-2);
+
+    @media (prefers-color-scheme: dark) {
+      --chip-delete-hover-color: var(--color-sky-6);
+      --chip-delete-active-color: var(--color-sky-7);
+    }
   }
 
   &.blue {
-    --chip-bg-color: var(--color-blue-6);
-    --chip-border-color: var(--color-blue-5);
+    --chip-bg-color: var(--color-blue-5);
+    --chip-border-color: var(--color-blue-4);
     --chip-focus-color: var(--color-blue-transparent);
+    --chip-delete-hover-color: var(--color-blue-3);
+    --chip-delete-active-color: var(--color-blue-2);
+
+    @media (prefers-color-scheme: dark) {
+      --chip-delete-hover-color: var(--color-blue-6);
+      --chip-delete-active-color: var(--color-blue-7);
+    }
   }
 
   &.purple {
-    --chip-bg-color: var(--color-purple-6);
-    --chip-border-color: var(--color-purple-5);
+    --chip-bg-color: var(--color-purple-5);
+    --chip-border-color: var(--color-purple-4);
     --chip-focus-color: var(--color-purple-transparent);
+    --chip-delete-hover-color: var(--color-purple-3);
+    --chip-delete-active-color: var(--color-purple-2);
+
+    @media (prefers-color-scheme: dark) {
+      --chip-delete-hover-color: var(--color-purple-6);
+      --chip-delete-active-color: var(--color-purple-7);
+    }
   }
 
   &.magenta {
-    --chip-bg-color: var(--color-magenta-6);
-    --chip-border-color: var(--color-magenta-5);
+    --chip-bg-color: var(--color-magenta-5);
+    --chip-border-color: var(--color-magenta-4);
     --chip-focus-color: var(--color-magenta-transparent);
+    --chip-delete-hover-color: var(--color-magenta-3);
+    --chip-delete-active-color: var(--color-magenta-2);
+
+    @media (prefers-color-scheme: dark) {
+      --chip-delete-hover-color: var(--color-magenta-6);
+      --chip-delete-active-color: var(--color-magenta-7);
+    }
   }
 
   &.gray {
-    --chip-bg-color: var(--color-gray-6);
-    --chip-border-color: var(--color-gray-5);
+    --chip-bg-color: var(--color-gray-5);
+    --chip-border-color: var(--color-gray-4);
     --chip-focus-color: var(--color-gray-transparent);
+    --chip-delete-hover-color: var(--color-gray-3);
+    --chip-delete-active-color: var(--color-gray-2);
+
+    @media (prefers-color-scheme: dark) {
+      --chip-delete-hover-color: var(--color-gray-6);
+      --chip-delete-active-color: var(--color-gray-7);
+    }
   }
 
   &.black {
     --chip-bg-color: black;
-    --chip-border-color: #3d3d3d;
+    --chip-border-color: #46484c;
     --chip-focus-color: var(--color-gray-transparent);
+    --chip-delete-hover-color: #616368;
+    --chip-delete-active-color: #4c4e53;
   }
 
   &.white {
     --chip-fg-color: black;
     --chip-bg-color: white;
-    --chip-border-color: #d0d0d0;
+    --chip-border-color: #d8dbe0;
     --chip-focus-color: var(--color-gray-transparent);
+    --chip-delete-hover-color: #c3c6cb;
+    --chip-delete-active-color: #afb1b6;
   }
 }
 
@@ -159,10 +233,10 @@
   }
 
   &:is(:hover, .hover) {
-    background-color: hsl(from var(--chip-border-color) h s calc(l + 5));
+    background-color: var(--chip-delete-hover-color);
   }
 
   &:is(:active, .active) {
-    background-color: hsl(from var(--chip-border-color) h s calc(l - 20));
+    background-color: var(--chip-delete-active-color);
   }
 }
