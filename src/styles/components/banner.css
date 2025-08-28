@@ -78,3 +78,7 @@
     border: var(--border-m) solid var(--banner-secondary-color);
   }
 }
+
+.banner-title {
+  margin-block-end: var(--space-3xs);
+}
