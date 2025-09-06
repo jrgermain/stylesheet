@@ -9,7 +9,9 @@
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.1em;
   cursor: pointer;
-  transition: text-decoration-color var(--duration-short) var(--ease-default);
+  transition-property: color, text-decoration-color;
+  transition-duration: var(--duration-short);
+  transition-timing-function: var(--ease-default);
 
   &:is(:hover, .hover) {
     text-decoration-color: currentcolor;
@@ -17,6 +19,10 @@
 
   &:focus-visible {
     outline-offset: 1px;
+  }
+
+  &:active {
+    color: var(--color-sky-3);
   }
 }
 
@@ -33,7 +39,8 @@ a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
     background-color: var(--color-gray-5);
     display: inline-block;
     vertical-align: baseline;
-    margin-inline-start: 0.25em;
+    margin-inline: 0.15em;
+    position: relative;
     transition: background-color var(--duration-short) var(--ease-default);
   }
 
@@ -44,33 +51,25 @@ a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
   &.button::after {
     background-color: currentcolor !important;
     margin-inline-start: initial;
+    vertical-align: middle;
+    inset-block-end: 0.1em;
   }
 
   /* External icon */
   &[target="_blank"] {
     &::after {
-      mask-image: url("@/src/svg/external.svg");
-      height: 0.85em;
-      width: 0.85em;
-      transform: translateY(9%);
-    }
-
-    &.button::after {
-      transform: translateY(2%);
+      mask-image: url("@/src/icons/external.svg");
+      height: 0.9em;
+      width: 0.9em;
     }
   }
 
   /* Download icon */
   &[download] {
     &::after {
-      mask-image: url("@/src/svg/download.svg");
-      height: 0.95em;
-      width: 0.95em;
-      transform: translateY(7%);
-    }
-
-    &.button::after {
-      transform: translateY(-5%);
+      mask-image: url("@/src/icons/download.svg");
+      height: 0.9em;
+      width: 0.9em;
     }
   }
 }

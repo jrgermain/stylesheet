@@ -105,17 +105,17 @@
     &::before {
       content: "";
       background-color: var(--color-body-text-alt);
-      mask-image: url("@/src/svg/dropdown-thick.svg");
+      mask-image: url("@/src/icons/dropdown.svg");
       mask-position: center;
       mask-size: contain;
       mask-repeat: no-repeat;
       display: inline-block;
       position: absolute;
       inset-block: 0;
-      inset-inline-start: calc(var(--space-xs) / 2);
+      inset-inline-start: 0.5em;
       margin: auto;
-      width: 1em;
-      height: 1em;
+      width: 0.75em;
+      height: 0.75em;
       rotate: -90deg;
       transition: rotate var(--duration-long) var(--ease-spring);
     }

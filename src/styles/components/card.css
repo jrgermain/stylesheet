@@ -35,6 +35,10 @@
 
 .card-title[href] {
   text-decoration-color: var(--color-brand-transparent);
+
+  &:active {
+    color: var(--color-brand-2);
+  }
 }
 
 .card.secondary .card-title {

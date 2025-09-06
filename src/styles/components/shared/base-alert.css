@@ -36,8 +36,8 @@
 
   &::before {
     z-index: 2;
-    width: 1.15em;
-    height: 1.15em;
+    width: 0.9em;
+    height: 0.9em;
     mask-repeat: no-repeat;
     mask-size: contain;
     background-color: var(--alert-border-start-color);

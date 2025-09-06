@@ -27,7 +27,7 @@
     --alert-title-color: var(--color-red-3);
     --alert-border-start-color: var(--color-red-5);
     --alert-border-end-color: var(--color-red-6);
-    --alert-icon: url("@/src/svg/x-thick.svg");
+    --alert-icon: url("@/src/icons/x.svg");
   }
 
   &.warning {
@@ -35,7 +35,7 @@
     --alert-title-color: var(--color-yellow-3);
     --alert-border-start-color: var(--color-yellow-5);
     --alert-border-end-color: var(--color-yellow-6);
-    --alert-icon: url("@/src/svg/warning-thick.svg");
+    --alert-icon: url("@/src/icons/warning.svg");
   }
 
   &.success {
@@ -43,7 +43,7 @@
     --alert-title-color: var(--color-green-3);
     --alert-border-start-color: var(--color-green-5);
     --alert-border-end-color: var(--color-green-6);
-    --alert-icon: url("@/src/svg/check-thick.svg");
+    --alert-icon: url("@/src/icons/check.svg");
   }
 
   &.info {
@@ -51,11 +51,11 @@
     --alert-title-color: var(--color-sky-3);
     --alert-border-start-color: var(--color-sky-5);
     --alert-border-end-color: var(--color-sky-6);
-    --alert-icon: url("@/src/svg/info-thick.svg");
+    --alert-icon: url("@/src/icons/info.svg");
   }
 
   &::before {
-    inset-inline-start: calc(var(--space-2xs) * 0.5 + 0.375em);
+    inset-inline-start: calc(var(--space-2xs) * 0.5 + 0.5em);
     mask-image: var(--alert-icon);
     background-color: var(--alert-border-start-color);
   }

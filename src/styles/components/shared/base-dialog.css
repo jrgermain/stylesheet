@@ -81,6 +81,11 @@
     &:is(:focus-visible, .focus) {
       --button-bg-color: var(--color-brand-transparent);
     }
+
+    &::after {
+      width: 1.1em;
+      height: 1.1em;
+    }
   }
 }
 

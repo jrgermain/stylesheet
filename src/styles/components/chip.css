@@ -218,9 +218,9 @@
 
   &::after {
     content: "";
-    width: 1.7em;
-    height: 1.7em;
-    mask-image: url("@/src/svg/x.svg");
+    width: 1em;
+    height: 1em;
+    mask-image: url("@/src/icons/x-thin.svg");
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;

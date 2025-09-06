@@ -137,19 +137,19 @@
 
   select,
   input[list] {
-    background-image: url("@/src/svg/dropdown.svg");
-    background-position: center right 0.25em;
-    background-size: auto 75%;
+    background-image: url("@/src/icons/dropdown-thin.svg");
+    background-position: center right var(--space-2xs);
+    background-size: 1.15em auto;
     background-repeat: no-repeat;
     appearance: none;
-    padding-inline-end: calc(2 * var(--space-2xs) + 1em);
+    padding-inline-end: calc(2 * var(--space-2xs) + 1.15em);
 
     &:dir(rtl) {
-      background-position: center left 0.25em;
+      background-position: center left var(--space-2xs);
     }
 
     @media (prefers-color-scheme: dark) {
-      background-image: url("@/src/svg/dropdown-invert.svg");
+      background-image: url("@/src/icons/dropdown-thin-invert.svg");
     }
   }
 
@@ -178,7 +178,7 @@
 
     &::before {
       content: "";
-      mask-image: url("@/src/svg/x-circle.svg");
+      mask-image: url("@/src/icons/x-circle.svg");
       mask-size: contain;
       mask-repeat: no-repeat;
       mask-position: center;
