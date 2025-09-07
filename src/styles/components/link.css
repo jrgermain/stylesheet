@@ -36,10 +36,11 @@ a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
     print-color-adjust: exact;
     mask-size: contain;
     mask-repeat: no-repeat;
+    mask-position: center;
     background-color: var(--color-gray-5);
     display: inline-block;
     vertical-align: baseline;
-    margin-inline: 0.15em;
+    margin-inline: 0.25em;
     position: relative;
     transition: background-color var(--duration-short) var(--ease-default);
   }
@@ -50,26 +51,32 @@ a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
 
   &.button::after {
     background-color: currentcolor !important;
-    margin-inline-start: initial;
-    vertical-align: middle;
-    inset-block-end: 0.1em;
+    margin-inline: initial;
   }
 
   /* External icon */
-  &[target="_blank"] {
-    &::after {
-      mask-image: url("@/src/icons/external.svg");
-      height: 0.9em;
-      width: 0.9em;
-    }
+  &[target="_blank"]::after {
+    mask-image: url("@/src/icons/external.svg");
+    height: 0.9em;
+    width: 0.9em;
+    inset-block-start: 0.06em;
   }
 
   /* Download icon */
-  &[download] {
-    &::after {
-      mask-image: url("@/src/icons/download.svg");
-      height: 0.9em;
-      width: 0.9em;
-    }
+  &[download]::after {
+    mask-image: url("@/src/icons/download.svg");
+    height: 1em;
+    width: 1em;
+    inset-block-start: 0.07em;
+  }
+
+  /* External icon (button-specific overrides) */
+  &.button[target="_blank"]::after {
+    inset-block-start: -0.03em;
+  }
+
+  /* Download icon (button-specific overrides) */
+  &.button[download]::after {
+    inset-block-start: -0.05em;
   }
 }
