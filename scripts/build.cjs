@@ -1,7 +1,7 @@
 const fs = require("node:fs/promises");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
-const { execSync } = require("node:child_process");
+const { execFileSync } = require("node:child_process");
 const { rimraf } = require("rimraf");
 const { bundle, browserslistToTargets } = require("lightningcss");
 const browserslist = require("browserslist");
@@ -10,7 +10,7 @@ const projectRoot = path.join(__dirname, "..");
 const targets = browserslistToTargets(browserslist("defaults"));
 const tsc = path.join(projectRoot, "node_modules", ".bin", "tsc");
 
-const processCssFile = async (sourcePath, destPath, options = {}) => {
+const processCssFile = async (sourcePath, destPath) => {
   const absoluteSourcePath = path.join(projectRoot, sourcePath);
   const absoluteDestPath = path.join(projectRoot, destPath);
 
@@ -22,6 +22,8 @@ const processCssFile = async (sourcePath, destPath, options = {}) => {
     cssModules: false,
     errorRecovery: false,
     projectRoot: path.dirname(absoluteSourcePath),
+    minify: true,
+    sourceMap: true,
     targets,
     visitor: {
       Url({ loc, url }) {
@@ -48,9 +50,17 @@ const processCssFile = async (sourcePath, destPath, options = {}) => {
             return {
               loc,
               url: `data:image/svg+xml,${content
+                // Compress/normalize consecutive whitespace characters into single spaces
+                .replace(/\s+/g, " ")
+                // Replace all double quotes with single quotes
                 .replaceAll('"', "'")
-                .replace(/>\s{1,}</g, "><")
-                .replace(/\s{2,}/g, " ")
+                // Remove whitespace between tags
+                .replaceAll("> <", "><")
+                // Remove whitespace at beginning of attribute values
+                .replaceAll("=' ", "='")
+                // Remove whitespace at end of attribute values
+                .replaceAll(" '", "'")
+                // Encode characters that MUST be encoded (we can leave the rest since browsers are forgiving)
                 .replace(/[\r\n%#()<>?[\\\]^`{|}]/g, encodeURIComponent)}`,
             };
           default:
@@ -63,7 +73,6 @@ const processCssFile = async (sourcePath, destPath, options = {}) => {
         }
       },
     },
-    ...options,
   });
 
   if (result.map) {
@@ -83,15 +92,14 @@ const processCssFile = async (sourcePath, destPath, options = {}) => {
   await rimraf(distPath);
   await fs.mkdir(distPath);
 
-  // Process files
-  await processCssFile("src/styles/index.css", "dist/index.css", {
-    minify: true,
-    sourceMap: true,
-  });
+  // Build CSS
+  await processCssFile("src/styles/index.css", "dist/index.css");
 
-  // Run TypeScript build
-  execSync(tsc, { cwd: projectRoot, stdio: "inherit" });
+  // Build TypeScript
+  execFileSync(tsc, { cwd: projectRoot, stdio: "inherit" });
+
+  console.log("Build complete");
 })().catch((e) => {
-  console.error(e);
+  console.error("Build failed", e);
   process.exit(1);
 });

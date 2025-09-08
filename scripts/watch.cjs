@@ -18,6 +18,7 @@ const rebuild = () => {
 chokidar
   .watch([
     path.join(__dirname, "../src"),
+    path.join(__dirname, "../scripts"),
     path.join(__dirname, "../package.json"),
   ])
   .on("change", (path) => {
