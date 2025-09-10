@@ -116,7 +116,21 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       <a href="/" class="button">Go to Homepage</a>
       <a href="/" target="_blank" class="button">Go to Homepage</a>
       <a href="/download.txt" download="Download.txt" class="button">Download</a>
+      <a href="/" target="_blank" class="button no-external-icon">Go to Homepage (no icon)</a>
+      <a href="/download.txt" download="Download.txt" class="button no-download-icon">Download (no icon)</a>
     `}
+    outputWrapperClass="dense horizontal flow"
+  />
+
+  <UsageExample
+    name="Download"
+    description={trimTextPadding(`
+      If your Button downloads a static file, you can use a link with the \`download\`
+      attribute as seen above. However, if your Button triggers a download programmatically
+      (e.g., by generating a file on the fly or calling an API to get the file), you can
+      add the \`has-download-icon\` class to any Button to add a download icon.
+    `)}
+    code={'<button type="button" class="button has-download-icon">Download</button>'}
     outputWrapperClass="dense horizontal flow"
   />
 

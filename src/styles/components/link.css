@@ -27,8 +27,10 @@
 }
 
 /* External and Download icons */
+.has-external-icon,
 a[target="_blank"]:is(.link, .button, .app-sidebar-item):not(.no-external-icon),
 :where(.style-semantic-elements a[target="_blank"]:not(.no-external-icon)),
+.has-download-icon,
 a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
 :where(.style-semantic-elements a[download]:not(.no-download-icon)) {
   &::after {
@@ -55,7 +57,7 @@ a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
   }
 
   /* External icon */
-  &[target="_blank"]::after {
+  &:is([target="_blank"], .has-external-icon)::after {
     mask-image: url("@/src/icons/external.svg");
     height: 0.9em;
     width: 0.9em;
@@ -63,7 +65,7 @@ a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
   }
 
   /* Download icon */
-  &[download]::after {
+  &:is([download], .has-download-icon)::after {
     mask-image: url("@/src/icons/download.svg");
     height: 1em;
     width: 1em;
@@ -71,12 +73,12 @@ a[download]:is(.link, .button, .app-sidebar-item):not(.no-download-icon),
   }
 
   /* External icon (button-specific overrides) */
-  &.button[target="_blank"]::after {
+  &.button:is([target="_blank"], .has-external-icon)::after {
     inset-block-start: -0.03em;
   }
 
   /* Download icon (button-specific overrides) */
-  &.button[download]::after {
+  &.button:is([download], .has-download-icon)::after {
     inset-block-start: -0.05em;
   }
 }

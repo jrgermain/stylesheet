@@ -18,18 +18,20 @@ import UsageExample from "../../components/UsageExample.astro";
   />
   <UsageExample
     name="New Tab"
-    description="Links that open in a new tab (i.e., have `target='blank'`) will automatically have an icon appended to the text. This can be disabled by adding the class `no-external-icon`."
+    description="Links that open in a new tab (i.e., have `target='blank'`) will automatically have an icon appended to the text. This can be disabled by adding the class `no-external-icon`, or added manually by adding the class `has-external-icon`."
     code={`
       <a href="#" class="link" target="_blank">I open in a new tab</a>
       <a href="#" class="link no-external-icon" target="_blank">I open in a new tab, but have my icon disabled</a>
+      <a href="#" class="link has-external-icon">I don't open in a new tab, but I have an icon</a>
     `}
   />
   <UsageExample
     name="Download"
-    description="Links that download a file (i.e., have the `download` attribute) will automatically have an icon appended to the text. This can be disabled by adding the class `no-download-icon`."
+    description="Links that download a file (i.e., have the `download` attribute) will automatically have an icon appended to the text. This can be disabled by adding the class `no-download-icon`, or added manually by adding the class `has-download-icon`."
     code={`
       <a href="/download.txt" download="Download.txt" class="link">I download a file</a>
       <a href="/download.txt" download="Download.txt" class="link no-download-icon">I download a file, but have my icon disabled</a>
+      <a href="#" class="link has-download-icon">I don't download a file, but I have an icon</a>
     `}
   />
 </ComponentDocumentation>
