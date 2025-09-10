@@ -1,0 +1,68 @@
+/*
+ * External and Download icons
+ *
+ * Links that open in a new tab or download a file will (by default) have icons
+ * added to the end. You can disable this behavior on an element by adding the
+ * `no-external-icon` and/or `no-download-icon` classes, or you can manually add
+ * the icons by adding the `has-external-icon` or `has-download-icon` classes.
+ *
+ * This behavior and these classes apply to the following components:
+ * - Link
+ * - Button
+ * - App Sidebar Item
+ */
+:is(.link, .button, .app-sidebar-item, .style-semantic-elements a) {
+  &::after {
+    print-color-adjust: exact;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: var(--color-gray-5);
+    display: inline-block;
+    vertical-align: baseline;
+    margin-inline: 0.25em;
+    position: relative;
+    transition: background-color var(--duration-short) var(--ease-default);
+  }
+
+  &:hover::after {
+    background-color: var(--color-gray-4);
+  }
+
+  &.button::after {
+    background-color: currentcolor !important;
+    margin-inline: initial;
+  }
+
+  /* External icon */
+  &[target="_blank"]:not(.no-external-icon),
+  &.has-external-icon {
+    &::after {
+      content: "";
+      mask-image: url("@/src/icons/external.svg");
+      height: 0.9em;
+      width: 0.9em;
+      inset-block-start: 0.06em;
+    }
+
+    &.button::after {
+      inset-block-start: -0.03em;
+    }
+  }
+
+  /* Download icon */
+  &[download]:not(.no-download-icon),
+  &.has-download-icon {
+    &::after {
+      content: "";
+      mask-image: url("@/src/icons/download.svg");
+      height: 1em;
+      width: 1em;
+      inset-block-start: 0.07em;
+    }
+
+    &.button::after {
+      inset-block-start: -0.05em;
+    }
+  }
+}
