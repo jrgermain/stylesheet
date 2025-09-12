@@ -165,7 +165,7 @@
     position: relative;
   }
 
-  /* Todo glitches */
+  /* TODO: glitches */
   .error-message {
     display: none;
     font-size: 0.9em;
@@ -186,6 +186,7 @@
       display: inline-block;
       height: 1.2em;
       width: 1.2em;
+      margin-inline-end: 0.2em;
     }
   }
 
