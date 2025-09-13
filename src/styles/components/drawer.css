@@ -1,4 +1,8 @@
-/* See utils/base-dialog for more */
+/*
+ * Note: Drawer extends Base Dialog, meaning this file builds on top of the
+ * styles defined in ./shared/base-dialog.css
+ */
+
 .drawer {
   --dialog-starting-opacity: 1;
   --dialog-ending-opacity: 1;

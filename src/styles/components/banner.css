@@ -1,3 +1,8 @@
+/*
+ * Note: Banner extends Base Message, meaning this file builds on top of the
+ * styles defined in ./shared/base-message.css
+ */
+
 .banner {
   --message-icon-size: 1.6em;
   --message-icon-margin: 0.8em;

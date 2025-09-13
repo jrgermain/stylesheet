@@ -1,4 +1,8 @@
-/* See utils/base-dialog for more */
+/*
+ * Note: Modal extends Base Dialog, meaning this file builds on top of the
+ * styles defined in ./shared/base-dialog.css
+ */
+
 .modal {
   max-height: calc(100svh - 4 * var(--space-body-y));
   max-width: calc(100svw - 4 * var(--space-body-x));
