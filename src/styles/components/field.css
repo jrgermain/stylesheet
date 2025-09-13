@@ -135,6 +135,21 @@
     }
   }
 
+  /*
+   * Fix issue on mobile safari where box shadow, border, and height styles
+   * aren't applied to some input types.
+   */
+  input:is(
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="time"],
+    [type="week"]
+  ) {
+    appearance: none;
+    min-height: calc(1.5em + 2 * var(--field-padding));
+  }
+
   select,
   input[list] {
     background-image: url("@/src/icons/dropdown-thin.svg");
@@ -150,6 +165,74 @@
 
     @media (prefers-color-scheme: dark) {
       background-image: url("@/src/icons/dropdown-thin-invert.svg");
+    }
+  }
+
+  /*
+   * On mobile safari, the user agent adds its own dropdown icon to inputs with
+   * a list attribute. We want to replace this icon with our custom one to match
+   * the style of <select> elements.
+   *
+   * While we could remove the browser's icon (leaving the background image to
+   * display our custom icon, like how we do for <select>), this has the side
+   * effect of preventing the user from opening the list of options. Making the
+   * icon invisible also doesn't work, since the target area ends up being out
+   * of alignment with the visible icon, and moving the target area can be 
+   * error-prone.
+   *
+   * To work around this, we remove the field's background image on mobile
+   * safari and keep the native pseudo-element, but replace its icon.
+   */
+  @supports (-webkit-touch-callout: none) {
+    input[list] {
+      padding-inline-end: var(--field-padding);
+      background-image: none;
+
+      &::-webkit-list-button {
+        appearance: none;
+        width: calc(1.15em + var(--field-padding));
+        height: 1.5em;
+        background-image: url("@/src/icons/dropdown-thin.svg");
+        background-position: right var(--field-padding) center;
+        background-size: 1.15em auto;
+        background-repeat: no-repeat;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        &::-webkit-list-button {
+          background-image: url("@/src/icons/dropdown-thin-invert.svg");
+        }
+      }
+    }
+  }
+
+  /* A similar issue to above happens on desktop chrome */
+  @supports (selector(input[list]::-webkit-calendar-picker-indicator)) {
+    input[list] {
+      padding-inline-end: 0;
+      background-image: none;
+
+      &::-webkit-calendar-picker-indicator {
+        appearance: none;
+        display: block !important;
+        list-style: none !important;
+        cursor: pointer;
+        width: 1.15em;
+        height: 1.5em;
+        flex: none;
+        opacity: 1;
+        padding: var(--field-padding);
+        background-image: url("@/src/icons/dropdown-thin.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 1.15em auto;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        &::-webkit-calendar-picker-indicator {
+          background-image: url("@/src/icons/dropdown-thin-invert.svg");
+        }
+      }
     }
   }
 
