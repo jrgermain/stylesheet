@@ -57,12 +57,12 @@
   }
 
   &.info {
-    --alert-bg-color: var(--color-sky-9);
-    --alert-title-color: var(--color-sky-3);
-    --alert-border-start-color: var(--color-sky-5);
-    --alert-border-end-color: var(--color-sky-6);
+    --alert-bg-color: var(--color-teal-9);
+    --alert-title-color: var(--color-teal-3);
+    --alert-border-start-color: var(--color-teal-5);
+    --alert-border-end-color: var(--color-teal-6);
     --message-icon: url("@/src/icons/info.svg");
-    --message-icon-color: var(--color-sky-5);
+    --message-icon-color: var(--color-teal-5);
   }
 }
 

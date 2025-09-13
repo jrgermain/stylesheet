@@ -1,7 +1,7 @@
 .button {
   --button-fg-color: var(--color-body-text);
   --button-bg-color: light-dark(var(--color-gray-9), #191b1e);
-  --button-border-color: light-dark(var(--color-gray-8), var(--color-outline));
+  --button-border-color: light-dark(var(--color-gray-8), var(--color-border));
   --button-font-weight: var(--font-weight-normal);
   --button-focus-ring-color: var(--color-gray-extra-transparent);
   --button-shadow: var(--shadow-s);
@@ -125,11 +125,11 @@
     --button-focus-ring-color: var(--color-green-extra-transparent);
   }
 
-  &.sky {
-    --button-fg-color: var(--color-sky-1);
-    --button-bg-color: var(--color-sky-9);
-    --button-border-color: var(--color-sky-8);
-    --button-focus-ring-color: var(--color-sky-extra-transparent);
+  &.teal {
+    --button-fg-color: var(--color-teal-1);
+    --button-bg-color: var(--color-teal-9);
+    --button-border-color: var(--color-teal-8);
+    --button-focus-ring-color: var(--color-teal-extra-transparent);
   }
 
   &.blue {
@@ -196,10 +196,10 @@
       --button-focus-ring-color: var(--color-green-transparent);
     }
 
-    &.sky {
-      --button-bg-color: var(--color-sky-5);
-      --button-border-color: var(--color-sky-4);
-      --button-focus-ring-color: var(--color-sky-transparent);
+    &.teal {
+      --button-bg-color: var(--color-teal-5);
+      --button-border-color: var(--color-teal-4);
+      --button-focus-ring-color: var(--color-teal-transparent);
     }
 
     &.blue {
@@ -290,12 +290,12 @@
       }
     }
 
-    &.sky {
-      --button-fg-color: var(--color-sky-4);
-      --button-hover-bg-color: var(--color-sky-extra-transparent);
+    &.teal {
+      --button-fg-color: var(--color-teal-4);
+      --button-hover-bg-color: var(--color-teal-extra-transparent);
 
       &:is(:focus-visible, .focus) {
-        --button-bg-color: var(--color-sky-transparent);
+        --button-bg-color: var(--color-teal-transparent);
       }
     }
 

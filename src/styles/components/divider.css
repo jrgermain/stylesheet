@@ -4,7 +4,7 @@
 
   display: block;
   border-style: solid;
-  border-color: var(--color-outline);
+  border-color: var(--color-border);
   border-width: 0;
   border-top-width: var(--divider-thickness);
   margin: var(--space-xs) 0;

@@ -27,7 +27,7 @@
   }
 
   box-shadow: var(--shadow-xl);
-  border: var(--border-s) solid var(--color-outline);
+  border: var(--border-s) solid var(--color-border);
   border-radius: var(--radius-l);
   background-color: var(--color-body-alt);
   color: var(--color-body-text);

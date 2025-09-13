@@ -62,7 +62,7 @@
   /* Put a spacer between consecutive right-aligned sections (3rd onward) */
   &:nth-child(n + 3)::before {
     content: "";
-    background-color: var(--color-outline);
+    background-color: var(--color-border);
     height: 2rem;
     width: var(--border-s);
     position: relative;
@@ -164,7 +164,7 @@
   width: var(--app-sidebar-width);
   flex: none;
   opacity: 1;
-  border-inline-end: var(--border-s) dashed var(--color-outline);
+  border-inline-end: var(--border-s) dashed var(--color-border);
 }
 
 .app-sidebar-content {

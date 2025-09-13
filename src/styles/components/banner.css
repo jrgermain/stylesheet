@@ -36,10 +36,10 @@
   }
 
   &.info {
-    --banner-bg-color: var(--color-sky-4);
-    --banner-secondary-color: var(--color-sky-5);
+    --banner-bg-color: var(--color-teal-4);
+    --banner-secondary-color: var(--color-teal-5);
     --message-icon: url("@/src/icons/info.svg");
-    --message-icon-color: var(--color-sky-5);
+    --message-icon-color: var(--color-teal-5);
   }
 
   .link {

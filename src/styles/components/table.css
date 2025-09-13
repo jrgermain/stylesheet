@@ -8,7 +8,7 @@ table.table,
   border-collapse: separate;
   border-spacing: 0;
   font-size: var(--font-size-m);
-  border: var(--border-s) solid var(--color-outline);
+  border: var(--border-s) solid var(--color-border);
   border-radius: var(--radius-s);
   color: var(--color-body-text);
   font-family: var(--font-family-body);
@@ -54,11 +54,11 @@ table.table,
   }
 
   th {
-    border-block-end: var(--border-m) solid var(--color-outline);
+    border-block-end: var(--border-m) solid var(--color-border);
   }
 
   tfoot td {
-    border-block-start: var(--border-m) solid var(--color-outline);
+    border-block-start: var(--border-m) solid var(--color-border);
   }
 
   td {
@@ -66,15 +66,15 @@ table.table,
   }
 
   :is(th, tfoot td):not(:last-of-type) {
-    border-inline-end: var(--table-vertical-border) dashed var(--color-outline);
+    border-inline-end: var(--table-vertical-border) dashed var(--color-border);
   }
 
   td:not(tfoot td, :last-of-type) {
-    border-inline-end: var(--table-vertical-border) solid var(--color-outline);
+    border-inline-end: var(--table-vertical-border) solid var(--color-border);
   }
 
   tr:not(:last-of-type) td {
-    border-block-end: var(--border-s) solid var(--color-outline);
+    border-block-end: var(--border-s) solid var(--color-border);
   }
 
   tbody tr:nth-child(odd),
