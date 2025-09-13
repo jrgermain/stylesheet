@@ -18,6 +18,15 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "console": "integratedTerminal"
+    },
+    {
+      "name": "Docs: Start Dev Server (Host)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/docs",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--host"],
+      "console": "integratedTerminal"
     }
   ],
   "compounds": [
@@ -25,6 +34,13 @@
       "name": "Run All - Development Mode",
       "configurations": [
         "Docs: Start Dev Server",
+        "Stylesheet: Build and Watch"
+      ]
+    },
+    {
+      "name": "Run All - Development Mode (Host)",
+      "configurations": [
+        "Docs: Start Dev Server (Host)",
         "Stylesheet: Build and Watch"
       ]
     }
