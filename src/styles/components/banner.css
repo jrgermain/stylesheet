@@ -1,4 +1,8 @@
 .banner {
+  --message-icon-size: 1.6em;
+  --message-icon-margin: 0.8em;
+  --message-icon-background: var(--color-body-alt);
+
   font-size: 1rem;
   color: var(--color-body-text-invert);
   border-block: var(--border-m) solid var(--banner-secondary-color);
@@ -8,25 +12,29 @@
   &.error {
     --banner-bg-color: var(--color-red-4);
     --banner-secondary-color: var(--color-red-5);
-    --banner-icon: url("@/src/icons/x.svg");
+    --message-icon: url("@/src/icons/x.svg");
+    --message-icon-color: var(--color-red-5);
   }
 
   &.warning {
     --banner-bg-color: var(--color-yellow-4);
     --banner-secondary-color: var(--color-yellow-5);
-    --banner-icon: url("@/src/icons/warning.svg");
+    --message-icon: url("@/src/icons/warning.svg");
+    --message-icon-color: var(--color-yellow-5);
   }
 
   &.success {
     --banner-bg-color: var(--color-green-4);
     --banner-secondary-color: var(--color-green-5);
-    --banner-icon: url("@/src/icons/check.svg");
+    --message-icon: url("@/src/icons/check.svg");
+    --message-icon-color: var(--color-green-5);
   }
 
   &.info {
     --banner-bg-color: var(--color-sky-4);
     --banner-secondary-color: var(--color-sky-5);
-    --banner-icon: url("@/src/icons/info.svg");
+    --message-icon: url("@/src/icons/info.svg");
+    --message-icon-color: var(--color-sky-5);
   }
 
   .link {
@@ -64,19 +72,7 @@
   max-width: var(--app-max-content-width);
   margin-inline: auto;
   padding: var(--space-2xs) var(--space-body-x);
-  padding-inline-start: calc(var(--space-body-x) + 2em);
-
-  &::before {
-    inset-inline-start: calc(var(--space-body-x) * 0.5 + 0.5em);
-    mask-image: var(--banner-icon);
-    background-color: var(--banner-secondary-color);
-  }
-
-  &::after {
-    inset-inline-start: calc(var(--space-body-x) * 0.5 + 0.15em);
-    background-color: currentcolor;
-    border: var(--border-m) solid var(--banner-secondary-color);
-  }
+  padding-inline-start: 3.2em;
 }
 
 .banner-title {

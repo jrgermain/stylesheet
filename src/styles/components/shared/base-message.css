@@ -31,32 +31,33 @@
     content: "";
     position: absolute;
     inset-block: 0;
+    inset-inline-start: var(--message-icon-margin);
     margin-block: auto;
+    width: var(--message-icon-size);
+    height: var(--message-icon-size);
   }
 
   &::before {
-    z-index: 2;
-    width: 0.9em;
-    height: 0.9em;
-    mask-repeat: no-repeat;
-    mask-size: contain;
-    background-color: var(--alert-border-start-color);
+    border-radius: var(--radius-full);
+    background-color: var(--message-icon-background);
+    border: var(--border-m) solid var(--message-icon-color);
   }
 
   &::after {
-    z-index: 1;
-    width: 1.6em;
-    height: 1.6em;
-    border-radius: var(--radius-full);
+    mask-image: var(--message-icon);
+    mask-repeat: no-repeat;
+    mask-size: auto 55%;
+    mask-position: center;
+    background-color: var(--message-icon-color);
   }
 
   @media print {
     &::before {
-      print-color-adjust: exact;
+      background-color: transparent;
     }
 
     &::after {
-      background-color: transparent;
+      print-color-adjust: exact;
     }
   }
 }

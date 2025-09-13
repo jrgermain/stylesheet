@@ -4,8 +4,8 @@
 @import url("./misc/variables.css");
 
 /* Styles used in multiple components */
-@import url("./components/shared/base-alert.css");
 @import url("./components/shared/base-dialog.css");
+@import url("./components/shared/base-message.css");
 @import url("./components/shared/dismiss-button.css");
 @import url("./components/shared/link-icons.css");
 

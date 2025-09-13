@@ -1,4 +1,8 @@
 .alert {
+  --message-icon-size: 1.7em;
+  --message-icon-margin: 0.25em;
+  --message-icon-background: var(--color-body-alt);
+
   font-size: var(--font-size-m);
   color: var(--color-body-text);
   border: var(--border-m) solid transparent;
@@ -6,7 +10,7 @@
   border-start-start-radius: calc(var(--space-2xs) + 2em);
   border-end-start-radius: calc(var(--space-2xs) + 2em);
   padding: var(--space-2xs);
-  padding-inline-start: calc(var(--space-2xs) + 2em);
+  padding-inline-start: 2.5em;
   background:
     linear-gradient(var(--alert-bg-color), var(--alert-bg-color)) padding-box,
     linear-gradient(
@@ -17,9 +21,7 @@
       border-box;
 
   @media print {
-    & {
-      border-color: var(--alert-border-start-color);
-    }
+    border-color: var(--alert-border-start-color);
   }
 
   &.error {
@@ -27,7 +29,8 @@
     --alert-title-color: var(--color-red-3);
     --alert-border-start-color: var(--color-red-5);
     --alert-border-end-color: var(--color-red-6);
-    --alert-icon: url("@/src/icons/x.svg");
+    --message-icon: url("@/src/icons/x.svg");
+    --message-icon-color: var(--color-red-5);
   }
 
   &.warning {
@@ -35,7 +38,8 @@
     --alert-title-color: var(--color-yellow-3);
     --alert-border-start-color: var(--color-yellow-5);
     --alert-border-end-color: var(--color-yellow-6);
-    --alert-icon: url("@/src/icons/warning.svg");
+    --message-icon: url("@/src/icons/warning.svg");
+    --message-icon-color: var(--color-yellow-5);
   }
 
   &.success {
@@ -43,7 +47,8 @@
     --alert-title-color: var(--color-green-3);
     --alert-border-start-color: var(--color-green-5);
     --alert-border-end-color: var(--color-green-6);
-    --alert-icon: url("@/src/icons/check.svg");
+    --message-icon: url("@/src/icons/check.svg");
+    --message-icon-color: var(--color-green-5);
   }
 
   &.info {
@@ -51,19 +56,8 @@
     --alert-title-color: var(--color-sky-3);
     --alert-border-start-color: var(--color-sky-5);
     --alert-border-end-color: var(--color-sky-6);
-    --alert-icon: url("@/src/icons/info.svg");
-  }
-
-  &::before {
-    inset-inline-start: calc(var(--space-2xs) * 0.5 + 0.5em);
-    mask-image: var(--alert-icon);
-    background-color: var(--alert-border-start-color);
-  }
-
-  &::after {
-    inset-inline-start: calc(var(--space-2xs) * 0.5 + 0.15em);
-    background-color: var(--color-body-alt);
-    border: var(--border-m) solid var(--alert-border-start-color);
+    --message-icon: url("@/src/icons/info.svg");
+    --message-icon-color: var(--color-sky-5);
   }
 }
 
