@@ -41,6 +41,7 @@ import UsageExample from "../../components/UsageExample.astro";
       </div>
     `}
   />
+
   <UsageExample
     name="Title + Link"
     description="If the title has a `href` attribute (i.e., is a hyperlink), it will inherit additional styles from the Link component."
@@ -52,6 +53,55 @@ import UsageExample from "../../components/UsageExample.astro";
       <div class="card secondary">
         <a href="#" class="card-title">This is a link.</a>
         <p>This is some text.</p>
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Transparent Cards"
+    description="Cards on top of a colorful background can also have a transparent blurred background instead of the solid default style. To opt into this, add the class `transparent`."
+    code={`
+      <div style="
+        background-image:linear-gradient(135deg, var(--color-blue-5), var(--color-purple-5), var(--color-magenta-5));
+        padding: var(--space-m);
+      ">
+        <div class="card transparent">
+          <h1 class="card-title">Transparent Card</h1>
+          <p>This is an example of a transparent card.</p>
+        </div>
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Transparency + Images"
+    description="If you want to use a transparent card on top of an image that is mostly light or mostly dark, you may force the card to use light or dark mode to match (for aesthetic reasons) using the `light-mode` or `dark-mode` classes in addition to the `transparent` class. This has the added benefit of making sure any other components inside are in the correct mode as well."
+    code={`
+      <div style="
+        background-image: url('/sumner-mahaffey-7Y0NshQLohk-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: var(--space-m);
+      ">
+        <div class="card transparent light-mode">
+          <h1 class="card-title">Transparent Card</h1>
+          <p>This is an example of a transparent card that always displays in light mode.</p>
+          <hr class="divider invisible" />
+          <button class="button primary" type="button">This button is automatically in light mode.</button>
+        </div>
+      </div>
+      <div style="
+        background-image: url('/takashi-watanabe-f2DL8oI-7N8-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: var(--space-m);
+      ">
+        <div class="card transparent dark-mode">
+          <h1 class="card-title">Transparent Card</h1>
+          <p>This is an example of a transparent card that always displays in dark mode.</p>
+          <hr class="divider invisible" />
+          <button class="button primary" type="button">This button is automatically in dark mode.</button>
+        </div>
       </div>
     `}
   />

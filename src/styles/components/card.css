@@ -1,18 +1,38 @@
 .card {
-  background-color: var(--color-body-alt);
+  --card-bg-color: var(--color-body-alt);
+  --card-fg-color: var(--color-body-text);
+  --card-title-color: var(--color-brand-3);
+  --card-title-underline-color: var(--color-brand-transparent);
+  --card-title-active-color: var(--color-brand-2);
+  --card-border-color: var(--color-border);
+
+  background-color: var(--card-bg-color);
   border-radius: var(--radius-l);
-  border: var(--border-s) solid var(--color-border);
+  border: var(--border-s) solid var(--card-border-color);
   box-shadow: var(--shadow-m);
   padding: var(--space-m);
   font-family: var(--font-family-body);
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-normal);
+  color: var(--card-fg-color);
 
   &.secondary {
-    background-color: var(--color-body);
+    --card-bg-color: var(--color-body);
+
     border-radius: var(--radius-m);
     box-shadow: var(--shadow-s);
     padding: var(--space-s);
+  }
+
+  &.transparent {
+    --card-bg-color: light-dark(#fff9, #3339);
+    --card-border-color: light-dark(#fff8, #4448);
+    --card-fg-color: light-dark(black, white);
+    --card-title-color: var(--card-fg-color);
+    --card-title-underline-color: light-dark(#0006, #fff6);
+    --card-title-active-color: light-dark(#444, #ddd);
+
+    backdrop-filter: blur(32px) saturate(120%);
   }
 }
 
@@ -28,16 +48,16 @@
   overflow-wrap: break-word;
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-bold);
-  color: var(--color-brand-3);
+  color: var(--card-title-color);
   margin-block: 0 var(--space-xs);
   display: block;
 }
 
 .card-title[href] {
-  text-decoration-color: var(--color-brand-transparent);
+  text-decoration-color: var(--card-title-underline-color);
 
   &:active {
-    color: var(--color-brand-2);
+    color: var(--card-title-active-color);
   }
 }
 
