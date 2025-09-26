@@ -2,18 +2,20 @@
   --chip-fg-color: white;
   --chip-bg-color: var(--color-brand-5);
   --chip-border-color: var(--color-brand-4);
-  --chip-focus-color: var(--color-brand-transparent);
   --chip-delete-hover-color: var(--color-brand-3);
   --chip-delete-active-color: var(--color-brand-2);
+  --chip-focus-color: var(--color-brand-transparent);
+  --chip-padding-x: var(--space-xs);
+  --chip-padding-y: var(--space-3xs);
 
   display: inline-flex;
+  position: relative;
   align-items: center;
   border-radius: var(--radius-full);
   font-size: var(--font-size-s);
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-normal);
-  padding-block: var(--space-3xs);
-  padding-inline: var(--space-xs);
+  padding: var(--chip-padding-y) var(--chip-padding-x);
   background-color: var(--chip-bg-color);
   border: var(--border-s) solid var(--chip-border-color);
   color: var(--chip-fg-color);
@@ -36,15 +38,21 @@
     box-shadow: var(--shadow-s);
     transform: scale(1);
 
-    &:is(:focus-visible, .focus) {
+    &:is(:focus-visible, .focus),
+    &:has(.chip-label:focus-visible) {
       outline: 0;
       box-shadow:
         var(--shadow-s),
         0 0 0 0.1em var(--chip-border-color),
         0 0 0 calc(0.2em + var(--border-s)) var(--chip-focus-color);
+
+      .chip-delete {
+        opacity: 0.5;
+      }
     }
 
-    &:is(:hover, .hover) {
+    /* Change the background on hover, but only if the cursor is not over the delete button */
+    &:hover:not(:has(.chip-delete:hover)) {
       background-color: var(--chip-border-color);
     }
 
@@ -196,9 +204,28 @@
   }
 }
 
+.chip:has(.chip-label) {
+  padding: 0;
+}
+
+.chip-label {
+  all: unset;
+  display: inherit;
+  line-height: inherit;
+  user-select: inherit;
+  cursor: inherit;
+  padding: var(--chip-padding-y) var(--chip-padding-x);
+  border-radius: var(--radius-full);
+}
+
+.chip-label:has(+ .chip-delete) {
+  padding-inline-end: calc(1.2em + 2 * var(--space-3xs));
+}
+
 .chip-delete {
-  outline: 1px solid transparent;
-  margin-inline: var(--space-3xs) calc(-1 * var(--space-2xs));
+  outline: 1px solid var(--chip-bg-color);
+  margin-inline: var(--space-3xs)
+    calc(-1 * var(--chip-padding-x) + var(--space-3xs));
   font-size: 0.6em;
   border: 0;
   border-radius: var(--radius-full);
@@ -239,4 +266,10 @@
   &:is(:active, .active) {
     background-color: var(--chip-delete-active-color);
   }
+}
+
+.chip-label + .chip-delete {
+  position: absolute;
+  inset: 0 var(--space-3xs) 0 auto;
+  margin: auto 0;
 }
