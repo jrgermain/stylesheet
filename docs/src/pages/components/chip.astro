@@ -44,6 +44,31 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
 
   <UsageExample
+    name="Alternate Color Scheme"
+    description={trimTextPadding(`
+      Chips also support an **alternate color scheme** that uses a lighter background and darker text.
+
+      To use the alternate color scheme, add the \`alternate\` class in addition to the color class.
+
+      Note that the \`black\` and \`white\` color classes do not have alternate versions, so this class
+      has no effect when used with those colors.
+    `)}
+    code={`
+      <div class="chip alternate">Brand</div>
+      <div class="red chip alternate">Red</div>
+      <div class="orange chip alternate">Orange</div>
+      <div class="yellow chip alternate">Yellow</div>
+      <div class="green chip alternate">Green</div>
+      <div class="teal chip alternate">Teal</div>
+      <div class="blue chip alternate">Blue</div>
+      <div class="purple chip alternate">Purple</div>
+      <div class="magenta chip alternate">Magenta</div>
+      <div class="gray chip alternate">Gray</div>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
     name="Clickable"
     description="To make a Chip **clickable**, add the `clickable` class. In this case, it's also a good idea to use a `button` element for the Chip itself."
     code={`
@@ -59,6 +84,18 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       <button class="clickable gray chip">Gray</button>
       <button class="clickable black chip">Black</button>
       <button class="clickable white chip">White</button>
+
+      <button class="clickable chip alternate">Brand</button>
+      <button class="clickable red chip alternate">Red</button>
+      <button class="clickable orange chip alternate">Orange</button>
+      <button class="clickable yellow chip alternate">Yellow</button>
+      <button class="clickable green chip alternate">Green</button>
+      <button class="clickable teal chip alternate">Teal</button>
+      <button class="clickable blue chip alternate">Blue</button>
+      <button class="clickable purple chip alternate">Purple</button>
+      <button class="clickable magenta chip alternate">Magenta</button>
+      <button class="clickable gray chip alternate">Gray</button>
+
     `}
     outputWrapperClass="flow horizontal dense"
   />
@@ -122,6 +159,46 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       </div>
       <div class="white chip">
         White
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="chip alternate">
+        Brand
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="red chip alternate">
+        Red
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="orange chip alternate">
+        Orange
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="yellow chip alternate">
+        Yellow
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="green chip alternate">
+        Green
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="teal chip alternate">
+        Teal
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="blue chip alternate">
+        Blue
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="purple chip alternate">
+        Purple
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="magenta chip alternate">
+        Magenta
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="gray chip alternate">
+        Gray
         <button class="chip-delete" title="Delete"></button>
       </div>
     `}
