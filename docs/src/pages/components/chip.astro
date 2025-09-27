@@ -64,6 +64,15 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
 
   <UsageExample
+    name="Links as Clickable Chips"
+    description="Clickable Chips can be links instead of buttons."
+    code={`
+      <a href="#" class="clickable chip">Clickable link</a>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
     name="Deletable"
     description="To make a Chip **deletable**, add a button element inside the Chip with the class `chip-delete`."
     code={`
@@ -113,6 +122,80 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       </div>
       <div class="white chip">
         White
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="Clickable & Deletable"
+    description={trimTextPadding(`
+      To make a Chip both clickable and deletable, you'll need to make some adjustments to the
+      markup to avoid nesting buttons inside other buttons, which is an accessibility problem.
+
+      To make a Chip both clickable and deletable, use a \`div\` with the \`clickable\` class
+      for the Chip itself. Inside, place the label text inside a \`button\` element with the
+      \`chip-label\` class, followed by the same delete button markup as in the example above.
+      These two buttons must be next to each other in the markup, not nested.
+
+      Attach your \`onclick\` handlers to the two inner buttons, not the outer \`div\`.
+    `)}
+    code={`
+      <div class="chip clickable">
+        <button onclick="alert('Chip clicked')" class="chip-label">Chip text goes here</button>
+        <button onclick="alert('Delete clicked')" class="chip-delete" title="Delete"></button>
+      </div>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="Clickable & Deletable Link"
+    description={trimTextPadding(`
+      Below is an example of a Chip that is both clickable and deletable, using a link for the clickable part
+      instead of a button.
+
+      The same rules apply as in the previous example: since links count as interactive elements, they
+      shouldn't contain buttons, so we use the \`chip-label\` element as our link.
+    `)}
+    code={`
+      <div class="chip clickable">
+        <a href="#" class="chip-label">Chip text goes here</a>
+        <button onclick="alert('Delete clicked')" class="chip-delete" title="Delete"></button>
+      </div>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="A Note on the Chip Label"
+    description={trimTextPadding(`
+      Wrapping the content of a Chip in an element with the \`chip-label\` class is **required**
+      for Chips that are both clickable and deletable, and **optional** in all other cases.
+
+      Below are some examples of Chips with and without the \`chip-label\` class. They should
+      look and function identically.
+    `)}
+    code={`
+      <div class="chip blue">
+        <span class="chip-label">Standard chip with chip-label</span>
+      </div>
+      <div class="chip blue">
+        Standard chip without chip-label
+      </div>
+      <div class="chip clickable green">
+        <button class="chip-label">Clickable chip with chip-label</button>
+      </div>
+      <button class="chip clickable green">
+        Clickable chip without chip-label
+      </button>
+      <div class="chip orange">
+        <span class="chip-label">Deletable chip with chip-label</span>
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="chip orange">
+        Deletable chip without chip-label
         <button class="chip-delete" title="Delete"></button>
       </div>
     `}
