@@ -1,5 +1,10 @@
+/* Define all custom properties at the root */
 :root,
+/* Explicitly redefine on ::backdrop for compatibility with older browsers (see https://caniuse.com/mdn-css_selectors_backdrop_inherit_from_originating_element) */
 ::backdrop,
+/* On certain elements, redefine to prevent inheritance of light/dark mode from parents */
+.modal,
+.drawer,
 .light-mode,
 .dark-mode {
   /* Brand */

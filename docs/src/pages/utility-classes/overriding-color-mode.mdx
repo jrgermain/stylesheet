@@ -46,3 +46,100 @@ To force an element (and its children) to display in dark mode, add the class `d
     </div>
   `}
 />
+
+## Exceptions
+
+### Drawers & Modals
+
+Since these components appear in the top layer regardless of their place in the DOM,
+we choose to have them follow the document's color mode rather than inheriting the
+color mode of their parent element. While this is not the default behavior for CSS,
+it better aligns with how these components look and behave.
+
+To override this behavior, reapply the color mode class to the `.drawer` or `.modal`
+element to match the desired color mode.
+
+  <UsageExample
+    name="Playground"
+    allowShowCode={false}
+    isJavaScriptRequired={true}
+    code={`
+      <div
+        class="stack vertical dense"
+        x-data="{ containerColorMode: '', dialogColorMode: '', type: 'drawer' }"
+      >
+        <div class="flow">
+          <label class="field compact">
+            Container Color Mode
+            <select x-model="containerColorMode">
+              <option value="">Default</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </label>
+          <label class="field compact">
+            Dialog Color Mode
+            <select x-model="dialogColorMode">
+              <option value="">Default</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </label>
+          <label class="field compact">
+            Dialog Type
+            <select x-model="type">
+              <option value="drawer">Drawer</option>
+              <option value="modal">Modal</option>
+            </select>
+          </label>
+        </div>
+        <div class="card" x-bind:class="containerColorMode + '-mode'">
+          <p>
+            This card is displaying in
+            <span x-text="containerColorMode ? containerColorMode + ' mode.' : 'the same color mode as the document.'"></span>
+          </p>          
+          <button
+            class="button primary"
+            style="text-transform: capitalize;"
+            @click="$refs.dialog.showModal()"
+            x-text="'Show ' + type"
+          ></button>
+          <dialog
+            x-ref="dialog"
+            x-bind:class="
+              type +
+              ' small ' + 
+              (dialogColorMode ? dialogColorMode + '-mode ' : '') + 
+              (type === 'drawer' ? 'left' : '')
+            "
+          >
+            <div x-bind:class="type + '-header'">
+              <h1 style="text-transform: capitalize;" x-text="type"></h1>
+              <button
+                class="button dismiss"
+                aria-label="Close"
+                x-on:click="$refs.dialog.close()"></button>
+            </div>
+            <div x-bind:class="type + '-body'">
+              <p>
+                This 
+                <span x-text="type"></span>
+                is displaying in
+                <span x-text="dialogColorMode ? dialogColorMode + ' mode' : 'the same color mode as the document'"></span>
+                <span x-show="dialogColorMode">
+                  because it has a color mode explicitly set
+                  (<code class="code" x-text="'.' + type + '.' + dialogColorMode + '-mode'"></code>)
+                  .
+                </span>
+                <span x-show="!dialogColorMode">because it does not have a color mode explicitly set.</span>
+                <span x-show="containerColorMode && !dialogColorMode">
+                  Even though the container sets a specific color mode, this component ignores it and matches the document's color mode instead.
+                </span>
+                
+              </p>
+            </div>
+          </dialog>
+        </div>
+      </div>
+    `}
+  />
