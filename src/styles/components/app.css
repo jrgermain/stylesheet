@@ -99,7 +99,7 @@
     outline-offset: calc(-1 * var(--border-m));
   }
 
-  &:is([aria-current], .current) {
+  &[aria-current]:not([aria-current="false"]) {
     font-weight: var(--font-weight-bold);
 
     &::after {
@@ -217,7 +217,7 @@
     color: var(--color-brand-1);
   }
 
-  &:is([aria-current], .current) {
+  &[aria-current]:not([aria-current="false"]) {
     color: var(--color-brand-4);
     font-weight: var(--font-weight-bold);
   }
