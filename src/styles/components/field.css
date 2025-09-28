@@ -24,7 +24,7 @@
     font-size: calc(0.9 * var(--font-size-m));
   }
 
-  &:focus-within {
+  &:is(:focus-within, .focus) {
     color: var(--color-brand-5);
   }
 
@@ -36,7 +36,7 @@
     }
   }
 
-  &:has([readonly]):focus-within {
+  &:has([readonly]):is(:focus-within, .focus) {
     color: var(--color-gray-5);
   }
 
@@ -65,7 +65,7 @@
     font-family: inherit;
     line-height: 1.25;
 
-    &:focus {
+    &:is(:focus, .focus) {
       outline: 0;
       border-color: var(--color-brand-5);
       box-shadow:
@@ -86,7 +86,7 @@
     &[readonly] {
       border-style: dashed;
 
-      &:focus {
+      &:is(:focus, .focus) {
         outline: 0;
         border-style: solid;
         border-color: var(--color-gray-5);
@@ -101,7 +101,7 @@
       border-color: var(--color-red-5);
       box-shadow: 0 0 0 0.1em var(--color-red-5);
 
-      &:focus {
+      &:is(:focus, .focus) {
         outline: 0;
         border-color: var(--color-red-5);
         box-shadow:
@@ -297,7 +297,7 @@
       border-start-end-radius: var(--field-radius) !important;
     }
 
-    > :focus-visible {
+    > :is(:focus-visible, .focus) {
       z-index: 3;
     }
 
@@ -336,15 +336,15 @@
       transition-duration: var(--duration-medium);
       transition-timing-function: var(--ease-default);
 
-      &:hover {
+      &:is(:hover, .hover) {
         background-color: var(--color-gray-8);
       }
 
-      &:active {
+      &:is(:active, .active) {
         background-color: var(--color-gray-7);
       }
 
-      &:focus-visible {
+      &:is(:focus-visible, .focus) {
         border-color: var(--color-brand-5);
         border-inline-start-width: var(--border-s);
         border-inline-start-style: solid;
@@ -358,7 +358,7 @@
     > :is(input, select, textarea) {
       width: 100%;
 
-      &:has(~ .action:focus-visible) {
+      &:has(~ .action:is(:focus-visible, .focus)) {
         border-inline-end-width: 0;
       }
     }
@@ -392,7 +392,7 @@ fieldset.fieldset {
     transition: color var(--duration-medium) var(--ease-default);
   }
 
-  &:focus-within legend {
+  &:is(:focus-within, .focus) legend {
     color: var(--color-brand-5);
   }
 }

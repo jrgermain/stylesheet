@@ -56,7 +56,7 @@
 .card-title[href] {
   text-decoration-color: var(--card-title-underline-color);
 
-  &:active {
+  &:is(:active, .active) {
     color: var(--card-title-active-color);
   }
 }

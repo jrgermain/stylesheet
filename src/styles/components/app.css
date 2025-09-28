@@ -86,15 +86,15 @@
   padding-inline: var(--space-xs);
   border-radius: var(--radius-m);
 
-  &:hover {
+  &:is(:hover, .hover) {
     background-color: var(--color-brand-extra-transparent);
   }
 
-  &:active {
+  &:is(:active, .active) {
     background-color: var(--color-brand-transparent);
   }
 
-  &:focus-visible {
+  &:is(:focus-visible, .focus) {
     background-color: var(--color-brand-extra-transparent);
     outline-offset: calc(-1 * var(--border-m));
   }
@@ -209,11 +209,11 @@
   transition-duration: var(--duration-short);
   transition-timing-function: var(--ease-default);
 
-  &:hover {
+  &:is(:hover, .hover) {
     background-color: var(--color-brand-extra-transparent);
   }
 
-  &:active {
+  &:is(:active, .active) {
     color: var(--color-brand-1);
   }
 
@@ -222,11 +222,11 @@
     font-weight: var(--font-weight-bold);
   }
 
-  &:hover:active {
+  &:is(:hover, .hover):is(:active, .active) {
     background-color: var(--color-brand-transparent);
   }
 
-  &:focus-visible {
+  &:is(:focus-visible, .focus) {
     outline-offset: 0;
     background-color: var(--color-brand-extra-transparent);
   }
@@ -235,6 +235,7 @@
 .app-sidebar-toggle {
   width: 2.75rem;
 
+  &.focus,
   &:has(input:focus-visible) {
     background-color: var(--color-brand-extra-transparent);
     outline: var(--border-m) solid var(--color-brand-5);

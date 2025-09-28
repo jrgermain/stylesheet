@@ -17,11 +17,11 @@
     text-decoration-color: currentcolor;
   }
 
-  &:focus-visible {
+  &:is(:focus-visible, .focus) {
     outline-offset: 1px;
   }
 
-  &:active {
+  &:is(:active, .active) {
     color: var(--color-teal-3);
   }
 }

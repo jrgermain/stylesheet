@@ -52,6 +52,7 @@
     }
 
     /* Change the background on hover, but only if the cursor is not over the delete button */
+    &.hover,
     &:hover:not(:has(.chip-delete:hover)) {
       background-color: var(--chip-border-color);
     }
