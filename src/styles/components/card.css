@@ -25,14 +25,14 @@
   }
 
   &.transparent {
-    --card-bg-color: light-dark(#fff9, #3339);
-    --card-border-color: light-dark(#fff8, #4448);
-    --card-fg-color: light-dark(black, white);
+    --card-bg-color: var(--internal-glass-bg-color);
+    --card-border-color: var(--internal-glass-border-color);
+    --card-fg-color: var(--internal-glass-fg-color);
     --card-title-color: var(--card-fg-color);
     --card-title-underline-color: light-dark(#0006, #fff6);
     --card-title-active-color: light-dark(#444, #ddd);
 
-    backdrop-filter: blur(32px) saturate(120%);
+    backdrop-filter: var(--internal-glass-filter);
   }
 }
 

@@ -229,4 +229,13 @@
   --duration-medium: 150ms;
   --duration-long: 250ms;
   --duration-extra-long: 350ms;
+
+  /**************************************************************
+   * Tokens prefixed with --internal- are for internal use only *
+   **************************************************************/
+
+  --internal-glass-bg-color: light-dark(#fff9, #30333799);
+  --internal-glass-fg-color: light-dark(black, white);
+  --internal-glass-border-color: light-dark(#fff8, #42454988);
+  --internal-glass-filter: blur(32px) saturate(120%);
 }
