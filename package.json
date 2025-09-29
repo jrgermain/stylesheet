@@ -37,7 +37,7 @@
       "unpkg": "./dist/index.css",
       "default": "./dist/index.css"
     },
-    "./index.css": "./dist/index.css",
+    "./styles.css": "./dist/index.css",
     "./tokens": "./dist/tokens.js"
   },
   "browserslist": [
