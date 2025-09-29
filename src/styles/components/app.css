@@ -28,6 +28,21 @@
   flex: none;
   position: sticky;
   left: 0;
+  transition-property: background-color, border-bottom-color, box-shadow;
+  transition-duration: var(--duration-short);
+  transition-timing-function: var(--ease-default);
+
+  &.transparent {
+    background-color: transparent;
+    background-image: linear-gradient(
+      to bottom,
+      rgb(from var(--color-body-alt) r g b / 67%),
+      transparent
+    );
+    background-repeat: no-repeat;
+    border-bottom-color: transparent;
+    box-shadow: none;
+  }
 }
 
 .app-header-content {
@@ -317,8 +332,8 @@
     left: 0;
     width: 100vw;
     opacity: 1;
-    background-color: light-dark(#fffc, #000a);
-    backdrop-filter: blur(24px) saturate(120%);
+    background-color: var(--internal-glass-bg-color);
+    backdrop-filter: var(--internal-glass-filter);
     border-right: 0;
     z-index: 9;
 
@@ -352,6 +367,9 @@
       position: fixed;
       top: 0;
       z-index: 10;
+      background-color: var(--color-body-alt);
+      border-bottom-color: var(--color-brand-transparent);
+      box-shadow: var(--shadow-s);
     }
 
     .app-content {
