@@ -187,7 +187,7 @@
     }
   }
 
-  &.alternate {
+  &.subtle {
     --chip-fg-color: var(--color-brand-2);
     --chip-bg-color: var(--color-brand-9);
     --chip-border-color: var(--color-brand-8);
