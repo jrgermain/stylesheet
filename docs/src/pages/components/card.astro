@@ -44,14 +44,18 @@ import UsageExample from "../../components/UsageExample.astro";
 
   <UsageExample
     name="Title + Link"
-    description="If the title has a `href` attribute (i.e., is a hyperlink), it will inherit additional styles from the Link component."
+    description="If you place an anchor tag inside the Card title, it will inherit styles from both the Card title and the Link component."
     code={`
       <div class="card">
-        <a href="#" class="card-title">This is a link.</a>
+        <h1 class="card-title">
+          <a href="#">This is a link.</a>
+        </h1>
         <p>This is some text.</p>
       </div>
       <div class="card secondary">
-        <a href="#" class="card-title">This is a link.</a>
+        <h1 class="card-title">
+          <a href="#">This is a link.</a>
+        </h1>
         <p>This is some text.</p>
       </div>
     `}

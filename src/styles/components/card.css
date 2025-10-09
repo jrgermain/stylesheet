@@ -36,12 +36,7 @@
   }
 }
 
-/* 
- * The Link component also defines .card-title[href]. We specifically add that
- * selector here so the styles in this file override the former.
- */
-.card-title,
-.card-title[href] {
+.card-title {
   font-family: var(--font-family-heading);
   line-height: 1.15;
   text-wrap: balance;
@@ -53,7 +48,12 @@
   display: block;
 }
 
-.card-title[href] {
+/* This overrides styles in the Link component that also apply */
+.card-title a {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
   text-decoration-color: var(--card-title-underline-color);
 
   &:is(:active, .active) {

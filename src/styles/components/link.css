@@ -1,5 +1,5 @@
 .link,
-.card-title[href],
+.card-title a,
 :where(.style-semantic-elements a) {
   color: var(--color-teal-4);
   font-weight: var(--font-weight-semibold);
