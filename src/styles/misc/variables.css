@@ -199,8 +199,8 @@
   --shadow-none: none;
   --shadow-s: 0 1px 3px -1px var(--color-shadow);
   --shadow-m: 0 1px 7px -1px var(--color-shadow);
-  --shadow-l: var(--shadow-s), 0 1px 11px -1px var(--color-shadow);
-  --shadow-xl: var(--shadow-m), 0 1px 15px -1px var(--color-shadow);
+  --shadow-l: var(--shadow-s), 0 2px 11px -1px var(--color-shadow);
+  --shadow-xl: var(--shadow-m), 0 3px 15px -1px var(--color-shadow);
 
   /* Border widths */
   --border-none: 0;
