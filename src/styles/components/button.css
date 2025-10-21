@@ -1,7 +1,7 @@
 .button {
   --button-fg-color: var(--color-body-text);
   --button-bg-color: light-dark(var(--color-gray-9), #191b1e);
-  --button-border-color: light-dark(var(--color-gray-8), var(--color-outline));
+  --button-border-color: light-dark(var(--color-gray-8), var(--color-border));
   --button-font-weight: var(--font-weight-normal);
   --button-focus-ring-color: var(--color-gray-extra-transparent);
   --button-shadow: var(--shadow-s);
@@ -90,6 +90,81 @@
     }
   }
 
+  &.brand {
+    --button-fg-color: var(--color-brand-1);
+    --button-bg-color: var(--color-brand-9);
+    --button-border-color: var(--color-brand-8);
+    --button-focus-ring-color: var(--color-brand-extra-transparent);
+  }
+
+  &.red {
+    --button-fg-color: var(--color-red-1);
+    --button-bg-color: var(--color-red-9);
+    --button-border-color: var(--color-red-8);
+    --button-focus-ring-color: var(--color-red-extra-transparent);
+  }
+
+  &.orange {
+    --button-fg-color: var(--color-orange-1);
+    --button-bg-color: var(--color-orange-9);
+    --button-border-color: var(--color-orange-8);
+    --button-focus-ring-color: var(--color-orange-extra-transparent);
+  }
+
+  &.yellow {
+    --button-fg-color: var(--color-yellow-1);
+    --button-bg-color: var(--color-yellow-9);
+    --button-border-color: var(--color-yellow-8);
+    --button-focus-ring-color: var(--color-yellow-extra-transparent);
+  }
+
+  &.green {
+    --button-fg-color: var(--color-green-1);
+    --button-bg-color: var(--color-green-9);
+    --button-border-color: var(--color-green-8);
+    --button-focus-ring-color: var(--color-green-extra-transparent);
+  }
+
+  &.teal {
+    --button-fg-color: var(--color-teal-1);
+    --button-bg-color: var(--color-teal-9);
+    --button-border-color: var(--color-teal-8);
+    --button-focus-ring-color: var(--color-teal-extra-transparent);
+  }
+
+  &.blue {
+    --button-fg-color: var(--color-blue-1);
+    --button-bg-color: var(--color-blue-9);
+    --button-border-color: var(--color-blue-8);
+    --button-focus-ring-color: var(--color-blue-extra-transparent);
+  }
+
+  &.purple {
+    --button-fg-color: var(--color-purple-1);
+    --button-bg-color: var(--color-purple-9);
+    --button-border-color: var(--color-purple-8);
+    --button-focus-ring-color: var(--color-purple-extra-transparent);
+  }
+
+  &.magenta {
+    --button-fg-color: var(--color-magenta-1);
+    --button-bg-color: var(--color-magenta-9);
+    --button-border-color: var(--color-magenta-8);
+    --button-focus-ring-color: var(--color-magenta-extra-transparent);
+  }
+
+  &.black {
+    --button-fg-color: white;
+    --button-bg-color: black;
+    --button-border-color: #3d3d3d;
+  }
+
+  &.white {
+    --button-fg-color: black;
+    --button-bg-color: white;
+    --button-border-color: #d0d0d0;
+  }
+
   &.primary {
     --button-fg-color: white;
     --button-bg-color: var(--color-brand-5);
@@ -121,10 +196,10 @@
       --button-focus-ring-color: var(--color-green-transparent);
     }
 
-    &.sky {
-      --button-bg-color: var(--color-sky-5);
-      --button-border-color: var(--color-sky-4);
-      --button-focus-ring-color: var(--color-sky-transparent);
+    &.teal {
+      --button-bg-color: var(--color-teal-5);
+      --button-border-color: var(--color-teal-4);
+      --button-focus-ring-color: var(--color-teal-transparent);
     }
 
     &.blue {
@@ -215,12 +290,12 @@
       }
     }
 
-    &.sky {
-      --button-fg-color: var(--color-sky-4);
-      --button-hover-bg-color: var(--color-sky-extra-transparent);
+    &.teal {
+      --button-fg-color: var(--color-teal-4);
+      --button-hover-bg-color: var(--color-teal-extra-transparent);
 
       &:is(:focus-visible, .focus) {
-        --button-bg-color: var(--color-sky-transparent);
+        --button-bg-color: var(--color-teal-transparent);
       }
     }
 

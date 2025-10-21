@@ -19,6 +19,17 @@
   &.large {
     width: 55rem;
   }
+
+  /*
+   * Reset the color scheme rather than inheriting it from the parent element.
+   *
+   * Modals aren't rendered inside their parent, so it doesn't makes sense for
+   * them to inherit their parent's color scheme. We still allow explicit
+   * overrides using the standard light-mode and dark-mode classes.
+   */
+  &:not(.light-mode, .dark-mode) {
+    color-scheme: light dark;
+  }
 }
 
 .modal-footer {
@@ -28,7 +39,7 @@
   gap: var(--space-2xs);
   justify-content: flex-start;
   background-color: var(--color-body);
-  border-block-start: var(--border-s) solid var(--color-outline);
+  border-block-start: var(--border-s) solid var(--color-border);
   margin: 0;
 
   @media screen and (width < 30rem) {

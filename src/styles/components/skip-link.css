@@ -23,8 +23,7 @@
   pointer-events: none;
   line-height: 1;
 
-  &:focus,
-  &.static {
+  &:is(:focus, .focus, .static) {
     opacity: 1;
   }
 

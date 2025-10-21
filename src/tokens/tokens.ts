@@ -1,345 +1,215 @@
-export const colorVariants = [
-  "brand",
-  "red",
-  "orange",
-  "yellow",
-  "green",
-  "sky",
-  "blue",
-  "purple",
-  "magenta",
-  "gray",
-  "black",
-  "white",
-] as const;
-export type ColorVariant = (typeof colorVariants)[number];
-export const isColorVariant = (x: unknown): x is ColorVariant =>
-  colorVariants.includes(x as ColorVariant);
+export type ColorVariant =
+  | "brand"
+  | "red"
+  | "orange"
+  | "yellow"
+  | "green"
+  | "teal"
+  | "blue"
+  | "purple"
+  | "magenta"
+  | "gray"
+  | "black"
+  | "white";
 
-export const standardPalletColors = [
-  "brand-1",
-  "brand-2",
-  "brand-3",
-  "brand-4",
-  "brand-5",
-  "brand-6",
-  "brand-7",
-  "brand-8",
-  "brand-9",
-  "brand-transparent",
-  "brand-extra-transparent",
-  "red-1",
-  "red-2",
-  "red-3",
-  "red-4",
-  "red-5",
-  "red-6",
-  "red-7",
-  "red-8",
-  "red-9",
-  "red-transparent",
-  "red-extra-transparent",
-  "orange-1",
-  "orange-2",
-  "orange-3",
-  "orange-4",
-  "orange-5",
-  "orange-6",
-  "orange-7",
-  "orange-8",
-  "orange-9",
-  "orange-transparent",
-  "orange-extra-transparent",
-  "yellow-1",
-  "yellow-2",
-  "yellow-3",
-  "yellow-4",
-  "yellow-5",
-  "yellow-6",
-  "yellow-7",
-  "yellow-8",
-  "yellow-9",
-  "yellow-transparent",
-  "yellow-extra-transparent",
-  "green-1",
-  "green-2",
-  "green-3",
-  "green-4",
-  "green-5",
-  "green-6",
-  "green-7",
-  "green-8",
-  "green-9",
-  "green-transparent",
-  "green-extra-transparent",
-  "sky-1",
-  "sky-2",
-  "sky-3",
-  "sky-4",
-  "sky-5",
-  "sky-6",
-  "sky-7",
-  "sky-8",
-  "sky-9",
-  "sky-transparent",
-  "sky-extra-transparent",
-  "blue-1",
-  "blue-2",
-  "blue-3",
-  "blue-4",
-  "blue-5",
-  "blue-6",
-  "blue-7",
-  "blue-8",
-  "blue-9",
-  "blue-transparent",
-  "blue-extra-transparent",
-  "purple-1",
-  "purple-2",
-  "purple-3",
-  "purple-4",
-  "purple-5",
-  "purple-6",
-  "purple-7",
-  "purple-8",
-  "purple-9",
-  "purple-transparent",
-  "purple-extra-transparent",
-  "magenta-1",
-  "magenta-2",
-  "magenta-3",
-  "magenta-4",
-  "magenta-5",
-  "magenta-6",
-  "magenta-7",
-  "magenta-8",
-  "magenta-9",
-  "magenta-transparent",
-  "magenta-extra-transparent",
-  "gray-1",
-  "gray-2",
-  "gray-3",
-  "gray-4",
-  "gray-5",
-  "gray-6",
-  "gray-7",
-  "gray-8",
-  "gray-9",
-  "gray-transparent",
-  "gray-extra-transparent",
-] as const;
-export type StandardPalletColor = (typeof standardPalletColors)[number];
-export const isStandardPalletColor = (x: unknown): x is StandardPalletColor =>
-  standardPalletColors.includes(x as StandardPalletColor);
+export enum Color {
+  Brand1 = "var(--color-brand-1)",
+  Brand2 = "var(--color-brand-2)",
+  Brand3 = "var(--color-brand-3)",
+  Brand4 = "var(--color-brand-4)",
+  Brand5 = "var(--color-brand-5)",
+  Brand6 = "var(--color-brand-6)",
+  Brand7 = "var(--color-brand-7)",
+  Brand8 = "var(--color-brand-8)",
+  Brand9 = "var(--color-brand-9)",
+  BrandTransparent = "var(--color-brand-transparent)",
+  BrandExtraTransparent = "var(--color-brand-extra-transparent)",
+  Red1 = "var(--color-red-1)",
+  Red2 = "var(--color-red-2)",
+  Red3 = "var(--color-red-3)",
+  Red4 = "var(--color-red-4)",
+  Red5 = "var(--color-red-5)",
+  Red6 = "var(--color-red-6)",
+  Red7 = "var(--color-red-7)",
+  Red8 = "var(--color-red-8)",
+  Red9 = "var(--color-red-9)",
+  RedTransparent = "var(--color-red-transparent)",
+  RedExtraTransparent = "var(--color-red-extra-transparent)",
+  Orange1 = "var(--color-orange-1)",
+  Orange2 = "var(--color-orange-2)",
+  Orange3 = "var(--color-orange-3)",
+  Orange4 = "var(--color-orange-4)",
+  Orange5 = "var(--color-orange-5)",
+  Orange6 = "var(--color-orange-6)",
+  Orange7 = "var(--color-orange-7)",
+  Orange8 = "var(--color-orange-8)",
+  Orange9 = "var(--color-orange-9)",
+  OrangeTransparent = "var(--color-orange-transparent)",
+  OrangeExtraTransparent = "var(--color-orange-extra-transparent)",
+  Yellow1 = "var(--color-yellow-1)",
+  Yellow2 = "var(--color-yellow-2)",
+  Yellow3 = "var(--color-yellow-3)",
+  Yellow4 = "var(--color-yellow-4)",
+  Yellow5 = "var(--color-yellow-5)",
+  Yellow6 = "var(--color-yellow-6)",
+  Yellow7 = "var(--color-yellow-7)",
+  Yellow8 = "var(--color-yellow-8)",
+  Yellow9 = "var(--color-yellow-9)",
+  YellowTransparent = "var(--color-yellow-transparent)",
+  YellowExtraTransparent = "var(--color-yellow-extra-transparent)",
+  Green1 = "var(--color-green-1)",
+  Green2 = "var(--color-green-2)",
+  Green3 = "var(--color-green-3)",
+  Green4 = "var(--color-green-4)",
+  Green5 = "var(--color-green-5)",
+  Green6 = "var(--color-green-6)",
+  Green7 = "var(--color-green-7)",
+  Green8 = "var(--color-green-8)",
+  Green9 = "var(--color-green-9)",
+  GreenTransparent = "var(--color-green-transparent)",
+  GreenExtraTransparent = "var(--color-green-extra-transparent)",
+  Teal1 = "var(--color-teal-1)",
+  Teal2 = "var(--color-teal-2)",
+  Teal3 = "var(--color-teal-3)",
+  Teal4 = "var(--color-teal-4)",
+  Teal5 = "var(--color-teal-5)",
+  Teal6 = "var(--color-teal-6)",
+  Teal7 = "var(--color-teal-7)",
+  Teal8 = "var(--color-teal-8)",
+  Teal9 = "var(--color-teal-9)",
+  TealTransparent = "var(--color-teal-transparent)",
+  TealExtraTransparent = "var(--color-teal-extra-transparent)",
+  Blue1 = "var(--color-blue-1)",
+  Blue2 = "var(--color-blue-2)",
+  Blue3 = "var(--color-blue-3)",
+  Blue4 = "var(--color-blue-4)",
+  Blue5 = "var(--color-blue-5)",
+  Blue6 = "var(--color-blue-6)",
+  Blue7 = "var(--color-blue-7)",
+  Blue8 = "var(--color-blue-8)",
+  Blue9 = "var(--color-blue-9)",
+  BlueTransparent = "var(--color-blue-transparent)",
+  BlueExtraTransparent = "var(--color-blue-extra-transparent)",
+  Purple1 = "var(--color-purple-1)",
+  Purple2 = "var(--color-purple-2)",
+  Purple3 = "var(--color-purple-3)",
+  Purple4 = "var(--color-purple-4)",
+  Purple5 = "var(--color-purple-5)",
+  Purple6 = "var(--color-purple-6)",
+  Purple7 = "var(--color-purple-7)",
+  Purple8 = "var(--color-purple-8)",
+  Purple9 = "var(--color-purple-9)",
+  PurpleTransparent = "var(--color-purple-transparent)",
+  PurpleExtraTransparent = "var(--color-purple-extra-transparent)",
+  Magenta1 = "var(--color-magenta-1)",
+  Magenta2 = "var(--color-magenta-2)",
+  Magenta3 = "var(--color-magenta-3)",
+  Magenta4 = "var(--color-magenta-4)",
+  Magenta5 = "var(--color-magenta-5)",
+  Magenta6 = "var(--color-magenta-6)",
+  Magenta7 = "var(--color-magenta-7)",
+  Magenta8 = "var(--color-magenta-8)",
+  Magenta9 = "var(--color-magenta-9)",
+  MagentaTransparent = "var(--color-magenta-transparent)",
+  MagentaExtraTransparent = "var(--color-magenta-extra-transparent)",
+  Gray1 = "var(--color-gray-1)",
+  Gray2 = "var(--color-gray-2)",
+  Gray3 = "var(--color-gray-3)",
+  Gray4 = "var(--color-gray-4)",
+  Gray5 = "var(--color-gray-5)",
+  Gray6 = "var(--color-gray-6)",
+  Gray7 = "var(--color-gray-7)",
+  Gray8 = "var(--color-gray-8)",
+  Gray9 = "var(--color-gray-9)",
+  GrayTransparent = "var(--color-gray-transparent)",
+  GrayExtraTransparent = "var(--color-gray-extra-transparent)",
+  Body = "var(--color-body)",
+  BodyAlt = "var(--color-body-alt)",
+  BodyText = "var(--color-body-text)",
+  BodyTextAlt = "var(--color-body-text-alt)",
+  BodyTextInvert = "var(--color-body-text-invert)",
+  Shadow = "var(--color-shadow)",
+  Border = "var(--color-border)",
+}
 
-export const semanticColors = [
-  "body",
-  "body-alt",
-  "body-text",
-  "body-text-alt",
-  "body-text-invert",
-  "shadow",
-  "outline",
-] as const;
-export type SemanticColor = (typeof semanticColors)[number];
-export const isSemanticColor = (x: unknown): x is SemanticColor =>
-  semanticColors.includes(x as SemanticColor);
+export enum FontSize {
+  XS = "var(--font-size-xs)",
+  S = "var(--font-size-s)",
+  M = "var(--font-size-m)",
+  L = "var(--font-size-l)",
+  XL = "var(--font-size-xl)",
+  XXL = "var(--font-size-2xl)",
+  XXXL = "var(--font-size-3xl)",
+  XXXXL = "var(--font-size-4xl)",
+}
 
-export type Color = StandardPalletColor | SemanticColor;
-export const isColor = (x: unknown): x is Color =>
-  isStandardPalletColor(x) || isSemanticColor(x);
+export enum FontWeight {
+  Light = "var(--font-weight-light)",
+  Normal = "var(--font-weight-normal)",
+  Semibold = "var(--font-weight-semibold)",
+  Bold = "var(--font-weight-bold)",
+  Black = "var(--font-weight-black)",
+}
 
-export const fontSizes = [
-  "xs",
-  "s",
-  "m",
-  "l",
-  "xl",
-  "2xl",
-  "3xl",
-  "4xl",
-] as const;
-export type FontSize = (typeof fontSizes)[number];
-export const isFontSize = (x: unknown): x is FontSize =>
-  fontSizes.includes(x as FontSize);
+export enum FontFamily {
+  Body = "var(--font-family-body)",
+  Heading = "var(--font-family-heading)",
+  Mono = "var(--font-family-mono)",
+}
 
-export const fontWeights = [
-  "light",
-  "normal",
-  "semibold",
-  "bold",
-  "black",
-] as const;
-export type FontWeight = (typeof fontWeights)[number];
-export const isFontWeight = (x: unknown): x is FontWeight =>
-  fontWeights.includes(x as FontWeight);
+export enum Space {
+  None = "var(--space-none)",
+  XXXS = "var(--space-3xs)",
+  XXS = "var(--space-2xs)",
+  XS = "var(--space-xs)",
+  S = "var(--space-s)",
+  M = "var(--space-m)",
+  L = "var(--space-l)",
+  XL = "var(--space-xl)",
+  XXL = "var(--space-2xl)",
+  XXXL = "var(--space-3xl)",
+  BodyX = "var(--body-x)",
+  BodyY = "var(--body-y)",
+}
 
-export const fontFamilies = ["body", "heading", "mono"] as const;
-export type FontFamily = (typeof fontFamilies)[number];
-export const isFontFamily = (x: unknown): x is FontFamily =>
-  fontFamilies.includes(x as FontFamily);
+export enum Radius {
+  None = "var(--radius-none)",
+  S = "var(--radius-s)",
+  M = "var(--radius-m)",
+  L = "var(--radius-l)",
+  XL = "var(--radius-xl)",
+  XXL = "var(--radius-2xl)",
+  Full = "var(--radius-full)",
+}
 
-export const spaces = [
-  "none",
-  "3xs",
-  "2xs",
-  "xs",
-  "s",
-  "m",
-  "l",
-  "xl",
-  "2xl",
-  "3xl",
-  "body-x",
-  "body-y",
-] as const;
-export type Space = (typeof spaces)[number];
-export const isSpace = (x: unknown): x is Space => spaces.includes(x as Space);
+export enum Shadow {
+  None = "var(--shadow-none)",
+  S = "var(--shadow-s)",
+  M = "var(--shadow-m)",
+  L = "var(--shadow-l)",
+  XL = "var(--shadow-xl)",
+}
 
-export const radii = ["none", "s", "m", "l", "xl", "2xl", "full"] as const;
-export type Radius = (typeof radii)[number];
-export const isRadius = (x: unknown): x is Radius =>
-  radii.includes(x as Radius);
+export enum BorderWidth {
+  None = "var(--border-none)",
+  S = "var(--border-s)",
+  M = "var(--border-m)",
+  L = "var(--border-l)",
+  XL = "var(--border-xl)",
+}
 
-export const shadows = ["none", "s", "m", "l", "xl"] as const;
-export type Shadow = (typeof shadows)[number];
-export const isShadow = (x: unknown): x is Shadow =>
-  shadows.includes(x as Shadow);
+export enum EasingFunction {
+  Default = "var(--ease-default)",
+  Out = "var(--ease-out)",
+  In = "var(--ease-in)",
+  Both = "var(--ease-both)",
+  BothSubtle = "var(--ease-both-subtle)",
+  Spring = "var(--ease-spring)",
+}
 
-export const borderWidths = ["none", "s", "m", "l", "xl"] as const;
-export type BorderWidth = (typeof borderWidths)[number];
-export const isBorderWidth = (x: unknown): x is BorderWidth =>
-  borderWidths.includes(x as BorderWidth);
-
-export const easingFunctions = [
-  "default",
-  "out",
-  "in",
-  "both",
-  "both-subtle",
-  "spring",
-] as const;
-export type EasingFunction = (typeof easingFunctions)[number];
-export const isEasingFunction = (x: unknown): x is EasingFunction =>
-  easingFunctions.includes(x as EasingFunction);
-
-export const durations = ["short", "medium", "long", "extra-long"] as const;
-export type Duration = (typeof durations)[number];
-export const isDuration = (x: unknown): x is Duration =>
-  durations.includes(x as Duration);
-
-const buildResolver = (predicate: (x: unknown) => boolean, prefix: string) => {
-  return (value: unknown) => {
-    if (predicate(value)) {
-      return `var(--${prefix}-${value})`;
-    }
-    return String(value);
-  };
-};
-
-/**
- * If the given value is a valid color token, replace it with the corresponding
- * CSS variable reference. Otherwise, return the value as a string.
- *
- * @example
- * resolveColor("red-5") // "var(--color-red-5)"
- * resolveColor("#ff0000") // "#ff0000"
- */
-export const resolveColor = buildResolver(isColor, "color");
-
-/**
- * If the given value is a valid font size token, replace it with the
- * corresponding CSS variable reference. Otherwise, return the value as a
- * string.
- *
- * @example
- * resolveFontSize("m") // "var(--font-size-m)"
- * resolveFontSize("16px") // "16px"
- */
-export const resolveFontSize = buildResolver(isFontSize, "font-size");
-
-/**
- * If the given value is a valid font weight token, replace it with the
- * corresponding CSS variable reference. Otherwise, return the value as a
- * string.
- *
- * @example
- * resolveFontWeight("semibold") // "var(--font-weight-semibold)"
- * resolveFontWeight("700") // "700"
- * resolveFontWeight(700) // "700"
- */
-export const resolveFontWeight = buildResolver(isFontWeight, "font-weight");
-
-/**
- * If the given value is a valid font family token, replace it with the
- * corresponding CSS variable reference. Otherwise, return the value as a
- * string.
- *
- * @example
- * resolveFontFamily("body") // "var(--font-family-body)"
- * resolveFontFamily("arial, sans-serif") // "arial, sans-serif"
- */
-export const resolveFontFamily = buildResolver(isFontFamily, "font-family");
-
-/**
- * If the given value is a valid spacing token, replace it with the
- * corresponding CSS variable reference. Otherwise, return the value as a
- * string.
- *
- * @example
- * resolveSpace("xl") // "var(--space-xl)"
- * resolveSpace("2rem") // "2rem"
- */
-export const resolveSpace = buildResolver(isSpace, "space");
-
-/**
- * If the given value is a valid radius token, replace it with the corresponding
- * CSS variable reference. Otherwise, return the value as a string.
- *
- * @example
- * resolveRadius("xl") // "var(--radius-xl)"
- * resolveRadius("12px") // "12px"
- */
-export const resolveRadius = buildResolver(isRadius, "radius");
-
-/**
- * If the given value is a valid shadow token, replace it with the corresponding
- * CSS variable reference. Otherwise, return the value as a string.
- *
- * @example
- * resolveShadow("xl") // "var(--shadow-xl)"
- * resolveShadow("0 0 1px #0005") // "0 0 1px #0005"
- */
-export const resolveShadow = buildResolver(isShadow, "shadow");
-
-/**
- * If the given value is a valid border token, replace it with the corresponding
- * CSS variable reference. Otherwise, return the value as a string.
- *
- * @example
- * resolveBorder("m") // "var(--border-m)"
- * resolveBorder("2px") // "2px"
- */
-export const resolveBorderWidth = buildResolver(isBorderWidth, "border");
-
-/**
- * If the given value is a valid easing function token, replace it with the
- * corresponding CSS variable reference. Otherwise, return the value as a
- * string.
- *
- * @example
- * resolveEasingFunction("in") // "var(--ease-in)"
- * resolveEasingFunction("cubic-bezier(0.5, 0, 0.5, 1)") // "cubic-bezier(0.5, 0, 0.5, 1)"
- */
-export const resolveEasingFunction = buildResolver(isEasingFunction, "ease");
-
-/**
- * If the given value is a valid duration token, replace it with the
- * corresponding CSS variable reference. Otherwise, return the value as a
- * string.
- *
- * @example
- * resolveDuration("short") // "var(--duration-short)"
- * resolveDuration("2s") // "2s"
- */
-export const resolveDuration = buildResolver(isDuration, "duration");
+export enum Duration {
+  Short = "var(--duration-short)",
+  Medium = "var(--duration-medium)",
+  Long = "var(--duration-long)",
+  ExtraLong = "var(--duration-extra-long)",
+}

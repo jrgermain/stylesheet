@@ -18,7 +18,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       - \`orange\`
       - \`yellow\`
       - \`green\`
-      - \`sky\`
+      - \`teal\`
       - \`blue\`
       - \`purple\`
       - \`magenta\`
@@ -32,13 +32,38 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       <div class="orange chip">Orange</div>
       <div class="yellow chip">Yellow</div>
       <div class="green chip">Green</div>
-      <div class="sky chip">Sky</div>
+      <div class="teal chip">Teal</div>
       <div class="blue chip">Blue</div>
       <div class="purple chip">Purple</div>
       <div class="magenta chip">Magenta</div>
       <div class="gray chip">Gray</div>
       <div class="black chip">Black</div>
       <div class="white chip">White</div>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="Subtle Color Scheme"
+    description={trimTextPadding(`
+      Chips also support a **subtle color scheme** that uses a lighter background and darker text.
+
+      To use the subtle color scheme, add the \`subtle\` class in addition to the color class.
+
+      Note that the \`black\` and \`white\` color classes do not have subtle versions, so this class
+      has no effect when used with those colors.
+    `)}
+    code={`
+      <div class="chip subtle">Brand</div>
+      <div class="red chip subtle">Red</div>
+      <div class="orange chip subtle">Orange</div>
+      <div class="yellow chip subtle">Yellow</div>
+      <div class="green chip subtle">Green</div>
+      <div class="teal chip subtle">Teal</div>
+      <div class="blue chip subtle">Blue</div>
+      <div class="purple chip subtle">Purple</div>
+      <div class="magenta chip subtle">Magenta</div>
+      <div class="gray chip subtle">Gray</div>
     `}
     outputWrapperClass="flow horizontal dense"
   />
@@ -52,13 +77,34 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       <button class="clickable orange chip">Orange</button>
       <button class="clickable yellow chip">Yellow</button>
       <button class="clickable green chip">Green</button>
-      <button class="clickable sky chip">Sky</button>
+      <button class="clickable teal chip">Teal</button>
       <button class="clickable blue chip">Blue</button>
       <button class="clickable purple chip">Purple</button>
       <button class="clickable magenta chip">Magenta</button>
       <button class="clickable gray chip">Gray</button>
       <button class="clickable black chip">Black</button>
       <button class="clickable white chip">White</button>
+
+      <button class="clickable chip subtle">Brand</button>
+      <button class="clickable red chip subtle">Red</button>
+      <button class="clickable orange chip subtle">Orange</button>
+      <button class="clickable yellow chip subtle">Yellow</button>
+      <button class="clickable green chip subtle">Green</button>
+      <button class="clickable teal chip subtle">Teal</button>
+      <button class="clickable blue chip subtle">Blue</button>
+      <button class="clickable purple chip subtle">Purple</button>
+      <button class="clickable magenta chip subtle">Magenta</button>
+      <button class="clickable gray chip subtle">Gray</button>
+
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="Links as Clickable Chips"
+    description="Clickable Chips can be links instead of buttons."
+    code={`
+      <a href="#" class="clickable chip">Clickable link</a>
     `}
     outputWrapperClass="flow horizontal dense"
   />
@@ -87,8 +133,8 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
         Green
         <button class="chip-delete" title="Delete"></button>
       </div>
-      <div class="sky chip">
-        Sky
+      <div class="teal chip">
+        Teal
         <button class="chip-delete" title="Delete"></button>
       </div>
       <div class="blue chip">
@@ -113,6 +159,120 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       </div>
       <div class="white chip">
         White
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="chip subtle">
+        Brand
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="red chip subtle">
+        Red
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="orange chip subtle">
+        Orange
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="yellow chip subtle">
+        Yellow
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="green chip subtle">
+        Green
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="teal chip subtle">
+        Teal
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="blue chip subtle">
+        Blue
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="purple chip subtle">
+        Purple
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="magenta chip subtle">
+        Magenta
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="gray chip subtle">
+        Gray
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="Clickable & Deletable"
+    description={trimTextPadding(`
+      To make a Chip both clickable and deletable, you'll need to make some adjustments to the
+      markup to avoid nesting buttons inside other buttons, which is an accessibility problem.
+
+      To make a Chip both clickable and deletable, use a \`div\` with the \`clickable\` class
+      for the Chip itself. Inside, place the label text inside a \`button\` element with the
+      \`chip-label\` class, followed by the same delete button markup as in the example above.
+      These two buttons must be next to each other in the markup, not nested.
+
+      Attach your \`onclick\` handlers to the two inner buttons, not the outer \`div\`.
+    `)}
+    code={`
+      <div class="chip clickable">
+        <button onclick="alert('Chip clicked')" class="chip-label">Chip text goes here</button>
+        <button onclick="alert('Delete clicked')" class="chip-delete" title="Delete"></button>
+      </div>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="Clickable & Deletable Link"
+    description={trimTextPadding(`
+      Below is an example of a Chip that is both clickable and deletable, using a link for the clickable part
+      instead of a button.
+
+      The same rules apply as in the previous example: since links count as interactive elements, they
+      shouldn't contain buttons, so we use the \`chip-label\` element as our link.
+    `)}
+    code={`
+      <div class="chip clickable">
+        <a href="#" class="chip-label">Chip text goes here</a>
+        <button onclick="alert('Delete clicked')" class="chip-delete" title="Delete"></button>
+      </div>
+    `}
+    outputWrapperClass="flow horizontal dense"
+  />
+
+  <UsageExample
+    name="A Note on the Chip Label"
+    description={trimTextPadding(`
+      Wrapping the content of a Chip in an element with the \`chip-label\` class is **required**
+      for Chips that are both clickable and deletable, and **optional** in all other cases.
+
+      Below are some examples of Chips with and without the \`chip-label\` class. They should
+      look and function identically.
+    `)}
+    code={`
+      <div class="chip blue">
+        <span class="chip-label">Standard chip with chip-label</span>
+      </div>
+      <div class="chip blue">
+        Standard chip without chip-label
+      </div>
+      <div class="chip clickable green">
+        <button class="chip-label">Clickable chip with chip-label</button>
+      </div>
+      <button class="chip clickable green">
+        Clickable chip without chip-label
+      </button>
+      <div class="chip orange">
+        <span class="chip-label">Deletable chip with chip-label</span>
+        <button class="chip-delete" title="Delete"></button>
+      </div>
+      <div class="chip orange">
+        Deletable chip without chip-label
         <button class="chip-delete" title="Delete"></button>
       </div>
     `}

@@ -24,7 +24,7 @@
     font-size: calc(0.9 * var(--font-size-m));
   }
 
-  &:focus-within {
+  &:is(:focus-within, .focus) {
     color: var(--color-brand-5);
   }
 
@@ -36,7 +36,7 @@
     }
   }
 
-  &:has([readonly]):focus-within {
+  &:has([readonly]):is(:focus-within, .focus) {
     color: var(--color-gray-5);
   }
 
@@ -55,7 +55,7 @@
   textarea {
     color: var(--color-body-text);
     background-color: light-dark(white, black);
-    border: var(--border-s) solid var(--color-outline);
+    border: var(--border-s) solid var(--color-border);
     font-size: 1em;
     padding: var(--field-padding);
     border-radius: var(--field-radius);
@@ -65,7 +65,7 @@
     font-family: inherit;
     line-height: 1.25;
 
-    &:focus {
+    &:is(:focus, .focus) {
       outline: 0;
       border-color: var(--color-brand-5);
       box-shadow:
@@ -86,7 +86,7 @@
     &[readonly] {
       border-style: dashed;
 
-      &:focus {
+      &:is(:focus, .focus) {
         outline: 0;
         border-style: solid;
         border-color: var(--color-gray-5);
@@ -101,7 +101,7 @@
       border-color: var(--color-red-5);
       box-shadow: 0 0 0 0.1em var(--color-red-5);
 
-      &:focus {
+      &:is(:focus, .focus) {
         outline: 0;
         border-color: var(--color-red-5);
         box-shadow:
@@ -135,6 +135,21 @@
     }
   }
 
+  /*
+   * Fix issue on mobile safari where box shadow, border, and height styles
+   * aren't applied to some input types.
+   */
+  input:is(
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="time"],
+    [type="week"]
+  ) {
+    appearance: none;
+    min-height: calc(1.5em + 2 * var(--field-padding));
+  }
+
   select,
   input[list] {
     background-image: url("@/src/icons/dropdown-thin.svg");
@@ -150,6 +165,74 @@
 
     @media (prefers-color-scheme: dark) {
       background-image: url("@/src/icons/dropdown-thin-invert.svg");
+    }
+  }
+
+  /*
+   * On mobile safari, the user agent adds its own dropdown icon to inputs with
+   * a list attribute. We want to replace this icon with our custom one to match
+   * the style of <select> elements.
+   *
+   * While we could remove the browser's icon (leaving the background image to
+   * display our custom icon, like how we do for <select>), this has the side
+   * effect of preventing the user from opening the list of options. Making the
+   * icon invisible also doesn't work, since the target area ends up being out
+   * of alignment with the visible icon, and moving the target area can be 
+   * error-prone.
+   *
+   * To work around this, we remove the field's background image on mobile
+   * safari and keep the native pseudo-element, but replace its icon.
+   */
+  @supports (-webkit-touch-callout: none) {
+    input[list] {
+      padding-inline-end: var(--field-padding);
+      background-image: none;
+
+      &::-webkit-list-button {
+        appearance: none;
+        width: calc(1.15em + var(--field-padding));
+        height: 1.5em;
+        background-image: url("@/src/icons/dropdown-thin.svg");
+        background-position: right var(--field-padding) center;
+        background-size: 1.15em auto;
+        background-repeat: no-repeat;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        &::-webkit-list-button {
+          background-image: url("@/src/icons/dropdown-thin-invert.svg");
+        }
+      }
+    }
+  }
+
+  /* A similar issue to above happens on desktop chrome */
+  @supports (selector(input[list]::-webkit-calendar-picker-indicator)) {
+    input[list] {
+      padding-inline-end: 0;
+      background-image: none;
+
+      &::-webkit-calendar-picker-indicator {
+        appearance: none;
+        display: block !important;
+        list-style: none !important;
+        cursor: pointer;
+        width: 1.15em;
+        height: 1.5em;
+        flex: none;
+        opacity: 1;
+        padding: var(--field-padding);
+        background-image: url("@/src/icons/dropdown-thin.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 1.15em auto;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        &::-webkit-calendar-picker-indicator {
+          background-image: url("@/src/icons/dropdown-thin-invert.svg");
+        }
+      }
     }
   }
 
@@ -214,7 +297,7 @@
       border-start-end-radius: var(--field-radius) !important;
     }
 
-    > :focus-visible {
+    > :is(:focus-visible, .focus) {
       z-index: 3;
     }
 
@@ -225,7 +308,7 @@
       font-weight: var(--font-weight-normal);
       color: var(--color-gray-3);
       background-color: var(--color-gray-9);
-      border: var(--border-s) solid var(--color-outline);
+      border: var(--border-s) solid var(--color-border);
       padding: var(--field-padding) calc(2 * var(--field-padding));
       align-items: center;
       justify-content: center;
@@ -253,15 +336,15 @@
       transition-duration: var(--duration-medium);
       transition-timing-function: var(--ease-default);
 
-      &:hover {
+      &:is(:hover, .hover) {
         background-color: var(--color-gray-8);
       }
 
-      &:active {
+      &:is(:active, .active) {
         background-color: var(--color-gray-7);
       }
 
-      &:focus-visible {
+      &:is(:focus-visible, .focus) {
         border-color: var(--color-brand-5);
         border-inline-start-width: var(--border-s);
         border-inline-start-style: solid;
@@ -275,7 +358,7 @@
     > :is(input, select, textarea) {
       width: 100%;
 
-      &:has(~ .action:focus-visible) {
+      &:has(~ .action:is(:focus-visible, .focus)) {
         border-inline-end-width: 0;
       }
     }
@@ -298,7 +381,7 @@ input[type="radio"] {
 }
 
 fieldset.fieldset {
-  border: var(--border-s) solid var(--color-outline);
+  border: var(--border-s) solid var(--color-border);
   border-radius: var(--radius-s);
   background-color: var(--color-body);
   color: var(--color-body-text);
@@ -309,7 +392,7 @@ fieldset.fieldset {
     transition: color var(--duration-medium) var(--ease-default);
   }
 
-  &:focus-within legend {
+  &:is(:focus-within, .focus) legend {
     color: var(--color-brand-5);
   }
 }

@@ -92,6 +92,17 @@
       width: 42rem;
     }
   }
+
+  /*
+   * Reset the color scheme rather than inheriting it from the parent element.
+   *
+   * Drawers aren't rendered inside their parent, so it doesn't makes sense for
+   * them to inherit their parent's color scheme. We still allow explicit
+   * overrides using the standard light-mode and dark-mode classes.
+   */
+  &:not(.light-mode, .dark-mode) {
+    color-scheme: light dark;
+  }
 }
 
 .drawer-body {

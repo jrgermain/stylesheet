@@ -205,19 +205,19 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Colors"
     description={trimTextPadding(`
-      The **primary** and **tertiary** variants support multiple color schemes.
-      To set the **color** of a primary or tertiary Button, add one of the following classes:
+      All Button variants support multiple color schemes.
+      To set the **color** of a Button, add one of the following classes:
 
-      - \`brand\` (default)
+      - \`brand\` (default for primary and tertiary Buttons)
+      - \`gray\` (default for secondary Buttons)
       - \`red\`
       - \`orange\`
       - \`yellow\`
       - \`green\`
-      - \`sky\`
+      - \`teal\`
       - \`blue\`
       - \`purple\`
       - \`magenta\`
-      - \`gray\`
       - \`black\`
       - \`white\`
 
@@ -227,24 +227,36 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
       the example below.
     `)}
     code={`
-      <button class="button primary">Brand</button>
+      <button class="button primary brand">Brand</button>
       <button class="button primary red">Red</button>
       <button class="button primary orange">Orange</button>
       <button class="button primary yellow">Yellow</button>
       <button class="button primary green">Green</button>
-      <button class="button primary sky">Sky</button>
+      <button class="button primary teal">Teal</button>
       <button class="button primary blue">Blue</button>
       <button class="button primary purple">Purple</button>
       <button class="button primary magenta">Magenta</button>
       <button class="button primary gray">Gray</button>
       <button class="button primary black">Black</button>
       <button class="button primary white">White</button>
-      <button class="button tertiary">Brand</button>
+      <button class="button secondary brand">Brand</button>
+      <button class="button secondary red">Red</button>
+      <button class="button secondary orange">Orange</button>
+      <button class="button secondary yellow">Yellow</button>
+      <button class="button secondary green">Green</button>
+      <button class="button secondary teal">Teal</button>
+      <button class="button secondary blue">Blue</button>
+      <button class="button secondary purple">Purple</button>
+      <button class="button secondary magenta">Magenta</button>
+      <button class="button secondary gray">Gray</button>
+      <button class="button secondary black">Black</button>
+      <button class="button secondary white">White</button>
+      <button class="button tertiary brand">Brand</button>
       <button class="button tertiary red">Red</button>
       <button class="button tertiary orange">Orange</button>
       <button class="button tertiary yellow">Yellow</button>
       <button class="button tertiary green">Green</button>
-      <button class="button tertiary sky">Sky</button>
+      <button class="button tertiary teal">Teal</button>
       <button class="button tertiary blue">Blue</button>
       <button class="button tertiary purple">Purple</button>
       <button class="button tertiary magenta">Magenta</button>

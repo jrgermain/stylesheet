@@ -1,43 +1,63 @@
 .card {
-  background-color: var(--color-body-alt);
+  --card-bg-color: var(--color-body-alt);
+  --card-fg-color: var(--color-body-text);
+  --card-title-color: var(--color-brand-3);
+  --card-title-underline-color: var(--color-brand-transparent);
+  --card-title-active-color: var(--color-brand-2);
+  --card-border-color: var(--color-border);
+
+  background-color: var(--card-bg-color);
   border-radius: var(--radius-l);
-  border: var(--border-s) solid var(--color-outline);
+  border: var(--border-s) solid var(--card-border-color);
   box-shadow: var(--shadow-m);
   padding: var(--space-m);
   font-family: var(--font-family-body);
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-normal);
+  color: var(--card-fg-color);
 
   &.secondary {
-    background-color: var(--color-body);
+    --card-bg-color: var(--color-body);
+
     border-radius: var(--radius-m);
     box-shadow: var(--shadow-s);
     padding: var(--space-s);
   }
+
+  &.transparent {
+    --card-bg-color: var(--internal-glass-bg-color);
+    --card-border-color: var(--internal-glass-border-color);
+    --card-fg-color: var(--internal-glass-fg-color);
+    --card-title-color: var(--card-fg-color);
+    --card-title-underline-color: light-dark(#0006, #fff6);
+    --card-title-active-color: light-dark(#444, #ddd);
+
+    backdrop-filter: var(--internal-glass-filter);
+  }
 }
 
-/* 
- * The Link component also defines .card-title[href]. We specifically add that
- * selector here so the styles in this file override the former.
- */
-.card-title,
-.card-title[href] {
+.card-title {
   font-family: var(--font-family-heading);
   line-height: 1.15;
   text-wrap: balance;
   overflow-wrap: break-word;
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-bold);
-  color: var(--color-brand-3);
+  color: var(--card-title-color);
   margin-block: 0 var(--space-xs);
   display: block;
 }
 
-.card-title[href] {
-  text-decoration-color: var(--color-brand-transparent);
+/* This overrides styles in the Link component that also apply */
+.card-title a {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-decoration-color: var(--card-title-underline-color);
 
-  &:active {
-    color: var(--color-brand-2);
+  &:is(:active, .active) {
+    color: var(--card-title-active-color);
   }
 }
 

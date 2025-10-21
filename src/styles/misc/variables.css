@@ -1,5 +1,10 @@
+/* Define all custom properties at the root */
 :root,
+/* Explicitly redefine on ::backdrop for compatibility with older browsers (see https://caniuse.com/mdn-css_selectors_backdrop_inherit_from_originating_element) */
 ::backdrop,
+/* On certain elements, redefine to prevent inheritance of light/dark mode from parents */
+.modal,
+.drawer,
 .light-mode,
 .dark-mode {
   /* Brand */
@@ -67,18 +72,18 @@
   --color-green-transparent: light-dark(#43850066, #498b0f80);
   --color-green-extra-transparent: light-dark(#43850033, #498b0f59);
 
-  /* Sky */
-  --color-sky-1: light-dark(#001011, #c8f6f5);
-  --color-sky-2: light-dark(#002a2b, #9ee7e7);
-  --color-sky-3: light-dark(#004747, #61c7c8);
-  --color-sky-4: light-dark(#006566, #3aa4a5);
-  --color-sky-5: light-dark(#008586, #0b8889);
-  --color-sky-6: light-dark(#00a7a8, #006d6f);
-  --color-sky-7: light-dark(#00c8c9, #005254);
-  --color-sky-8: light-dark(#76e2e2, #003e3f);
-  --color-sky-9: light-dark(#caf9f8, #001a1b);
-  --color-sky-transparent: light-dark(#00858666, #0b888980);
-  --color-sky-extra-transparent: light-dark(#00858633, #0b888959);
+  /* Teal */
+  --color-teal-1: light-dark(#001011, #c8f6f5);
+  --color-teal-2: light-dark(#002a2b, #9ee7e7);
+  --color-teal-3: light-dark(#004747, #61c7c8);
+  --color-teal-4: light-dark(#006566, #3aa4a5);
+  --color-teal-5: light-dark(#008586, #0b8889);
+  --color-teal-6: light-dark(#00a7a8, #006d6f);
+  --color-teal-7: light-dark(#00c8c9, #005254);
+  --color-teal-8: light-dark(#76e2e2, #003e3f);
+  --color-teal-9: light-dark(#caf9f8, #001a1b);
+  --color-teal-transparent: light-dark(#00858666, #0b888980);
+  --color-teal-extra-transparent: light-dark(#00858633, #0b888959);
 
   /* Blue */
   --color-blue-1: light-dark(#00003e, #ddf0ff);
@@ -139,7 +144,7 @@
   --color-body-text-alt: light-dark(#404247, #ccced0);
   --color-body-text-invert: light-dark(#fff, #030305);
   --color-shadow: light-dark(#45484c26, #00000166);
-  --color-outline: light-dark(#d8dbe0, #434549);
+  --color-border: light-dark(#d8dbe0, #434549);
 
   /* Font sizes */
   --font-size-xs: clamp(0.6944rem, 0.6855rem + 0.0446vw, 0.72rem);
@@ -194,8 +199,8 @@
   --shadow-none: none;
   --shadow-s: 0 1px 3px -1px var(--color-shadow);
   --shadow-m: 0 1px 7px -1px var(--color-shadow);
-  --shadow-l: var(--shadow-s), 0 1px 11px -1px var(--color-shadow);
-  --shadow-xl: var(--shadow-m), 0 1px 15px -1px var(--color-shadow);
+  --shadow-l: var(--shadow-s), 0 2px 11px -1px var(--color-shadow);
+  --shadow-xl: var(--shadow-m), 0 3px 15px -1px var(--color-shadow);
 
   /* Border widths */
   --border-none: 0;
@@ -224,4 +229,13 @@
   --duration-medium: 150ms;
   --duration-long: 250ms;
   --duration-extra-long: 350ms;
+
+  /**************************************************************
+   * Tokens prefixed with --internal- are for internal use only *
+   **************************************************************/
+
+  --internal-glass-bg-color: light-dark(#fff9, #30333799);
+  --internal-glass-fg-color: light-dark(black, white);
+  --internal-glass-border-color: light-dark(#fff8, #42454988);
+  --internal-glass-filter: blur(32px) saturate(120%);
 }

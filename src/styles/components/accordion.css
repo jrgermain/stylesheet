@@ -7,7 +7,7 @@
     padding-block: 0;
     padding-inline: var(--space-xs);
     border-radius: var(--radius-m);
-    border: var(--border-s) solid var(--color-outline);
+    border: var(--border-s) solid var(--color-border);
     box-shadow: var(--shadow-s);
     font-family: var(--font-family-body);
     font-size: var(--font-size-m);
@@ -51,7 +51,7 @@
       }
 
       summary {
-        border-block-end-color: var(--color-outline);
+        border-block-end-color: var(--color-border);
         margin-block-end: var(--space-xs);
 
         &::before {

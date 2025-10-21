@@ -1,10 +1,10 @@
 .link,
-.card-title[href],
+.card-title a,
 :where(.style-semantic-elements a) {
-  color: var(--color-sky-4);
+  color: var(--color-teal-4);
   font-weight: var(--font-weight-semibold);
   text-decoration-line: underline;
-  text-decoration-color: var(--color-sky-transparent);
+  text-decoration-color: var(--color-teal-transparent);
   text-decoration-skip-ink: all;
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.1em;
@@ -17,11 +17,11 @@
     text-decoration-color: currentcolor;
   }
 
-  &:focus-visible {
+  &:is(:focus-visible, .focus) {
     outline-offset: 1px;
   }
 
-  &:active {
-    color: var(--color-sky-3);
+  &:is(:active, .active) {
+    color: var(--color-teal-3);
   }
 }

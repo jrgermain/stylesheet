@@ -21,7 +21,7 @@ progress.progress {
     display: block;
     inline-size: 100%;
     block-size: 1em;
-    box-shadow: inset 0 0 0 var(--border-s) var(--color-outline);
+    box-shadow: inset 0 0 0 var(--border-s) var(--color-border);
     background: var(--color-gray-9);
     box-sizing: border-box;
     overflow: clip;
@@ -34,7 +34,7 @@ progress.progress {
   display: block;
   inline-size: 100%;
   block-size: 1em;
-  box-shadow: inset 0 0 0 var(--border-s) var(--color-outline);
+  box-shadow: inset 0 0 0 var(--border-s) var(--color-border);
   background: var(--color-gray-9);
   box-sizing: border-box;
   overflow: clip;

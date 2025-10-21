@@ -20,7 +20,7 @@ input[type="range"].slider {
     cursor: not-allowed;
   }
 
-  &:focus-visible {
+  &:is(:focus-visible, .focus) {
     outline: 0;
 
     &::-webkit-slider-thumb {
@@ -34,7 +34,7 @@ input[type="range"].slider {
     }
   }
 
-  &:enabled:active {
+  &:enabled:is(:active, .active) {
     &::-webkit-slider-thumb {
       border-color: var(--color-brand-5);
       box-shadow: var(--slider-shadow-active);
@@ -80,7 +80,7 @@ input[type="range"].slider {
     border-radius: var(--radius-full);
     background-color: white;
     box-shadow: var(--slider-shadow-resting);
-    border: var(--border-s) solid var(--color-outline);
+    border: var(--border-s) solid var(--color-border);
     transition-property: border-color, box-shadow, transform;
     transition-duration: var(--duration-short);
     transition-timing-function: var(--ease-default);
@@ -96,7 +96,7 @@ input[type="range"].slider {
     border-radius: var(--radius-full);
     background-color: white;
     box-shadow: var(--slider-shadow-resting);
-    border: var(--border-s) solid var(--color-outline);
+    border: var(--border-s) solid var(--color-border);
     transition-property: border-color, box-shadow, transform;
     transition-duration: var(--duration-short);
     transition-timing-function: var(--ease-default);
