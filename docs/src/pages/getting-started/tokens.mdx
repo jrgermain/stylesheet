@@ -13,6 +13,7 @@ import FontExample from "../../components/tokens-page/FontExample.astro";
 import SpacingExample from '../../components/tokens-page/SpacingExample.astro';
 import BorderExample from '../../components/tokens-page/BorderExample.astro';
 import AnimationExample from '../../components/tokens-page/AnimationExample.astro';
+import DurationExample from '../../components/tokens-page/DurationExample.astro';
 import { trimTextPadding } from "../../utils/trim-text-padding";
 
 # Tokens
@@ -246,4 +247,34 @@ designed to be used with the `animation-timing-function` property.
   <AnimationExample easingFunctionName="spring">
     An easing function that moves slightly backwards at the beginning, moves quickly in the middle, and slightly overshoots the target state before settling at the end.
   </AnimationExample>
+</div>
+
+## Durations
+
+The variables for durations are all prefixed with `--duration-`. They're
+designed to be used with the `animation-duration` and `transition-duration`
+properties.
+
+<div class="stack vertical">
+  <DurationExample name="short">
+    Use this duration for small interactions that don't necessarily need to be
+    animated, but look better with a bit of motion--for example, hovering over
+    a link.
+  </DurationExample>
+  <DurationExample name="medium">
+    Use this duration when you want an animation to be more prominent than it
+    would be with the short duration, but still quick enough to stay out of the
+    user's way and avoid feeling slow or distracting.
+  </DurationExample>
+  <DurationExample name="long">
+    Use this duration for animations that the user should pay attention to. For
+    example, responding to a click or other substantial action could warrant an
+    animation that's longer and harder to miss.
+  </DurationExample>
+  <DurationExample name="extra-long">
+    Use this duration for longer animations. It should be used sparingly, since
+    users generally don't want to wait this long for animations to complete.
+    However, there are some situations where a longer animation makes sense,
+    especially when paired with specific easing functions.
+  </DurationExample>
 </div>

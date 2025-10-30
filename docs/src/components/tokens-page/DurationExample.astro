@@ -1,0 +1,68 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+const niceName = name
+  .split("-")
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(" ");
+---
+
+<div class="card duration-example" x-data="{ clicked: false }">
+  <p class="card-title">{niceName}</p>
+  <code>{`var(--duration-${name})`}</code>
+  <slot />
+  <button
+    class="box"
+    style={`--duration: var(--duration-${name});`}
+    :class="clicked ? 'clicked' : ''"
+    @click="setTimeout(() => { clicked = true }, 1000); setTimeout(() => { clicked = false }, 3000);"
+  >
+    Click or Hover
+  </button>
+</div>
+
+<style>
+  .box {
+    cursor: pointer;
+    border-radius: var(--radius-m);
+    outline: 0 !important;
+    border: var(--border-s) solid var(--color-blue-7);
+    color: var(--color-blue-2);
+    box-shadow: var(--shadow-s);
+    display: flex;
+    inline-size: 10rem;
+    block-size: 10rem;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-blue-8);
+    box-sizing: border-box;
+    overflow: clip;
+    position: relative;
+    transition-property: background-color, border-color, color;
+    transition-duration: var(--duration);
+    transition-timing-function: var(--ease-default);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .box:hover,
+  .box.clicked {
+    background-color: var(--color-red-8);
+    border-color: var(--color-red-7);
+    color: var(--color-red-2);
+  }
+</style>
+
+<style is:global>
+  @keyframes progress {
+    0% {
+      inline-size: 0%;
+    }
+    100% {
+      inline-size: 100%;
+    }
+  }
+</style>
