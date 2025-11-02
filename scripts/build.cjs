@@ -93,7 +93,7 @@ const processCssFile = async (sourcePath, destPath) => {
   await fs.mkdir(distPath);
 
   // Build CSS
-  await processCssFile("src/styles/index.css", "dist/index.css");
+  await processCssFile("src/styles/index.css", "dist/stylesheet.css");
 
   // Build TypeScript
   execFileSync(tsc, { cwd: projectRoot, stdio: "inherit" });
