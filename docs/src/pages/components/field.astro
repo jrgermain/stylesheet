@@ -236,10 +236,12 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
       <fieldset class="fieldset compact">
         <legend>Compact Fieldset</legend>
-        <label class="field">
-          (Implicitly) Compact Text Input
-          <input type="text" />
-        </label>
+        <div class="fieldset-content">
+          <label class="field">
+            (Implicitly) Compact Text Input
+            <input type="text" />
+          </label>
+        </div>
       </fieldset>
     `}
   />
@@ -323,22 +325,73 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
   <UsageExample
     name="Fieldset"
-    description="You can use a \`fieldset\` element with a corresponding \`legend\` to define a group of related input fields. The \`fieldset\` element must have the class \`fieldset\` to be styled."
+    description={trimTextPadding(`
+      You can use a \`fieldset\` element with a corresponding \`legend\` to
+      define a group of related input fields.
+      
+      To style a fieldset, give the \`fieldset\` element the class \`fieldset\`.
+      Inside this element should be a \`legend\` element that describes it.
+      After the legend, create a div with the class \`fieldset-content\` and
+      place all of the fields inside it.
+
+      The fields will be stacked vertically by default. To display them in a
+      single row, add the class \`horizontal\` to the \`fieldset-content\` element.
+    `)}
     code={`
       <fieldset class="fieldset">
+        <legend>Home Address</legend>
+        <div class="fieldset-content">
+          <label class="field">
+            Street Address
+            <input type="text" />
+          </label>
+          <label class="field">
+            City
+            <input type="text" />
+          </label>
+          <label class="field">
+            State
+            <input type="text" />
+          </label>
+          <label class="field">
+            ZIP Code
+            <input type="text" />
+          </label>
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
         <legend>Deposit Amount</legend>
-        <label class="field">
-          Amount
-          <input type="number" step="0.01" />
-        </label>
-        <label class="field">
-          Currency
-          <select>
-            <option>USD</option>
-            <option>EUR</option>
-            <option>CHF</option>
-          </select>
-        </label>
+        <div class="fieldset-content horizontal">
+          <label class="field">
+            Amount
+            <input type="number" step="0.01" />
+          </label>
+          <label class="field">
+            Currency
+            <select>
+              <option>USD</option>
+              <option>EUR</option>
+              <option>CHF</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+      <fieldset class="fieldset subtle">
+        <legend>Deposit Amount</legend>
+        <div class="fieldset-content horizontal">
+          <label class="field">
+            Amount
+            <input type="number" step="0.01" />
+          </label>
+          <label class="field">
+            Currency
+            <select>
+              <option>USD</option>
+              <option>EUR</option>
+              <option>CHF</option>
+            </select>
+          </label>
+        </div>
       </fieldset>
     `}
     outputWrapperClass="flow"

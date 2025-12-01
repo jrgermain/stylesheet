@@ -380,21 +380,52 @@ input[type="radio"] {
   accent-color: var(--color-brand-5);
 }
 
-fieldset.fieldset {
+.fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0.01em 0 0;
+  box-sizing: border-box;
+
+  legend,
+  .legend {
+    display: table;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: var(--font-size-l);
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-body-text);
+    margin-bottom: var(--space-3xs);
+  }
+}
+
+.fieldset-content {
+  position: relative;
   border: var(--border-s) solid var(--color-border);
-  border-radius: var(--radius-s);
+  border-radius: var(--radius-m);
   background-color: var(--color-body);
   color: var(--color-body-text);
+  padding: var(--space-xs);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
 
-  legend {
-    font-family: var(--font-family-heading);
-    font-weight: var(--font-weight-bold);
-    transition: color var(--duration-medium) var(--ease-default);
+  &.horizontal {
+    flex-direction: row;
+    gap: var(--space-2xs);
   }
+}
 
-  &:is(:focus-within, .focus) legend {
-    color: var(--color-brand-5);
-  }
+.fieldset.subtle .fieldset-content {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+body:not(:-moz-handler-blocked) fieldset.fieldset {
+  display: table-cell;
 }
 
 .form {
