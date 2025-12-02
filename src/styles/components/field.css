@@ -15,6 +15,22 @@
   font-size: var(--font-size-m);
   font-family: var(--font-family-body);
 
+  /* If using a fieldset/legend for the Field, reset the quirky default styling */
+  &:is(fieldset) {
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0.01em 0 0;
+    box-sizing: border-box;
+
+    legend {
+      display: table;
+      padding: 0;
+      box-sizing: border-box;
+      margin-block-end: var(--field-gap);
+    }
+  }
+
   &.compact,
   .fieldset.compact & {
     --field-gap: calc(0.9 * var(--space-2xs));
@@ -133,6 +149,12 @@
       inline-size: 100%;
       border-radius: var(--radius-s);
     }
+  }
+
+  /* Prevent child checkbox/radio from changing color with Field label */
+  .checkbox,
+  .radio {
+    color: var(--color-body-text);
   }
 
   /*
@@ -375,11 +397,6 @@
   }
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  accent-color: var(--color-brand-5);
-}
-
 .fieldset {
   border: 0;
   margin: 0;
@@ -424,7 +441,8 @@ input[type="radio"] {
   background-color: transparent;
 }
 
-body:not(:-moz-handler-blocked) fieldset.fieldset {
+body:not(:-moz-handler-blocked) fieldset.fieldset,
+body:not(:-moz-handler-blocked) fieldset.field {
   display: table-cell;
 }
 
