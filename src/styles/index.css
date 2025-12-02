@@ -8,6 +8,7 @@
 @import url("./components/shared/base-dialog.css");
 @import url("./components/shared/base-message.css");
 @import url("./components/shared/dismiss-button.css");
+@import url("./components/shared/fieldset-reset.css");
 @import url("./components/shared/link-icons.css");
 
 /* Components */
@@ -22,6 +23,7 @@
 @import url("./components/divider.css");
 @import url("./components/drawer.css");
 @import url("./components/field.css");
+@import url("./components/fieldset.css");
 @import url("./components/flex.css");
 @import url("./components/heading.css");
 @import url("./components/highlight.css");

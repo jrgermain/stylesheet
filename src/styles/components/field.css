@@ -15,20 +15,9 @@
   font-size: var(--font-size-m);
   font-family: var(--font-family-body);
 
-  /* If using a fieldset/legend for the Field, reset the quirky default styling */
-  &:is(fieldset) {
-    border: 0;
-    margin: 0;
-    min-width: 0;
-    padding: 0.01em 0 0;
-    box-sizing: border-box;
-
-    legend {
-      display: table;
-      padding: 0;
-      box-sizing: border-box;
-      margin-block-end: var(--field-gap);
-    }
+  /* If using a fieldset element for the Field, fix spacing for the label */
+  &:is(fieldset) legend {
+    margin-block-end: var(--field-gap);
   }
 
   &.compact,
@@ -395,58 +384,4 @@
     font-size: 0.9em;
     font-weight: var(--font-weight-semibold);
   }
-}
-
-.fieldset {
-  border: 0;
-  margin: 0;
-  min-width: 0;
-  padding: 0.01em 0 0;
-  box-sizing: border-box;
-
-  legend,
-  .legend {
-    display: table;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: var(--font-size-l);
-    font-family: var(--font-family-heading);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-body-text);
-    margin-bottom: var(--space-3xs);
-  }
-}
-
-.fieldset-content {
-  position: relative;
-  border: var(--border-s) solid var(--color-border);
-  border-radius: var(--radius-m);
-  background-color: var(--color-body);
-  color: var(--color-body-text);
-  padding: var(--space-xs);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-
-  &.horizontal {
-    flex-direction: row;
-    gap: var(--space-2xs);
-  }
-}
-
-.fieldset.subtle .fieldset-content {
-  border: none;
-  padding: 0;
-  background-color: transparent;
-}
-
-body:not(:-moz-handler-blocked) fieldset.fieldset,
-body:not(:-moz-handler-blocked) fieldset.field {
-  display: table-cell;
-}
-
-.form {
-  max-width: 60ch;
-  margin-inline-end: auto;
 }
