@@ -26,7 +26,7 @@
 
   /* Checked center dot */
   &::after {
-    background-color: var(--color-body-text-invert);
+    background-color: white;
     transition: transform var(--duration-long) var(--ease-spring) 50ms;
   }
 
@@ -54,5 +54,10 @@
     &::after {
       transform: scale(0.5);
     }
+  }
+
+  /* When disabled and not selected, make background gray */
+  &:disabled:not(:checked) {
+    background-color: var(--color-gray-9);
   }
 }

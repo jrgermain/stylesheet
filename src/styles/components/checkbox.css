@@ -20,7 +20,7 @@
   &::before {
     width: 0.5em;
     height: 0;
-    border-bottom: 0.125em solid var(--color-body-text-invert);
+    border-bottom: 0.125em solid white;
     bottom: 0.4em;
     left: calc(0.25em - var(--border-s));
     transition-property: opacity;
@@ -30,8 +30,8 @@
   &::after {
     width: 0.3em;
     height: 0.6em;
-    border-right: 0.125em solid var(--color-body-text-invert);
-    border-bottom: 0.125em solid var(--color-body-text-invert);
+    border-right: 0.125em solid white;
+    border-bottom: 0.125em solid white;
     bottom: 0.2em;
     left: 0.28em;
     transform: rotate(40deg) scale(0.5);
