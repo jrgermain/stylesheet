@@ -4,9 +4,11 @@
 @import url("./misc/variables.css");
 
 /* Styles used in multiple components */
+@import url("./components/shared/base-check.css");
 @import url("./components/shared/base-dialog.css");
 @import url("./components/shared/base-message.css");
 @import url("./components/shared/dismiss-button.css");
+@import url("./components/shared/fieldset-reset.css");
 @import url("./components/shared/link-icons.css");
 
 /* Components */
@@ -16,10 +18,12 @@
 @import url("./components/app.css");
 @import url("./components/banner.css");
 @import url("./components/button.css");
+@import url("./components/checkbox.css");
 @import url("./components/chip.css");
 @import url("./components/divider.css");
 @import url("./components/drawer.css");
 @import url("./components/field.css");
+@import url("./components/fieldset.css");
 @import url("./components/flex.css");
 @import url("./components/heading.css");
 @import url("./components/highlight.css");
@@ -31,6 +35,7 @@
 @import url("./components/paragraph.css");
 @import url("./components/progress.css");
 @import url("./components/quote.css");
+@import url("./components/radio.css");
 @import url("./components/skeleton.css");
 @import url("./components/skip-link.css");
 @import url("./components/slider.css");

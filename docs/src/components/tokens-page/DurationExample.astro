@@ -20,13 +20,12 @@ const niceName = name
     :class="clicked ? 'clicked' : ''"
     @click="setTimeout(() => { clicked = true }, 1000); setTimeout(() => { clicked = false }, 3000);"
   >
-    Click or Hover
+    Tap or Hover
   </button>
 </div>
 
 <style>
   .box {
-    cursor: pointer;
     border-radius: var(--radius-m);
     outline: 0 !important;
     border: var(--border-s) solid var(--color-blue-7);

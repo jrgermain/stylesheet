@@ -1,0 +1,100 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimTextPadding } from "../../utils/trim-text-padding";
+---
+
+<ComponentDocumentation
+  name="Fieldset"
+  description="A group of related form fields."
+>
+  <UsageExample
+    name="Basic Usage"
+    description={trimTextPadding(`
+      You can use a \`fieldset\` element with a corresponding \`legend\` to
+      define a group of related input fields.
+      
+      To style a Fieldset, give the \`fieldset\` element the class \`fieldset\`.
+      Inside this element should be a \`legend\` element that describes it.
+      After the legend, create a div with the class \`fieldset-content\` and
+      place all of the fields inside it.
+    `)}
+    code={`
+      <fieldset class="fieldset">
+        <legend>Home Address</legend>
+        <div class="fieldset-content">
+          <label class="field">
+            Street Address
+            <input type="text" />
+          </label>
+          <label class="field">
+            City
+            <input type="text" />
+          </label>
+          <label class="field">
+            State
+            <input type="text" />
+          </label>
+          <label class="field">
+            ZIP Code
+            <input type="text" />
+          </label>
+        </div>
+      </fieldset>
+    `}
+    outputWrapperClass="flow"
+  />
+
+  <UsageExample
+    name="Horizontal Layout"
+    description={trimTextPadding(`
+      The fields will be stacked vertically by default. To display them in a
+      single row, add the class \`horizontal\` to the \`fieldset\` element.
+    `)}
+    code={`
+      <fieldset class="fieldset horizontal">
+        <legend>Deposit Amount</legend>
+        <div class="fieldset-content">
+          <label class="field">
+            Amount
+            <input type="number" step="0.01" />
+          </label>
+          <label class="field">
+            Currency
+            <select>
+              <option>USD</option>
+              <option>EUR</option>
+              <option>CHF</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+    `}
+    outputWrapperClass="flow"
+  />
+
+  <UsageExample
+    name="Subtle"
+    description="You can remove the border and background from a Fieldset by adding the class `subtle` to the `fieldset` element."
+    code={`
+      <fieldset class="fieldset subtle">
+        <legend>Deposit Amount</legend>
+        <div class="fieldset-content horizontal">
+          <label class="field">
+            Amount
+            <input type="number" step="0.01" />
+          </label>
+          <label class="field">
+            Currency
+            <select>
+              <option>USD</option>
+              <option>EUR</option>
+              <option>CHF</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+    `}
+    outputWrapperClass="flow"
+  />
+</ComponentDocumentation>

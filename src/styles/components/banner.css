@@ -42,6 +42,20 @@
     --message-icon-color: var(--color-teal-5);
   }
 
+  &.neutral {
+    --banner-bg-color: var(--color-brand-4);
+    --banner-secondary-color: var(--color-brand-5);
+
+    .banner-content {
+      padding-inline-start: var(--space-body-x);
+    }
+
+    .banner-content::before,
+    .banner-content::after {
+      content: unset;
+    }
+  }
+
   .link {
     color: var(--color-body-text-invert);
     text-decoration-color: rgb(from var(--color-body-text-invert) r g b / 40%);

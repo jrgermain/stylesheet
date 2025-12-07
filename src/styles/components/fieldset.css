@@ -1,0 +1,32 @@
+.fieldset legend,
+.legend {
+  font-size: var(--font-size-l);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-body-text);
+  margin-bottom: var(--space-3xs);
+}
+
+.fieldset-content {
+  position: relative;
+  border: var(--border-s) solid var(--color-border);
+  border-radius: var(--radius-m);
+  background-color: var(--color-body);
+  color: var(--color-body-text);
+  padding: var(--space-xs);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.fieldset.horizontal .fieldset-content {
+  flex-direction: row;
+  gap: var(--space-2xs);
+}
+
+.fieldset.subtle .fieldset-content {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}

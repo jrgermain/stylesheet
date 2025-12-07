@@ -15,6 +15,11 @@
   font-size: var(--font-size-m);
   font-family: var(--font-family-body);
 
+  /* If using a fieldset element for the Field, fix spacing for the label */
+  &:is(fieldset) legend {
+    margin-block-end: var(--field-gap);
+  }
+
   &.compact,
   .fieldset.compact & {
     --field-gap: calc(0.9 * var(--space-2xs));
@@ -135,6 +140,12 @@
     }
   }
 
+  /* Prevent child checkbox/radio from changing color with Field label */
+  .checkbox,
+  .radio {
+    color: var(--color-body-text);
+  }
+
   /*
    * Fix issue on mobile safari where box shadow, border, and height styles
    * aren't applied to some input types.
@@ -248,7 +259,6 @@
     position: relative;
   }
 
-  /* TODO: glitches */
   .error-message {
     display: none;
     font-size: 0.9em;
@@ -373,31 +383,4 @@
     font-size: 0.9em;
     font-weight: var(--font-weight-semibold);
   }
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  accent-color: var(--color-brand-5);
-}
-
-fieldset.fieldset {
-  border: var(--border-s) solid var(--color-border);
-  border-radius: var(--radius-s);
-  background-color: var(--color-body);
-  color: var(--color-body-text);
-
-  legend {
-    font-family: var(--font-family-heading);
-    font-weight: var(--font-weight-bold);
-    transition: color var(--duration-medium) var(--ease-default);
-  }
-
-  &:is(:focus-within, .focus) legend {
-    color: var(--color-brand-5);
-  }
-}
-
-.form {
-  max-width: 60ch;
-  margin-inline-end: auto;
 }

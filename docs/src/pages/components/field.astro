@@ -236,10 +236,12 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
       <fieldset class="fieldset compact">
         <legend>Compact Fieldset</legend>
-        <label class="field">
-          (Implicitly) Compact Text Input
-          <input type="text" />
-        </label>
+        <div class="fieldset-content">
+          <label class="field">
+            (Implicitly) Compact Text Input
+            <input type="text" />
+          </label>
+        </div>
       </fieldset>
     `}
   />
@@ -322,26 +324,38 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   />
 
   <UsageExample
-    name="Fieldset"
-    description="You can use a \`fieldset\` element with a corresponding \`legend\` to define a group of related input fields. The \`fieldset\` element must have the class \`fieldset\` to be styled."
+    name="Field as <fieldset> Element"
+    description={trimTextPadding(`
+      If you have a Field that contains multiple child controls, you may use a
+      \`fieldset\` element as the root instead of a \`label\` or \`div\`. This
+      doesn't change the styling of the Field, but it's often the semantically
+      correct markup, especially when the child controls have their own labels.
+
+      If you follow this pattern, make sure to also wrap the label text in a
+      \`legend\` element.
+    `)}
     code={`
-      <fieldset class="fieldset">
-        <legend>Deposit Amount</legend>
-        <label class="field">
-          Amount
-          <input type="number" step="0.01" />
-        </label>
-        <label class="field">
-          Currency
-          <select>
-            <option>USD</option>
-            <option>EUR</option>
-            <option>CHF</option>
-          </select>
-        </label>
+      <fieldset class="field">
+        <legend>Topping Location</legend>
+        <div class="help-text">
+          Select where you'd like your beef.
+        </div>
+        <div class="radio-group">
+          <label class="radio">
+            <input type="radio" name="location" />
+            Left Side Only
+          </label>
+          <label class="radio">
+            <input type="radio" name="location" />
+            Whole Pizza
+          </label>
+          <label class="radio">
+            <input type="radio" name="location" />
+            Right Side Only
+          </label>
+        </div>
       </fieldset>
     `}
-    outputWrapperClass="flow"
   />
 </ComponentDocumentation>
 

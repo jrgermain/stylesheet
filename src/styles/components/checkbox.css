@@ -1,0 +1,77 @@
+/*
+ * Note: Checkbox extends Base Check, meaning this file builds on top of the
+ * styles defined in ./shared/base-check.css
+ */
+
+.checkbox input {
+  border-radius: 0.3em;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition-duration: var(--duration-long);
+    transition-timing-function: var(--ease-spring);
+  }
+
+  /* Used for indeterminate icon */
+  &::before {
+    width: 0.5em;
+    height: 0;
+    border-bottom: 0.125em solid white;
+    bottom: 0.4em;
+    left: calc(0.25em - var(--border-s));
+    transition-property: opacity;
+  }
+
+  /* Used for checkmark */
+  &::after {
+    width: 0.3em;
+    height: 0.6em;
+    border-right: 0.125em solid white;
+    border-bottom: 0.125em solid white;
+    bottom: 0.2em;
+    left: 0.28em;
+    transform: rotate(40deg) scale(0.5);
+    transition-property: opacity, transform;
+  }
+
+  /* When checked, show checkmark */
+  &:checked::after {
+    opacity: 1;
+    transform: rotate(40deg) scale(1);
+  }
+
+  /* When indeterminate, show indeterminate icon */
+  &:indeterminate::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* When disabled and not filled, make background gray */
+  &:disabled:not(:checked, :indeterminate) {
+    background-color: var(--color-gray-9);
+  }
+
+  &:is(:focus-visible, .focus) {
+    border-color: var(--color-gray-6);
+    box-shadow:
+      0 0 0 0.08em var(--color-gray-6),
+      0 0 0 calc(0.16em + var(--border-s)) var(--color-gray-transparent);
+    outline: 0;
+  }
+
+  &:checked,
+  &:indeterminate {
+    background-color: var(--color-brand-5);
+    border-color: var(--color-brand-4);
+
+    &:is(:focus-visible, .focus) {
+      box-shadow:
+        0 0 0 0.08em var(--color-brand-4),
+        0 0 0 calc(0.16em + var(--border-s)) var(--color-brand-transparent);
+    }
+  }
+}

@@ -1,0 +1,108 @@
+---
+import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../components/UsageExample.astro";
+import { trimTextPadding } from "../../utils/trim-text-padding";
+---
+
+<ComponentDocumentation
+  name="Radio"
+  description="A control that allows the user to select one option from a set."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="To create a Radio, create a `label` element with the class `radio` and include an `input` of type `radio` inside it, along with the label text."
+    code={`
+      <label class="radio">
+        <input type="radio" />
+        Radio
+      </label>
+    `}
+  />
+  <UsageExample
+    name="Radio Group"
+    description={trimTextPadding(`
+      Radios are really only useful when part of a **group**.
+      
+      Groups define which Radios are related to each other, and the browser
+      automatically ensures that only one Radio in any given group can be
+      selected at a time. 
+
+      To place Radios in a group, give each Radio's \`input\` element the same
+      \`name\` attribute. You should also wrap the group in a container element
+      with the class \`radio-group\` to add appropriate spacing between them.
+
+      Avoid placing Radios next to each other horizontally, as this can
+      create confusion about which label belongs to which Radio.
+    `)}
+    code={`
+      <div class="radio-group">
+        <label class="radio">
+          <input type="radio" name="color" />
+          Red
+        </label>
+        <label class="radio">
+          <input type="radio" name="color" />
+          Blue
+        </label>
+      </div>
+    `}
+  />
+  <UsageExample
+    name="Disabled"
+    description="Radios can be disabled to prevent user interaction. To do so, add the `disabled` attribute to the input element."
+    code={`
+      <label class="radio">
+        <input type="radio" disabled />
+        Can't touch this
+      </label>
+      <label class="radio">
+        <input type="radio" disabled checked />
+        Can't touch this
+      </label>
+    `}
+    outputWrapperClass="radio-group"
+  />
+  <UsageExample
+    name="Multiple Lines"
+    description="Below is an example of a Radio whose label spans multiple lines."
+    code={`
+      <label class="radio">
+        <input type="radio" />
+        <div>
+          <strong>Main Label</strong>
+          <div>Secondary label used for <br/>additional information</div>
+        </div>
+      </label>
+    `}
+  />
+  <UsageExample
+    name="Composition with Field"
+    description="To label a group of Radios, you can place the Radio Group example above inside a Field."
+    code={`
+      <fieldset class="field">
+        <legend>What is your favorite language?</legend>
+        <div class="help-text">
+          Select one.
+        </div>
+        <div class="radio-group">
+          <label class="radio">
+            <input type="radio" name="language" />
+            JavaScript
+          </label>
+          <label class="radio">
+            <input type="radio" name="language" />
+            TypeScript
+          </label>
+          <label class="radio">
+            <input type="radio" name="language" />
+            Python
+          </label>
+          <label class="radio">
+            <input type="radio" name="language" />
+            Go
+          </label>
+        </div>
+      </fieldset>
+    `}
+  />
+</ComponentDocumentation>

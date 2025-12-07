@@ -1,0 +1,63 @@
+/*
+ * Note: Radio extends Base Check, meaning this file builds on top of the
+ * styles defined in ./shared/base-check.css
+ */
+
+.radio input {
+  border-radius: var(--radius-full);
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-full);
+    inset: 0;
+    transform: scale(0);
+  }
+
+  /* Checked background */
+  &::before {
+    background-color: var(--color-brand-5);
+    transition: transform var(--duration-medium) var(--ease-default);
+  }
+
+  /* Checked center dot */
+  &::after {
+    background-color: white;
+    transition: transform var(--duration-long) var(--ease-spring) 50ms;
+  }
+
+  &:is(:focus-visible, .focus) {
+    border-color: var(--color-gray-6);
+    box-shadow:
+      0 0 0 0.08em var(--color-gray-6),
+      0 0 0 calc(0.16em + var(--border-s)) var(--color-gray-transparent);
+    outline: 0;
+  }
+
+  &:checked {
+    border-color: var(--color-brand-4);
+
+    &:is(:focus-visible, .focus) {
+      box-shadow:
+        0 0 0 0.08em var(--color-brand-4),
+        0 0 0 calc(0.16em + var(--border-s)) var(--color-brand-transparent);
+    }
+
+    &::before {
+      transform: scale(1);
+    }
+
+    &::after {
+      transform: scale(0.5);
+    }
+  }
+
+  /* When disabled and not selected, make background gray */
+  &:disabled:not(:checked) {
+    background-color: var(--color-gray-9);
+  }
+}
