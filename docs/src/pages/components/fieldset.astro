@@ -49,12 +49,12 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     name="Horizontal Layout"
     description={trimTextPadding(`
       The fields will be stacked vertically by default. To display them in a
-      single row, add the class \`horizontal\` to the \`fieldset-content\` element.
+      single row, add the class \`horizontal\` to the \`fieldset\` element.
     `)}
     code={`
-      <fieldset class="fieldset">
+      <fieldset class="fieldset horizontal">
         <legend>Deposit Amount</legend>
-        <div class="fieldset-content horizontal">
+        <div class="fieldset-content">
           <label class="field">
             Amount
             <input type="number" step="0.01" />
