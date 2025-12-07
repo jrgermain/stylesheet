@@ -14,7 +14,7 @@
     "@astrojs/alpinejs": "^0.4.9",
     "@astrojs/check": "^0.9.5",
     "@astrojs/mdx": "^4.3.11",
-    "@jrgermain/stylesheet": "0.13.0",
+    "@jrgermain/stylesheet": "0.14.0",
     "alpinejs": "^3.14.8",
     "astro": "^5.15.9",
     "github-slugger": "^2.0.0",
