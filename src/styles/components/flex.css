@@ -1,7 +1,6 @@
 .wrap,
 .stack,
-.separate,
-.space {
+.distribute {
   display: flex !important;
   gap: var(--space-s);
 
@@ -56,13 +55,7 @@
   justify-content: start;
 }
 
-.separate {
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.space {
+.distribute {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;

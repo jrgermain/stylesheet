@@ -15,8 +15,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
       - \`wrap\`: children are placed a fixed distance apart, wrapping onto new lines as needed.
       - \`stack\`: children are placed a fixed distance apart and guaranteed to stay on the same line.
-      - \`separate\`: children are placed as far apart as possible while staying on the same line.
-      - \`space\`: children are placed an even distance apart, wrapping onto new lines as needed. Unlike wrap, the space between elements adjusts based on how much is available.
+      - \`distribute\`: children are placed an even distance apart, wrapping onto new lines as needed. Unlike wrap, the space between elements adjusts based on how much is available.
 
       The examples below place children in a container with a fixed width to
       better illustrate how each behaves.
@@ -37,13 +36,8 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
         <div class="box">3</div>
         <div class="box">4</div>
       </div>
-      <h3 class="h6">Separate</h3>
-      <div class="flex-example separate">
-        <div class="box">1</div>
-        <div class="box">2</div>
-      </div>
-      <h3 class="h6">Space</h3>
-      <div class="flex-example space">
+      <h3 class="h6">Distribute</h3>
+      <div class="flex-example distribute">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
