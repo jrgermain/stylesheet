@@ -6,16 +6,18 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
 <ComponentDocumentation
   name="Flex"
-  description="Utility classes for managing spacing and layouts."
+  description="Utility classes for managing layouts with flexbox."
 >
   <UsageExample
     name="Layout"
     description={trimTextPadding(`
-      You must include exactly one of the following classes to determine which layout to apply:
+      The Flex component supports three different layouts. To create a Flex, 
+      first, choose a layout. Then, apply that layout to a container by giving
+      the container one of the following classes:
 
       - \`wrap\`: children are placed a fixed distance apart, wrapping onto new lines as needed.
-      - \`stack\`: children are placed a fixed distance apart and guaranteed to stay on the same line.
-      - \`distribute\`: children are placed an even distance apart, wrapping onto new lines as needed. Unlike wrap, the space between elements adjusts based on how much is available.
+      - \`stack\`: children are placed a fixed distance apart and prevented from wrapping.
+      - \`distribute\`: children are spaced evenly within their container, wrapping onto new lines as needed.
 
       The examples below place children in a container with a fixed width to
       better illustrate how each behaves.
