@@ -34,7 +34,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     description="If your label consists of more than one node, wrap it in a `span` or similar element to group it into a single node."
     code={`
       <div class="spinner" role="status">
-        <span class="flow densest">
+        <span class="wrap densest">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256" aria-hidden="true">
             <g fill="currentColor">
               <path d="M208 88h-56V32Z" opacity=".2"></path>
@@ -63,7 +63,7 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
         Left
       </div>
     `}
-    outputWrapperClass="flow vertical sparser"
+    outputWrapperClass="wrap vertical sparser"
   />
   <UsageExample
     name="Sizes"
