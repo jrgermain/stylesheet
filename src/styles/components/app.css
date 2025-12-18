@@ -187,6 +187,7 @@
   top: 0;
   overflow: auto;
   height: 100dvh;
+  scrollbar-width: thin;
 }
 
 .app-sidebar-section {
