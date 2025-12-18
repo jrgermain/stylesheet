@@ -21,13 +21,13 @@
   /* Checked background */
   &::before {
     background-color: var(--color-brand-5);
-    transition: transform var(--duration-medium) var(--ease-default);
+    transition: transform var(--duration-m) var(--ease-default);
   }
 
   /* Checked center dot */
   &::after {
     background-color: white;
-    transition: transform var(--duration-long) var(--ease-spring) 50ms;
+    transition: transform var(--duration-l) var(--ease-spring) 50ms;
   }
 
   &:is(:focus-visible, .focus) {

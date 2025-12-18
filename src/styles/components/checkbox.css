@@ -12,7 +12,7 @@
     display: block;
     position: absolute;
     opacity: 0;
-    transition-duration: var(--duration-long);
+    transition-duration: var(--duration-l);
     transition-timing-function: var(--ease-spring);
   }
 

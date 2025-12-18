@@ -10,7 +10,7 @@
   text-underline-offset: 0.1em;
   cursor: pointer;
   transition-property: color, text-decoration-color;
-  transition-duration: var(--duration-short);
+  transition-duration: var(--duration-s);
   transition-timing-function: var(--ease-default);
 
   &:is(:hover, .hover) {

@@ -29,7 +29,7 @@ label.switch input[type="checkbox"] {
   position: relative;
   flex: none;
   transition-property: background-color, box-shadow, border-color;
-  transition-duration: var(--duration-medium);
+  transition-duration: var(--duration-m);
   transition-timing-function: var(--ease-default);
   border: 0.1em solid var(--color-gray-6);
   cursor: pointer;
@@ -45,7 +45,7 @@ label.switch input[type="checkbox"] {
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-s);
     transition-property: border-color, transform;
-    transition-duration: var(--duration-medium);
+    transition-duration: var(--duration-m);
     transition-timing-function: var(--ease-both);
     transform: translateX(0);
   }

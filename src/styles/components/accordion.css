@@ -14,7 +14,7 @@
     font-weight: var(--font-weight-normal);
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: padding var(--duration-long) var(--ease-out);
+      transition: padding var(--duration-l) var(--ease-out);
       interpolate-size: allow-keywords;
     }
 
@@ -37,7 +37,7 @@
       block-size: 0;
       overflow-y: clip;
       transition-property: content-visibility, opacity, block-size;
-      transition-duration: var(--duration-long);
+      transition-duration: var(--duration-l);
       transition-timing-function: var(--ease-out);
       transition-behavior: allow-discrete;
     }
@@ -76,7 +76,7 @@
     padding-inline-start: calc(var(--space-xs) + 1em);
     margin-block: 0;
     margin-inline: calc(-1 * var(--space-xs));
-    transition-duration: var(--duration-short);
+    transition-duration: var(--duration-s);
     transition-property: color, border-color;
     transition-timing-function: var(--ease-default);
     position: relative;
@@ -117,7 +117,7 @@
       width: 0.75em;
       height: 0.75em;
       rotate: -90deg;
-      transition: rotate var(--duration-long) var(--ease-spring);
+      transition: rotate var(--duration-l) var(--ease-spring);
     }
 
     &:dir(rtl)::before {

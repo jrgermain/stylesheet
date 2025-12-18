@@ -10,7 +10,7 @@
   color: var(--color-body-text);
   font-weight: var(--font-weight-semibold);
   transition-property: color, box-shadow;
-  transition-duration: var(--duration-medium);
+  transition-duration: var(--duration-m);
   transition-timing-function: var(--ease-default);
   font-size: var(--font-size-m);
   font-family: var(--font-family-body);
@@ -65,7 +65,7 @@
     padding: var(--field-padding);
     border-radius: var(--field-radius);
     transition-property: color, box-shadow, border-color;
-    transition-duration: var(--duration-medium);
+    transition-duration: var(--duration-m);
     transition-timing-function: var(--ease-default);
     font-family: inherit;
     line-height: 1.25;
@@ -343,7 +343,7 @@
       color: var(--color-brand-3);
       border-inline-start: 0;
       transition-property: box-shadow, background-color;
-      transition-duration: var(--duration-medium);
+      transition-duration: var(--duration-m);
       transition-timing-function: var(--ease-default);
 
       &:is(:hover, .hover) {

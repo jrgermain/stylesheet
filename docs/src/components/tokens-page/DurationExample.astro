@@ -4,15 +4,10 @@ interface Props {
 }
 
 const { name } = Astro.props;
-const niceName = name
-  .split("-")
-  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-  .join(" ");
 ---
 
 <div class="card duration-example" x-data="{ clicked: false }">
-  <p class="card-title">{niceName}</p>
-  <code>{`var(--duration-${name})`}</code>
+  <p class="card-title">duration-{name}</p>
   <slot />
   <button
     class="box"

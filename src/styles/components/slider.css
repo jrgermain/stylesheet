@@ -82,7 +82,7 @@ input[type="range"].slider {
     box-shadow: var(--slider-shadow-resting);
     border: var(--border-s) solid var(--color-border);
     transition-property: border-color, box-shadow, transform;
-    transition-duration: var(--duration-short);
+    transition-duration: var(--duration-s);
     transition-timing-function: var(--ease-default);
 
     /* Additional properties needed for webkit */
@@ -98,7 +98,7 @@ input[type="range"].slider {
     box-shadow: var(--slider-shadow-resting);
     border: var(--border-s) solid var(--color-border);
     transition-property: border-color, box-shadow, transform;
-    transition-duration: var(--duration-short);
+    transition-duration: var(--duration-s);
     transition-timing-function: var(--ease-default);
   }
 

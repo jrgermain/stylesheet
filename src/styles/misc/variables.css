@@ -225,10 +225,10 @@
   --ease-spring: cubic-bezier(0.95, -0.55, 0.05, 1.55);
 
   /* Durations */
-  --duration-short: 100ms;
-  --duration-medium: 150ms;
-  --duration-long: 250ms;
-  --duration-extra-long: 350ms;
+  --duration-s: 100ms;
+  --duration-m: 150ms;
+  --duration-l: 250ms;
+  --duration-xl: 350ms;
 
   /**************************************************************
    * Tokens prefixed with --internal- are for internal use only *

@@ -120,7 +120,7 @@
 :is(.modal, .drawer),
 :is(.modal, .drawer)::backdrop {
   transition-property: transform, opacity, display, overlay;
-  transition-duration: var(--duration-long);
+  transition-duration: var(--duration-l);
   transition-behavior: allow-discrete;
 }
 

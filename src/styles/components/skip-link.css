@@ -19,7 +19,7 @@
   text-decoration: none;
   vertical-align: middle;
   opacity: 0.25;
-  transition: opacity var(--duration-medium) var(--ease-default);
+  transition: opacity var(--duration-m) var(--ease-default);
   pointer-events: none;
   line-height: 1;
 
