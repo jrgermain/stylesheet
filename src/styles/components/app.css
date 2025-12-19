@@ -313,10 +313,6 @@
   width: calc(100% - var(--app-sidebar-width));
 }
 
-.app-header-section:has(.app-sidebar-toggle) {
-  display: none;
-}
-
 @media (width < 55rem) {
   /* 
    * If there's a sidebar, DON'T factor its width into the content width since
@@ -341,10 +337,6 @@
     &::after {
       content: initial;
     }
-  }
-
-  .app-header-section:has(.app-sidebar-toggle) {
-    display: flex;
   }
 
   .app-sidebar-content {

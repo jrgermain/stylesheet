@@ -75,6 +75,10 @@ be visible at any viewport size.
   </div>
 </div>
 
+## Based on Application Layout
+
+- To only show an item **when the application has a sidebar**, add the class `if-app-has-sidebar` to the element. Note that the sidebar doesn't have to be visible; it just has to be present in the layout.
+
 ## Examples
 
 For each of the classes listed below, you will see a checkmark (✅) next to
@@ -92,6 +96,7 @@ checkmarks change.
     "if-wide-viewport",
     "if-narrow-viewport if-medium-viewport",
     "if-medium-viewport if-wide-viewport",
+    "if-app-has-sidebar",
   ].map((className) => (
     <div class="card secondary">
       <code>{className}</code>
