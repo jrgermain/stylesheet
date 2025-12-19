@@ -18,7 +18,7 @@ To force an element (and its children) to display in light mode, add the class `
         This card always appears in light mode. So do the following elements inside
         it:
       </p>
-      <div class="flow">
+      <div class="wrap">
         <div class="chip blue">This Chip</div>
         <button class="button">This Button</button>
         <a class="link">and this Link</a>
@@ -38,7 +38,7 @@ To force an element (and its children) to display in dark mode, add the class `d
         This card always appears in dark mode. So do the following elements inside
         it:
       </p>
-      <div class="flow">
+      <div class="wrap">
         <div class="chip blue">This Chip</div>
         <button class="button">This Button</button>
         <a class="link">and this Link</a>
@@ -68,7 +68,7 @@ element to match the desired color mode.
         class="stack vertical dense"
         x-data="{ containerColorMode: '', dialogColorMode: '', type: 'drawer' }"
       >
-        <div class="flow">
+        <div class="wrap">
           <label class="field compact">
             Container Color Mode
             <select x-model="containerColorMode">

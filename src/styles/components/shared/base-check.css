@@ -26,7 +26,7 @@
     background-color: light-dark(white, black);
     box-shadow: var(--shadow-s);
     transition-property: background-color, border-color, box-shadow;
-    transition-duration: var(--duration-short);
+    transition-duration: var(--duration-s);
     transition-timing-function: var(--ease-default);
     flex-shrink: 0;
 

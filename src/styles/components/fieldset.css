@@ -1,10 +1,11 @@
 .fieldset legend,
 .legend {
+  line-height: 1.15;
   font-size: var(--font-size-l);
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-semibold);
   color: var(--color-body-text);
-  margin-bottom: var(--space-3xs);
+  margin-bottom: var(--space-2xs);
 }
 
 .fieldset-content {

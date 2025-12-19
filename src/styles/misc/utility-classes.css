@@ -31,6 +31,10 @@
   }
 }
 
+.app:not(:has(.app-sidebar)) .if-app-has-sidebar {
+  display: none !important;
+}
+
 /*************************************************
  * Override color mode for a section of the page *
  *************************************************/

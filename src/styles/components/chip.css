@@ -22,7 +22,7 @@
   flex-shrink: 0;
   cursor: default;
   transition-property: box-shadow, background-color, border-color, transform;
-  transition-duration: var(--duration-medium);
+  transition-duration: var(--duration-m);
   transition-timing-function: var(--ease-default);
   text-decoration: none;
   appearance: none;
@@ -311,7 +311,7 @@
   border: 0;
   border-radius: var(--radius-full);
   transition-property: background-color, outline-color, filter;
-  transition-duration: var(--duration-short);
+  transition-duration: var(--duration-s);
   transition-timing-function: var(--ease-default);
   position: relative;
   overflow: hidden;

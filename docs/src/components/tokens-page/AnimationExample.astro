@@ -4,27 +4,16 @@ interface Props {
 }
 
 const { easingFunctionName } = Astro.props;
-
-const easingFunctionFriendlyName = easingFunctionName
-  .replace(/-/g, " ")
-  .replace(/\b\w/g, (char) => char.toUpperCase());
-
-const easingFunctionVariable = `var(--ease-${easingFunctionName})`;
 ---
 
 <div class="container card">
-  <div class="card-title">
-    {easingFunctionFriendlyName}
-  </div>
-  <div class="variable-name-wrapper">
-    <div class="code">{easingFunctionVariable}</div>
-  </div>
+  <p class="card-title">ease-{easingFunctionName}</p>
   <div class="description"><slot /></div>
   <div class="track-wrapper">
     <div class="track"></div>
     <div
       class="ball"
-      style={{ animationTimingFunction: easingFunctionVariable }}
+      style={{ animationTimingFunction: `var(--ease-${easingFunctionName})` }}
     >
     </div>
   </div>
@@ -33,11 +22,6 @@ const easingFunctionVariable = `var(--ease-${easingFunctionName})`;
   .container {
     width: 100%;
     position: relative;
-  }
-
-  .variable-name-wrapper {
-    margin-block-start: calc(-1 * var(--space-2xs)) !important;
-    margin-block-end: var(--space-2xs) !important;
   }
 
   .description {

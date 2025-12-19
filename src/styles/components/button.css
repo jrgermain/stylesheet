@@ -17,7 +17,7 @@
   transform: scale(1);
   transition-property:
     box-shadow, background-color, border-color, transform, opacity;
-  transition-duration: var(--duration-medium);
+  transition-duration: var(--duration-m);
   transition-timing-function: var(--ease-default);
   text-decoration: none;
   position: relative;
@@ -46,7 +46,7 @@
     inset: 0;
     margin: auto;
     transition-property: opacity, width, height, border-radius;
-    transition-duration: var(--duration-medium);
+    transition-duration: var(--duration-m);
     transition-timing-function: var(--ease-default);
     z-index: -1;
     border-radius: 2em;

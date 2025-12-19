@@ -29,7 +29,7 @@
   position: sticky;
   left: 0;
   transition-property: background-color, border-bottom-color, box-shadow;
-  transition-duration: var(--duration-short);
+  transition-duration: var(--duration-s);
   transition-timing-function: var(--ease-default);
 
   &.transparent {
@@ -91,7 +91,7 @@
   text-decoration: none;
   color: inherit;
   transition-property: color, background-color;
-  transition-duration: var(--duration-short);
+  transition-duration: var(--duration-s);
   transition-timing-function: var(--ease-default);
   display: flex;
   align-items: center;
@@ -173,7 +173,7 @@
 
 .app-sidebar {
   transition-property: opacity, display;
-  transition-duration: var(--duration-medium);
+  transition-duration: var(--duration-m);
   transition-timing-function: var(--ease-default);
   transition-behavior: allow-discrete;
   width: var(--app-sidebar-width);
@@ -187,6 +187,7 @@
   top: 0;
   overflow: auto;
   height: 100dvh;
+  scrollbar-width: thin;
 }
 
 .app-sidebar-section {
@@ -221,7 +222,7 @@
   font-size: 1rem;
   user-select: none;
   transition-property: color, background-color, box-shadow;
-  transition-duration: var(--duration-short);
+  transition-duration: var(--duration-s);
   transition-timing-function: var(--ease-default);
 
   &:is(:hover, .hover) {
@@ -260,7 +261,7 @@
   /* Style the 3 lines inside the button */
   > div {
     transition-property: transform, opacity;
-    transition-duration: var(--duration-long);
+    transition-duration: var(--duration-l);
     transition-timing-function: var(--ease-out);
     position: absolute;
     width: 1.75rem;
@@ -312,10 +313,6 @@
   width: calc(100% - var(--app-sidebar-width));
 }
 
-.app-header-section:has(.app-sidebar-toggle) {
-  display: none;
-}
-
 @media (width < 55rem) {
   /* 
    * If there's a sidebar, DON'T factor its width into the content width since
@@ -340,10 +337,6 @@
     &::after {
       content: initial;
     }
-  }
-
-  .app-header-section:has(.app-sidebar-toggle) {
-    display: flex;
   }
 
   .app-sidebar-content {

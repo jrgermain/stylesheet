@@ -6,24 +6,25 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
 <ComponentDocumentation
   name="Flex"
-  description="Utility classes for managing spacing and layouts."
+  description="Utility classes for managing layouts with flexbox."
 >
   <UsageExample
     name="Layout"
     description={trimTextPadding(`
-      You must include exactly one of the following classes to determine which layout to apply:
+      The Flex component supports three different layouts. To create a Flex, 
+      first, choose a layout. Then, apply that layout to a container by giving
+      the container one of the following classes:
 
-      - \`flow\`: children are placed a fixed distance apart, wrapping onto new lines as needed.
-      - \`stack\`: children are placed a fixed distance apart and guaranteed to stay on the same line.
-      - \`separate\`: children are placed as far apart as possible while staying on the same line.
-      - \`space\`: children are placed an even distance apart, wrapping onto new lines as needed. Unlike flow, the space between elements adjusts based on how much is available.
+      - \`wrap\`: children are placed a fixed distance apart, wrapping onto new lines as needed.
+      - \`stack\`: children are placed a fixed distance apart and prevented from wrapping.
+      - \`distribute\`: children are spaced evenly within their container, wrapping onto new lines as needed.
 
       The examples below place children in a container with a fixed width to
       better illustrate how each behaves.
     `)}
     code={`
-      <h3 class="h6">Flow</h3>
-      <div class="flex-example flow">
+      <h3 class="h6">Wrap</h3>
+      <div class="flex-example wrap">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
@@ -37,13 +38,8 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
         <div class="box">3</div>
         <div class="box">4</div>
       </div>
-      <h3 class="h6">Separate</h3>
-      <div class="flex-example separate">
-        <div class="box">1</div>
-        <div class="box">2</div>
-      </div>
-      <h3 class="h6">Space</h3>
-      <div class="flex-example space">
+      <h3 class="h6">Distribute</h3>
+      <div class="flex-example distribute">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
@@ -71,49 +67,49 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
     `)}
     code={`
       <h3 class="h6">No Gap</h3>
-      <div class="flow no-gap">
+      <div class="wrap no-gap">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
       </div>
       <h3 class="h6">Densest</h3>
-      <div class="flow densest">
+      <div class="wrap densest">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
       </div>
       <h3 class="h6">Denser</h3>
-      <div class="flow denser">
+      <div class="wrap denser">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
       </div>
       <h3 class="h6">Dense</h3>
-      <div class="flow dense">
+      <div class="wrap dense">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
       </div>
       <h3 class="h6">Normal</h3>
-      <div class="flow">
+      <div class="wrap">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
       </div>
       <h3 class="h6">Sparse</h3>
-      <div class="flow sparse">
+      <div class="wrap sparse">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
       </div>
       <h3 class="h6">Sparser</h3>
-      <div class="flow sparser">
+      <div class="wrap sparser">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
       </div>
       <h3 class="h6">Sparsest</h3>
-      <div class="flow sparsest">
+      <div class="wrap sparsest">
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>

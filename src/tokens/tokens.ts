@@ -208,8 +208,8 @@ export enum EasingFunction {
 }
 
 export enum Duration {
-  Short = "var(--duration-short)",
-  Medium = "var(--duration-medium)",
-  Long = "var(--duration-long)",
-  ExtraLong = "var(--duration-extra-long)",
+  S = "var(--duration-s)",
+  M = "var(--duration-m)",
+  L = "var(--duration-l)",
+  XL = "var(--duration-xl)",
 }
