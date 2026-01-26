@@ -384,3 +384,8 @@
     opacity: 0;
   }
 }
+
+[data-jrg-scroll-gutter="true"] {
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
+}
