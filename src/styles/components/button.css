@@ -38,6 +38,8 @@
   background-color: var(--button-bg-color);
   border-color: var(--button-border-color);
   font-weight: var(--button-font-weight);
+  text-align: center;
+  text-wrap: balance;
 
   &::before {
     content: "";
