@@ -11,9 +11,9 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
 
 There are multiple ways to add the stylesheet to your project. The most common setups are outlined below.
 
-### Option 1: `import`
+### Option 1: Using a Package Manager & Bundler
 
-This option uses your package manager and bundler to add the stylesheet to your project. This is the recommended approach if you're already using these tools.
+This option uses your package manager to download the stylesheet, and your project's existing build tooling to bundle it into the final output. This is the recommended approach if you're already using these tools.
 
 First, install `@jrgermain/stylesheet` as a dependency. For example, if you're using NPM, you'd run the following command:
 
@@ -22,45 +22,46 @@ First, install `@jrgermain/stylesheet` as a dependency. For example, if you're u
   code="npm install @jrgermain/stylesheet"
 />
 
-Then, in the entry point of your project (typically a file named root, index, or main), add the following import statement:
+Next, in the entry point of your project (typically a file named root, index, or main), add the following import statements:
 
 <CodeBlock
   language="js"
-  code='import "@jrgermain/stylesheet";'
-/>
-
-If you get a compilation error, you can try the following equivalent import statement:
-
-<CodeBlock
-  language="js"
-  code='import "@jrgermain/stylesheet/stylesheet.css";'
-/>
-
-### Option 2: `<link>` Tags
-
-Alternatively, you can add a `<link>` tag to your document head with a `href` that references the stylesheet. This is useful if you don't have a build step, or if you aren't using the tools mentioned above.
-
-You can either copy the CSS files (`stylesheet.css` and optionally `stylesheet.css.map`) into your public directory and reference the local copy **or** link to a CDN.
-
-<CodeBlock
-  language="html"
   code={trimTextPadding(`
-    <!-- Use stylesheet that was copied into $PUBLIC_DIR/styles -->
-    <link rel="stylesheet" type="text/css" href="/styles/stylesheet.css" />
+    import "@jrgermain/stylesheet"; // Adds CSS styles
+    import "@jrgermain/stylesheet/enhance"; // Adds UX enhancements
   `)}
 />
 
-<br/>
+You might have to fiddle with the imports here. For example, the **enhance** script
+(which needs to run in the browser) might need to be imported in a different file
+than the main CSS stylesheet (which can be processed at build time).
+You may also run into an issue where your build tooling can't resolve the first import
+because it doesn't know to treat it as CSS. In this case, you can replace it with the
+following equivalent import: `@jrgermain/stylesheet/stylesheet.css`.
+
+### Option 2: Manual Installation
+
+This option is useful if you aren't using the tools above.
+
+First, download the latest release of the stylesheet from the [releases page on GitHub](https://github.com/jrgermain/stylesheet/releases).
+
+Next, extract the contents and copy the following files into your project:
+- `stylesheet.css`
+- `enhance.js`
+- `stylesheet.css.map` (optional, for debugging)
+- `enhance.js.map` (optional, for debugging)
+
+Lastly, add a `<link>` tag and a `<script>` tag to your document head to reference the files you just copied.
 
 <CodeBlock
   language="html"
   code={trimTextPadding(`
-    <!-- Pull version 0.3.0 of stylesheet from a CDN -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@jrgermain/stylesheet@0.3.0"
-    />
+    <head>
+      ...
+      <link rel="stylesheet" type="text/css" href="/path/to/stylesheet.css" />
+      <script src="/path/to/enhance.js" async></script>
+      ...
+    </head>
   `)}
 />
 
