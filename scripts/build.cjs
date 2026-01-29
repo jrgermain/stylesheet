@@ -95,6 +95,7 @@ const processTsFile = async (sourcePath, destPath, options) => {
     outfile: absoluteDestPath,
     platform: "browser",
     target: ["es2020"],
+    sourcemap: "linked",
     ...options,
   });
 };
