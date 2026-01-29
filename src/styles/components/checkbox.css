@@ -34,8 +34,9 @@
     border-bottom: 0.125em solid white;
     bottom: 0.2em;
     left: 0.28em;
-    transform: rotate(40deg) scale(0.5);
-    transition-property: opacity, transform;
+    transform: rotate(40deg) scale(0.1);
+    transition-property: transform;
+    transition-delay: 25ms;
   }
 
   /* When checked, show checkmark */
