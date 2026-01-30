@@ -2,11 +2,11 @@
  * Conditionally show/hide content *
  ***********************************/
 
-.js-disabled .if-js-enabled {
+.app:not([data-jrg-js-enabled="true"]) .if-js-enabled {
   display: none !important;
 }
 
-.js-enabled .if-js-disabled {
+.app[data-jrg-js-enabled="true"] .if-js-disabled {
   display: none !important;
 }
 

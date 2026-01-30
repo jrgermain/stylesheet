@@ -1,14 +1,14 @@
 const fs = require("node:fs/promises");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
-const { execFileSync } = require("node:child_process");
+const { execSync } = require("node:child_process");
 const { rimraf } = require("rimraf");
 const { bundle, browserslistToTargets } = require("lightningcss");
 const browserslist = require("browserslist");
+const esbuild = require("esbuild");
 
 const projectRoot = path.join(__dirname, "..");
 const targets = browserslistToTargets(browserslist("defaults"));
-const tsc = path.join(projectRoot, "node_modules", ".bin", "tsc");
 
 const processCssFile = async (sourcePath, destPath) => {
   const absoluteSourcePath = path.join(projectRoot, sourcePath);
@@ -67,7 +67,7 @@ const processCssFile = async (sourcePath, destPath) => {
             return {
               loc,
               url: `data:image/${extension.slice(1)};base64,${content.toString(
-                "base64"
+                "base64",
               )}`,
             };
         }
@@ -86,6 +86,20 @@ const processCssFile = async (sourcePath, destPath) => {
   }
 };
 
+const processTsFile = async (sourcePath, destPath, options) => {
+  const absoluteSourcePath = path.join(projectRoot, sourcePath);
+  const absoluteDestPath = path.join(projectRoot, destPath);
+
+  await esbuild.build({
+    entryPoints: [absoluteSourcePath],
+    outfile: absoluteDestPath,
+    platform: "browser",
+    target: ["es2020"],
+    sourcemap: "linked",
+    ...options,
+  });
+};
+
 (async () => {
   // Prepare dist directory
   const distPath = path.join(projectRoot, "dist");
@@ -96,7 +110,14 @@ const processCssFile = async (sourcePath, destPath) => {
   await processCssFile("src/styles/index.css", "dist/stylesheet.css");
 
   // Build TypeScript
-  execFileSync(tsc, { cwd: projectRoot, stdio: "inherit" });
+  await processTsFile("src/tokens.ts", "dist/tokens.js");
+  await processTsFile("src/enhance.ts", "dist/enhance.js", { minify: true });
+
+  // Generate TypeScript declaration files
+  execSync("npx tsc", {
+    stdio: "inherit",
+    cwd: projectRoot,
+  });
 
   console.log("Build complete");
 })().catch((e) => {
