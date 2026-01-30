@@ -1,10 +1,13 @@
 // --------------------------------------------------------------------------------------
-// Progressive Enhancements
+// Enhancements
 // --------------------------------------------------------------------------------------
-// This script adds the following non-essential functionality:
-// - Prevent layout shift when Modal, Drawer, and mobile Sidebar are opened
-// - Make Sidebar fill available vertical space when Header is scrolled in/out of view
-// - Enable use of the `if-js-enabled` and `if-js-disabled` utility classes
+// This script adds small UX tweaks for users with JavaScript enabled. In the spirit of
+// progressive enhancement, sites will be fully functional without it.
+//
+// This script does the following:
+// - Prevents layout shift when Modal, Drawer, and mobile Sidebar are opened
+// - Makes Sidebar fill available vertical space when Header is scrolled in/out of view
+// - Enables use of the `if-js-enabled` and `if-js-disabled` utility classes
 // --------------------------------------------------------------------------------------
 
 (async function () {
