@@ -9,44 +9,62 @@ const { name } = Astro.props;
 <div class="card duration-example" x-data="{ clicked: false }">
   <p class="card-title">duration-{name}</p>
   <slot />
-  <button
-    class="box"
-    style={`--duration: var(--duration-${name});`}
-    :class="clicked ? 'clicked' : ''"
-    @click="setTimeout(() => { clicked = true }, 1000); setTimeout(() => { clicked = false }, 3000);"
+  <label
+    class="wrapper"
+    style={{ transitionDuration: `var(--duration-${name})` }}
   >
-    Tap or Hover
-  </button>
+    <input type="checkbox" x-model="clicked" />
+    Click or tap
+  </label>
 </div>
 
 <style>
-  .box {
-    border-radius: var(--radius-m);
-    outline: 0 !important;
-    border: var(--border-s) solid var(--color-blue-7);
-    color: var(--color-blue-2);
-    box-shadow: var(--shadow-s);
+  .wrapper {
     display: flex;
-    inline-size: 10rem;
-    block-size: 10rem;
-    font-size: 1rem;
     align-items: center;
     justify-content: center;
+    inline-size: 10rem;
+    block-size: 10rem;
+    border-radius: var(--radius-m);
+    border: var(--border-s) solid var(--color-blue-7);
+    box-shadow: var(--shadow-s);
     background-color: var(--color-blue-8);
+    color: var(--color-blue-2);
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
     box-sizing: border-box;
     overflow: clip;
     position: relative;
-    transition-property: background-color, border-color, color;
-    transition-duration: var(--duration);
+    transition-property: background-color, border-color, color, outline;
     transition-timing-function: var(--ease-default);
-    font-weight: var(--font-weight-bold);
+    user-select: none;
+    outline: 0 solid transparent;
+    cursor: pointer;
   }
 
-  .box:hover,
-  .box.clicked {
+  .wrapper input {
+    appearance: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+
+  .wrapper:has(input:checked) {
     background-color: var(--color-red-8);
     border-color: var(--color-red-7);
     color: var(--color-red-2);
+  }
+
+  .wrapper:has(input:focus-visible) {
+    outline: var(--border-m) solid var(--color-blue-7);
+  }
+
+  .wrapper:has(input:checked:focus-visible) {
+    outline: var(--border-m) solid var(--color-red-7);
   }
 </style>
 
