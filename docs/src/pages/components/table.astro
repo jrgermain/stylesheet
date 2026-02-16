@@ -3,6 +3,12 @@ import ComponentDocumentation from "../../layouts/ComponentDocumentation.astro";
 import UsageExample from "../../components/UsageExample.astro";
 ---
 
+<style is:global>
+  .sticky-output-wrapper {
+    overflow: unset !important;
+  }
+</style>
+
 <ComponentDocumentation
   name="Table"
   description="A grid designed to show large amounts of information using rows and columns."
@@ -42,6 +48,44 @@ import UsageExample from "../../components/UsageExample.astro";
         </tbody>
       </table>
     `}
+    outputWrapperClass="output-wrapper"
+  />
+  <UsageExample
+    name="Fixed Header"
+    description="You can make the header of a Table stick to the top as the user scrolls by adding the `fixed-header` class to the `table` element.\n\nThis is experimental and doesn't work when the table is inside an element with `overflow: hidden` or `overflow: auto`. It also isn't currently supported in all browsers (as of February 2026)."
+    code={`
+      <table class="table fixed-header">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Job Area</th>
+            <th>Job Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John</td>
+            <td>Johnson</td>
+            <td>Analytics</td>
+            <td>Data Analyst</td>
+          </tr>
+          <tr>
+            <td>Jack</td>
+            <td>Jackson</td>
+            <td>Analytics</td>
+            <td>Manager</td>
+          </tr>
+          <tr>
+            <td>Robin</td>
+            <td>Robinson</td>
+            <td>Engineering</td>
+            <td>Software Engineer</td>
+          </tr>
+        </tbody>
+      </table>
+    `}
+    outputWrapperClass="sticky-output-wrapper"
   />
   <UsageExample
     name="Caption/Footer"
