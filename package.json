@@ -15,10 +15,12 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.cjs",
+    "zip": "node scripts/zip.cjs",
     "watch": "node scripts/watch.cjs",
     "lint": "stylelint ./src/styles"
   },
   "devDependencies": {
+    "@zip.js/zip.js": "^2.8.16",
     "browserslist": "^4.25.1",
     "chokidar": "^4.0.3",
     "esbuild": "^0.27.2",

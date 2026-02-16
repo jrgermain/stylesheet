@@ -1,4 +1,4 @@
-name: Publish Stylesheet
+name: Release
 
 on:
   release:
@@ -6,7 +6,7 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
 
 jobs:
   build-and-publish:
@@ -20,3 +20,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm publish --access public
+      - run: npm run zip
+      - run: gh release upload ${{ github.event.release.tag_name }} dist/stylesheet-*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
