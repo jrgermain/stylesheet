@@ -110,4 +110,16 @@ You can format inline code or monospaced text by adding the class `code`. There 
     </p>
   `}
 />
-  
+
+## Line Clamping
+
+You can limit text to a specific number of lines by adding the class `clamp-n`, where `n` is a number between 1 and 6. Browsers will ensure that text does not exceed this number of lines, adding an ellipsis (`...`) if there is additional text that is not visible.
+
+<UsageExample
+  name="Example"
+  code={`
+    <p class="paragraph clamp-3">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum at sem et tristique. Sed elementum, dolor ut vulputate scelerisque, urna dolor dignissim ipsum, nec porta magna ante et dolor. Quisque est ligula, pulvinar ut pharetra sed, tempor nec neque. Suspendisse accumsan pellentesque metus, at elementum leo fringilla nec. Cras iaculis nisi nec laoreet posuere. Suspendisse varius, lacus at lacinia tristique, dolor tortor rutrum augue, a sodales risus metus at nibh. Praesent imperdiet mollis urna, ut blandit nulla facilisis in. Donec ac mi nisl. Sed ultricies dignissim leo, eu suscipit ante pharetra vel. In ultrices ex ut ligula tempus mollis. Aliquam mollis laoreet diam, non convallis tellus tincidunt eu. Nullam a turpis sodales, laoreet magna eu, pharetra nisi. Integer feugiat justo at tellus fringilla, ut commodo lorem semper.
+    </p>
+  `}
+/>

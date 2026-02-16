@@ -49,9 +49,9 @@
   color: var(--color-body-text);
 }
 
-/*****************************************************
- * Make elements invisible, except to screenreaders  *
- *****************************************************/
+/****************************************************
+ * Make elements invisible, except to screenreaders *
+ ****************************************************/
 
 .visually-hidden,
 .app-sidebar-toggle input,
