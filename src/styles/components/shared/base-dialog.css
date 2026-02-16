@@ -89,7 +89,7 @@
     inset-block-start: var(--space-xs);
     inset-inline-end: var(--space-xs);
 
-    &:is(:hover, .hover) {
+    &:is(:hover, .hover):not(:active, .active) {
       box-shadow: 0 0 0 1px var(--color-gray-9);
     }
 
@@ -98,7 +98,7 @@
       --button-hover-bg-color: var(--color-gray-9);
       --button-border-color: var(--color-brand-6);
 
-      &:is(:hover, .hover) {
+      &:is(:hover, .hover):not(:active, .active) {
         box-shadow: 0 0 0 1px var(--color-brand-6);
       }
     }
