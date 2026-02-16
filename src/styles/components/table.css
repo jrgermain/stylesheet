@@ -41,6 +41,21 @@ table.table,
     margin: 0 0 var(--space-2xs);
   }
 
+  &.caption-below {
+    caption-side: bottom;
+
+    caption {
+      font-family: var(--font-family-body);
+      line-height: 1.25;
+      font-size: var(--font-size-m);
+      font-weight: var(--font-weight-normal);
+      text-align: center;
+      margin: var(--space-xs) 0;
+      font-style: italic;
+      color: var(--color-body-text-alt);
+    }
+  }
+
   th,
   td {
     padding: var(--space-2xs) var(--space-xs);
