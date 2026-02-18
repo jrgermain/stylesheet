@@ -6,6 +6,7 @@
 .drawer {
   --dialog-starting-opacity: 1;
   --dialog-ending-opacity: 1;
+  --dialog-close-button-offset: 12px;
 
   position: fixed;
   inset: 0;

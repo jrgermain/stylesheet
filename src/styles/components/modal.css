@@ -4,6 +4,8 @@
  */
 
 .modal {
+  --dialog-close-button-offset: 10px;
+
   max-height: calc(100svh - 4 * var(--space-body-y));
   max-width: calc(100svw - 4 * var(--space-body-x));
   margin: auto;
