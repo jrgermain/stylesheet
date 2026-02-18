@@ -11,41 +11,52 @@ import { trimTextPadding } from "../../utils/trim-text-padding";
   <UsageExample
     name="Statuses"
     description={trimTextPadding(`
-      To create an Alert, create a \`div\` with the class \`alert\`. Every Alert
-      must have a **status**, which you can set by adding one of the following
-      additional classes:
+      To create an Alert, create a \`div\` with the class \`alert\`.
+      Inside it, create another \`div\` with the class \`alert-content\`.
+      Place the desired message inside the \`alert-content\` element.
+      
+      Every Alert must have exactly one **status**, which you can set by adding
+      one of the following additional classes to the root element:
 
       - \`info\`
       - \`success\`
       - \`warning\`
       - \`error\`
-
-      Failing to include a status is undefined behavior.
     `)}
     code={`
       <div class="alert info">
-        No payment is due at this time.
+        <div class="alert-content">
+          No payment is due at this time.
+        </div>
       </div>
       <div class="alert success">
-        Your profile was updated successfully.
+        <div class="alert-content">
+          Your profile was updated successfully.
+        </div>
       </div>
       <div class="alert warning">
-        Your connection is unstable.
+        <div class="alert-content">
+          Your connection is unstable.
+        </div>
       </div>
       <div class="alert error">
-        Your request couldn't be processed at this time.
-        Please try again later.
+        <div class="alert-content">
+          Your request couldn't be processed at this time.
+          Please try again later.
+        </div>
       </div>
     `}
   />
 
   <UsageExample
     name="Title"
-    description="To add a **title** to an Alert, add the class `alert-title` to the first child element."
+    description="To add a **title** to an Alert, add the class `alert-title` to the first child of the alert-content element."
     code={`
       <div class="alert info">
-        <p class="alert-title">Fun Fact</p>
-        <p>The tip of a shoelace is called an aglet.</p>
+        <div class="alert-content">
+          <p class="alert-title">Fun Fact</p>
+          <p>The tip of a shoelace is called an aglet.</p>
+        </div>
       </div>
     `}
   />
