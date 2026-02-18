@@ -72,15 +72,6 @@ table.table,
     border-block-end: var(--border-m) solid var(--color-border);
   }
 
-  &.fixed-header thead {
-    background-color: var(--color-body-alt);
-    position: sticky;
-    top: 0;
-
-    /* stylelint-disable-next-line declaration-property-value-no-unknown -- this is a new value not yet recognized by stylelint */
-    container-type: scroll-state;
-  }
-
   tfoot td {
     border-block-start: var(--border-m) solid var(--color-border);
   }
