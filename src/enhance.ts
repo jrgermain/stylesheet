@@ -118,7 +118,28 @@
   // Attach sidebar toggle listener if toggle is present
   $sidebarToggle?.addEventListener("change", setScrollGutter);
 
-  // TODO: call setScrollGutter when a Modal or Drawer is opened/closed
+  // Add Modal/Drawer toggle listener
+  document
+    .querySelectorAll<HTMLDialogElement>("dialog.modal, dialog.drawer")
+    .forEach((dialog) => {
+      dialog.addEventListener("toggle", setScrollGutter);
+    });
+
+  // Automatically add listeners to any new Modals/Drawers
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      for (const node of mutation.addedNodes) {
+        if (
+          node instanceof HTMLDialogElement &&
+          (node.classList.contains("modal") ||
+            node.classList.contains("drawer"))
+        ) {
+          node.addEventListener("toggle", setScrollGutter);
+        }
+      }
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 
   // Run all enhancements on initial load
   setSidebarHeight();
