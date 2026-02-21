@@ -217,7 +217,7 @@
   }
 
   /* Easing functions */
-  --ease-default: cubic-bezier(0.6, 0.22, 0.45, 0.9);
+  --ease-default: cubic-bezier(0.53, 0.37, 0.28, 0.95);
   --ease-out: cubic-bezier(0.17, 0.84, 0.44, 1);
   --ease-in: cubic-bezier(0.7, 0.1, 0.8, 0.65);
   --ease-both: cubic-bezier(0.65, 0.05, 0.36, 1);
