@@ -123,13 +123,21 @@ export enum Color {
   Gray9 = "var(--color-gray-9)",
   GrayTransparent = "var(--color-gray-transparent)",
   GrayExtraTransparent = "var(--color-gray-extra-transparent)",
+  Page = "var(--color-page)",
+  Surface = "var(--color-surface)",
+  TextPrimary = "var(--color-text-primary)",
+  TextSecondary = "var(--color-text-secondary)",
+  ContrastBackground = "var(--color-contrast-background)",
+  ContrastText = "var(--color-contrast-text)",
+  Shadow = "var(--color-shadow)",
+  Border = "var(--color-border)",
+
+  // Deprecated
   Body = "var(--color-body)",
   BodyAlt = "var(--color-body-alt)",
   BodyText = "var(--color-body-text)",
   BodyTextAlt = "var(--color-body-text-alt)",
   BodyTextInvert = "var(--color-body-text-invert)",
-  Shadow = "var(--color-shadow)",
-  Border = "var(--color-border)",
 }
 
 export enum FontSize {
