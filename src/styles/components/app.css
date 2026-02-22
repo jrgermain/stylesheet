@@ -22,7 +22,7 @@
   height: var(--app-header-height);
   width: 100%;
   color: var(--color-brand-3);
-  background-color: var(--color-body-alt);
+  background-color: var(--color-surface);
   border-bottom: var(--border-l) solid var(--color-brand-transparent);
   box-shadow: var(--shadow-s);
   flex: none;
@@ -36,7 +36,7 @@
     background-color: transparent;
     background-image: linear-gradient(
       to bottom,
-      rgb(from var(--color-body-alt) r g b / 67%),
+      rgb(from var(--color-surface) r g b / 67%),
       transparent
     );
     background-repeat: no-repeat;
@@ -216,7 +216,7 @@
   margin: 0 var(--space-2xs);
   padding: var(--space-2xs) calc(var(--space-body-x) - var(--space-2xs));
   border-radius: var(--radius-l);
-  color: var(--color-body-text-alt);
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-weight: var(--font-weight-normal);
   font-size: 1rem;
@@ -360,7 +360,7 @@
       position: fixed;
       top: 0;
       z-index: 10;
-      background-color: var(--color-body-alt);
+      background-color: var(--color-surface);
       border-bottom-color: var(--color-brand-transparent);
       box-shadow: var(--shadow-s);
     }

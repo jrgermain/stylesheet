@@ -29,8 +29,8 @@
   box-shadow: var(--shadow-xl);
   border: var(--border-s) solid var(--color-border);
   border-radius: var(--radius-l);
-  background-color: var(--color-body-alt);
-  color: var(--color-body-text);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
   padding: 0;
   flex-direction: column;
   gap: 0;

@@ -3,7 +3,7 @@
 
   details {
     width: 100%;
-    background-color: var(--color-body-alt);
+    background-color: var(--color-surface);
     padding-block: 0;
     padding-inline: var(--space-xs);
     border-radius: var(--radius-m);
@@ -81,7 +81,7 @@
     transition-timing-function: var(--ease-default);
     position: relative;
     list-style: none; /* Hides ::marker pseudo element in favor of ::before (better cross browser consistency) */
-    color: var(--color-body-text);
+    color: var(--color-text-primary);
     user-select: none;
 
     @media (prefers-reduced-motion: no-preference) {
@@ -104,7 +104,7 @@
     /* Replacement marker element */
     &::before {
       content: "";
-      background-color: var(--color-body-text-alt);
+      background-color: var(--color-text-secondary);
       mask-image: url("@/src/icons/dropdown.svg");
       mask-position: center;
       mask-size: contain;

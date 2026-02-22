@@ -6,10 +6,10 @@
 .banner {
   --message-icon-size: 1.6em;
   --message-icon-margin: 0.8em;
-  --message-icon-background: var(--color-body-alt);
+  --message-icon-background: var(--color-surface);
 
   font-size: 1rem;
-  color: var(--color-body-text-invert);
+  color: var(--color-contrast-fg);
   border-block: var(--border-m) solid var(--banner-secondary-color);
   width: 100%;
   background-color: var(--banner-bg-color);
@@ -57,8 +57,8 @@
   }
 
   .link {
-    color: var(--color-body-text-invert);
-    text-decoration-color: rgb(from var(--color-body-text-invert) r g b / 40%);
+    color: var(--color-contrast-fg);
+    text-decoration-color: rgb(from var(--color-contrast-fg) r g b / 40%);
   }
 
   &:has(.button.dismiss) .banner-content {

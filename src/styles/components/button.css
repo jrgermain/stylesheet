@@ -1,5 +1,5 @@
 .button {
-  --button-fg-color: var(--color-body-text);
+  --button-fg-color: var(--color-text-primary);
   --button-bg-color: light-dark(var(--color-gray-9), #191b1e);
   --button-border-color: light-dark(var(--color-gray-8), var(--color-border));
   --button-font-weight: var(--font-weight-normal);

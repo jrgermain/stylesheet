@@ -41,12 +41,12 @@
 
 .light-mode {
   color-scheme: only light;
-  color: var(--color-body-text);
+  color: var(--color-text-primary);
 }
 
 .dark-mode {
   color-scheme: only dark;
-  color: var(--color-body-text);
+  color: var(--color-text-primary);
 }
 
 /****************************************************

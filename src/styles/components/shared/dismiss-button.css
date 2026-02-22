@@ -1,5 +1,5 @@
 .button.dismiss {
-  --button-fg-color: var(--color-body-text);
+  --button-fg-color: var(--color-text-primary);
   --button-bg-color: transparent;
   --button-border-color: transparent;
   --button-hover-bg-color: var(--color-gray-extra-transparent);

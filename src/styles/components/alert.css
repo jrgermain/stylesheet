@@ -6,10 +6,10 @@
 .alert {
   --message-icon-size: 1.7em;
   --message-icon-margin: 0.25em;
-  --message-icon-background: var(--color-body-alt);
+  --message-icon-background: var(--color-surface);
 
   font-size: var(--font-size-m);
-  color: var(--color-body-text);
+  color: var(--color-text-primary);
   padding: var(--border-m);
   padding-inline-start: calc(var(--border-m) + 2px);
   border-radius: var(--radius-s);
