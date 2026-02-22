@@ -1,27 +1,61 @@
 ---
 interface Props {
   name: string;
+  description: string;
+  deprecatedAlias?: string;
 }
 
-const { name } = Astro.props;
+const { name, description, deprecatedAlias } = Astro.props;
 
 const backgroundColor = `var(--color-${name})`;
 ---
 
-<div class="swatch" style={{ backgroundColor }}></div>
-<strong>{name}</strong>
-<span><slot /></span>
+<div class="semantic-color">
+  <div class="swatch" style={{ backgroundColor }}></div>
+  <strong class="name">color-{name}</strong>
+  <div class="description">{description}</div>
+  {
+    deprecatedAlias && (
+      <div class="deprecated-alias">
+        Previously <strong>{deprecatedAlias}</strong>. This deprecated alias
+        will be removed in version 1.0.
+      </div>
+    )
+  }
+</div>
 
 <style>
+  .semantic-color {
+    background-color: var(--color-surface);
+    padding: var(--space-s);
+    border-radius: var(--radius-m);
+    border: var(--border-s) solid var(--color-border);
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: var(--space-2xs) var(--space-xs);
+    place-items: center start;
+  }
+
   .swatch {
     height: 2rem;
     width: 2rem;
     border-radius: var(--radius-s);
     border: var(--border-s) solid var(--color-border);
-    flex-shrink: 0;
   }
 
-  strong {
+  .name {
     text-wrap: nowrap;
+    grid-column: 2 / span 2;
+    margin-inline-end: auto;
+  }
+
+  .description {
+    grid-column: 1 / span 3;
+  }
+
+  .deprecated-alias {
+    grid-column: 1 / span 3;
+    font-size: var(--font-size-s);
+    color: var(--color-yellow-4);
   }
 </style>

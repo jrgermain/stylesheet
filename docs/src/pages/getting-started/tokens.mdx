@@ -4,7 +4,6 @@ title: Tokens
 ---
 
 import CodeBlock from "../../components/CodeBlock.astro";
-import SemanticColors from "../../components/tokens-page/SemanticColors.astro";
 import SemanticColor from "../../components/tokens-page/SemanticColor.astro";
 import ColorsContainer from "../../components/tokens-page/ColorsContainer.astro";
 import ColorRow from "../../components/tokens-page/ColorRow.astro";
@@ -86,33 +85,19 @@ Below are samples of all the colors in shades 1 through 9:
 ### Semantic Colors
 
 In addition to the standard palette, the stylesheet defines a set of
-"semantic" colors. These colors are named after their intended use cases:
+"semantic" colors. These colors are named after their intended use cases
+and do not have multiple shades.
 
-<SemanticColors>
-  <SemanticColor name="body">
-    the primary background color for the document
-  </SemanticColor>
-  <SemanticColor name="body-alt">
-    the secondary background color, used on surfaces like cards
-  </SemanticColor>
-  <SemanticColor name="body-text">
-    the primary text color for the document
-  </SemanticColor>
-  <SemanticColor name="body-text-alt">
-    the secondary text color for the document
-  </SemanticColor>
-  <SemanticColor name="body-text-invert">
-    color for text on backgrounds that contrast with the page background
-  </SemanticColor>
-  <SemanticColor name="shadow">
-    a transparent gray used for box shadows
-  </SemanticColor>
-  <SemanticColor name="border">
-    a gray used as the default color for borders
-  </SemanticColor>
-</SemanticColors>
-
-Unlike standard palette colors, these don't come in multiple shades.
+<div class="stack vertical">
+  <SemanticColor name="page" deprecatedAlias="body" description="The primary background color for the page." />
+  <SemanticColor name="surface" deprecatedAlias="body-alt" description="The secondary background color, used on surfaces like cards." />
+  <SemanticColor name="text-primary" deprecatedAlias="body-text" description="The primary text color for the document." />
+  <SemanticColor name="text-secondary" deprecatedAlias="body-text-alt" description="The secondary text color for the document." />
+  <SemanticColor name="contrast-bg" description="A background color that contrasts with the page background." />
+  <SemanticColor name="contrast-fg" deprecatedAlias="body-text-invert" description="Color for text on backgrounds that contrast with the page background." />
+  <SemanticColor name="shadow" description="A transparent gray used for box shadows." />
+  <SemanticColor name="border" description="A gray used as the default color for borders." />
+</div>
 
 ## Shadows
 

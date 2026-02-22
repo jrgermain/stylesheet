@@ -138,13 +138,21 @@
   --color-gray-extra-transparent: light-dark(#6f727633, #75787c59);
 
   /* Semantic colors */
-  --color-body: light-dark(#f9fafc, #14161a);
-  --color-body-alt: light-dark(#fff, #010203);
-  --color-body-text: light-dark(#030305, #fff);
-  --color-body-text-alt: light-dark(#404247, #ccced0);
-  --color-body-text-invert: light-dark(#fff, #030305);
+  --color-page: light-dark(#f9fafc, #14161a);
+  --color-surface: light-dark(#fff, #010203);
+  --color-text-primary: light-dark(#030305, #fff);
+  --color-text-secondary: light-dark(#404247, #ccced0);
+  --color-contrast-bg: var(--color-brand-1);
+  --color-contrast-fg: light-dark(#fff, #030305);
   --color-shadow: light-dark(#45484c26, #00000166);
   --color-border: light-dark(#d8dbe0, #434549);
+
+  /* Deprecated semantic color aliases */
+  --color-body: var(--color-page);
+  --color-body-alt: var(--color-surface);
+  --color-body-text: var(--color-text-primary);
+  --color-body-text-alt: var(--color-text-secondary);
+  --color-body-text-invert: var(--color-contrast-fg);
 
   /* Font sizes */
   --font-size-xs: clamp(0.6944rem, 0.6855rem + 0.0446vw, 0.72rem);
