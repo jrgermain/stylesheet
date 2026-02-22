@@ -4,4 +4,4 @@
 
 A lightweight, framework-agnostic design system written in pure CSS. Designed for me, available to all.
 
-For information on how to use this in your project, plus examples of all the components and their options, see https://stylesheet.jrgermain.dev
+For information on how to use this in your project, plus examples of all the components and their options, see https://stylesheet.jrgermain.dev/getting-started/introduction/.
