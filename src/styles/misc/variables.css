@@ -142,8 +142,8 @@
   --color-surface: light-dark(#fff, #010203);
   --color-text-primary: light-dark(#030305, #fff);
   --color-text-secondary: light-dark(#404247, #ccced0);
-  --color-contrast-bg: var(--color-brand-1);
-  --color-contrast-fg: light-dark(#fff, #030305);
+  --color-contrast-background: var(--color-brand-1);
+  --color-contrast-text: light-dark(#fff, #030305);
   --color-shadow: light-dark(#45484c26, #00000166);
   --color-border: light-dark(#d8dbe0, #434549);
 
