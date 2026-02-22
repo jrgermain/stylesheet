@@ -11,6 +11,7 @@
   font-size: var(--font-size-m);
   color: var(--color-body-text);
   padding: var(--border-m);
+  padding-inline-start: calc(var(--border-m) + 2px);
   border-radius: var(--radius-s);
   background: linear-gradient(
     to right,
