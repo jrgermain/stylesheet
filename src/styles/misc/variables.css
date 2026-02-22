@@ -152,7 +152,7 @@
   --color-body-alt: var(--color-surface);
   --color-body-text: var(--color-text-primary);
   --color-body-text-alt: var(--color-text-secondary);
-  --color-body-text-invert: var(--color-contrast-fg);
+  --color-body-text-invert: var(--color-contrast-text);
 
   /* Font sizes */
   --font-size-xs: clamp(0.6944rem, 0.6855rem + 0.0446vw, 0.72rem);
