@@ -50,7 +50,7 @@ table.table,
       font-size: var(--font-size-m);
       font-weight: var(--font-weight-normal);
       text-align: center;
-      margin: var(--space-xs) 0;
+      margin-block: var(--space-2xs);
       font-style: italic;
       color: var(--color-text-secondary);
     }
