@@ -1,0 +1,82 @@
+---
+layout: ../../layouts/Markdown.astro
+title: Colors
+---
+
+import CodeBlock from "../../components/CodeBlock.astro";
+import SemanticColor from "../../components/tokens-page/SemanticColor.astro";
+import ColorsContainer from "../../components/tokens-page/ColorsContainer.astro";
+import ColorRow from "../../components/tokens-page/ColorRow.astro";
+import { trimTextPadding } from "../../utils/trim-text-padding";
+
+# Colors
+
+All colors are prefixed with `--color-`. The stylesheet defines 2 sets
+of colors: the **standard palette** and **semantic colors**.
+
+## Standard Palette
+
+The stylesheet defines multiple shades for each of the following colors:
+`brand`, `red`, `orange`, `yellow`, `green`, `teal`, `blue`, `purple`, `magenta`,
+and `gray`.
+
+There are 9 shades for each color, ranging from 1 to 9, where lower numbers have
+the most contrast with the page background. In other words, shade 1 is the
+darkest shade in light mode, but the lightest shade in dark mode. Different
+design systems have different numbering schemes, but a good mental model for
+this one is that light mode is the canonical color mode, and the number of a
+given color refers to its lightness.
+
+There are also 2 transparent variants for each color: `transparent` and
+`extra-transparent`. These are based on shade 5, but with varying opacities.
+
+The variables for these colors all use the standard `--color-` prefix,
+followed by the color name and shade. For example, the color `red` with
+lightness 1 is defined as `--color-red-1`, while `red` with high
+transparency is defined as `--color-red-extra-transparent`. Below is an
+example of how to reference these colors in a stylesheet:
+
+<CodeBlock
+  language="css"
+  code={trimTextPadding(`
+    .red {
+      background-color: var(--color-red-1);
+    }
+
+    .transparent-red {
+      background-color: var(--color-red-extra-transparent);
+    }
+  `)}
+/>
+
+Below are samples of all the colors in shades 1 through 9:
+
+<ColorsContainer>
+  <ColorRow name="brand" />
+  <ColorRow name="red" />
+  <ColorRow name="orange" />
+  <ColorRow name="yellow" />
+  <ColorRow name="green" />
+  <ColorRow name="teal" />
+  <ColorRow name="blue" />
+  <ColorRow name="purple" />
+  <ColorRow name="magenta" />
+  <ColorRow name="gray" />
+</ColorsContainer>
+
+## Semantic Colors
+
+In addition to the standard palette, the stylesheet defines a set of
+"semantic" colors. These colors are named after their intended use cases
+and do not have multiple shades.
+
+<div class="stack vertical">
+  <SemanticColor name="page" deprecatedAlias="body" description="The primary background color for the page." />
+  <SemanticColor name="surface" deprecatedAlias="body-alt" description="The secondary background color, used on surfaces like cards." />
+  <SemanticColor name="text-primary" deprecatedAlias="body-text" description="The primary text color for the document." />
+  <SemanticColor name="text-secondary" deprecatedAlias="body-text-alt" description="The secondary text color for the document." />
+  <SemanticColor name="contrast-background" description="A background color that contrasts with the page background." />
+  <SemanticColor name="contrast-text" deprecatedAlias="body-text-invert" description="Color for text on backgrounds that contrast with the page background." />
+  <SemanticColor name="shadow" description="A transparent gray used for box shadows." />
+  <SemanticColor name="border" description="A gray used as the default color for borders." />
+</div>

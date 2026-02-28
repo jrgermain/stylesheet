@@ -1,0 +1,37 @@
+---
+layout: ../../layouts/Markdown.astro
+title: Borders
+---
+
+import BorderExample from '../../components/tokens-page/BorderExample.astro';
+
+# Borders
+
+## Border Widths
+
+The variables for border widths are all prefixed with `--border-`. They're
+designed to be used with the `border-width` property.
+
+<div class="wrap">
+  <BorderExample propName="border" propValue="none" />
+  <BorderExample propName="border" propValue="s" />
+  <BorderExample propName="border" propValue="m" />
+  <BorderExample propName="border" propValue="l" />
+  <BorderExample propName="border" propValue="xl" />
+</div>
+
+
+## Border Radii
+
+The variables for radii are all prefixed with `--radius-`. They're designed to
+be used with the `border-radius` property.
+
+<div class="wrap">
+  <BorderExample propName="radius" propValue="none" />
+  <BorderExample propName="radius" propValue="s" />
+  <BorderExample propName="radius" propValue="m" />
+  <BorderExample propName="radius" propValue="l" />
+  <BorderExample propName="radius" propValue="xl" />
+  <BorderExample propName="radius" propValue="2xl" />
+  <BorderExample propName="radius" propValue="full" />
+</div>
