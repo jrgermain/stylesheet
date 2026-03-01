@@ -138,18 +138,22 @@
   --color-gray-extra-transparent: light-dark(#6f727633, #75787c59);
 
   /* Semantic colors */
-  --color-page: light-dark(#f9fafc, #14161a);
-  --color-surface: light-dark(#fff, #010203);
+  --color-surface-primary: light-dark(#fff, #010203);
+  --color-surface-secondary: light-dark(#f9fafc, #14161a);
+  --color-surface-tertiary: light-dark(#eceff4, #212327);
   --color-text-primary: light-dark(#030305, #fff);
   --color-text-secondary: light-dark(#404247, #ccced0);
+  --color-text-tertiary: var(--color-brand-3);
   --color-contrast-background: var(--color-brand-1);
   --color-contrast-text: light-dark(#fff, #030305);
   --color-shadow: light-dark(#45484c26, #00000166);
   --color-border: light-dark(#d8dbe0, #434549);
 
   /* Deprecated semantic color aliases */
-  --color-body: var(--color-page);
-  --color-body-alt: var(--color-surface);
+  --color-body: var(--color-surface-secondary);
+  --color-page: var(--color-surface-secondary);
+  --color-surface: var(--color-surface-primary);
+  --color-body-alt: var(--color-surface-primary);
   --color-body-text: var(--color-text-primary);
   --color-body-text-alt: var(--color-text-secondary);
   --color-body-text-invert: var(--color-contrast-text);

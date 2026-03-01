@@ -2,26 +2,33 @@
 interface Props {
   name: string;
   description: string;
-  deprecatedAlias?: string;
+  deprecatedAliases?: string[];
 }
 
-const { name, description, deprecatedAlias } = Astro.props;
+const { name, description, deprecatedAliases } = Astro.props;
 
 const backgroundColor = `var(--color-${name})`;
+const hasMultipleDeprecatedAliases =
+  Array.isArray(deprecatedAliases) && deprecatedAliases.length > 1;
 ---
 
 <div class="semantic-color">
   <div class="swatch" style={{ backgroundColor }}></div>
   <strong class="name">color-{name}</strong>
-  <div class="description">{description}</div>
   {
-    deprecatedAlias && (
+    deprecatedAliases && (
       <div class="deprecated-alias">
-        Previously <strong>{deprecatedAlias}</strong>. This deprecated alias
+        Previously
+        <strong>
+          {deprecatedAliases.map((name) => `color-${name}`).join(", ")}
+        </strong>
+        . {hasMultipleDeprecatedAliases ? "These" : "This"} deprecated{" "}
+        {hasMultipleDeprecatedAliases ? "aliases" : "alias"}
         will be removed in version 1.0.
       </div>
     )
   }
+  <div class="description">{description}</div>
 </div>
 
 <style>
@@ -32,7 +39,7 @@ const backgroundColor = `var(--color-${name})`;
     border: var(--border-s) solid var(--color-border);
     display: grid;
     grid-template-columns: auto auto 1fr;
-    gap: var(--space-2xs) var(--space-xs);
+    gap: 0 var(--space-xs);
     place-items: center start;
   }
 
@@ -41,6 +48,7 @@ const backgroundColor = `var(--color-${name})`;
     width: 2rem;
     border-radius: var(--radius-s);
     border: var(--border-s) solid var(--color-border);
+    grid-row: span 2;
   }
 
   .name {
@@ -51,10 +59,11 @@ const backgroundColor = `var(--color-${name})`;
 
   .description {
     grid-column: 1 / span 3;
+    margin-block-start: var(--space-2xs);
   }
 
   .deprecated-alias {
-    grid-column: 1 / span 3;
+    grid-column: 2 / span 2;
     font-size: var(--font-size-s);
     color: var(--color-yellow-4);
   }

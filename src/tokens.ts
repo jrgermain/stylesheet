@@ -13,6 +13,7 @@ export type ColorVariant =
   | "white";
 
 export enum Color {
+  // Standard palette
   Brand1 = "var(--color-brand-1)",
   Brand2 = "var(--color-brand-2)",
   Brand3 = "var(--color-brand-3)",
@@ -123,20 +124,33 @@ export enum Color {
   Gray9 = "var(--color-gray-9)",
   GrayTransparent = "var(--color-gray-transparent)",
   GrayExtraTransparent = "var(--color-gray-extra-transparent)",
-  Page = "var(--color-page)",
-  Surface = "var(--color-surface)",
+
+  // Semantic colors
+  SurfacePrimary = "var(--color-surface-primary)",
+  SurfaceSecondary = "var(--color-surface-secondary)",
+  SurfaceTertiary = "var(--color-surface-tertiary)",
   TextPrimary = "var(--color-text-primary)",
   TextSecondary = "var(--color-text-secondary)",
+  TextTertiary = "var(--color-text-tertiary)",
   ContrastBackground = "var(--color-contrast-background)",
   ContrastText = "var(--color-contrast-text)",
   Shadow = "var(--color-shadow)",
   Border = "var(--color-border)",
 
-  // Deprecated
+  // Semantic color aliases (to be removed in a future major release)
+  /** @deprecated use SurfaceSecondary */
   Body = "var(--color-body)",
+  /** @deprecated use SurfaceSecondary */
+  Page = "var(--color-page)",
+  /** @deprecated use SurfacePrimary */
+  Surface = "var(--color-surface)",
+  /** @deprecated use SurfacePrimary */
   BodyAlt = "var(--color-body-alt)",
+  /** @deprecated use TextPrimary */
   BodyText = "var(--color-body-text)",
+  /** @deprecated use TextSecondary */
   BodyTextAlt = "var(--color-body-text-alt)",
+  /** @deprecated use ContrastText */
   BodyTextInvert = "var(--color-body-text-invert)",
 }
 
