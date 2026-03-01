@@ -16,7 +16,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-page);
+  background-color: var(--color-surface-secondary);
   color: var(--color-text-primary);
 }
 

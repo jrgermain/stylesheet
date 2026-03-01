@@ -1,5 +1,5 @@
 .card {
-  --card-bg-color: var(--color-surface);
+  --card-bg-color: var(--color-surface-primary);
   --card-fg-color: var(--color-text-primary);
   --card-title-color: var(--color-brand-3);
   --card-title-underline-color: var(--color-brand-transparent);
@@ -17,7 +17,7 @@
   color: var(--card-fg-color);
 
   &.secondary {
-    --card-bg-color: var(--color-page);
+    --card-bg-color: var(--color-surface-secondary);
 
     border-radius: var(--radius-m);
     box-shadow: var(--shadow-s);

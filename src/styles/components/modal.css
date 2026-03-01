@@ -40,7 +40,7 @@
   display: flex;
   gap: var(--space-2xs);
   justify-content: flex-start;
-  background-color: var(--color-page);
+  background-color: var(--color-surface-secondary);
   border-block-start: var(--border-s) solid var(--color-border);
   margin: 0;
 

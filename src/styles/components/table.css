@@ -1,10 +1,10 @@
 table.table,
 :where(.style-semantic-elements table) {
-  --table-bg-odd: var(--color-surface);
-  --table-bg-even: var(--color-page);
+  --table-bg-odd: var(--color-surface-primary);
+  --table-bg-even: var(--color-surface-secondary);
   --table-vertical-border: var(--border-s);
 
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-primary);
   border-collapse: separate;
   border-spacing: 0;
   font-size: var(--font-size-m);

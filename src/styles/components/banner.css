@@ -6,7 +6,7 @@
 .banner {
   --message-icon-size: 1.6em;
   --message-icon-margin: 0.8em;
-  --message-icon-background: var(--color-surface);
+  --message-icon-background: var(--color-surface-primary);
 
   font-size: 1rem;
   color: var(--color-contrast-text);

@@ -29,7 +29,7 @@
   box-shadow: var(--shadow-xl);
   border: var(--border-s) solid var(--color-border);
   border-radius: var(--radius-l);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-primary);
   color: var(--color-text-primary);
   padding: 0;
   flex-direction: column;
