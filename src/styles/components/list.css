@@ -79,5 +79,5 @@ ol.list ol.list ol.list ol.list li::marker,
 ul.list ul.list ul.list ul.list li::marker,
 .style-semantic-elements ol ol ol ol li::marker,
 .style-semantic-elements ul ul ul ul li::marker {
-  color: var(--color-brand-3);
+  color: var(--color-text-tertiary);
 }
