@@ -22,13 +22,13 @@
 
   /* Red */
   --color-red-1: light-dark(#240000, #ffe3dc);
-  --color-red-2: light-dark(#4d0000, #ffc3b6);
+  --color-red-2: light-dark(#4d0000, #ffbbab);
   --color-red-3: light-dark(#7a0000, #ff8875);
   --color-red-4: light-dark(#a90000, #f45441);
   --color-red-5: light-dark(#cc2a1b, #d33223);
   --color-red-6: light-dark(#f0503d, #b30000);
   --color-red-7: light-dark(#ff7c68, #8d0000);
-  --color-red-8: light-dark(#ffb4a5, #6c0000);
+  --color-red-8: light-dark(#ffa794, #6c0000);
   --color-red-9: light-dark(#ffe3dc, #340000);
   --color-red-transparent: light-dark(#cc2a1b66, #d3322380);
   --color-red-extra-transparent: light-dark(#cc2a1b33, #d3322359);
@@ -47,30 +47,30 @@
   --color-orange-extra-transparent: light-dark(#b4510033, #ba570d59);
 
   /* Yellow */
-  --color-yellow-1: light-dark(#140900, #fdf4d5);
-  --color-yellow-2: light-dark(#2f1e00, #fadfa6);
-  --color-yellow-3: light-dark(#4e3700, #fdd171);
-  --color-yellow-4: light-dark(#7a5700, #dfaf3f);
-  --color-yellow-5: light-dark(#a57c00, #c69720);
-  --color-yellow-6: light-dark(#c89808, #a17807);
-  --color-yellow-7: light-dark(#dfb22b, #750);
-  --color-yellow-8: light-dark(#efcb72, #4e3700);
-  --color-yellow-9: light-dark(#f8edc1, #211500);
-  --color-yellow-transparent: light-dark(#a57c0066, #a57c0080);
-  --color-yellow-extra-transparent: light-dark(#a57c0033, #a57c0059);
+  --color-yellow-1: light-dark(#110b00, #fef4d5);
+  --color-yellow-2: light-dark(#2b2000, #f5e1a6);
+  --color-yellow-3: light-dark(#493a00, #f5d571);
+  --color-yellow-4: light-dark(#725b00, #d6b33f);
+  --color-yellow-5: light-dark(#9e8000, #bd9b1f);
+  --color-yellow-6: light-dark(#c09c07, #997c06);
+  --color-yellow-7: light-dark(#d8b53e, #6f5900);
+  --color-yellow-8: light-dark(#e8cd79, #493a00);
+  --color-yellow-9: light-dark(#faecc1, #1e1600);
+  --color-yellow-transparent: light-dark(#9e800066, #bd9b1f80);
+  --color-yellow-extra-transparent: light-dark(#9e800033, #bd9b1f59);
 
   /* Green */
-  --color-green-1: light-dark(#011000, #dff4d3);
-  --color-green-2: light-dark(#0c2a00, #bbe7a5);
-  --color-green-3: light-dark(#1d4600, #8ecb6b);
-  --color-green-4: light-dark(#2f6500, #63a736);
-  --color-green-5: light-dark(#438500, #498b0f);
-  --color-green-6: light-dark(#5fa500, #2e7000);
-  --color-green-7: light-dark(#7dc53a, #1c5400);
-  --color-green-8: light-dark(#a4e472, #113f00);
-  --color-green-9: light-dark(#dafbc4, #011b00);
-  --color-green-transparent: light-dark(#43850066, #498b0f80);
-  --color-green-extra-transparent: light-dark(#43850033, #498b0f59);
+  --color-green-1: light-dark(#001001, #d9f5d8);
+  --color-green-2: light-dark(#032b05, #b0e9ae);
+  --color-green-3: light-dark(#0a4810, #7bce7a);
+  --color-green-4: light-dark(#15671c, #49ab4c);
+  --color-green-5: light-dark(#008612, #298e30);
+  --color-green-6: light-dark(#33aa3b, #12721c);
+  --color-green-7: light-dark(#57ca5b, #075510);
+  --color-green-8: light-dark(#91e590, #034009);
+  --color-green-9: light-dark(#cffdcd, #001b01);
+  --color-green-transparent: light-dark(#00861266, #298e3080);
+  --color-green-extra-transparent: light-dark(#00861233, #298e3059);
 
   /* Teal */
   --color-teal-1: light-dark(#001011, #c8f6f5);
@@ -80,23 +80,23 @@
   --color-teal-5: light-dark(#008586, #0b8889);
   --color-teal-6: light-dark(#00a7a8, #006d6f);
   --color-teal-7: light-dark(#00c8c9, #005254);
-  --color-teal-8: light-dark(#76e2e2, #003e3f);
+  --color-teal-8: light-dark(#7ce1e1, #003e3f);
   --color-teal-9: light-dark(#caf9f8, #001a1b);
   --color-teal-transparent: light-dark(#00858666, #0b888980);
   --color-teal-extra-transparent: light-dark(#00858633, #0b888959);
 
   /* Blue */
-  --color-blue-1: light-dark(#00003e, #ddf0ff);
-  --color-blue-2: light-dark(#00007a, #b9d9ff);
-  --color-blue-3: light-dark(#002b97, #7eb4ff);
-  --color-blue-4: light-dark(#004abd, #418dff);
-  --color-blue-5: light-dark(#1c69e3, #2370ea);
-  --color-blue-6: light-dark(#3988ff, #0053cb);
-  --color-blue-7: light-dark(#74adff, #0035ac);
-  --color-blue-8: light-dark(#a9cfff, #001a95);
-  --color-blue-9: light-dark(#ddf0ff, #005);
-  --color-blue-transparent: light-dark(#1c69e366, #2370ea80);
-  --color-blue-extra-transparent: light-dark(#1c69e333, #2370ea59);
+  --color-blue-1: light-dark(#00031f, #ddf0ff);
+  --color-blue-2: light-dark(#041747, #b9d9ff);
+  --color-blue-3: light-dark(#0b3289, #7eb4ff);
+  --color-blue-4: light-dark(#124caf, #418dff);
+  --color-blue-5: light-dark(#2b6bd3, #2370ea);
+  --color-blue-6: light-dark(#488af0, #0053cb);
+  --color-blue-7: light-dark(#74adff, #0a3aa2);
+  --color-blue-8: light-dark(#a9cfff, #0c2a7a);
+  --color-blue-9: light-dark(#ddf0ff, #0c162b);
+  --color-blue-transparent: light-dark(#2b6bd366, #2370ea80);
+  --color-blue-extra-transparent: light-dark(#2b6bd333, #2370ea59);
 
   /* Purple */
   --color-purple-1: light-dark(#170029, #fbe4ff);
@@ -147,7 +147,7 @@
   --color-contrast-background: var(--color-brand-1);
   --color-contrast-text: light-dark(#fff, #030305);
   --color-shadow: light-dark(#45484c26, #00000166);
-  --color-border: light-dark(#d8dbe0, #434549);
+  --color-border: light-dark(#e2e5ea, #303337);
 
   /* Deprecated semantic color aliases */
   --color-body: var(--color-surface-secondary);
