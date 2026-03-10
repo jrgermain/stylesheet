@@ -5,7 +5,61 @@
   display: inline;
   text-decoration-line: underline;
   text-decoration-style: dotted;
-  text-decoration-thickness: var(--border-m);
-  text-decoration-color: var(--color-gray-6);
-  text-underline-offset: 0.1em;
+  text-decoration-thickness: 0.15em;
+  text-decoration-color: var(--color-gray-7);
+  text-underline-offset: 0.125em;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  transition: var(--duration-m) var(--ease-default);
+  transition-property: text-decoration-color, background-color;
+  border-radius: var(--radius-s);
+  font-size: 1em;
+  font-family: inherit;
+  user-select: text;
+  cursor: pointer;
+  color: inherit;
+
+  &:has(+ :popover-open) {
+    text-decoration-color: var(--color-brand-4);
+  }
+}
+
+.definition {
+  position-area: block-start;
+  position-try-fallbacks: flip-block;
+  margin: unset;
+  background-color: var(--color-contrast-background);
+  color: var(--color-contrast-text);
+  border: var(--border-s) solid var(--color-brand-2);
+  box-shadow: var(--shadow-m);
+  border-radius: var(--radius-m);
+  padding: var(--space-3xs) var(--space-2xs);
+  line-height: 1.2;
+  font-size: var(--font-size-s);
+  opacity: 0;
+  transform: scale(0.96);
+  transition-property: transform, opacity, display, overlay;
+  transition-duration: var(--duration-s);
+  transition-behavior: allow-discrete;
+  transition-timing-function: var(--ease-default);
+}
+
+.definition:popover-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@starting-style {
+  .definition:popover-open {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/* If interest invokers are supported, the popover will show on hover, so use a different cursor */
+@supports selector(:interest-source) {
+  .abbreviation {
+    cursor: help;
+  }
 }

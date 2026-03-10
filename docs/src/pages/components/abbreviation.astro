@@ -9,11 +9,12 @@ import UsageExample from "../../components/UsageExample.astro";
 >
   <UsageExample
     name="Basic Usage"
-    description="Place abbreviated text in an `abbr` element with the class `abbreviation`. Put the non-abbreviated version in the `title` attribute."
+    description="..."
     code={`
       <p class="paragraph">
         It's commonly believed that the first usage of the term
-        <abbr class="abbreviation" title="Oh My God">OMG</abbr>
+        <button class="abbreviation" popovertarget="omg-definition" interestfor="omg-definition">OMG</button>
+        <span id="omg-definition" class="definition" popover>Oh My God</span>
         was in a letter written to Winston Churchill in 1917.
       </p>
     `}
