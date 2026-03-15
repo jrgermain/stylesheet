@@ -80,12 +80,8 @@ table.table,
     text-align: unset;
   }
 
-  :is(th, tfoot td):not(:last-of-type) {
+  :is(th, td):not(:last-of-type) {
     border-inline-end: var(--table-vertical-border) dashed var(--color-border);
-  }
-
-  td:not(tfoot td, :last-of-type) {
-    border-inline-end: var(--table-vertical-border) solid var(--color-border);
   }
 
   tr:not(:last-of-type) td {
