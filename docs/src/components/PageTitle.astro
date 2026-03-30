@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<style>
+  .page-title {
+    margin-bottom: var(--space-m);
+  }
+
+  .page-title h1 {
+    margin: 0;
+  }
+
+  .page-title p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-l);
+    margin-top: var(--space-3xs);
+  }
+</style>
+<div class="page-title">
+  <h1 class="heading-1">{title}</h1>
+  {subtitle && <p>{subtitle}</p>}
+</div>

@@ -1,0 +1,372 @@
+---
+import ComponentDocumentation from "../../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../../components/UsageExample.astro";
+import { trimTextPadding } from "../../../utils/trim-text-padding";
+---
+
+<ComponentDocumentation
+  name="Field"
+  description="A wrapper for text boxes, dropdowns, and other form controls that provides consistent styling."
+>
+  <UsageExample
+    name="Usage Patterns"
+    description={trimTextPadding(`
+      You can use the \`field\` class to style form fields and their labels, as
+      well as any associated help and error text.
+
+      There are 2 supported patterns:
+
+      1. Create a \`label\` element with the class \`field\` and place both the
+         label text and the control (e.g., an \`input\` element) inside it.
+      2. Create a \`div\` element with the class \`field\`. Inside it, place the
+         label text in a \`label\` element and the control next to it. Make sure
+         the control has an \`id\` attribute that matches the \`for\` attribute
+         of the label.
+
+      For more information about how labels are associated to controls, see
+      [this MDN article](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label).
+
+      Both patterns are shown below.
+    `)}
+    code={`
+      <!-- Option 1 -->
+      <label class="field">
+        Email Address
+        <input type="email" />
+      </label>
+
+      <!-- Option 2 -->
+      <div class="field">
+        <label for="field1">Email Address</label>
+        <input id="field1" type="email" />
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Supported Controls"
+    description="Below are some examples of different control types inside a Field."
+    code={`
+      <label class="field">
+        Select
+        <select>
+          <option>Item 1</option>
+          <option>Item 2</option>
+          <option>Item 3</option>
+        </select>
+      </label>
+      <label class="field">
+        Color Input
+        <input type="color" />
+      </label>
+      <label class="field">
+        Date Input
+        <input type="date" />
+      </label>
+      <label class="field">
+        Datetime-local Input
+        <input type="datetime-local" />
+      </label>
+      <label class="field">
+        Email Input
+        <input type="email" />
+      </label>
+      <label class="field">
+        Month Input
+        <input type="month" />
+      </label>
+      <label class="field">
+        Number Input
+        <input type="number" />
+      </label>
+      <label class="field">
+        Password Input
+        <input type="password" />
+      </label>
+      <label class="field">
+        Search Input
+        <input type="search" />
+      </label>
+      <label class="field">
+        Tel Input
+        <input type="tel" />
+      </label>
+      <label class="field">
+        Text Input
+        <input type="text" />
+      </label>
+      <label class="field">
+        Time Input
+        <input type="time" />
+      </label>
+      <label class="field">
+        URL Input
+        <input type="url" />
+      </label>
+      <label class="field">
+        Week Input
+        <input type="week" />
+      </label>
+      <label class="field">
+        Input With Datalist (Combo Box)
+        <input type="text" list="us-states" />
+        <datalist id="us-states">
+          <option value="Alabama"></option>
+          <option value="Alaska"></option>
+          <option value="Arizona"></option>
+          <option value="Arkansas"></option>
+          <option value="California"></option>
+          <option value="Colorado"></option>
+          <option value="Connecticut"></option>
+          <option value="Delaware"></option>
+          <option value="Florida"></option>
+          <option value="Georgia"></option>
+          <option value="Hawaii"></option>
+          <option value="Idaho"></option>
+          <option value="Illinois"></option>
+          <option value="Indiana"></option>
+          <option value="Iowa"></option>
+          <option value="Kansas"></option>
+          <option value="Kentucky"></option>
+          <option value="Louisiana"></option>
+          <option value="Maine"></option>
+          <option value="Maryland"></option>
+          <option value="Massachusetts"></option>
+          <option value="Michigan"></option>
+          <option value="Minnesota"></option>
+          <option value="Mississippi"></option>
+          <option value="Missouri"></option>
+          <option value="Montana"></option>
+          <option value="Nebraska"></option>
+          <option value="Nevada"></option>
+          <option value="New Hampshire"></option>
+          <option value="New Jersey"></option>
+          <option value="New Mexico"></option>
+          <option value="New York"></option>
+          <option value="North Carolina"></option>
+          <option value="North Dakota"></option>
+          <option value="Ohio"></option>
+          <option value="Oklahoma"></option>
+          <option value="Oregon"></option>
+          <option value="Pennsylvania"></option>
+          <option value="Rhode Island"></option>
+          <option value="South Carolina"></option>
+          <option value="South Dakota"></option>
+          <option value="Tennessee"></option>
+          <option value="Texas"></option>
+          <option value="Utah"></option>
+          <option value="Vermont"></option>
+          <option value="Virginia"></option>
+          <option value="Washington"></option>
+          <option value="West Virginia"></option>
+          <option value="Wisconsin"></option>
+          <option value="Wyoming"></option>
+        </datalist>
+      </label>
+      <label class="field">
+        Textarea
+        <textarea rows="2"></textarea>
+      </label>
+    `}
+    outputWrapperClass="field-example-columns"
+  />
+
+  <UsageExample
+    name="Read-only/Disabled"
+    description="Fields whose controls have the `disabled` or `readonly` attributes will have slightly different styling applied, as read-only inputs are focusable and disabled ones are not."
+    code={`
+      <label class="field">
+        Disabled
+        <input type="text" value="Testing" disabled />
+      </label>
+      <label class="field">
+        Read-only
+        <input type="text" value="Testing" readonly />
+      </label>
+    `}
+  />
+
+  <UsageExample
+    name="Help & Error Text"
+    description="Fields may have **help text**, **error text**, or both. To see the error text in the example below, try typing a single letter in the Field and clicking or tabbing out of it."
+    code={`
+      <div class="field">
+        <label for="employee-id">Employee ID Number</label>
+        <div class="help-text" id="employee-id-help-text">
+          This is printed on the back of your badge.
+        </div>
+        <input
+          id="employee-id"
+          aria-describedby="employee-id-help-text"
+          aria-errormessage="employee-id-error-message"
+          type="text"
+          minlength="8"
+          maxlength="8"
+        />
+        <div id="employee-id-error-message" class="error-message">
+          Your ID Number must be 8 digits long.
+        </div>
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Required Fields"
+    description="To show that a field is required, add an asterisk to its label. Wrap the asterisk in a `span` with the class `required-indicator`.\n\nIf you're using the pattern where the root of your Field is a `label` element (with the control inside it), you'll need to group the label text and the asterisk in an additional span so they appear on the same line."
+    code={`
+      <label class="field">
+        <span>
+          Email Address
+          <span class="required-indicator">*</span>
+        </span>
+        <input type="email" />
+      </label>
+
+      <div class="field">
+        <label for="required-email"> Email Address <span class="required-indicator">*</span> </label>
+        <input id="required-email" type="email" />
+      </div>
+    `}
+  />
+
+  <UsageExample
+    name="Compact"
+    description="Fields can be made more condensed by adding the `compact` class to either the Field itself or to the containing `fieldset`."
+    code={`
+      <label class="field compact">
+        Compact Text Input
+        <input type="text" />
+      </label>
+
+      <fieldset class="fieldset compact">
+        <legend>Compact Fieldset</legend>
+        <div class="fieldset-content">
+          <label class="field">
+            (Implicitly) Compact Text Input
+            <input type="text" />
+          </label>
+        </div>
+      </fieldset>
+    `}
+  />
+
+  <UsageExample
+    name="Prefix/Suffix"
+    description={trimTextPadding(`
+      Fields may have a **prefix** (label that comes before) and/or **suffix** 
+      (label that comes after). This may be useful for providing context on how
+      the data in the Field will be used. Use the class \`prefix\` if the item
+      is before the control in the markup or \`suffix\` if it comes after. Wrap
+      any prefixes, suffixes, and controls in a \`div\` with the class \`input-group\`.
+    `)}
+    code={`
+      <label class="field">
+        Subdomain
+        <div class="input-group">
+          <div class="prefix">https://</div>
+          <input
+            autocomplete="off"
+            spellcheck="false"
+            type="text"
+            minlength="1"
+            size="10"
+          />
+          <div class="suffix">.jrgermain.dev</div>
+        </div>
+      </label>
+    `}
+  />
+
+  <UsageExample
+    name="Action"
+    isJavaScriptRequired={true}
+    description={trimTextPadding(`
+      Fields may have a **action** button attached to the beginning or end. Like
+      prefixes and suffixes, you'll need to wrap the input (or select) and
+      action button in a div that has the class \`input-group\`. The action
+      button must also have the class \`action\`.
+
+      Below is an example of a password field with a button that toggles the
+      visibility of the password.
+    `)}
+    code={`
+      <label class="field" x-data="{ isVisible: false }">
+        Password
+        <div class="input-group">
+          <input x-bind:type="isVisible ? 'text' : 'password'" autocomplete="off" />
+          <button
+            class="action"
+            x-bind:title="isVisible ? 'Hide Password' : 'Show Password'"
+            x-on:click="isVisible = !isVisible"
+          >
+            <svg
+              x-show="!isVisible"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentcolor"
+              viewBox="0 0 256 256"
+              ><path
+                d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"
+              ></path></svg
+            >
+            <svg
+              x-show="isVisible"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentcolor"
+              viewBox="0 0 256 256"
+              ><path
+                d="M53.92,34.62A8,8,0,1,0,42.08,45.38L61.32,66.55C25,88.84,9.38,123.2,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208a127.11,127.11,0,0,0,52.07-10.83l22,24.21a8,8,0,1,0,11.84-10.76Zm47.33,75.84,41.67,45.85a32,32,0,0,1-41.67-45.85ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.16,133.16,0,0,1,25,128c4.69-8.79,19.66-33.39,47.35-49.38l18,19.75a48,48,0,0,0,63.66,70l14.73,16.2A112,112,0,0,1,128,192Zm6-95.43a8,8,0,0,1,3-15.72,48.16,48.16,0,0,1,38.77,42.64,8,8,0,0,1-7.22,8.71,6.39,6.39,0,0,1-.75,0,8,8,0,0,1-8-7.26A32.09,32.09,0,0,0,134,96.57Zm113.28,34.69c-.42.94-10.55,23.37-33.36,43.8a8,8,0,1,1-10.67-11.92A132.77,132.77,0,0,0,231.05,128a133.15,133.15,0,0,0-23.12-30.77C185.67,75.19,158.78,64,128,64a118.37,118.37,0,0,0-19.36,1.57A8,8,0,1,1,106,49.79,134,134,0,0,1,128,48c34.88,0,66.57,13.26,91.66,38.35,18.83,18.83,27.3,37.62,27.65,38.41A8,8,0,0,1,247.31,131.26Z"
+              ></path></svg
+            >
+          </button>
+        </div>
+      </label>
+    `}
+  />
+
+  <UsageExample
+    name="Field as <fieldset> Element"
+    description={trimTextPadding(`
+      If you have a Field that contains multiple child controls, you may use a
+      \`fieldset\` element as the root instead of a \`label\` or \`div\`. This
+      doesn't change the styling of the Field, but it's often the semantically
+      correct markup, especially when the child controls have their own labels.
+
+      If you follow this pattern, make sure to also wrap the label text in a
+      \`legend\` element.
+    `)}
+    code={`
+      <fieldset class="field">
+        <legend>Topping Location</legend>
+        <div class="help-text">
+          Select where you'd like your beef.
+        </div>
+        <div class="radio-group">
+          <label class="radio">
+            <input type="radio" name="location" />
+            Left Side Only
+          </label>
+          <label class="radio">
+            <input type="radio" name="location" />
+            Whole Pizza
+          </label>
+          <label class="radio">
+            <input type="radio" name="location" />
+            Right Side Only
+          </label>
+        </div>
+      </fieldset>
+    `}
+  />
+</ComponentDocumentation>
+
+<style is:global>
+  .field-example-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-s);
+  }
+</style>

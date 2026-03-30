@@ -1,4 +1,5 @@
 ---
+import PageTitle from "../components/PageTitle.astro";
 import Layout from "./Layout.astro";
 
 interface Props {
@@ -10,28 +11,8 @@ const { name, description } = Astro.props;
 ---
 
 <Layout title={name}>
-  <div class="component-heading">
-    <h1 class="heading-1">{name}</h1>
-    <p>{description}</p>
-  </div>
-
+  <PageTitle title={name} subtitle={description} />
   <div class="stack vertical">
     <slot />
   </div>
 </Layout>
-
-<style>
-  .component-heading {
-    margin-bottom: var(--space-m);
-  }
-
-  .component-heading h1 {
-    margin: 0;
-  }
-
-  .component-heading p {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-l);
-    margin-top: var(--space-3xs);
-  }
-</style>

@@ -1,0 +1,80 @@
+---
+layout: ../../../layouts/Markdown.astro
+title: Installation & Setup
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import { trimTextPadding } from "../../../utils/trim-text-padding";
+
+# Installation & Setup
+
+## Installing the Stylesheet
+
+There are multiple ways to add the stylesheet to your project. The most common setups are outlined below.
+
+### Option 1: Using a Package Manager & Bundler
+
+This option uses your package manager to download the stylesheet, and your project's existing build tooling to bundle it into the final output. This is the recommended approach if you're already using these tools.
+
+First, install `@jrgermain/stylesheet` as a dependency. For example, if you're using NPM, you'd run the following command:
+
+<CodeBlock
+  language="sh"
+  code="npm install @jrgermain/stylesheet"
+/>
+
+Next, in the entry point of your project (typically a file named root, index, or main), add the following import statements:
+
+<CodeBlock
+  language="js"
+  code={trimTextPadding(`
+    import "@jrgermain/stylesheet"; // Adds CSS styles
+    import "@jrgermain/stylesheet/enhance"; // Adds UX enhancements
+  `)}
+/>
+
+You might have to fiddle with the imports here. For example, the **enhance** script
+(which needs to run in the browser) might need to be imported in a different file
+than the main CSS stylesheet (which can be processed at build time).
+You may also run into an issue where your build tooling can't resolve the first import
+because it doesn't know to treat it as CSS. In this case, you can replace it with the
+following equivalent import: `@jrgermain/stylesheet/stylesheet.css`.
+
+### Option 2: Manual Installation
+
+This option is useful if you aren't using a package manager or bundler.
+
+First, go to the [latest GitHub release](https://github.com/jrgermain/stylesheet/releases/latest). Expand the "Assets" section and download the `stylesheet-<version>.zip` file.
+
+Next, extract the contents and copy them into your project. Note that the `.map` files are source maps, and are therefore optional.
+
+Lastly, add a `<link>` tag and a `<script>` tag to your document head to reference the files you just copied.
+
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <head>
+      ...
+      <link rel="stylesheet" type="text/css" href="/path/to/stylesheet.css" />
+      <script src="/path/to/enhance.js" async></script>
+      ...
+    </head>
+  `)}
+/>
+
+## Setup
+
+### Recommended `head` Elements
+
+It's recommended to set the `theme-color` meta tag. To do this, copy the following into your document `head`:
+
+<CodeBlock
+  language="html"
+  code={trimTextPadding(`
+    <meta name="theme-color" content="#fff" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#010203"
+    />
+  `)}
+/>

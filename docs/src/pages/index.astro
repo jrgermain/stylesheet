@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import portraitBgOnly from "../assets/contrast-bg-light.jpg";
+import portraitBgOnlyInvert from "../assets/contrast-bg-dark.jpg";
+import { navCategories } from "../data/nav-links";
+import TableOfContents from "../components/TableOfContents.astro";
+---
+
+<style
+  define:vars={{
+    "splash-bg-light": `url(${portraitBgOnly.src})`,
+    "splash-bg-dark": `url(${portraitBgOnlyInvert.src})`,
+  }}
+>
+  .splash-container {
+    width: calc(100% + var(--space-body-x) * 2);
+    height: 20rem;
+    background-color: var(--color-contrast-background);
+    background-image: var(--splash-bg-light);
+    background-size: cover;
+    background-position: center top;
+    margin-inline-start: calc(var(--space-body-x) * -1);
+    margin-block-start: calc(var(--space-body-y) * -1);
+    margin-block-end: var(--space-xs);
+    border-bottom: var(--border-l) solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .splash-text {
+    text-align: center;
+    color: var(--color-contrast-text);
+    text-wrap: balance;
+  }
+
+  .hint-message {
+    font-size: var(--font-size-s);
+    color: var(--color-text-secondary);
+    font-style: italic;
+    background-color: var(--color-teal-9);
+    color: var(--color-teal-2);
+    border: var(--border-s) solid var(--color-teal-8);
+    border-radius: var(--radius-m);
+    padding: var(--space-2xs) var(--space-xs);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .splash-container {
+      background-image: var(--splash-bg-dark);
+    }
+
+    .splash-text {
+      background-image: linear-gradient(
+        to bottom,
+        rgb(from var(--color-contrast-background) r g b / 35%),
+        rgb(from var(--color-contrast-background) r g b / 5%)
+      );
+      background-image: none;
+    }
+  }
+</style>
+<Layout title="Stylesheet">
+  <div class="splash-container">
+    <div class="heading-1 splash-text">
+      A lightweight design system for beautiful websites.
+    </div>
+  </div>
+  <p class="hint-message">
+    Brand new here? Check out the <a
+      class="link"
+      href="/info/getting-started/introduction">Introduction page</a
+    > to get an overview.
+  </p>
+  <TableOfContents contents={navCategories} />
+</Layout>

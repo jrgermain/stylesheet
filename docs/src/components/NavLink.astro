@@ -1,16 +1,15 @@
 ---
 interface Props {
+  class: string;
   href: string;
 }
 
-const { href } = Astro.props;
+const { class: className, href } = Astro.props;
 
 const path = new URL(Astro.request.url).pathname;
 const isActive = path === href || path.startsWith(`${href}/`);
 ---
 
-<a
-  class="app-sidebar-item"
-  href={href}
-  aria-current={isActive ? "page" : undefined}><slot /></a
+<a class={className} href={href} aria-current={isActive ? "page" : undefined}
+  ><slot /></a
 >

@@ -1,0 +1,50 @@
+---
+interface Props {
+  showHeading?: boolean;
+  areItemsClickable?: boolean;
+  contents: {
+    title: string;
+    description: string;
+    slug: string;
+  }[];
+}
+
+const { showHeading = true, areItemsClickable = true, contents } = Astro.props;
+
+let headingClass = "heading-2 toc-heading";
+if (!showHeading) {
+  headingClass += " visually-hidden";
+}
+---
+
+<style>
+  .toc-heading {
+    font-size: var(--font-size-xl);
+    margin-block-end: var(--space-xs);
+  }
+
+  .toc-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: var(--space-s);
+  }
+</style>
+<section>
+  <h2 class={headingClass}>Table of Contents</h2>
+  <div class="toc-card-container">
+    {
+      contents.map((entry) => (
+        <div class="card">
+          <div class="card-title">
+            {areItemsClickable ? (
+              <a href={`./${entry.slug}`}>{entry.title}</a>
+            ) : (
+              entry.title
+            )}
+          </div>
+          <p>{entry.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

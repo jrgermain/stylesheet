@@ -1,0 +1,59 @@
+---
+layout: ../../../layouts/Markdown.astro
+title: Tokens Overview
+---
+
+import CodeBlock from "../../../components/CodeBlock.astro";
+import { trimTextPadding } from "../../../utils/trim-text-padding";
+
+# Tokens Overview
+
+**Design Tokens** are shared values for common design choices like fonts, colors, and sizes. These are designed to be referenced throughout an application to build a consistent user experience.
+
+## Categories
+
+This design system includes the following categories of tokens:
+
+- Animations
+- Borders
+- Colors
+- Shadows
+- Spacing
+- Typography
+ 
+Each category is documented in the subsequent pages.
+
+## Using Tokens
+
+All design tokens are defined as CSS Custom Properties (also known as "CSS Variables"). You should reference these properties when styling elements.
+
+The names of these properties follow the format, `--type-name`, where `type` is the type of value (e.g., "color") and `name` is the name of the token (e.g., "red-1"). You can reference a token in CSS with the `var` function.
+
+<CodeBlock
+  language="css"
+  code={trimTextPadding(`
+    .red-bg {
+      background-color: var(--color-red-1);
+    }
+  `)}
+/>
+
+The NPM package also exports TypeScript enums that can be used to reference these tokens when defining inline styles or using a CSS-in-JS framework.
+
+<CodeBlock
+  language="tsx"
+  code={trimTextPadding(`
+    import { Color } from "@jrgermain/stylesheet/tokens";
+
+    export default function MyComponent() {
+      // Note: Color.Red1 evaluates to "var(--color-red-1)"
+      return <div style={{ backgroundColor: Color.Red1 }}>...</div>;
+    }
+  `)}
+/>
+
+<br/>
+
+<div class="alert warning">
+  <div class="alert-content">Avoid using CSS variables defined by the stylesheet but not documented on this site; these aren't part of the public API and may change in between major releases.</div>
+</div>

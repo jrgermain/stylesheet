@@ -1,0 +1,33 @@
+---
+import ComponentDocumentation from "../../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../../components/UsageExample.astro";
+import { trimTextPadding } from "../../../utils/trim-text-padding";
+---
+
+<ComponentDocumentation
+  name="Progress"
+  description="An indicator of how far along a process currently is."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="You can style `progress` elements by giving them the `progress` class."
+    code={'<progress class="progress" value="50" max="100"></progress>'}
+  />
+
+  <UsageExample
+    name="Indeterminate"
+    description="To make a Progress bar indeterminate, omit the `value` attribute."
+    code={'<progress class="progress"></progress>'}
+  />
+
+  <UsageExample
+    name="Label"
+    description="As an accessibility best practice, progress bars should have a label. One way to do this is to place them in a Field."
+    code={trimTextPadding(`
+      <div class="field">
+        <label for="progress-example">Transferring your files</label>
+        <progress id="progress-example" class="progress" value="0.75"></progress>
+      </div>
+    `)}
+  />
+</ComponentDocumentation>

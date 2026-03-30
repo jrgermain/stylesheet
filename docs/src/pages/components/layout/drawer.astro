@@ -1,0 +1,243 @@
+---
+import ComponentDocumentation from "../../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../../components/UsageExample.astro";
+import { trimTextPadding } from "../../../utils/trim-text-padding";
+---
+
+<ComponentDocumentation
+  name="Drawer"
+  description="A dismissible panel that slides out from the edge of the screen."
+>
+  <UsageExample
+    name="Defaults"
+    description={trimTextPadding(`
+      You can create a Drawer by creating a [\`dialog\`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
+      element with the class \`drawer\`. You'll also need to add one of the
+      following classes to specify the side of the screen the Drawer should
+      slide out from:
+
+      - \`left\`
+      - \`right\`
+      - \`top\`
+      - \`bottom\`
+
+      Inside your Drawer, you can add a **header**, **body**, and **footer**.
+
+      The **header** should have the class \`drawer-header\` and contain a title
+      and, optionally, a close button (a \`button\` with the classes \`button\`
+      and \`dismiss\`).
+
+      The **body** should have the class \`drawer-body\` and contain the main
+      content of the Drawer.
+
+      The **footer** should have the class \`drawer-footer\` and contain any action
+      buttons or other controls that should appear at the bottom.
+
+      <div class="alert info">
+        <div class="alert-content">
+          Drawers can be opened/closed without JavaScript by using the
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button#command"><code>command</code></a>
+          and <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button#commandfor"><code>commandfor</code></a>
+          attributes on buttons.
+        </div>
+      </div>
+    `)}
+    code={`
+      <button class="button" command="show-modal" commandfor="drawer-1">
+        Open Drawer
+      </button>
+
+      <dialog id="drawer-1" class="drawer left medium" aria-labelledby="drawer-1-title">
+        <header class="drawer-header">
+          <h1 id="drawer-1-title">User Settings</h1>
+          <button class="button dismiss" command="request-close" commandfor="drawer-1" aria-label="Close"></button>
+        </header>
+        <div class="drawer-body">
+          <p class="paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis ultricies lacus sed turpis tincidunt id. Rhoncus mattis rhoncus urna neque viverra justo nec.
+          </p>
+          <p class="paragraph">
+            Pretium nibh ipsum consequat nisl vel pretium lectus quam. Ac placerat vestibulum lectus mauris ultrices. Elementum sagittis vitae et leo duis ut diam. Odio facilisis mauris sit amet massa. Cras semper auctor neque vitae tempus quam. Cursus metus aliquam eleifend mi in. Fermentum iaculis eu non diam. Diam quam nulla porttitor massa id neque aliquam
+          </p>
+        </div>
+        <div class="drawer-footer">
+          <button class="button" command="request-close" commandfor="drawer-1">
+            Cancel
+          </button>
+          <button class="button primary" command="request-close" commandfor="drawer-1">
+            Save
+          </button>
+        </div>
+      </dialog>
+    `}
+  />
+  <UsageExample
+    name="Sizes"
+    description={trimTextPadding(`
+      You can control the width of a Drawer (or the height, if the Drawer is
+      attached to the top or bottom of the screen) by adding one of the
+      following classes to the \`dialog\` element:
+
+      - \`auto\` (default)
+      - \`small\`
+      - \`medium\`
+      - \`large\`
+
+      If the size is \`auto\`, the Drawer will be as large as necessary to fit
+      its content without extending past the edge of the screen.
+
+      Below is an example of a Drawer with the class \`small\`.
+    `)}
+    code={`
+      <button class="button" command="show-modal" commandfor="drawer-2">
+        Open Drawer
+      </button>
+
+      <dialog id="drawer-2" class="drawer left small" aria-labelledby="drawer-2-title">
+        <div class="drawer-header">
+          <h1 id="drawer-2-title">User Settings</h1>
+          <button class="button dismiss" command="request-close" commandfor="drawer-2" aria-label="Close"></button>
+        </div>
+        <div class="drawer-body">
+          <p class="paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis ultricies lacus sed turpis tincidunt id. Rhoncus mattis rhoncus urna neque viverra justo nec.
+          </p>
+          <p class="paragraph">
+            Pretium nibh ipsum consequat nisl vel pretium lectus quam. Ac placerat vestibulum lectus mauris ultrices. Elementum sagittis vitae et leo duis ut diam. Odio facilisis mauris sit amet massa. Cras semper auctor neque vitae tempus quam. Cursus metus aliquam eleifend mi in. Fermentum iaculis eu non diam. Diam quam nulla porttitor massa id neque aliquam
+          </p>
+        </div>
+        <div class="drawer-footer">
+          <button class="button" command="request-close" commandfor="drawer-2">
+            Cancel
+          </button>
+          <button class="button primary" command="request-close" commandfor="drawer-2">
+            Save
+          </button>
+        </div>
+      </dialog>
+    `}
+  />
+  <UsageExample
+    name="Dismiss Button"
+    description={trimTextPadding(`
+      You can add a close button to the header of the Drawer by creating a
+      \`button\` element with the classes \`button\` and \`dismiss\`. The close
+      button should call the \`close\` method on the \`dialog\` element when
+      clicked.
+    `)}
+    code={`
+      <button class="button" command="show-modal" commandfor="drawer-3">
+        Open Drawer
+      </button>
+
+      <dialog id="drawer-3" class="drawer left small" aria-labelledby="drawer-3-title">
+        <div class="drawer-header">
+          <h1 id="drawer-3-title">User Settings</h1>
+          <button class="button dismiss" command="request-close" commandfor="drawer-3" aria-label="Close"></button>
+        </div>
+        <div class="drawer-body">
+          <p class="paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis ultricies lacus sed turpis tincidunt id. Rhoncus mattis rhoncus urna neque viverra justo nec.
+          </p>
+          <p class="paragraph">
+            Pretium nibh ipsum consequat nisl vel pretium lectus quam. Ac placerat vestibulum lectus mauris ultrices. Elementum sagittis vitae et leo duis ut diam. Odio facilisis mauris sit amet massa. Cras semper auctor neque vitae tempus quam. Cursus metus aliquam eleifend mi in. Fermentum iaculis eu non diam. Diam quam nulla porttitor massa id neque aliquam
+          </p>
+        </div>
+        <div class="drawer-footer">
+          <button class="button" command="request-close" commandfor="drawer-3">
+            Cancel
+          </button>
+          <button class="button primary" command="request-close" commandfor="drawer-3">
+            Save
+          </button>
+        </div>
+      </dialog>
+    `}
+  />
+  <UsageExample
+    name="Playground"
+    allowShowCode={false}
+    isJavaScriptRequired={true}
+    code={`
+      <div
+        class="stack vertical dense"
+        x-data="{ side: 'left', size: 'medium', closeButton: true, header: true, body: true, footer: true }"
+      >
+        <label class="field">
+          Side
+          <select x-model="side">
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+            <option value="top">Top</option>
+            <option value="bottom">Bottom</option>
+          </select>
+        </label>
+        <label class="field">
+          Size
+          <select x-model="size">
+            <option value="">Unset (auto)</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </label>
+        <label class="switch">
+          Include Close Button
+          <input type="checkbox" x-model="closeButton" />
+        </label>
+        <label class="switch">
+          Include Header
+          <input type="checkbox" x-model="header" />
+        </label>
+        <label class="switch">
+          Include Body
+          <input type="checkbox" x-model="body" />
+        </label>
+        <label class="switch">
+          Include Footer
+          <input type="checkbox" x-model="footer" />
+        </label>
+        <hr class="divider" />
+        <button class="button primary" command="show-modal" commandfor="playground-drawer">
+          Open Drawer
+        </button>
+        <dialog id="playground-drawer" class="drawer" x-bind:class="side + ' ' + size" aria-labelledby="playground-drawer-title">
+          <div x-show="header" class="drawer-header">
+            <h1 id="playground-drawer-title">User Settings</h1>
+            <button
+              x-show="closeButton"
+              class="button dismiss"
+              aria-label="Close"
+              command="request-close"
+              commandfor="playground-drawer"
+            ></button>
+          </div>
+          <div x-show="body" class="drawer-body">
+            <p class="paragraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
+              ultricies lacus sed turpis tincidunt id. Rhoncus mattis rhoncus urna
+              neque viverra justo nec.
+            </p>
+            <p class="paragraph">
+              Pretium nibh ipsum consequat nisl vel pretium lectus quam. Ac
+              placerat vestibulum lectus mauris ultrices. Elementum sagittis vitae
+              et leo duis ut diam. Odio facilisis mauris sit amet massa. Cras
+              semper auctor neque vitae tempus quam. Cursus metus aliquam eleifend
+              mi in. Fermentum iaculis eu non diam. Diam quam nulla porttitor
+              massa id neque aliquam
+            </p>
+          </div>
+          <div x-show="footer" class="drawer-footer">
+            <button class="button" command="request-close" commandfor="playground-drawer">
+              Cancel
+            </button>
+            <button class="button primary" command="request-close" commandfor="playground-drawer">
+              Save
+            </button>
+          </div>
+        </dialog>
+      </div>
+    `}
+  />
+</ComponentDocumentation>

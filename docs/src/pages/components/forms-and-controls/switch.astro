@@ -1,0 +1,37 @@
+---
+import ComponentDocumentation from "../../../layouts/ComponentDocumentation.astro";
+import UsageExample from "../../../components/UsageExample.astro";
+---
+
+<ComponentDocumentation
+  name="Switch"
+  description="A control that can be toggled on or off."
+>
+  <UsageExample
+    name="Basic Usage"
+    description="You can create a Switch by creating an [`input` with a type of `checkbox`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) and giving it the `switch` class."
+    code={'<input type="checkbox" class="switch" />'}
+  />
+  <UsageExample
+    name="Label"
+    description="To create a **labeled** Switch, put the `switch` class on a `label` element. Inside the label, put the label text followed by an `input[type=checkbox]`. The input does not need to have the `switch` class."
+    code={`
+      <label class="switch">
+        Show Advanced Options
+        <input type="checkbox" />
+      </label>
+    `}
+  />
+  <UsageExample
+    name="Sizes"
+    description="To make a Switch smaller, add the class `small`."
+    code={`
+      <input type="checkbox" class="switch small" />
+
+      <label class="switch small">
+        Show Advanced Options
+        <input type="checkbox" />
+      </label>
+    `}
+  />
+</ComponentDocumentation>

@@ -1,0 +1,53 @@
+---
+layout: ../../../layouts/Markdown.astro
+title: Typography
+---
+
+import FontExample from "../../../components/tokens-page/FontExample.astro";
+
+# Typography
+
+## Font Sizes
+
+The variables for font sizes are all prefixed with `--font-size-`, which
+is followed by a T-shirt size between `xs` and `4xl`. For example, the
+font size `m` represents a medium size for text and can be referenced as
+`--font-size-m`.
+
+Use sizes smaller than `m` sparingly, as overuse of small fonts can negatively
+impact the readability of the page and potentially force users to zoom in.
+
+<div class="card">
+  <FontExample propName="size" propValue="xs" />
+  <FontExample propName="size" propValue="s" />
+  <FontExample propName="size" propValue="m" />
+  <FontExample propName="size" propValue="l" />
+  <FontExample propName="size" propValue="xl" />
+  <FontExample propName="size" propValue="2xl" />
+  <FontExample propName="size" propValue="3xl" />
+  <FontExample propName="size" propValue="4xl" />
+</div>
+
+## Font Weights
+
+The variables for font weights are all prefixed with `--font-weight-`. For
+example, the font weight `normal` can be referenced as `--font-weight-normal`.
+
+<div class="card">
+  <FontExample propName="weight" propValue="light" />
+  <FontExample propName="weight" propValue="normal" />
+  <FontExample propName="weight" propValue="semibold" />
+  <FontExample propName="weight" propValue="bold" />
+  <FontExample propName="weight" propValue="black" />
+</div>
+
+## Font Families
+
+The variables for font families are all prefixed with `--font-family-`. For
+example, the font family `body` can be referenced as `--font-family-body`.
+
+<div class="card">
+  <FontExample propName="family" propValue="body" />
+  <FontExample propName="family" propValue="heading" />
+  <FontExample propName="family" propValue="mono" />
+</div>

@@ -1,0 +1,24 @@
+---
+import TableOfContents from "../components/TableOfContents.astro";
+import Layout from "./Layout.astro";
+import { getNavigationInfo } from "../utils/nav";
+import PageTitle from "../components/PageTitle.astro";
+
+interface Props {
+  pathname: string;
+}
+
+const { currentCategory } = getNavigationInfo(Astro.props.pathname);
+---
+
+<Layout title={currentCategory!.title}>
+  <PageTitle
+    title={currentCategory!.title}
+    subtitle={currentCategory!.description}
+  />
+  <TableOfContents
+    showHeading={false}
+    areItemsClickable={false}
+    contents={currentCategory!.sections}
+  />
+</Layout>
