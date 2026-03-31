@@ -49,6 +49,34 @@ import { trimTextPadding } from "../../../utils/trim-text-padding";
   />
 
   <UsageExample
+    name="Subtle"
+    description="To make an Alert less visually prominent, add the `subtle` class to its root element."
+    code={`
+      <div class="alert info subtle">
+        <div class="alert-content">
+          No payment is due at this time.
+        </div>
+      </div>
+      <div class="alert success subtle">
+        <div class="alert-content">
+          Your profile was updated successfully.
+        </div>
+      </div>
+      <div class="alert warning subtle">
+        <div class="alert-content">
+          Your connection is unstable.
+        </div>
+      </div>
+      <div class="alert error subtle">
+        <div class="alert-content">
+          Your request couldn't be processed at this time.
+          Please try again later.
+        </div>
+      </div>
+    `}
+  />
+
+  <UsageExample
     name="Title"
     description="To add a **title** to an Alert, add the class `alert-title` to the first child of the alert-content element."
     code={`
