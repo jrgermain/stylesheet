@@ -31,6 +31,7 @@ export const navCategories: Category[] = [
         pages: [
           { title: "Introduction", slug: "introduction" },
           { title: "Installation & Setup", slug: "installation-and-setup" },
+          { title: "Customization", slug: "customization" },
           { title: "Next Steps", slug: "next-steps" },
         ],
       },
@@ -57,13 +58,12 @@ export const navCategories: Category[] = [
         slug: "layout",
         pages: [
           { title: "Accordion", slug: "accordion" },
-          { title: "App", slug: "app" },
           { title: "Card", slug: "card" },
           { title: "Divider", slug: "divider" },
           { title: "Drawer", slug: "drawer" },
+          { title: "Fieldset", slug: "fieldset" },
           { title: "Flex", slug: "flex" },
           { title: "Modal", slug: "modal" },
-          { title: "Skip Link", slug: "skip-link" },
         ],
       },
       {
@@ -74,7 +74,6 @@ export const navCategories: Category[] = [
           { title: "Button", slug: "button" },
           { title: "Checkbox", slug: "checkbox" },
           { title: "Field", slug: "field" },
-          { title: "Fieldset", slug: "fieldset" },
           { title: "Radio", slug: "radio" },
           { title: "Slider", slug: "slider" },
           { title: "Switch", slug: "switch" },

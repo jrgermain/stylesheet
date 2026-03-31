@@ -61,20 +61,64 @@ Lastly, add a `<link>` tag and a `<script>` tag to your document head to referen
   `)}
 />
 
-## Setup
+## Page Setup
 
-### Recommended `head` Elements
-
-It's recommended to set the `theme-color` meta tag. To do this, copy the following into your document `head`:
+Your application's HTML structure should follow this template:
 
 <CodeBlock
   language="html"
   code={trimTextPadding(`
-    <meta name="theme-color" content="#fff" />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#010203"
-    />
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <!-- TODO: add remaining head content -->
+        <meta name="theme-color" content="#fff" />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content="#010203"
+        />
+      </head>
+      <body class="app">
+        <!-- href must match '.app-content' element id -->
+        <a class="skip-link" href="#main-content"> Skip to Main Content </a>
+        <header class="app-header">
+          <div class="app-header-content">
+            <!-- 1 or more of the following: -->
+            <div class="app-header-section">
+              <!-- 1 or more of the following: -->
+              <a class="app-header-item"></a>
+            </div>
+
+            <!-- Optional if you don't have a sidebar -->
+            <div class="app-header-section if-narrow-viewport if-medium-viewport if-app-has-sidebar">
+              <label class="app-header-item app-sidebar-toggle">
+                <input type="checkbox" title="Toggle navigation">
+                <div></div>
+                <div></div>
+                <div></div>
+              </label>
+            </div>
+          </div>
+        </header>
+        <div class="app-body"> 
+          <!-- Optional -->
+          <aside class="app-sidebar">
+            <div class="app-sidebar-content">
+              <!-- 1 or more of the following: -->
+              <section class="app-sidebar-section">
+                <h1 class="app-sidebar-heading"> Heading </h1>
+                <a class="app-sidebar-item" aria-current="page"> Current Page </a>
+                <a class="app-sidebar-item"> Other Page </a>
+              </section>
+            </div>
+          </aside>
+
+          <main id="main-content" class="app-content">
+            <!-- Your page content goes here -->
+          </main>
+        </div>
+      </body>
+    </html>
   `)}
 />

@@ -16,9 +16,11 @@ const { currentCategory } = getNavigationInfo(Astro.props.pathname);
     title={currentCategory!.title}
     subtitle={currentCategory!.description}
   />
+  <slot name="before" />
   <TableOfContents
     showHeading={false}
     areItemsClickable={false}
     contents={currentCategory!.sections}
   />
+  <slot name="after" />
 </Layout>

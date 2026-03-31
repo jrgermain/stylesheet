@@ -1,0 +1,79 @@
+---
+layout: ../../../layouts/Markdown.astro
+title: Customization
+---
+
+import CodeBlock from "../../../components/CodeBlock.astro";
+import { trimTextPadding } from "../../../utils/trim-text-padding";
+
+# Customization
+
+## Theming
+
+All component styles reference [design tokens](/utilities/design-tokens/tokens-overview),
+which are defined as CSS custom properties. By overriding these properties, you can
+customize the look and feel of your application.
+
+Some items you can customize this way are the brand color (which is used in primary buttons,
+form controls, and more), font stacks, spacing density, border roundness, and shadow depth.
+
+Place all your overrides inside a block that targets the following selector:
+`:root, ::backdrop, .light-mode, .dark-mode, .modal, .drawer`. While this selector is a
+bit unwieldy, it's needed to properly support all the ways these tokens are used.
+
+<div class="accordion subtle">
+  <details>
+    <summary>About This Selector</summary>
+
+    | Selector | Target | Purpose |
+    | --- | --- | --- |
+    | `:root` | The root element of the document | This is where you typically define global custom properties, since most elements inherit from it. |
+    | `::backdrop` | Backdrop of Modal and Drawer | To support older browsers where the backdrop doesn't inherit from `:root` ([source](https://developer.chrome.com/blog/css-backdrop-inheritance)). |
+    | `.light-mode`, `.dark-mode` | Elements with a color mode override | Allows the color mode to be overridden. |
+    | `.modal`, `.drawer` | Modal and Drawer components | Ensures these components match the system color mode by default rather than inheriting from the parent element. |
+
+  </details>
+</div>
+
+Make sure to define your overrides after you import the stylesheet to ensure they take
+precedence over the default values.
+
+### Example
+
+<CodeBlock
+  language="css"
+  code={trimTextPadding(`
+    :root, ::backdrop, .light-mode, .dark-mode, .modal, .drawer {
+      /* Override brand color */
+      --color-brand-1: light-dark(#00023c, #e2f0ff);
+      --color-brand-2: light-dark(#081f59, #bdd8ff);
+      --color-brand-3: light-dark(#1c3672, #93b5fb);
+      --color-brand-4: light-dark(#365290, #6f90d3);
+      --color-brand-5: light-dark(#516fb0, #5675b6);
+      --color-brand-6: light-dark(#6c8ccf, #3e5b9a);
+      --color-brand-7: light-dark(#89abf0, #27427f);
+      --color-brand-8: light-dark(#abccff, #152e68);
+      --color-brand-9: light-dark(#ddedff, #000a44);
+      --color-brand-transparent: light-dark(#516fb066, #5675b680);
+      --color-brand-extra-transparent: light-dark(#516fb033, #5675b659);
+
+      /* Make borders less round */
+      --radius-s: 2px;
+      --radius-m: 4px;
+      --radius-l: 8px;
+      --radius-xl: 22px;
+      --radius-2xl: 48px;
+    }
+  `)}
+/>
+
+## Making the App Header Transparent
+
+By default, the App Header has a solid background and a border at the bottom.
+You can replace the background with a subtle, transparent gradient and remove
+the border by adding the class `transparent` to the header element. This can be
+useful if the page has a hero image or other content that should be visible
+behind the header.
+
+When doing this, make sure to test the legibility of your header content in both
+light and dark mode, as well as at different window sizes and zoom levels.

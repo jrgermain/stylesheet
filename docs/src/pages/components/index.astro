@@ -2,4 +2,25 @@
 import IndexLayout from "../../layouts/IndexLayout.astro";
 ---
 
-<IndexLayout pathname="/components" />
+<IndexLayout pathname="/components">
+  <div slot="before" class="alert info">
+    <div class="alert-content">
+      <p class="alert-title">Can't Find What You're Looking For?</p>
+      <p>
+        The HTML structure for the application shell is documented on the <a
+          class="link"
+          href="/info/getting-started/installation-and-setup#page-setup"
+          >Installation and Setup</a
+        > page, and additional classes are documented on the <a
+          class="link"
+          href="/utilities">Utilities</a
+        > page.
+      </p>
+    </div>
+  </div>
+</IndexLayout>
+<style>
+  .alert {
+    margin-block-end: var(--space-m);
+  }
+</style>
