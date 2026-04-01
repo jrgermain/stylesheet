@@ -61,12 +61,11 @@
 
   &.subtle {
     --message-icon-size: 1.3em;
-    --message-icon-margin: 0.35em;
+    --message-icon-margin: 0.5em;
 
     border-radius: var(--radius-m);
     padding: var(--border-s);
     font-size: var(--font-size-s);
-    font-style: italic;
 
     &.error {
       --alert-border-start-color: var(--color-red-8);
@@ -106,7 +105,7 @@
 
     .alert-content {
       border-radius: calc(var(--radius-m) - var(--border-s));
-      padding-inline-start: 2em;
+      padding-inline-start: 2.25em;
 
       &::before {
         border-width: var(--border-s);
