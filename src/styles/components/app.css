@@ -205,10 +205,21 @@
 }
 
 .app-sidebar-heading {
+  --link-color: var(--color-text-primary);
+  --link-underline-color: rgb(from var(--color-text-primary) r g b / 40%);
+  --link-active-color: light-dark(var(--color-gray-3), var(--color-gray-2));
+
+  color: var(--color-text-primary);
   font-size: 1.2rem;
   margin: 0 var(--space-body-x) var(--space-3xs);
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-semibold);
+
+  [aria-current]:not([aria-current="false"]) {
+    --link-color: var(--color-brand-3);
+    --link-underline-color: var(--color-brand-transparent);
+    --link-active-color: var(--color-brand-2);
+  }
 }
 
 .app-sidebar-item {
