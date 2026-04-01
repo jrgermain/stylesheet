@@ -3,10 +3,11 @@ import IndexLayout from "../../layouts/IndexLayout.astro";
 ---
 
 <IndexLayout pathname="/components">
-  <div slot="before" class="alert info">
-    <div class="alert-content">
-      <p class="alert-title">Can't Find What You're Looking For?</p>
-      <p>
+  <div slot="after">
+    <hr class="divider" />
+    <section>
+      <h2 class="heading-6">Looking For Something Else?</h2>
+      <p class="paragraph">
         The HTML structure for the application shell is documented on the <a
           class="link"
           href="/info/getting-started/installation-and-setup#page-setup"
@@ -16,11 +17,11 @@ import IndexLayout from "../../layouts/IndexLayout.astro";
           href="/utilities">Utilities</a
         > page.
       </p>
-    </div>
+    </section>
   </div>
 </IndexLayout>
 <style>
-  .alert {
-    margin-block-end: var(--space-m);
+  .divider {
+    margin-block: var(--space-m);
   }
 </style>
