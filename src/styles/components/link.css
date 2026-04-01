@@ -1,3 +1,8 @@
+/*
+ * Note: Link extends Base Link, meaning this file builds on top of the
+ * styles defined in ./shared/base-link.css
+ */
+
 .link,
 :where(.style-semantic-elements a) {
   --link-color: var(--color-teal-4);
