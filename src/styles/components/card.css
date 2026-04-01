@@ -1,9 +1,6 @@
 .card {
   --card-bg-color: var(--color-surface-primary);
   --card-fg-color: var(--color-text-primary);
-  --card-title-color: var(--color-brand-3);
-  --card-title-underline-color: var(--color-brand-transparent);
-  --card-title-active-color: var(--color-brand-2);
   --card-border-color: var(--color-border);
 
   background-color: var(--card-bg-color);
@@ -28,37 +25,26 @@
     --card-bg-color: var(--internal-glass-bg-color);
     --card-border-color: var(--internal-glass-border-color);
     --card-fg-color: var(--internal-glass-fg-color);
-    --card-title-color: var(--card-fg-color);
-    --card-title-underline-color: light-dark(#0006, #fff6);
-    --card-title-active-color: light-dark(#444, #ddd);
 
     backdrop-filter: var(--internal-glass-filter);
   }
 }
 
 .card-title {
+  /* Make links inside the card title match the color of the surrounding text */
+  --link-color: var(--color-brand-3);
+  --link-underline-color: var(--color-brand-transparent);
+  --link-active-color: var(--color-brand-2);
+
   font-family: var(--font-family-heading);
   line-height: 1.15;
   text-wrap: balance;
   overflow-wrap: break-word;
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-bold);
-  color: var(--card-title-color);
+  color: var(--color-brand-3);
   margin-block: 0 var(--space-xs);
   display: block;
-}
-
-/* This overrides styles in the Link component that also apply */
-.card-title a {
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: inherit;
-  color: inherit;
-  text-decoration-color: var(--card-title-underline-color);
-
-  &:is(:active, .active) {
-    color: var(--card-title-active-color);
-  }
 }
 
 .card.secondary .card-title {

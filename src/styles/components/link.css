@@ -1,27 +1,8 @@
 .link,
-.card-title a,
 :where(.style-semantic-elements a) {
-  color: var(--color-teal-4);
+  --link-color: var(--color-teal-4);
+  --link-underline-color: var(--color-teal-transparent);
+  --link-active-color: var(--color-teal-3);
+
   font-weight: var(--font-weight-semibold);
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-teal-transparent);
-  text-decoration-skip-ink: all;
-  text-decoration-thickness: 0.1em;
-  text-underline-offset: 0.1em;
-  cursor: pointer;
-  transition-property: color, text-decoration-color;
-  transition-duration: var(--duration-s);
-  transition-timing-function: var(--ease-default);
-
-  &:is(:hover, .hover) {
-    text-decoration-color: currentcolor;
-  }
-
-  &:is(:focus-visible, .focus) {
-    outline-offset: 1px;
-  }
-
-  &:is(:active, .active) {
-    color: var(--color-teal-3);
-  }
 }

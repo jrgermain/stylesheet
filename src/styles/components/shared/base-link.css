@@ -1,0 +1,28 @@
+.link,
+.card-title a,
+.app-sidebar-heading a,
+:where(.style-semantic-elements a) {
+  color: var(--link-color);
+  text-decoration-line: underline;
+  text-decoration-color: var(--link-underline-color);
+  text-decoration-skip-ink: all;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.1em;
+  cursor: pointer;
+  transition-property: color, text-decoration-color;
+  transition-duration: var(--duration-s);
+  transition-timing-function: var(--ease-default);
+
+  &:is(:hover, .hover) {
+    text-decoration-color: var(--link-color);
+  }
+
+  &:is(:focus-visible, .focus) {
+    outline-offset: 1px;
+  }
+
+  &:is(:active, .active) {
+    color: var(--link-active-color);
+    text-decoration-color: var(--link-active-color);
+  }
+}

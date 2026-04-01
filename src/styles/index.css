@@ -6,6 +6,7 @@
 /* Styles used in multiple components */
 @import url("./components/shared/base-check.css");
 @import url("./components/shared/base-dialog.css");
+@import url("./components/shared/base-link.css");
 @import url("./components/shared/base-message.css");
 @import url("./components/shared/dismiss-button.css");
 @import url("./components/shared/fieldset-reset.css");
@@ -18,6 +19,7 @@
 @import url("./components/app.css");
 @import url("./components/banner.css");
 @import url("./components/button.css");
+@import url("./components/card.css");
 @import url("./components/checkbox.css");
 @import url("./components/chip.css");
 @import url("./components/divider.css");
@@ -43,10 +45,3 @@
 @import url("./components/switch.css");
 @import url("./components/table.css");
 @import url("./components/text.css");
-
-/*
- * Card needs to be loaded after Link so .card-title[href] in the former
- * overrides the same selector in the latter without needing "!important"
- * declarations or specificity hacks.
- */
-@import url("./components/card.css");
