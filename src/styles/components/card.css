@@ -22,11 +22,11 @@
   }
 
   &.transparent {
-    --card-bg-color: var(--internal-glass-bg-color);
-    --card-border-color: var(--internal-glass-border-color);
-    --card-fg-color: var(--internal-glass-fg-color);
+    --card-bg-color: var(--glass-bg-color);
+    --card-border-color: var(--glass-border-color);
+    --card-fg-color: var(--glass-fg-color);
 
-    backdrop-filter: var(--internal-glass-filter);
+    backdrop-filter: var(--glass-filter);
   }
 }
 
