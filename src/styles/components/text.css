@@ -3,6 +3,10 @@
   font-weight: var(--font-weight-bold);
 }
 
+.semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
 .italic,
 :where(.style-semantic-elements em) {
   font-style: italic;
