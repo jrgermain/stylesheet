@@ -31,7 +31,7 @@
     content: "";
     position: absolute;
     inset-block: 0;
-    inset-inline-start: var(--message-icon-margin);
+    inset-inline-start: var(--message-icon-offset);
     margin-block: auto;
     width: var(--message-icon-size);
     height: var(--message-icon-size);
@@ -39,7 +39,7 @@
 
   &::before {
     border-radius: var(--radius-full);
-    background-color: var(--message-icon-background);
+    background-color: var(--message-icon-bg-color);
     border: var(--border-m) solid var(--message-icon-color);
   }
 
