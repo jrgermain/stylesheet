@@ -20,6 +20,8 @@ chokidar
     path.join(__dirname, "../src"),
     path.join(__dirname, "../scripts"),
     path.join(__dirname, "../package.json"),
+    path.join(__dirname, "../package-lock.json"),
+    path.join(__dirname, "../tsconfig.json"),
   ])
   .on("change", (path) => {
     console.log(`File ${path} has been changed`);

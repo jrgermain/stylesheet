@@ -1,5 +1,5 @@
 ---
-import "@jrgermain/stylesheet";
+import "@jrgermain/stylesheet/stylesheet.css";
 import NavLink from "../components/NavLink.astro";
 import joey from "../assets/joey.jpg";
 import { navCategories } from "../data/nav-links";
@@ -41,14 +41,14 @@ const shouldShowFooter =
     <a class="skip-link" href="#main-content">Skip to Main Content</a>
     <header class="app-header">
       <div class="app-header-content">
-        <div class="app-header-section">
+        <div class="app-header-left">
           <a class="app-header-item" href="/">
             <img class="app-icon" aria-hidden="true" src={joey.src} />
-            <span class="app-title-separator"></span>
+            <span class="app-title-divider"></span>
             <span class="app-title">stylesheet</span>
           </a>
         </div>
-        <div class="app-header-section if-medium-viewport if-wide-viewport">
+        <div class="app-header-center">
           {
             navCategories.map((category) => (
               <NavLink href={`/${category.slug}`} class="app-header-item">
@@ -56,8 +56,7 @@ const shouldShowFooter =
               </NavLink>
             ))
           }
-        </div>
-        <div class="app-header-section if-wide-viewport">
+          <hr class="app-header-divider" />
           <a
             class="app-header-item"
             href="https://github.com/jrgermain/stylesheet"
@@ -87,10 +86,8 @@ const shouldShowFooter =
             <span class="visually-hidden">NPM</span>
           </a>
         </div>
-        <div
-          class="app-header-section if-narrow-viewport if-medium-viewport if-app-has-sidebar"
-        >
-          <label class="app-header-item app-sidebar-toggle">
+        <div class="app-header-right">
+          <label class="app-header-item app-sidebar-toggle if-app-has-sidebar">
             <input type="checkbox" title="Toggle navigation" />
             <div></div>
             <div></div>
@@ -118,23 +115,6 @@ const shouldShowFooter =
                     ))}
                   </section>
                 ))}
-                <section class="app-sidebar-section if-narrow-viewport">
-                  <h1 class="app-sidebar-heading">Links</h1>
-                  <a
-                    class="app-sidebar-item"
-                    href="https://github.com/jrgermain/stylesheet"
-                    target="_blank"
-                  >
-                    GitHub
-                  </a>
-                  <a
-                    class="app-sidebar-item"
-                    href="https://www.npmjs.com/package/@jrgermain/stylesheet"
-                    target="_blank"
-                  >
-                    NPM
-                  </a>
-                </section>
               </div>
             </nav>
           )
@@ -221,11 +201,11 @@ const shouldShowFooter =
 </html>
 <style>
   .github-logo {
-    width: 1.6rem;
+    width: 1.4em;
   }
 
   .npm-logo {
-    width: 2.1rem;
+    width: 2em;
   }
 
   footer {

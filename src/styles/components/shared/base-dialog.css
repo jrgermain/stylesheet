@@ -71,8 +71,11 @@
   }
 
   &:has(.button.dismiss) {
-    padding-inline-end: calc(
-      2 * var(--dialog-close-button-offset) + var(--dialog-dismiss-btn-size)
+    padding-inline-end: calc(var(--dialog-dismiss-btn-size) + var(--space-m));
+
+    /* When no title is present, ensure the header can fit the absolutely positioned dismiss button */
+    min-height: calc(
+      var(--dialog-dismiss-btn-offset) + var(--dialog-dismiss-btn-size)
     );
   }
 
@@ -86,8 +89,8 @@
     height: var(--dialog-dismiss-btn-size);
     border-radius: var(--radius-full);
     position: absolute;
-    inset-block-start: var(--dialog-close-button-offset);
-    inset-inline-end: var(--dialog-close-button-offset);
+    inset-block-start: var(--dialog-dismiss-btn-offset);
+    inset-inline-end: var(--dialog-dismiss-btn-offset);
 
     &:is(:focus-visible, .focus) {
       --button-bg-color: var(--color-gray-9);
@@ -110,11 +113,22 @@
 .modal-body,
 .drawer-body {
   padding: var(--space-m);
-  padding-block-start: var(--space-xs);
   flex-shrink: 1;
   display: block;
   overflow: auto;
   margin: 0;
+}
+
+/* If there's a header and a body, collapse some of the spacing between them */
+.modal-header + .modal-body,
+.drawer-header + .drawer-body {
+  padding-block-start: var(--space-xs);
+}
+
+/* If there's a header and a footer, but no body, increase the spacing between them */
+.modal-header:has(+ .modal-footer),
+.drawer-header:has(+ .drawer-footer) {
+  padding-block-end: var(--space-m);
 }
 
 @supports (transition-behavior: allow-discrete) and (overlay: none) {

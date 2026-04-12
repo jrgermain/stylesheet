@@ -6,8 +6,8 @@
    * centered.
    */
   --app-max-content-width: 110rem;
-  --app-header-height: clamp(50px, 3.8rem, 100px);
-  --app-sidebar-width: clamp(300px, 18rem, 450px);
+  --app-header-height: 3.8rem;
+  --app-sidebar-width: 18rem;
 
   position: relative;
   width: 100%;
@@ -52,37 +52,30 @@
   margin-inline: auto;
   padding-inline: calc(var(--space-body-x) - var(--space-xs));
   padding-block: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-s);
+  display: grid;
+  grid-template-areas: "l c r";
+  grid-template-columns: 1fr auto auto;
 }
 
-.app-header-section {
-  margin: 0;
-  height: 100%;
+.app-header-left,
+.app-header-center,
+.app-header-right {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
+}
 
-  /* If header only has 1 section, center it */
-  &:only-child {
-    margin-inline: auto;
-  }
+.app-header-left {
+  grid-area: l;
+}
 
-  /* Otherwise, align the first to the left and the rest to the right */
-  &:first-child {
-    margin-inline-end: auto;
-  }
+.app-header-center {
+  grid-area: c;
+}
 
-  /* Put a spacer between consecutive right-aligned sections (3rd onward) */
-  &:nth-child(n + 3)::before {
-    content: "";
-    background-color: var(--color-border);
-    height: 2rem;
-    width: var(--border-s);
-    position: relative;
-    right: calc(var(--space-s) / 2);
-  }
+.app-header-right {
+  grid-area: r;
 }
 
 .app-header-item {
@@ -135,19 +128,28 @@
   }
 }
 
+.app-header-divider {
+  border: 0;
+  border-inline-start: var(--border-s) dashed var(--color-border);
+  display: inline-block;
+  margin: auto var(--space-xs);
+  width: 0;
+  height: 85%;
+}
+
 .app-icon {
   background-color: var(--color-brand-3);
-  height: 2rem;
-  width: 2rem;
+  height: 2em;
+  width: 2em;
   border: var(--border-m) solid transparent;
   border-radius: var(--radius-full);
 }
 
-.app-title-separator {
+.app-title-divider {
   content: "";
   background-color: var(--color-brand-transparent);
   width: var(--border-m);
-  height: 1.5rem;
+  height: 1.5em;
   rotate: 22deg;
   margin-inline: var(--space-2xs);
   position: relative;
@@ -156,7 +158,7 @@
 
 .app-title {
   font-family: var(--font-family-heading);
-  font-size: 1.2rem;
+  font-size: 1.2em;
   display: flex;
   align-items: center;
 }
@@ -260,7 +262,8 @@
 }
 
 .app-sidebar-toggle {
-  width: 2.75rem;
+  width: 2.75em;
+  display: none;
 
   &.focus,
   &:has(input:focus-visible) {
@@ -275,7 +278,7 @@
     transition-duration: var(--duration-l);
     transition-timing-function: var(--ease-out);
     position: absolute;
-    width: 1.75rem;
+    width: 1.75em;
     height: 2px;
     border-radius: 2px;
     background-color: currentcolor;
@@ -284,7 +287,7 @@
     left: 50%;
 
     &:nth-of-type(1) {
-      transform: translateY(calc(-50% - 0.45rem)) translateX(-50%);
+      transform: translateY(calc(-50% - 0.45em)) translateX(-50%);
     }
 
     &:nth-of-type(2) {
@@ -292,7 +295,7 @@
     }
 
     &:nth-of-type(3) {
-      transform: translateY(calc(-50% + 0.45rem)) translateX(-50%);
+      transform: translateY(calc(-50% + 0.45em)) translateX(-50%);
     }
   }
 
@@ -325,6 +328,35 @@
 }
 
 @media (width < 55rem) {
+  .app:has(.app-header-center) {
+    --app-header-height: 4.8rem;
+
+    .app-header-content {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "l r"
+        "c c";
+    }
+
+    .app-header-item {
+      font-size: 0.9rem;
+    }
+
+    .app-header-center .app-header-item {
+      font-size: 0.85rem;
+    }
+
+    .app-header-divider {
+      border-inline-start: 0;
+      width: 100%;
+      height: 0;
+    }
+  }
+
+  .app-sidebar-toggle {
+    display: block;
+  }
+
   /* 
    * If there's a sidebar, DON'T factor its width into the content width since
    * the sidebar now has `position: fixed`. This only applies to pages with a
@@ -340,8 +372,8 @@
     left: 0;
     width: 100vw;
     opacity: 1;
-    background-color: var(--internal-glass-bg-color);
-    backdrop-filter: var(--internal-glass-filter);
+    background-color: var(--glass-bg-color);
+    backdrop-filter: var(--glass-filter);
     border-right: 0;
     z-index: 9;
 

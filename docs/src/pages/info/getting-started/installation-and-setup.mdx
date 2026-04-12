@@ -27,17 +27,14 @@ Next, in the entry point of your project (typically a file named root, index, or
 <CodeBlock
   language="js"
   code={trimTextPadding(`
-    import "@jrgermain/stylesheet"; // Adds CSS styles
+    import "@jrgermain/stylesheet/stylesheet.css"; // Adds CSS styles
     import "@jrgermain/stylesheet/enhance"; // Adds UX enhancements
   `)}
 />
 
-You might have to fiddle with the imports here. For example, the **enhance** script
+You might have to fiddle with the imports here. For example, the `enhance` script
 (which needs to run in the browser) might need to be imported in a different file
-than the main CSS stylesheet (which can be processed at build time).
-You may also run into an issue where your build tooling can't resolve the first import
-because it doesn't know to treat it as CSS. In this case, you can replace it with the
-following equivalent import: `@jrgermain/stylesheet/stylesheet.css`.
+from `stylesheet.css` (which can be processed at build time).
 
 ### Option 2: Manual Installation
 
@@ -84,15 +81,27 @@ Your application's HTML structure should follow this template:
         <a class="skip-link" href="#main-content"> Skip to Main Content </a>
         <header class="app-header">
           <div class="app-header-content">
-            <!-- 1 or more of the following: -->
-            <div class="app-header-section">
-              <!-- 1 or more of the following: -->
-              <a class="app-header-item"></a>
+            <!-- Logo/home link -->
+            <div class="app-header-left">
+              <a class="app-header-item" href="/">
+                <img class="app-icon" aria-hidden="true" src="...">
+                <span class="app-title-divider"></span>
+                <span class="app-title">App Name</span>
+              </a>
             </div>
 
-            <!-- Optional if you don't have a sidebar -->
-            <div class="app-header-section if-narrow-viewport if-medium-viewport if-app-has-sidebar">
-              <label class="app-header-item app-sidebar-toggle">
+            <!-- Main navigation (optional) -->
+            <div class="app-header-center">
+                <a class="app-header-item" href="/link1" aria-current="page"> Current Link </a>
+                <a class="app-header-item" href="/link2"> Other Link </a>
+                <!-- Optional: add a divider between groups of links -->
+                <hr class="app-header-divider">
+                <a class="app-header-item" href="/link3"> Other Link </a>
+            </div>
+
+            <!-- Sidebar toggle (automatically hidden if there is no sidebar) -->
+            <div class="app-header-right">
+              <label class="app-header-item app-sidebar-toggle if-app-has-sidebar">
                 <input type="checkbox" title="Toggle navigation">
                 <div></div>
                 <div></div>
@@ -109,7 +118,7 @@ Your application's HTML structure should follow this template:
               <section class="app-sidebar-section">
                 <h1 class="app-sidebar-heading"> Heading </h1>
                 <a class="app-sidebar-item" aria-current="page"> Current Page </a>
-                <a class="app-sidebar-item"> Other Page </a>
+                <a class="app-sidebar-item">Other Page</a>
               </section>
             </div>
           </aside>

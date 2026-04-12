@@ -149,15 +149,6 @@
   --color-shadow: light-dark(#45484c26, #00000166);
   --color-border: light-dark(#e2e5ea, #303337);
 
-  /* Deprecated semantic color aliases */
-  --color-body: var(--color-surface-secondary);
-  --color-page: var(--color-surface-secondary);
-  --color-surface: var(--color-surface-primary);
-  --color-body-alt: var(--color-surface-primary);
-  --color-body-text: var(--color-text-primary);
-  --color-body-text-alt: var(--color-text-secondary);
-  --color-body-text-invert: var(--color-contrast-text);
-
   /* Font sizes */
   --font-size-xs: clamp(0.6944rem, 0.6855rem + 0.0446vw, 0.72rem);
   --font-size-s: clamp(0.8331rem, 0.8099rem + 0.1163vw, 0.9rem);
@@ -242,12 +233,9 @@
   --duration-l: 250ms;
   --duration-xl: 350ms;
 
-  /**************************************************************
-   * Tokens prefixed with --internal- are for internal use only *
-   **************************************************************/
-
-  --internal-glass-bg-color: light-dark(#fff9, #30333799);
-  --internal-glass-fg-color: light-dark(black, white);
-  --internal-glass-border-color: light-dark(#fff8, #42454988);
-  --internal-glass-filter: blur(32px) saturate(120%);
+  /* Frosted glass */
+  --glass-bg-color: light-dark(#fff9, #30333799);
+  --glass-fg-color: light-dark(black, white);
+  --glass-border-color: light-dark(#fff8, #42454988);
+  --glass-filter: blur(32px) saturate(120%);
 }

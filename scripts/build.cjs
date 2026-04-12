@@ -10,7 +10,7 @@ const esbuild = require("esbuild");
 const projectRoot = path.join(__dirname, "..");
 const targets = browserslistToTargets(browserslist("defaults"));
 
-const processCssFile = async (sourcePath, destPath) => {
+const createCssBundle = async (sourcePath, destPath) => {
   const absoluteSourcePath = path.join(projectRoot, sourcePath);
   const absoluteDestPath = path.join(projectRoot, destPath);
 
@@ -86,7 +86,7 @@ const processCssFile = async (sourcePath, destPath) => {
   }
 };
 
-const processTsFile = async (sourcePath, destPath, options) => {
+const createJsBundle = async (sourcePath, destPath) => {
   const absoluteSourcePath = path.join(projectRoot, sourcePath);
   const absoluteDestPath = path.join(projectRoot, destPath);
 
@@ -96,7 +96,7 @@ const processTsFile = async (sourcePath, destPath, options) => {
     platform: "browser",
     target: ["es2020"],
     sourcemap: "linked",
-    ...options,
+    minify: true,
   });
 };
 
@@ -106,18 +106,17 @@ const processTsFile = async (sourcePath, destPath, options) => {
   await rimraf(distPath);
   await fs.mkdir(distPath);
 
-  // Build CSS
-  await processCssFile("src/styles/index.css", "dist/stylesheet.css");
-
   // Build TypeScript
-  await processTsFile("src/tokens.ts", "dist/tokens.js");
-  await processTsFile("src/enhance.ts", "dist/enhance.js", { minify: true });
-
-  // Generate TypeScript declaration files
   execSync("npx tsc", {
     stdio: "inherit",
     cwd: projectRoot,
   });
+
+  // Build CSS
+  await createCssBundle("src/styles/index.css", "dist/stylesheet.css");
+
+  // Create client-side JS bundle
+  await createJsBundle("src/enhance.ts", "dist/enhance.js");
 
   console.log("Build complete");
 })().catch((e) => {

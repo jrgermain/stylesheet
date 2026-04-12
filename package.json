@@ -1,6 +1,6 @@
 {
   "name": "@jrgermain/stylesheet",
-  "version": "0.17.4",
+  "version": "0.18.0",
   "description": "A CSS stylesheet for the cool stuff I'm building",
   "homepage": "https://stylesheet.jrgermain.dev",
   "author": {
@@ -35,13 +35,8 @@
     "dist"
   ],
   "exports": {
-    ".": {
-      "browser": "./dist/stylesheet.css",
-      "unpkg": "./dist/stylesheet.css",
-      "default": "./dist/stylesheet.css"
-    },
+    ".": "./dist/index.js",
     "./stylesheet.css": "./dist/stylesheet.css",
-    "./tokens": "./dist/tokens.js",
     "./enhance": "./dist/enhance.js"
   },
   "browserslist": [

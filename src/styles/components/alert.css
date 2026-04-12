@@ -5,8 +5,8 @@
 
 .alert {
   --message-icon-size: 1.7em;
-  --message-icon-margin: 0.25em;
-  --message-icon-background: var(--color-surface-primary);
+  --message-icon-offset: 0.25em;
+  --message-icon-bg-color: var(--color-surface-primary);
 
   font-size: var(--font-size-m);
   color: var(--color-text-primary);
@@ -61,7 +61,7 @@
 
   &.subtle {
     --message-icon-size: 1.3em;
-    --message-icon-margin: 0.5em;
+    --message-icon-offset: 0.5em;
 
     border-radius: var(--radius-m);
     padding: var(--border-s);
@@ -70,7 +70,7 @@
     &.error {
       --alert-border-start-color: var(--color-red-8);
       --alert-border-end-color: var(--color-red-8);
-      --message-icon-background: var(--color-red-5);
+      --message-icon-bg-color: var(--color-red-5);
       --message-icon-color: var(--color-red-9);
 
       color: var(--color-red-2);
@@ -79,7 +79,7 @@
     &.warning {
       --alert-border-start-color: var(--color-yellow-8);
       --alert-border-end-color: var(--color-yellow-8);
-      --message-icon-background: var(--color-yellow-5);
+      --message-icon-bg-color: var(--color-yellow-5);
       --message-icon-color: var(--color-yellow-9);
 
       color: var(--color-yellow-2);
@@ -88,7 +88,7 @@
     &.success {
       --alert-border-start-color: var(--color-green-8);
       --alert-border-end-color: var(--color-green-8);
-      --message-icon-background: var(--color-green-5);
+      --message-icon-bg-color: var(--color-green-5);
       --message-icon-color: var(--color-green-9);
 
       color: var(--color-green-2);
@@ -97,7 +97,7 @@
     &.info {
       --alert-border-start-color: var(--color-teal-8);
       --alert-border-end-color: var(--color-teal-8);
-      --message-icon-background: var(--color-teal-5);
+      --message-icon-bg-color: var(--color-teal-5);
       --message-icon-color: var(--color-teal-9);
 
       color: var(--color-teal-2);
