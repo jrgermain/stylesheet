@@ -1,5 +1,5 @@
 .quote,
-:where(.style-semantic-elements blockquote) {
+:where(.markdown blockquote) {
   display: block;
   margin: 0;
   color: var(--color-text-secondary);

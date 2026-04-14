@@ -1,5 +1,5 @@
 .heading,
-:where(.style-semantic-elements :is(h1, h2, h3, h4, h5, h6)) {
+:where(.markdown :is(h1, h2, h3, h4, h5, h6)) {
   font-family: var(--font-family-heading);
   margin-block: 0.75em 0.3em;
   line-height: 1.15;
@@ -8,7 +8,7 @@
 }
 
 .heading.level-1,
-:where(.style-semantic-elements h1) {
+:where(.markdown h1) {
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-black);
 
@@ -25,31 +25,31 @@
 }
 
 .heading.level-2,
-:where(.style-semantic-elements h2) {
+:where(.markdown h2) {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
 }
 
 .heading.level-3,
-:where(.style-semantic-elements h3) {
+:where(.markdown h3) {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
 }
 
 .heading.level-4,
-:where(.style-semantic-elements h4) {
+:where(.markdown h4) {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
 }
 
 .heading.level-5,
-:where(.style-semantic-elements h5) {
+:where(.markdown h5) {
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-semibold);
 }
 
 .heading.level-6,
-:where(.style-semantic-elements h6) {
+:where(.markdown h6) {
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-bold);
 }

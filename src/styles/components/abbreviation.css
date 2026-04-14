@@ -1,7 +1,7 @@
 /* stylelint-disable declaration-block-no-redundant-longhand-properties -- text-decoration shorthand doesn't work properly for Safari */
 
 .abbreviation,
-:where(.style-semantic-elements abbr[title]) {
+:where(.markdown abbr[title]) {
   display: inline;
   text-decoration-line: underline;
   text-decoration-style: dotted;

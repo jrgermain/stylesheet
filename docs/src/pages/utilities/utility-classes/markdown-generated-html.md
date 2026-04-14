@@ -6,7 +6,7 @@ title: Markdown/Generated HTML
 # Markdown/Generated HTML
 
 There are times when you may want to embed HTML that was generated from some other format, like Markdown.
-In these cases, you can add the class `style-semantic-elements` to the element holding the generated HTML.
+In these cases, you can add the class `markdown` to the element holding the generated HTML.
 This will apply default styles to the generated HTML elements, such as headings, paragraphs, and lists,
 without needing to add the classes manually.
 

@@ -1,5 +1,5 @@
 .bold,
-:where(.style-semantic-elements strong, .style-semantic-elements b) {
+:where(.markdown strong, .markdown b) {
   font-weight: var(--font-weight-bold);
 }
 
@@ -8,7 +8,7 @@
 }
 
 .italic,
-:where(.style-semantic-elements em) {
+:where(.markdown em) {
   font-style: italic;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .strikethrough,
-:where(.style-semantic-elements s) {
+:where(.markdown s) {
   text-decoration-line: line-through;
 }
 
@@ -27,7 +27,7 @@
 
 .subscript,
 .superscript,
-:where(.style-semantic-elements sub, .style-semantic-elements sup) {
+:where(.markdown sub, .markdown sup) {
   font-size: 0.75em;
   line-height: 0;
   position: relative;
@@ -35,17 +35,17 @@
 }
 
 .subscript,
-:where(.style-semantic-elements sub) {
+:where(.markdown sub) {
   inset-block-end: -0.25em;
 }
 
 .superscript,
-:where(.style-semantic-elements sup) {
+:where(.markdown sup) {
   inset-block-start: -0.5em;
 }
 
 .code,
-:where(.style-semantic-elements code) {
+:where(.markdown code) {
   font-family: var(--font-family-mono);
   background-color: var(--color-gray-extra-transparent);
   color: var(--color-gray-1);
@@ -60,7 +60,7 @@
 }
 
 .link .code,
-:where(.style-semantic-elements a code) {
+:where(.markdown a code) {
   text-decoration: inherit;
   text-decoration-color: inherit;
   text-decoration-thickness: inherit;

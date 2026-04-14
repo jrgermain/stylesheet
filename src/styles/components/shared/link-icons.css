@@ -11,7 +11,7 @@
  * - Button
  * - App Sidebar Item
  */
-:is(.link, .button, .app-sidebar-item, .style-semantic-elements a) {
+:is(.link, .button, .app-sidebar-item, .markdown a) {
   &::after {
     print-color-adjust: exact;
     mask-size: contain;

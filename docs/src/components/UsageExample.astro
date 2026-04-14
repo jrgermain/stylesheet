@@ -25,7 +25,7 @@ const {
 } = Astro.props;
 
 const slugger = new GithubSlugger();
-const descriptionHtml = marked.parse(description);
+const descriptionHtml = await marked.parse(description);
 const formattedCode = await formatCode(code);
 const random = Math.random().toString(36).substring(2);
 const codeId = `example-code-${random}`;
@@ -35,11 +35,7 @@ const slug = slugger.slug(name);
 <div class="card">
   <h2 class="card-title" id={slug}>{name}</h2>
   <div class="stack vertical dense">
-    {
-      description && (
-        <div class="style-semantic-elements" set:html={descriptionHtml} />
-      )
-    }
+    {description && <div class="markdown" set:html={descriptionHtml} />}
     <div
       class:list={[
         "example-wrapper",

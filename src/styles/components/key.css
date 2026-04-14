@@ -1,5 +1,5 @@
 .key,
-:where(.style-semantic-elements kbd) {
+:where(.markdown kbd) {
   display: inline;
   padding: 0 0.5ch;
   margin: 0 0.25ch;

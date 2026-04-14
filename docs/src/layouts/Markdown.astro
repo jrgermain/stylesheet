@@ -4,13 +4,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <div class="markdown style-semantic-elements">
+  <div class="markdown">
     <slot />
   </div>
 </Layout>
-
-<style is:global>
-  .markdown > :first-child {
-    margin-top: 0;
-  }
-</style>
