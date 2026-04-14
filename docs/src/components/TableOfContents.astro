@@ -11,7 +11,7 @@ interface Props {
 
 const { showHeading = true, areItemsClickable = true, contents } = Astro.props;
 
-let headingClass = "heading-2 toc-heading";
+let headingClass = "heading level-2 toc-heading";
 if (!showHeading) {
   headingClass += " visually-hidden";
 }
