@@ -73,7 +73,7 @@
       --message-icon-bg-color: var(--color-red-5);
       --message-icon-color: var(--color-red-9);
 
-      color: var(--color-red-2);
+      color: var(--color-red-1);
     }
 
     &.warning {
@@ -82,7 +82,7 @@
       --message-icon-bg-color: var(--color-yellow-5);
       --message-icon-color: var(--color-yellow-9);
 
-      color: var(--color-yellow-2);
+      color: var(--color-yellow-1);
     }
 
     &.success {
@@ -91,7 +91,7 @@
       --message-icon-bg-color: var(--color-green-5);
       --message-icon-color: var(--color-green-9);
 
-      color: var(--color-green-2);
+      color: var(--color-green-1);
     }
 
     &.info {
@@ -100,7 +100,7 @@
       --message-icon-bg-color: var(--color-teal-5);
       --message-icon-color: var(--color-teal-9);
 
-      color: var(--color-teal-2);
+      color: var(--color-teal-1);
     }
 
     .alert-content {
