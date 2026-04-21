@@ -171,8 +171,8 @@
     "Avenir Next", avenir, "Segoe UI Variable Display", "Segoe UI",
     "URW Gothic", source-sans-pro, "Noto Sans", ui-sans-serif, sans-serif;
   --font-family-heading:
-    seravek, "Gill Sans Nova", "Gill Sans MT", cantarell, "DejaVu Sans",
-    source-sans-pro, ui-sans-serif, sans-serif;
+    seravek, tahoma, cantarell, "DejaVu Sans", source-sans-pro, ui-sans-serif,
+    sans-serif;
   --font-family-mono: ui-monospace, "Cascadia Code", menlo, hack, monospace;
 
   /* Spacing */
