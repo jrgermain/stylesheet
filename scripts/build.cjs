@@ -99,7 +99,7 @@ const createJsBundle = async (sourcePath, destPath) => {
 
 (async () => {
   // Create temp directory for build artifacts
-  const tempPath = path.join(projectRoot, `build/${Date.now()}`);
+  const tempPath = path.join(projectRoot, "build", Date.now().toString());
 
   // Build TypeScript
   execSync(`npx tsc --outDir '${tempPath}'`, {
@@ -108,10 +108,13 @@ const createJsBundle = async (sourcePath, destPath) => {
   });
 
   // Build CSS
-  await createCssBundle("src/styles/index.css", `${tempPath}/stylesheet.css`);
+  await createCssBundle(
+    "src/styles/index.css",
+    path.join(tempPath, "stylesheet.css"),
+  );
 
   // Create client-side JS bundle
-  await createJsBundle("src/enhance.ts", `${tempPath}/enhance.js`);
+  await createJsBundle("src/enhance.ts", path.join(tempPath, "enhance.js"));
 
   // Delete previous build
   const distPath = path.join(projectRoot, "dist");
