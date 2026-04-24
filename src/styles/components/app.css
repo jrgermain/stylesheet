@@ -5,7 +5,7 @@
    * the screen, but all content within them will be kept within this limit and
    * centered.
    */
-  --app-max-content-width: 110rem;
+  --app-max-content-width: 90rem;
   --app-header-height: 3.8rem;
   --app-sidebar-width: 18rem;
 
@@ -130,7 +130,7 @@
 
 .app-header-divider {
   border: 0;
-  border-inline-start: var(--border-s) dashed var(--color-border);
+  border-inline-start: var(--border-s) solid var(--color-border);
   display: inline-block;
   margin: auto var(--space-xs);
   width: 0;
