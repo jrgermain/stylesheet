@@ -171,7 +171,7 @@
     --button-fg-color: white;
     --button-bg-color: var(--color-brand-5);
     --button-border-color: var(--color-brand-4);
-    --button-font-weight: var(--font-weight-bold);
+    --button-font-weight: var(--font-weight-semibold);
     --button-focus-ring-color: var(--color-brand-transparent);
 
     &.red {

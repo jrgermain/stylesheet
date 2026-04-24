@@ -1,7 +1,7 @@
 .link,
 .card-title a,
 .app-sidebar-heading a,
-:where(.style-semantic-elements a) {
+:where(.markdown a) {
   color: var(--link-color);
   text-decoration-line: underline;
   text-decoration-color: var(--link-underline-color);

@@ -2,7 +2,6 @@ const fs = require("node:fs/promises");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
 const { execSync } = require("node:child_process");
-const { rimraf } = require("rimraf");
 const { bundle, browserslistToTargets } = require("lightningcss");
 const browserslist = require("browserslist");
 const esbuild = require("esbuild");
@@ -12,7 +11,6 @@ const targets = browserslistToTargets(browserslist("defaults"));
 
 const createCssBundle = async (sourcePath, destPath) => {
   const absoluteSourcePath = path.join(projectRoot, sourcePath);
-  const absoluteDestPath = path.join(projectRoot, destPath);
 
   const sourceContent = await fs.readFile(absoluteSourcePath);
 
@@ -78,21 +76,20 @@ const createCssBundle = async (sourcePath, destPath) => {
   if (result.map) {
     const destFilename = path.basename(destPath);
     const sourceMapRef = `\n/*# sourceMappingURL=./${destFilename}.map */`;
-    await fs.writeFile(absoluteDestPath, result.code);
-    await fs.appendFile(absoluteDestPath, sourceMapRef);
-    await fs.writeFile(`${absoluteDestPath}.map`, result.map);
+    await fs.writeFile(destPath, result.code);
+    await fs.appendFile(destPath, sourceMapRef);
+    await fs.writeFile(`${destPath}.map`, result.map);
   } else {
-    await fs.writeFile(absoluteDestPath, result.code);
+    await fs.writeFile(destPath, result.code);
   }
 };
 
 const createJsBundle = async (sourcePath, destPath) => {
   const absoluteSourcePath = path.join(projectRoot, sourcePath);
-  const absoluteDestPath = path.join(projectRoot, destPath);
 
   await esbuild.build({
     entryPoints: [absoluteSourcePath],
-    outfile: absoluteDestPath,
+    outfile: destPath,
     platform: "browser",
     target: ["es2020"],
     sourcemap: "linked",
@@ -101,22 +98,30 @@ const createJsBundle = async (sourcePath, destPath) => {
 };
 
 (async () => {
-  // Prepare dist directory
-  const distPath = path.join(projectRoot, "dist");
-  await rimraf(distPath);
-  await fs.mkdir(distPath);
+  // Create temp directory for build artifacts
+  const tempPath = path.join(projectRoot, "build", Date.now().toString());
 
   // Build TypeScript
-  execSync("npx tsc", {
+  execSync(`npx tsc --outDir '${tempPath}'`, {
     stdio: "inherit",
     cwd: projectRoot,
   });
 
   // Build CSS
-  await createCssBundle("src/styles/index.css", "dist/stylesheet.css");
+  await createCssBundle(
+    "src/styles/index.css",
+    path.join(tempPath, "stylesheet.css"),
+  );
 
   // Create client-side JS bundle
-  await createJsBundle("src/enhance.ts", "dist/enhance.js");
+  await createJsBundle("src/enhance.ts", path.join(tempPath, "enhance.js"));
+
+  // Delete previous build
+  const distPath = path.join(projectRoot, "dist");
+  await fs.rm(distPath, { recursive: true, force: true });
+
+  // Move new build to dist
+  await fs.rename(tempPath, distPath);
 
   console.log("Build complete");
 })().catch((e) => {
