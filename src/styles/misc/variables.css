@@ -95,8 +95,8 @@
   --color-blue-7: light-dark(#33a4ff, #143c86);
   --color-blue-8: light-dark(#86c8ff, #0c235a);
   --color-blue-9: light-dark(#d1efff, #020d33);
-  --color-blue-transparent: light-dark(#1c5cc466, #3273da80);
-  --color-blue-extra-transparent: light-dark(#1c5cc433, #3273da59);
+  --color-blue-transparent: light-dark(#105dc766, #1b6dde80);
+  --color-blue-extra-transparent: light-dark(#105dc733, #1b6dde59);
 
   /* Purple */
   --color-purple-1: light-dark(#170029, #f6e8fb);
