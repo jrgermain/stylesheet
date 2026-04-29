@@ -8,17 +8,17 @@
 .light-mode,
 .dark-mode {
   /* Brand */
-  --color-brand-1: light-dark(#08003b, #e9f0ff);
-  --color-brand-2: light-dark(#190074, #cad6ff);
-  --color-brand-3: light-dark(#290fa3, #9fb0ff);
-  --color-brand-4: light-dark(#3c35cb, #7382ff);
-  --color-brand-5: light-dark(#545be7, #5961ee);
-  --color-brand-6: light-dark(#6f7dff, #4344cf);
-  --color-brand-7: light-dark(#93a4ff, #3124b1);
-  --color-brand-8: light-dark(#bbc9ff, #230095);
-  --color-brand-9: light-dark(#e5edff, #0b004a);
-  --color-brand-transparent: light-dark(#545be766, #5961ee80);
-  --color-brand-extra-transparent: light-dark(#545be733, #5961ee59);
+  --color-brand-1: light-dark(#0c003a, #edefff);
+  --color-brand-2: light-dark(#1d0067, #cfd4fb);
+  --color-brand-3: light-dark(#2f0296, #a3a8f7);
+  --color-brand-4: light-dark(#3f1bbb, #8282fa);
+  --color-brand-5: light-dark(#5541df, #6458ee);
+  --color-brand-6: light-dark(#736efc, #4a2ecd);
+  --color-brand-7: light-dark(#9095f7, #370fa9);
+  --color-brand-8: light-dark(#b5bbf7, #26017f);
+  --color-brand-9: light-dark(#e9ecff, #150051);
+  --color-brand-transparent: light-dark(#5541df66, #6458ee80);
+  --color-brand-extra-transparent: light-dark(#5541df33, #6458ee59);
 
   /* Red */
   --color-red-1: light-dark(#240000, #fce6e1);
