@@ -6,7 +6,6 @@
 .link,
 :where(.markdown a) {
   --link-color: var(--color-teal-4);
-  --link-underline-color: var(--color-teal-transparent);
   --link-active-color: var(--color-teal-3);
 
   font-weight: var(--font-weight-semibold);

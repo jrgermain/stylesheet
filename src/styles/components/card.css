@@ -33,7 +33,6 @@
 .card-title {
   /* Make links inside the card title match the color of the surrounding text */
   --link-color: var(--color-brand-3);
-  --link-underline-color: var(--color-brand-transparent);
   --link-active-color: var(--color-brand-2);
 
   font-family: var(--font-family-heading);

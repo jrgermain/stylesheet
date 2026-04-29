@@ -4,7 +4,7 @@
 :where(.markdown a) {
   color: var(--link-color);
   text-decoration-line: underline;
-  text-decoration-color: var(--link-underline-color);
+  text-decoration-color: rgb(from var(--link-color) r g b / 40%);
   text-decoration-skip-ink: all;
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.1em;
