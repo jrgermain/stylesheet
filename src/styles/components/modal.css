@@ -6,6 +6,11 @@
 .modal {
   --dialog-dismiss-btn-offset: 9px;
 
+  @media (prefers-reduced-motion: no-preference) {
+    --dialog-starting-transform: translateY(16px) scale(0.95);
+    --dialog-ending-transform: translateY(0) scale(0.9);
+  }
+
   max-height: calc(100svh - 4 * var(--space-body-y));
   max-width: calc(100svw - 4 * var(--space-body-x));
   margin: auto;

@@ -14,17 +14,9 @@
 
 .modal,
 .drawer {
-  --dialog-starting-opacity: 1;
-  --dialog-starting-transform: translateY(8px);
+  --dialog-starting-opacity: 0;
   --dialog-open-opacity: 1;
-  --dialog-open-transform: translate(0);
   --dialog-ending-opacity: 0;
-  --dialog-ending-transform: scale(0.97);
-
-  @media (prefers-reduced-motion) {
-    --dialog-starting-transform: translate(0);
-    --dialog-ending-transform: translate(0);
-  }
 
   box-shadow: var(--shadow-xl);
   border: var(--border-s) solid var(--color-border);

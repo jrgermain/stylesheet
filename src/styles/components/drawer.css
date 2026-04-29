@@ -4,8 +4,6 @@
  */
 
 .drawer {
-  --dialog-starting-opacity: 1;
-  --dialog-ending-opacity: 1;
   --dialog-dismiss-btn-offset: 12px;
 
   position: fixed;
@@ -14,7 +12,10 @@
   margin: 0;
   border: 0;
   overflow: auto;
-  transition-duration: var(--duration-xl) !important;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-duration: var(--duration-xl) !important;
+  }
 
   &.left {
     right: auto;
