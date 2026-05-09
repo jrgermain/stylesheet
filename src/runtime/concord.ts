@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------
-// Enhancements
+// Concord Runtime
 // --------------------------------------------------------------------------------------
 // This script adds small UX tweaks for users with JavaScript enabled. In the spirit of
 // progressive enhancement, sites will be fully functional without it.
@@ -18,7 +18,7 @@
   // Ensure we're in a browser environment and exit early if not
   if (typeof window === "undefined" || typeof document === "undefined") {
     console.warn(
-      "The Progressive Enhancements script was loaded in a non-browser environment. It's designed to run exclusively in the browser, so it won't do anything here.",
+      "The Concord Runtime script was loaded in a non-browser environment. It's designed to run exclusively in the browser, so it won't do anything here.",
     );
     return;
   }

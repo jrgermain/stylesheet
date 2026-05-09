@@ -1,15 +1,15 @@
 {
-  "name": "@jrgermain/stylesheet",
-  "version": "0.19.2",
-  "description": "A CSS stylesheet for the cool stuff I'm building",
-  "homepage": "https://stylesheet.jrgermain.dev",
+  "name": "@jrgermain/concord",
+  "version": "0.20.0",
+  "description": "A lightweight design system for beautiful websites",
+  "homepage": "https://concord.jrgermain.dev",
   "author": {
     "name": "Joey Germain (jrgermain)",
     "url": "https://jrgermain.dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jrgermain/stylesheet.git"
+    "url": "git+https://github.com/jrgermain/concord.git"
   },
   "license": "MIT",
   "type": "module",
@@ -36,10 +36,7 @@
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./stylesheet.css": "./dist/stylesheet.css",
-    "./enhance": "./dist/enhance.js"
-  },
-  "browserslist": [
-    "defaults"
-  ]
+    "./concord.css": "./dist/concord.css",
+    "./concord.js": "./dist/concord.js"
+  }
 }
