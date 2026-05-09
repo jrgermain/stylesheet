@@ -7,19 +7,19 @@ import { trimTextPadding } from "../../../utils/trim-text-padding";
 
 # Installation & Setup
 
-## Installing the Stylesheet
+## Installing Concord
 
-There are multiple ways to add the stylesheet to your project. The most common setups are outlined below.
+There are multiple ways to add Concord to your project. The most common setups are outlined below.
 
 ### Option 1: Using a Package Manager & Bundler
 
-This option uses your package manager to download the stylesheet, and your project's existing build tooling to bundle it into the final output. This is the recommended approach if you're already using these tools.
+This option uses your package manager to download Concord, and your project's existing build tooling to bundle it into the final output. This is the recommended approach if you're already using these tools.
 
-First, install `@jrgermain/stylesheet` as a dependency. For example, if you're using NPM, you'd run the following command:
+First, install `@jrgermain/concord` as a dependency. For example, if you're using NPM, you'd run the following command:
 
 <CodeBlock
   language="sh"
-  code="npm install @jrgermain/stylesheet"
+  code="npm install @jrgermain/concord"
 />
 
 Next, in the entry point of your project (typically a file named root, index, or main), add the following import statements:
@@ -27,20 +27,20 @@ Next, in the entry point of your project (typically a file named root, index, or
 <CodeBlock
   language="js"
   code={trimTextPadding(`
-    import "@jrgermain/stylesheet/stylesheet.css"; // Adds CSS styles
-    import "@jrgermain/stylesheet/enhance"; // Adds UX enhancements
+    import "@jrgermain/concord/concord.css"; // Adds CSS styles
+    import "@jrgermain/concord/concord.js"; // Adds UX enhancements
   `)}
 />
 
-You might have to fiddle with the imports here. For example, the `enhance` script
+You might have to fiddle with the imports here. For example, `concord.js`
 (which needs to run in the browser) might need to be imported in a different file
-from `stylesheet.css` (which can be processed at build time).
+from `concord.css` (which can be processed at build time).
 
 ### Option 2: Manual Installation
 
-This option is useful if you aren't using a package manager or bundler.
+This option is useful if you aren't using a package manager or bundler, or if you're not using a JavaScript-based tech stack.
 
-First, go to the [latest GitHub release](https://github.com/jrgermain/stylesheet/releases/latest). Expand the "Assets" section and download the `stylesheet-<version>.zip` file.
+First, go to the [latest GitHub release](https://github.com/jrgermain/concord/releases/latest). Expand the "Assets" section and download the `concord-<version>.zip` file.
 
 Next, extract the contents and copy them into your project. Note that the `.map` files are source maps, and are therefore optional.
 
@@ -51,8 +51,8 @@ Lastly, add a `<link>` tag and a `<script>` tag to your document head to referen
   code={trimTextPadding(`
     <head>
       ...
-      <link rel="stylesheet" type="text/css" href="/path/to/stylesheet.css" />
-      <script src="/path/to/enhance.js" async></script>
+      <link rel="stylesheet" type="text/css" href="/path/to/concord.css" />
+      <script src="/path/to/concord.js" async></script>
       ...
     </head>
   `)}

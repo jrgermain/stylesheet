@@ -20,13 +20,12 @@ export type Page = {
 export const navCategories: Category[] = [
   {
     title: "Info",
-    description:
-      "Learn about the stylesheet and how to use it in your next project.",
+    description: "Learn about Concord and how to use it in your next project.",
     slug: "info",
     sections: [
       {
         title: "Getting Started",
-        description: "Learn how to set up your project to use the stylesheet.",
+        description: "Learn how to set up your project to use Concord.",
         slug: "getting-started",
         pages: [
           { title: "Introduction", slug: "introduction" },
@@ -114,13 +113,13 @@ export const navCategories: Category[] = [
   {
     title: "Utilities",
     description:
-      "Explore the design tokens and utility classes included in the stylesheet.",
+      "Explore the design tokens and utility classes included in Concord.",
     slug: "utilities",
     sections: [
       {
         title: "Design Tokens",
         description:
-          "Learn about the design tokens included in the stylesheet and how to use them.",
+          "Learn about the design tokens included in Concord and how to use them.",
         slug: "design-tokens",
         pages: [
           { title: "Tokens Overview", slug: "tokens-overview" },
@@ -135,7 +134,7 @@ export const navCategories: Category[] = [
       {
         title: "Utility Classes",
         description:
-          "Learn about the utility classes included in the stylesheet and how to use them.",
+          "Learn about the utility classes included in Concord and how to use them.",
         slug: "utility-classes",
         pages: [
           { title: "Accessibility", slug: "accessibility" },

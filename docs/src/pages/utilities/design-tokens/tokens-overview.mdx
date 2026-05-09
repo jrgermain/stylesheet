@@ -12,7 +12,7 @@ import { trimTextPadding } from "../../../utils/trim-text-padding";
 
 ## Categories
 
-This design system includes the following categories of tokens:
+Concord includes the following categories of tokens:
 
 - Animations
 - Borders
@@ -43,7 +43,7 @@ The NPM package also exports TypeScript enums that can be used to reference thes
 <CodeBlock
   language="tsx"
   code={trimTextPadding(`
-    import { Color } from "@jrgermain/stylesheet/tokens";
+    import { Color } from "@jrgermain/concord";
 
     export default function MyComponent() {
       // Note: Color.Red1 evaluates to "var(--color-red-1)"
@@ -55,5 +55,5 @@ The NPM package also exports TypeScript enums that can be used to reference thes
 <br/>
 
 <div class="alert warning">
-  <div class="alert-content">Avoid using CSS variables defined by the stylesheet but not documented on this site; these aren't part of the public API and may change in between major releases.</div>
+  <div class="alert-content">Avoid using CSS variables defined by Concord but not documented on this site; these aren't part of the public API and may change in between major releases.</div>
 </div>
