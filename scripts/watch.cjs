@@ -3,7 +3,7 @@ const child_process = require("node:child_process");
 const chokidar = require("chokidar");
 
 const rebuild = () => {
-  console.time("Rebuilding stylesheet");
+  console.time("Rebuilding Concord");
   try {
     child_process.execSync("node build.cjs", {
       stdio: "inherit",
@@ -12,7 +12,7 @@ const rebuild = () => {
   } catch (error) {
     console.error(error);
   }
-  console.timeEnd("Rebuilding stylesheet");
+  console.timeEnd("Rebuilding Concord");
 };
 
 chokidar
