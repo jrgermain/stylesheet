@@ -1,2 +1,2 @@
-export * from "./lib/popup";
+export * from "./lib/popups";
 export * from "./lib/tokens";
