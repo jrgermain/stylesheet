@@ -101,3 +101,14 @@
 .clamp-6 {
   -webkit-line-clamp: 6;
 }
+
+.gradient-text {
+  background: linear-gradient(
+    30deg,
+    var(--gradient-text-start, var(--color-blue-5)),
+    var(--gradient-text-middle, var(--color-brand-5)),
+    var(--gradient-text-end, var(--color-purple-5))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
