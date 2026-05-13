@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Stylesheet: Build and Watch",
+      "name": "Design System: Build and Watch",
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -34,14 +34,14 @@
       "name": "Run All - Development Mode",
       "configurations": [
         "Docs: Start Dev Server",
-        "Stylesheet: Build and Watch"
+        "Design System: Build and Watch"
       ]
     },
     {
       "name": "Run All - Development Mode (Host)",
       "configurations": [
         "Docs: Start Dev Server (Host)",
-        "Stylesheet: Build and Watch"
+        "Design System: Build and Watch"
       ]
     }
   ]

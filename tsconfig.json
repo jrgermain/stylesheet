@@ -13,5 +13,5 @@
     "noUncheckedIndexedAccess": true
   },
   "include": ["src"],
-  "exclude": ["src/enhance.ts"]
+  "exclude": ["src/runtime/concord.ts"]
 }

@@ -21,6 +21,6 @@ jobs:
       - run: npm run build
       - run: npm publish --access public
       - run: npm run zip
-      - run: gh release upload ${{ github.event.release.tag_name }} dist/stylesheet-*.zip
+      - run: gh release upload ${{ github.event.release.tag_name }} dist/concord-*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

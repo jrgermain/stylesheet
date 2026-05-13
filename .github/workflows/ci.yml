@@ -15,11 +15,11 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
-      - name: Install Dependencies (stylesheet)
+      - name: Install Dependencies (main)
         run: npm ci
-      - name: Lint (stylesheet)
+      - name: Lint (main)
         run: npm run lint
-      - name: Build (stylesheet)
+      - name: Build (main)
         run: npm run build
       - name: Install Dependencies (docs)
         run: npm ci

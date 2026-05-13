@@ -20,13 +20,12 @@ export type Page = {
 export const navCategories: Category[] = [
   {
     title: "Info",
-    description:
-      "Learn about the stylesheet and how to use it in your next project.",
+    description: "Learn about Concord and how to use it in your next project.",
     slug: "info",
     sections: [
       {
         title: "Getting Started",
-        description: "Learn how to set up your project to use the stylesheet.",
+        description: "Learn how to set up your project to use Concord.",
         slug: "getting-started",
         pages: [
           { title: "Introduction", slug: "introduction" },
@@ -114,13 +113,13 @@ export const navCategories: Category[] = [
   {
     title: "Utilities",
     description:
-      "Explore the design tokens and utility classes included in the stylesheet.",
+      "Explore the design tokens and utility classes included in Concord.",
     slug: "utilities",
     sections: [
       {
         title: "Design Tokens",
         description:
-          "Learn about the design tokens included in the stylesheet and how to use them.",
+          "Learn about the design tokens included in Concord and how to use them.",
         slug: "design-tokens",
         pages: [
           { title: "Tokens Overview", slug: "tokens-overview" },
@@ -133,10 +132,10 @@ export const navCategories: Category[] = [
         ],
       },
       {
-        title: "Utility Classes",
+        title: "CSS Classes",
         description:
-          "Learn about the utility classes included in the stylesheet and how to use them.",
-        slug: "utility-classes",
+          "Learn about the miscellaneous CSS classes included in Concord and how to use them.",
+        slug: "css",
         pages: [
           { title: "Accessibility", slug: "accessibility" },
           { title: "Formatting Text", slug: "formatting-text" },
@@ -150,6 +149,16 @@ export const navCategories: Category[] = [
             slug: "showing-hiding-content",
           },
           { title: "Simulating States", slug: "simulating-states" },
+        ],
+      },
+      {
+        title: "JavaScript/TypeScript",
+        description:
+          "Learn about the JavaScript and TypeScript utilities exported by Concord's root package and how to use them.",
+        slug: "js-ts",
+        pages: [
+          { title: "Tokens", slug: "tokens" },
+          { title: "Popups", slug: "popups" },
         ],
       },
     ],

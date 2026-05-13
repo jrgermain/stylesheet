@@ -4,13 +4,13 @@ const { BlobWriter, ZipWriter, Uint8ArrayReader } = require("@zip.js/zip.js");
 const { version } = require("../package.json");
 
 const inputs = [
-  "../dist/stylesheet.css",
-  "../dist/stylesheet.css.map",
-  "../dist/enhance.js",
-  "../dist/enhance.js.map",
+  "../dist/concord.css",
+  "../dist/concord.css.map",
+  "../dist/concord.js",
+  "../dist/concord.js.map",
 ];
 
-const output = `../dist/stylesheet-${version}.zip`;
+const output = `../dist/concord-${version}.zip`;
 
 async function createZipFile() {
   const zipFileWriter = new BlobWriter();

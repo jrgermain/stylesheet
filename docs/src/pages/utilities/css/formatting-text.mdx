@@ -138,3 +138,34 @@ You can limit text to a specific number of lines by adding the class `clamp-n`, 
     </p>
   `}
 />
+
+## Gradient Text
+
+You can add a gradient to text by adding the class `gradient-text`. 
+To customize the colors, set the following CSS variables:
+
+- `--gradient-text-start`
+- `--gradient-text-middle`
+- `--gradient-text-end`
+
+You may choose to combine this with the `bold` or `semibold` classes
+if the gradient text is being used for emphasis.
+
+<UsageExample
+  name="Example"
+  code={`
+    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+      <p class="paragraph gradient-text">Default gradient</p>
+      <p
+        class="paragraph gradient-text"
+        style="
+          --gradient-text-start: var(--color-red-5);
+          --gradient-text-middle: var(--color-red-4);
+          --gradient-text-end: var(--color-red-3);
+        "
+      >
+        Custom gradient
+      </p>
+    </div>
+  `}
+/>

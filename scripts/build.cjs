@@ -110,11 +110,14 @@ const createJsBundle = async (sourcePath, destPath) => {
   // Build CSS
   await createCssBundle(
     "src/styles/index.css",
-    path.join(tempPath, "stylesheet.css"),
+    path.join(tempPath, "concord.css"),
   );
 
   // Create client-side JS bundle
-  await createJsBundle("src/enhance.ts", path.join(tempPath, "enhance.js"));
+  await createJsBundle(
+    "src/runtime/concord.ts",
+    path.join(tempPath, "concord.js"),
+  );
 
   // Delete previous build
   const distPath = path.join(projectRoot, "dist");
