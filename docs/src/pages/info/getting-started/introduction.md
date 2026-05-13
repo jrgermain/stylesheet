@@ -5,7 +5,7 @@ title: Introduction
 
 # Introduction
 
-Welcome to the documentation for **Concord**, my personal design system. This project is the result of over 2 years of learning, experimenting, and meticulously tweaking details. While I designed it to use in my own projects, it's open-source and MIT-licensed, so you can use it too.
+Welcome to the documentation for <span class="gradient-text semibold">Concord</span>, my personal design system. This project is the result of over 2 years of learning, experimenting, and meticulously tweaking details. While I designed it to use in my own projects, it's open-source and MIT-licensed, so you can use it too.
 
 I built this design system with the following principles in mind:
 
