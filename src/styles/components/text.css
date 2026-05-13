@@ -79,26 +79,32 @@
 }
 
 .clamp-1 {
+  line-clamp: 1;
   -webkit-line-clamp: 1;
 }
 
 .clamp-2 {
+  line-clamp: 2;
   -webkit-line-clamp: 2;
 }
 
 .clamp-3 {
+  line-clamp: 3;
   -webkit-line-clamp: 3;
 }
 
 .clamp-4 {
+  line-clamp: 4;
   -webkit-line-clamp: 4;
 }
 
 .clamp-5 {
+  line-clamp: 5;
   -webkit-line-clamp: 5;
 }
 
 .clamp-6 {
+  line-clamp: 6;
   -webkit-line-clamp: 6;
 }
 
@@ -109,6 +115,6 @@
     var(--gradient-text-middle, var(--color-brand-5)),
     var(--gradient-text-end, var(--color-purple-5))
   );
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
