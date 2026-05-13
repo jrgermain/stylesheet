@@ -132,10 +132,10 @@ export const navCategories: Category[] = [
         ],
       },
       {
-        title: "Utility Classes",
+        title: "CSS Classes",
         description:
-          "Learn about the utility classes included in Concord and how to use them.",
-        slug: "utility-classes",
+          "Learn about the miscellaneous CSS classes included in Concord and how to use them.",
+        slug: "css",
         pages: [
           { title: "Accessibility", slug: "accessibility" },
           { title: "Formatting Text", slug: "formatting-text" },
@@ -149,6 +149,16 @@ export const navCategories: Category[] = [
             slug: "showing-hiding-content",
           },
           { title: "Simulating States", slug: "simulating-states" },
+        ],
+      },
+      {
+        title: "JavaScript/TypeScript",
+        description:
+          "Learn about the JavaScript and TypeScript utilities exported by Concord's root package and how to use them.",
+        slug: "js-ts",
+        pages: [
+          { title: "Tokens", slug: "tokens" },
+          { title: "Popups", slug: "popups" },
         ],
       },
     ],

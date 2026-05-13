@@ -1,0 +1,49 @@
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { trimTextPadding } from "../../../utils/trim-text-padding";
+---
+
+<Layout title="Tokens">
+  <h1 class="heading level-1">Tokens</h1>
+  <p class="paragraph">
+    Concord exports its design tokens as TypeScript enums. Each category of
+    token has its own enum, with the corresponding values defined as references
+    to the corresponding CSS custom properties.
+  </p>
+  <p class="paragraph">
+    You can reference these tokens in inline styles (or CSS-in-JS styles) in
+    your app. This gives you type safety and IDE autocompletion, while still
+    allowing any custom theming or other overrides to work properly.
+  </p>
+
+  <h2 class="heading level-2">Available Enums</h2>
+  <ul class="list">
+    <li><code class="code">BorderWidth</code></li>
+    <li><code class="code">Color</code></li>
+    <li><code class="code">Duration</code></li>
+    <li><code class="code">EasingFunction</code></li>
+    <li><code class="code">FontFamily</code></li>
+    <li><code class="code">FontSize</code></li>
+    <li><code class="code">FontWeight</code></li>
+    <li><code class="code">Radius</code></li>
+    <li><code class="code">Shadow</code></li>
+    <li><code class="code">Space</code></li>
+  </ul>
+
+  <h2 class="heading level-2">Example Usage</h2>
+  <CodeBlock
+    language="tsx"
+    code={trimTextPadding(`
+    import { Color } from "@jrgermain/concord";
+
+    const MyComponent = () => {
+      return (
+        <div style={{ color: Color.Brand3 }}>
+            The color of this div is "var(--color-brand-3)"
+        </div>
+      );
+    };
+  `)}
+  />
+</Layout>

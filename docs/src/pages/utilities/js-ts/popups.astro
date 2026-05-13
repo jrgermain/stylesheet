@@ -1,0 +1,80 @@
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { trimTextPadding } from "../../../utils/trim-text-padding";
+---
+
+<Layout title="Popups">
+  <h1 class="heading level-1">Popups</h1>
+  <p class="paragraph">
+    The Concord Popups API is used to display simple modal dialogs. It's a
+    shortcut for creating instances of the Modal component.
+  </p>
+  <p class="paragraph">
+    The API currently only exports a single function: <code class="code"
+      >showPopup</code
+    >. This function was inspired by the native <code class="code"
+      >window.alert()</code
+    > and <code class="code">window.confirm()</code> functions, but provides more
+    configuration options and is asynchronous. <code class="code"
+      >showPopup</code
+    >
+    returns a <code class="code">{"Promise<boolean | null>"}</code> that resolves
+    to
+    <code class="code">true</code> if the user clicks the primary button,
+    <code class="code">false</code> if the user clicks the secondary button (if present),
+    or <code class="code">null</code> if the popup is dismissed without any action.
+  </p>
+
+  <h2 class="heading level-2">Example Usage</h2>
+  <CodeBlock
+    language="tsx"
+    code={trimTextPadding(`
+    import { showPopup } from "@jrgermain/concord";
+
+    // This example is an alternative to window.alert()
+    const AlertExample = () => {
+      const handleClick = async () => {
+        // Since we omit secondaryLabel, there will only be an OK button.
+        // We await the Promise but ignore the value it resolves to because
+        // we only care about the user seeing and dismissing the dialog.
+        await showPopup({
+          title: "Alert",
+          message: "This is an alert.",
+        });
+      };
+      return (
+        <button onClick={handleClick}>
+          Show Alert
+        </button>
+      );
+    };
+
+    // This example is an alternative to window.confirm()
+    const ConfirmExample = () => {
+      const handleClick = async () => {
+        const result = await showPopup({
+          title: "Confirm Deletion",
+          message: "Are you sure you want to delete this item?",
+          isDestructive: true,
+          primaryLabel: "Delete",
+          secondaryLabel: "Cancel",
+        });
+        if (result) {
+          // User clicked Delete
+          deleteItem();
+        } else {
+          // The dialog was closed with esc or the user hit the Cancel button.
+          // If we wanted to treat those two cases differently, we could check
+          // for result === null and result === false.
+        }
+      };
+      return (
+        <button onClick={handleClick}>
+          Show Alert
+        </button>
+      );
+    };
+  `)}
+  />
+</Layout>
