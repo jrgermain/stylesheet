@@ -1,0 +1,20 @@
+---
+interface Props {
+  radius: string;
+}
+const { radius } = Astro.props;
+const style = `--arc-radius: ${radius};`;
+---
+
+<span class="arc" style={style}></span>
+<style>
+  .arc {
+    display: inline-block;
+    width: 0.75em;
+    height: 1em;
+    border: var(--border-s) solid transparent;
+    border-inline-end: var(--border-s) solid var(--color-gray-6);
+    border-block-start: var(--border-s) solid var(--color-gray-6);
+    border-start-end-radius: var(--arc-radius);
+  }
+</style>
