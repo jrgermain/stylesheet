@@ -6,7 +6,7 @@ interface Props {
   wrap?: boolean;
 }
 
-const { label, helpText, orientation = "vertical", wrap } = Astro.props;
+const { label, helpText, orientation, wrap } = Astro.props;
 const flexDirection = orientation === "horizontal" ? "row" : "column";
 const flexWrap =
   wrap === true
@@ -16,19 +16,35 @@ const flexWrap =
       : orientation === "horizontal"
         ? "wrap"
         : "nowrap";
+
+const hasFlexWrapper = orientation != null || wrap != null;
 ---
 
-<label class="field">
+<label class="field docs-field-component">
   {label}
   {helpText && <div class="help-text">{helpText}</div>}
-  <div class="control" style={{ flexDirection, flexWrap }}>
-    <slot />
-  </div>
+  {
+    hasFlexWrapper ? (
+      <div class="control" style={{ flexDirection, flexWrap }}>
+        <slot />
+      </div>
+    ) : (
+      <slot />
+    )
+  }
 </label>
 
 <style>
   .control {
     display: flex;
+    width: 100%;
     gap: var(--space-xs);
+    align-items: center;
+    justify-content: stretch;
+  }
+</style>
+<style is:global>
+  .docs-field-component .slider {
+    flex-grow: 1;
   }
 </style>
