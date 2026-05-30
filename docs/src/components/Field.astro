@@ -4,9 +4,10 @@ interface Props {
   helpText?: string;
   orientation?: "vertical" | "horizontal";
   wrap?: boolean;
+  id?: string;
 }
 
-const { label, helpText, orientation, wrap } = Astro.props;
+const { label, helpText, orientation, wrap, id } = Astro.props;
 const flexDirection = orientation === "horizontal" ? "row" : "column";
 const flexWrap =
   wrap === true
@@ -20,7 +21,7 @@ const flexWrap =
 const hasFlexWrapper = orientation != null || wrap != null;
 ---
 
-<label class="field docs-field-component">
+<label class="field docs-field-component" id={id}>
   {label}
   {helpText && <div class="help-text">{helpText}</div>}
   {

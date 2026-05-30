@@ -1,12 +1,9 @@
 ---
-import PageTitle from "../../components/PageTitle.astro";
 import Section from "../../components/theme-builder/Section.astro";
 import Layout from "../../layouts/Layout.astro";
 import Field from "../../components/Field.astro";
 import RadioCard from "../../components/theme-builder/RadioCard.astro";
 import GraySwatch from "../../components/theme-builder/GraySwatch.astro";
-import RoundnessArc from "../../components/theme-builder/RoundnessArc.astro";
-import DensityIcon from "../../components/theme-builder/DensityIcon.astro";
 ---
 
 <Layout title="Theme Builder">
@@ -104,36 +101,32 @@ import DensityIcon from "../../components/theme-builder/DensityIcon.astro";
         </div>
       </Field>
       <Field label="Gray Tint" orientation="horizontal">
-        <RadioCard name="grays" value="warm">
-          Warm
-          <GraySwatch color="#848078" />
+        <RadioCard name="grays" value="cool">
+          Cool
+          <GraySwatch color="#7b8188" />
         </RadioCard>
         <RadioCard name="grays" value="neutral">
           Neutral
           <GraySwatch color="#727272" />
         </RadioCard>
-        <RadioCard name="grays" value="default">
-          Default (medium-cool)
-          <GraySwatch color="#75787c" />
-        </RadioCard>
-        <RadioCard name="grays" value="cool">
-          Cool
-          <GraySwatch color="#7b8188" />
+        <RadioCard name="grays" value="warm">
+          Warm
+          <GraySwatch color="#848078" />
         </RadioCard>
         <RadioCard name="grays" value="brand">
           Match Brand Color
           <GraySwatch color="var(--color-brand-5)" />
         </RadioCard>
       </Field>
-      <Field label="Gray Tint Strength">
+      <Field label="Gray Tint Strength" id="gray-tint-saturation-field">
         <input
           id="gray-tint-saturation"
           name="grayTintSaturation"
           type="range"
           class="slider"
           min="0"
-          max="0.02"
-          step="0.001"
+          max="0.03"
+          step="0.0005"
         />
       </Field>
       <output class="gray-tint-preview">Sample</output>
@@ -326,7 +319,6 @@ import DensityIcon from "../../components/theme-builder/DensityIcon.astro";
     const GRAY_TINTS = {
       warm: { chroma: 0.0125, hue: 82 },
       neutral: { chroma: 0, hue: 0 },
-      default: { chroma: 0, hue: 0 },
       cool: { chroma: 0.0125, hue: 250 },
       brand: { chroma: 0.015, hue: -1 },
     };
@@ -362,11 +354,11 @@ import DensityIcon from "../../components/theme-builder/DensityIcon.astro";
       ".button:is(:hover, .hover)::before {\n  border-radius: $RADIUS;\n}\n";
 
     const defaultConfig = {
-      roundness: "medium",
-      density: "medium",
-      depth: "medium",
-      animationSpeed: "medium",
-      grays: "default",
+      roundness: "1",
+      density: "1",
+      depth: "1",
+      animationSpeed: "1",
+      grays: "cool",
       grayTintSaturation: "0.0125",
       brandColorHue: "280",
       brandColorSaturation: "1",
@@ -602,7 +594,6 @@ import DensityIcon from "../../components/theme-builder/DensityIcon.astro";
       });
 
       // Fonts
-
       const bodyFont = getStoredValue("bodyFont");
       const headingFont = getStoredValue("headingFont");
       const monoFont = getStoredValue("monoFont");
@@ -623,6 +614,16 @@ import DensityIcon from "../../components/theme-builder/DensityIcon.astro";
         document.head.appendChild(style);
       }
       style.textContent = css;
+
+      // Dynamically show/hide gray tint saturation based on gray tint selection
+      const storedGrays = getStoredValue("grays");
+      if (storedGrays === "neutral") {
+        document.getElementById("gray-tint-saturation-field")!.style.display =
+          "none";
+      } else {
+        document.getElementById("gray-tint-saturation-field")!.style.display =
+          "";
+      }
     };
 
     const setFieldValue = (fieldName: string, value: string) => {
@@ -683,6 +684,9 @@ import DensityIcon from "../../components/theme-builder/DensityIcon.astro";
 
       const storedGrays = getStoredValue("grays");
       setFieldValue("grays", storedGrays);
+
+      const storedGrayTintSaturation = getStoredValue("grayTintSaturation");
+      setFieldValue("grayTintSaturation", storedGrayTintSaturation);
 
       const storedBrandColorHue = getStoredValue("brandColorHue");
       setFieldValue("brandColorHue", storedBrandColorHue);
@@ -783,21 +787,6 @@ import DensityIcon from "../../components/theme-builder/DensityIcon.astro";
       const app = document.querySelector(".app")!;
       app.classList.toggle("light-mode", value === "light");
       app.classList.toggle("dark-mode", value === "dark");
-    });
-    document.querySelectorAll('input[name="grays"]').forEach((input) => {
-      input.addEventListener("change", () => {
-        if ((input as HTMLInputElement).checked) {
-          if ((input as HTMLInputElement).value === "neutral") {
-            document
-              .getElementById("gray-tint-saturation")!
-              .setAttribute("disabled", "true");
-          } else {
-            document
-              .getElementById("gray-tint-saturation")!
-              .removeAttribute("disabled");
-          }
-        }
-      });
     });
   </script>
 </Layout>
