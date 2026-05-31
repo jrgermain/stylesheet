@@ -1,0 +1,837 @@
+---
+import Section from "../components/theme-builder/Section.astro";
+import Layout from "../layouts/Layout.astro";
+import RadioCard from "../components/theme-builder/RadioCard.astro";
+import GraySwatch from "../components/theme-builder/GraySwatch.astro";
+---
+
+<Layout title="Theme Builder">
+  <div class="toolbar">
+    <label for="color-mode" class="side-label">Color Mode</label>
+    <div class="field compact">
+      <select id="color-mode" class="input">
+        <option value="auto">Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+    <hr class="divider vertical" />
+    <button id="reset" class="button small red">Reset</button>
+  </div>
+
+  <form id="builder" class="form stack vertical">
+    <div class="theme-builder-heading">
+      <h1 class="heading level-1">Theme Builder</h1>
+      <span class="chip">Beta</span>
+    </div>
+    <Section title="General">
+      <div class="field">
+        <label for="roundness-input">Roundness</label>
+        <input
+          id="roundness-input"
+          name="roundness"
+          type="range"
+          class="slider"
+          min="0"
+          max="3"
+          step="1"
+        />
+        <div class="slider-labels">
+          <span class="slider-label">Less</span>
+          <span class="slider-label">More</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="density-input">Density</label>
+        <input
+          id="density-input"
+          name="density"
+          type="range"
+          class="slider"
+          min="0"
+          max="3"
+          step="1"
+        />
+        <div class="slider-labels">
+          <span class="slider-label">Tight</span>
+          <span class="slider-label">Spacious</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="depth-input">Depth</label>
+        <input
+          id="depth-input"
+          name="depth"
+          type="range"
+          class="slider"
+          min="0"
+          max="3"
+          step="1"
+        />
+        <div class="slider-labels">
+          <span class="slider-label">Shallow</span>
+          <span class="slider-label">Deep</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="animation-speed-input">Animation Speed</label>
+        <input
+          id="animation-speed-input"
+          name="animationSpeed"
+          type="range"
+          class="slider"
+          min="0"
+          max="2"
+          step="1"
+        />
+        <div class="slider-labels">
+          <span class="slider-label">Quick</span>
+          <span class="slider-label">Slow</span>
+        </div>
+      </div>
+    </Section>
+
+    <Section title="Colors">
+      <div class="field">
+        <label for="brand-color-hue-input">Brand Color</label>
+        <div class="spectrum hue">
+          <input
+            id="brand-color-hue-input"
+            name="brandColorHue"
+            type="range"
+            class="slider"
+            min="0"
+            max="360"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label for="brand-color-saturation-input"
+          >Brand Color (Saturation)</label
+        >
+        <div class="spectrum saturation">
+          <input
+            id="brand-color-saturation-input"
+            name="brandColorSaturation"
+            type="range"
+            class="slider"
+            min="0"
+            max="2"
+            step="0.1"
+          />
+        </div>
+      </div>
+      <output class="brand-color-preview">Sample</output>
+      <fieldset class="field">
+        <legend>Gray Tint</legend>
+        <RadioCard name="grays" value="cool">
+          Cool
+          <GraySwatch color="#7b8188" />
+        </RadioCard>
+        <RadioCard name="grays" value="neutral">
+          Neutral
+          <GraySwatch color="#727272" />
+        </RadioCard>
+        <RadioCard name="grays" value="warm">
+          Warm
+          <GraySwatch color="#848078" />
+        </RadioCard>
+        <RadioCard name="grays" value="brand">
+          Match Brand Color
+          <GraySwatch color="var(--color-brand-5)" />
+        </RadioCard>
+      </fieldset>
+      <div class="field" id="gray-tint-saturation-field">
+        <label for="gray-tint-saturation">Gray Tint Strength</label>
+        <input
+          id="gray-tint-saturation"
+          name="grayTintSaturation"
+          type="range"
+          class="slider"
+          min="0"
+          max="0.03"
+          step="0.0005"
+        />
+      </div>
+      <output class="gray-tint-preview">Sample</output>
+    </Section>
+
+    <Section title="Fonts">
+      <label class="field">
+        Body Font
+        <input
+          name="bodyFont"
+          type="text"
+          class="input"
+          placeholder='"Avenir Next", Avenir, "Segoe UI Variable Display", "Segoe UI", "URW Gothic", source-sans-pro, "Noto Sans", ui-sans-serif, sans-serif'
+        />
+      </label>
+      <label class="field">
+        Heading Font
+        <input
+          name="headingFont"
+          type="text"
+          class="input"
+          placeholder='Seravek, Tahoma, Cantarell, "DejaVu Sans", source-sans-pro, ui-sans-serif, sans-serif'
+        />
+      </label>
+      <label class="field">
+        Monospace Font
+        <input
+          name="monoFont"
+          type="text"
+          class="input"
+          placeholder='ui-monospace, "Cascadia Code", menlo, hack, monospace'
+        />
+      </label>
+    </Section>
+
+    <Section title="Download Options">
+      <label class="field">
+        Name
+        <input
+          name="name"
+          type="text"
+          class="input"
+          placeholder="Enter theme name"
+        />
+      </label>
+      <label class="checkbox">
+        <input name="addHash" type="checkbox" />
+        Add hash to filename
+      </label>
+
+      <button class="button primary">Download</button>
+    </Section>
+  </form>
+
+  <style>
+    .theme-builder-heading {
+      display: flex;
+      align-items: start;
+      gap: var(--space-xs);
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      margin-block-end: var(--space-s);
+      gap: var(--space-2xs);
+      z-index: 4;
+      background-color: var(--glass-bg-color);
+      color: var(--glass-fg-color);
+      border-bottom: var(--border-s) solid var(--glass-border-color);
+      backdrop-filter: var(--glass-filter);
+      padding: var(--space-2xs) var(--space-body-x);
+      position: sticky;
+      top: 0;
+      margin-block-start: calc(var(--space-body-y) * -1);
+      margin-inline: calc(var(--space-body-x) * -1);
+      box-shadow: var(--shadow-s);
+    }
+
+    .toolbar > * {
+      width: fit-content;
+    }
+
+    .side-label {
+      margin-inline-end: 0.25em;
+      font-size: var(--font-size-s);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .brand-color-preview,
+    .gray-tint-preview {
+      margin-block: auto;
+      margin-inline-end: auto;
+      padding: 0.5em;
+      border-radius: 0.25em;
+    }
+
+    .brand-color-preview {
+      background-color: var(--color-brand-3);
+      color: var(--color-brand-9);
+    }
+
+    .gray-tint-preview {
+      background-color: var(--color-gray-8);
+      color: var(--color-gray-3);
+    }
+
+    .spectrum {
+      display: flex;
+      width: 100%;
+      padding-block: 0.25em;
+    }
+
+    .spectrum.hue {
+      --gradient-params: to right in oklch longer hue;
+      --spectrum-start: oklch(0.65 0.15 0);
+      --spectrum-end: oklch(0.65 0.15 360);
+    }
+
+    .spectrum.saturation {
+      --gradient-params: to right in oklch;
+      --spectrum-start: oklch(from var(--color-brand-5) 0.65 0 h);
+      --spectrum-end: oklch(from var(--color-brand-5) 0.65 0.2 h);
+    }
+
+    .spectrum input {
+      width: 100%;
+    }
+
+    .spectrum input::-webkit-slider-runnable-track {
+      block-size: 0.33em;
+      background: linear-gradient(
+        var(--gradient-params),
+        var(--spectrum-start),
+        var(--spectrum-end)
+      );
+    }
+
+    .spectrum input::-moz-range-track {
+      block-size: 0.33em;
+      background: linear-gradient(
+        var(--gradient-params),
+        var(--spectrum-start),
+        var(--spectrum-end)
+      );
+    }
+
+    .slider-labels {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .slider-label {
+      position: relative;
+      display: inline-block;
+      font-size: var(--font-size-s);
+      color: var(--color-text-secondary);
+      font-weight: var(--font-weight-normal);
+    }
+  </style>
+  <script>
+    import { colordx } from "@colordx/core";
+
+    const debounce = <T extends any[]>(
+      fn: (...args: T) => void,
+      delay: number,
+    ) => {
+      let timeoutId: number | null = null;
+      let hasRun = false;
+      return (...args: T) => {
+        if (!hasRun) {
+          fn(...args);
+          hasRun = true;
+        }
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
+        timeoutId = window.setTimeout(() => {
+          hasRun = false;
+          timeoutId = null;
+        }, delay);
+      };
+    };
+
+    const hexGenerate = (l: number, c: number, h: number, alpha = 1) => {
+      return colordx({ l, c, h, alpha }).toHex();
+    };
+
+    const hexInterpolate = (color1: string, color2: string) => {
+      const r1 = Number.parseInt(color1.slice(1, 3), 16);
+      const g1 = Number.parseInt(color1.slice(3, 5), 16);
+      const b1 = Number.parseInt(color1.slice(5, 7), 16);
+      const r2 = Number.parseInt(color2.slice(1, 3), 16);
+      const g2 = Number.parseInt(color2.slice(3, 5), 16);
+      const b2 = Number.parseInt(color2.slice(5, 7), 16);
+
+      const r = Math.round((r1 + r2) / 2)
+        .toString(16)
+        .padStart(2, "0");
+      const g = Math.round((g1 + g2) / 2)
+        .toString(16)
+        .padStart(2, "0");
+      const b = Math.round((b1 + b2) / 2)
+        .toString(16)
+        .padStart(2, "0");
+
+      return `#${r}${g}${b}`;
+    };
+
+    const GRAY_TINTS = {
+      warm: { chroma: 0.0125, hue: 82 },
+      neutral: { chroma: 0, hue: 0 },
+      cool: { chroma: 0.0125, hue: 250 },
+      brand: { chroma: 0.015, hue: -1 },
+    };
+
+    const STANDARD_PALETTE_LIGHTNESS_STOPS = [
+      0.17, 0.25, 0.33, 0.4, 0.5, 0.62, 0.71, 0.85, 0.95, 0.96,
+    ];
+
+    const BRAND_COLOR_CHROMA_STOPS = [
+      0.1, 0.15, 0.2, 0.22, 0.23, 0.21, 0.14, 0.08, 0.03, 0.02,
+    ];
+
+    const SEMANTIC_COLORS = {
+      "surface-primary": { light: "#fff", dark: "#010203" },
+      "surface-secondary": { light: "#f9fafc", dark: "#14161a" },
+      "surface-tertiary": { light: "#eceff4", dark: "#212327" },
+      "text-primary": { light: "#030305", dark: "#fff" },
+      "text-secondary": { light: "#404247", dark: "#ccced0" },
+      "text-tertiary": {
+        light: "var(--color-brand-3)",
+        dark: "var(--color-brand-3)",
+      },
+      "contrast-background": {
+        light: "var(--color-brand-1)",
+        dark: "var(--color-brand-1)",
+      },
+      "contrast-text": { light: "#fff", dark: "#030305" },
+      shadow: { light: "#45484c26", dark: "#00000166" },
+      border: { light: "#e2e5ea", dark: "#303337" },
+    };
+
+    const BUTTON_HOVER_TEMPLATE =
+      ".button:is(:hover, .hover)::before {\n  border-radius: $RADIUS;\n}\n";
+
+    const defaultConfig = {
+      roundness: "1",
+      density: "1",
+      depth: "1",
+      animationSpeed: "1",
+      grays: "cool",
+      grayTintSaturation: "0.0125",
+      brandColorHue: "280",
+      brandColorSaturation: "1",
+      bodyFont:
+        '"Avenir Next", Avenir, "Segoe UI Variable Display", "Segoe UI", "URW Gothic", source-sans-pro, "Noto Sans", ui-sans-serif, sans-serif',
+      headingFont:
+        'Seravek, Tahoma, Cantarell, "DejaVu Sans", source-sans-pro, ui-sans-serif, sans-serif',
+      monoFont: 'ui-monospace, "Cascadia Code", menlo, hack, monospace',
+      name: "Untitled Theme",
+      addHash: "false",
+    };
+
+    const getStoredValue = (fieldName: string) => {
+      return (
+        localStorage.getItem(`themeBuilder.${fieldName}`) ??
+        defaultConfig[fieldName as keyof typeof defaultConfig] ??
+        ""
+      );
+    };
+
+    const updateLivePreview = () => {
+      let css = ":root, ::backdrop, .light-mode, .dark-mode, .modal, .drawer {";
+      let additionalCss = "";
+
+      // Roundness CSS
+      const roundness = getStoredValue("roundness");
+      switch (roundness) {
+        case "0":
+          css += `
+            --radius-s: 2px;
+            --radius-m: 3px;
+            --radius-l: 8px;
+            --radius-xl: 16px;
+            --radius-2xl: 44px;
+          `;
+          additionalCss += BUTTON_HOVER_TEMPLATE.replace("$RADIUS", "2px");
+          break;
+        case "1":
+          css += `
+            --radius-s: 3px;
+            --radius-m: 6px;
+            --radius-l: 12px;
+            --radius-xl: 24px;
+            --radius-2xl: 64px;
+          `;
+          additionalCss += BUTTON_HOVER_TEMPLATE.replace("$RADIUS", "5px");
+          break;
+        case "2":
+          css += `
+            --radius-s: 4px;
+            --radius-m: 8px;
+            --radius-l: 16px;
+            --radius-xl: 32px;
+            --radius-2xl: 128px;
+          `;
+          additionalCss += BUTTON_HOVER_TEMPLATE.replace("$RADIUS", "7px");
+          break;
+        case "3":
+          css += `
+            --radius-s: 6px;
+            --radius-m: 12px;
+            --radius-l: 24px;
+            --radius-xl: 48px;
+            --radius-2xl: 256px;
+          `;
+          additionalCss += BUTTON_HOVER_TEMPLATE.replace("$RADIUS", "11px");
+          break;
+      }
+
+      // Density CSS
+      // TODO implement
+
+      // Depth CSS
+      const depth = getStoredValue("depth");
+      switch (depth) {
+        case "0":
+          css += `
+            --shadow-s: 0 1px 3px -1px var(--color-shadow);
+            --shadow-m: 0 1px 7px -1px var(--color-shadow);
+            --shadow-l: 0 2px 11px -1px var(--color-shadow);
+            --shadow-xl: 0 3px 15px -1px var(--color-shadow);
+          `;
+          break;
+        case "1":
+          css += `
+            --shadow-s: 0 1px 3px -1px var(--color-shadow);
+            --shadow-m: 0 1px 7px -1px var(--color-shadow);
+            --shadow-l: 0 2px 11px -1px var(--color-shadow);
+            --shadow-xl: 0 3px 15px -1px var(--color-shadow);
+          `;
+          break;
+        case "2":
+          css += `
+            --shadow-s: 0 1px 3px -1px var(--color-shadow);
+            --shadow-m: 0 1px 7px -1px var(--color-shadow);
+            --shadow-l: 0 2px 11px -1px var(--color-shadow);
+            --shadow-xl: 0 3px 15px -1px var(--color-shadow);
+          `;
+          break;
+        case "3":
+          css += `
+            --shadow-s: 0 1px 3px -1px var(--color-shadow);
+            --shadow-m: 0 1px 7px -1px var(--color-shadow);
+            --shadow-l: 0 2px 11px -1px var(--color-shadow);
+            --shadow-xl: 0 3px 15px -1px var(--color-shadow);
+          `;
+          break;
+      }
+
+      const animationSpeed = getStoredValue("animationSpeed");
+      switch (animationSpeed) {
+        case "0":
+          css += `
+            --duration-s: 75ms;
+            --duration-m: 125ms;
+            --duration-l: 150ms;
+            --duration-xl: 250ms;
+          `;
+          break;
+        case "1":
+          css += `
+            --duration-s: 100ms;
+            --duration-m: 150ms;
+            --duration-l: 250ms;
+            --duration-xl: 350ms;
+          `;
+          break;
+        case "2":
+          css += `
+            --duration-s: 150ms;
+            --duration-m: 200ms;
+            --duration-l: 300ms;
+            --duration-xl: 450ms;
+          `;
+          break;
+      }
+
+      // Define gray and brand colors
+      const brandColorHue = getStoredValue("brandColorHue");
+      const brandColorSaturation = getStoredValue("brandColorSaturation");
+      const grayTint = getStoredValue("grays");
+      const graySaturation = getStoredValue("grayTintSaturation");
+
+      const grayTintConfig = GRAY_TINTS[grayTint as keyof typeof GRAY_TINTS];
+      if (grayTint === "brand") {
+        grayTintConfig.hue = Number(brandColorHue);
+      }
+      if (grayTint !== "neutral") {
+        grayTintConfig.chroma = Number(graySaturation);
+      }
+
+      const defineColors = (
+        name: string,
+        lightnessStops: number[],
+        chromaStops: number[],
+        hue: number,
+      ) => {
+        const lightColors: string[] = [];
+        for (let i = 0; i < 9; i++) {
+          const lightness = lightnessStops.at(i)!;
+          const chroma = chromaStops.at(i)!;
+          const color = hexGenerate(lightness, chroma, hue);
+          lightColors.push(color);
+        }
+        const brandDarkColors: string[] = [];
+        brandDarkColors.push(
+          hexGenerate(lightnessStops.at(9)!, chromaStops.at(9)!, hue),
+        );
+        for (let i = 0; i < 8; i++) {
+          const color = hexInterpolate(
+            lightColors.at(-1 - i)!,
+            lightColors.at(-2 - i)!,
+          );
+          brandDarkColors.push(color);
+        }
+
+        let colorCss = "";
+        for (let i = 0; i < 9; i++) {
+          const variableName = `--color-${name}-${i + 1}`;
+          colorCss += `${variableName}: light-dark(${lightColors.at(i)}, ${brandDarkColors.at(i)});\n`;
+        }
+        colorCss += `
+          --color-${name}-transparent: light-dark(${lightColors.at(5)}66, ${brandDarkColors.at(4)}80);
+          --color-${name}-extra-transparent: light-dark(${lightColors.at(5)}33, ${brandDarkColors.at(4)}59);
+        `;
+        return colorCss;
+      };
+
+      // Brand colors
+      css += defineColors(
+        "brand",
+        STANDARD_PALETTE_LIGHTNESS_STOPS,
+        BRAND_COLOR_CHROMA_STOPS.map((c) => c * Number(brandColorSaturation)),
+        Number(brandColorHue),
+      );
+
+      // Gray colors
+      css += defineColors(
+        "gray",
+        STANDARD_PALETTE_LIGHTNESS_STOPS,
+        Array(10).fill(grayTintConfig.chroma),
+        grayTintConfig.hue,
+      );
+
+      // Other grays
+      const semanticColorChromaMultiplier = grayTintConfig.chroma / 0.0125;
+      Object.entries(SEMANTIC_COLORS).forEach(([name, colorPair]) => {
+        let tintedLight = colorPair.light;
+        let tintedDark = colorPair.dark;
+        if (!tintedLight.startsWith("var(")) {
+          const { l, c, alpha } = colordx(colorPair.light).toOklch();
+          tintedLight = hexGenerate(
+            l,
+            c * semanticColorChromaMultiplier,
+            grayTintConfig.hue,
+            alpha,
+          );
+        }
+        if (!tintedDark.startsWith("var(")) {
+          const dark = colordx(colorPair.dark);
+          if (grayTint === "neutral") {
+            dark.chroma(0);
+          } else {
+            dark.hue(grayTintConfig.hue);
+          }
+          tintedDark = dark.toHex();
+        }
+        if (colorPair.light === colorPair.dark) {
+          css += `--color-${name}: ${tintedLight};\n`;
+        } else {
+          css += `--color-${name}: light-dark(${tintedLight}, ${tintedDark});\n`;
+        }
+      });
+
+      // Fonts
+      const bodyFont = getStoredValue("bodyFont");
+      const headingFont = getStoredValue("headingFont");
+      const monoFont = getStoredValue("monoFont");
+
+      css += `
+        --font-body: ${bodyFont};
+        --font-heading: ${headingFont};
+        --font-mono: ${monoFont};
+      `;
+
+      css += "}\n";
+      css += additionalCss;
+
+      let style = document.querySelector<HTMLStyleElement>("#live-preview");
+      if (!style) {
+        style = document.createElement("style");
+        style.id = "live-preview";
+        document.head.appendChild(style);
+      }
+      style.textContent = css;
+
+      // Dynamically show/hide gray tint saturation based on gray tint selection
+      const storedGrays = getStoredValue("grays");
+      if (storedGrays === "neutral") {
+        document.getElementById("gray-tint-saturation-field")!.style.display =
+          "none";
+      } else {
+        document.getElementById("gray-tint-saturation-field")!.style.display =
+          "";
+      }
+    };
+
+    const setFieldValue = (fieldName: string, value: string) => {
+      // First, store the value in localStorage
+      localStorage.setItem(`themeBuilder.${fieldName}`, value);
+
+      // Next, update the field in the UI
+      const fieldElements = document.querySelectorAll<HTMLElement>(
+        `[name="${fieldName}"]`,
+      );
+
+      const firstElement = fieldElements[0];
+      if (!firstElement) return;
+      let inputType = firstElement.tagName.toLowerCase();
+      if (inputType === "input") {
+        inputType = (firstElement as HTMLInputElement).type || "text";
+      }
+
+      switch (inputType) {
+        case "text":
+        case "range":
+        case "textarea":
+          fieldElements.forEach((element) => {
+            (element as HTMLInputElement | HTMLTextAreaElement).value = value;
+          });
+          break;
+        case "radio":
+          fieldElements.forEach((input) => {
+            (input as HTMLInputElement).checked =
+              (input as HTMLInputElement).value === value;
+          });
+          break;
+        case "checkbox":
+          const isChecked = value === "true";
+          fieldElements.forEach((input) => {
+            (input as HTMLInputElement).checked = isChecked;
+          });
+          break;
+        default:
+          console.warn(`Unsupported input type: ${inputType}`);
+      }
+
+      updateLivePreview();
+    };
+
+    const applyStoredConfig = () => {
+      const storedRoundness = getStoredValue("roundness");
+      setFieldValue("roundness", storedRoundness);
+
+      const storedDensity = getStoredValue("density");
+      setFieldValue("density", storedDensity);
+
+      const storedDepth = getStoredValue("depth");
+      setFieldValue("depth", storedDepth);
+
+      const storedAnimationSpeed = getStoredValue("animationSpeed");
+      setFieldValue("animationSpeed", storedAnimationSpeed);
+
+      const storedGrays = getStoredValue("grays");
+      setFieldValue("grays", storedGrays);
+
+      const storedGrayTintSaturation = getStoredValue("grayTintSaturation");
+      setFieldValue("grayTintSaturation", storedGrayTintSaturation);
+
+      const storedBrandColorHue = getStoredValue("brandColorHue");
+      setFieldValue("brandColorHue", storedBrandColorHue);
+
+      const storedBrandColorSaturation = getStoredValue("brandColorSaturation");
+      setFieldValue("brandColorSaturation", storedBrandColorSaturation);
+
+      const storedBodyFont = getStoredValue("bodyFont");
+      setFieldValue("bodyFont", storedBodyFont);
+
+      const storedHeadingFont = getStoredValue("headingFont");
+      setFieldValue("headingFont", storedHeadingFont);
+
+      const storedMonoFont = getStoredValue("monoFont");
+      setFieldValue("monoFont", storedMonoFont);
+
+      const storedName = getStoredValue("name");
+      setFieldValue("name", storedName);
+
+      const storedAddHash = getStoredValue("addHash");
+      setFieldValue("addHash", storedAddHash);
+    };
+
+    const reset = () => {
+      for (const key of Object.keys(localStorage)) {
+        if (key.startsWith("themeBuilder.")) {
+          localStorage.removeItem(key);
+        }
+      }
+      applyStoredConfig();
+    };
+
+    applyStoredConfig();
+
+    const form = document.getElementById("builder")!;
+    form
+      .querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("[name]")
+      .forEach((input) => {
+        input.addEventListener(
+          "input",
+          debounce(
+            () =>
+              setFieldValue(
+                input.name,
+                input.type === "checkbox"
+                  ? String((input as HTMLInputElement).checked)
+                  : input.value,
+              ),
+            100,
+          ),
+        );
+      });
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      (async () => {
+        const name = getStoredValue("name") || "Untitled Theme";
+        const addHash = getStoredValue("addHash") === "true";
+        let css = (document.getElementById("live-preview") as HTMLStyleElement)!
+          .textContent;
+
+        // Format the css
+        css = css
+          .replace(/^\s+$/gm, "")
+          .replace(/\n{2,}/g, "\n")
+          .replace(/^\s+/gm, "  ")
+          .replace(/^--/gm, "  --")
+          .replace(/^\s+}/gm, "}");
+
+        let filename = `concord-theme-${name}`;
+        if (addHash) {
+          const hashBuffer = await crypto.subtle.digest(
+            "SHA-1",
+            new TextEncoder().encode(css ?? ""),
+          );
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          const hashHex = hashArray
+            .map((b) => b.toString(16).padStart(2, "0"))
+            .join("")
+            .slice(0, 8); // Use first 8 characters of the hash
+          filename += `-${hashHex}.css`;
+        } else {
+          filename += ".css";
+        }
+
+        const fileContent = `/* Concord Theme - ${name.replaceAll("*", "")} */\n${css}`;
+        const blob = new Blob([fileContent], { type: "text/css" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(url);
+      })();
+    });
+    document.getElementById("reset")!.addEventListener("click", reset);
+    document.getElementById("color-mode")!.addEventListener("change", (e) => {
+      const value = (e.target as HTMLSelectElement).value;
+      const app = document.querySelector(".app")!;
+      app.classList.toggle("light-mode", value === "light");
+      app.classList.toggle("dark-mode", value === "dark");
+    });
+  </script>
+</Layout>

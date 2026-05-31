@@ -1,0 +1,63 @@
+---
+interface Props {
+  name: string;
+  value: string;
+}
+
+const { name, value } = Astro.props;
+---
+
+<label class="radio-card">
+  <div class="radio">
+    <input type="radio" name={name} value={value} />
+  </div>
+  <slot />
+</label>
+
+<style>
+  .radio-card {
+    --rc-border-color: light-dark(var(--color-gray-8), var(--color-border));
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2xs);
+    border: var(--border-s) solid var(--rc-border-color);
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-s);
+    padding: var(--space-xs);
+    cursor: pointer;
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-semibold);
+    transition-property: border-color, box-shadow;
+    transition-timing-function: var(--ease-default);
+    transition-duration: var(--duration-m);
+    color: var(--color-text-primary);
+  }
+
+  .radio-card:has(input:focus-visible) {
+    box-shadow:
+      var(--shadow-s),
+      0 0 0 0.1em var(--rc-border-color),
+      0 0 0 calc(0.2em + var(--border-s)) var(--color-gray-extra-transparent);
+  }
+
+  .radio-card:has(input:checked) {
+    border-color: var(--color-brand-5);
+    box-shadow:
+      var(--shadow-s),
+      0 0 0 0.1em var(--color-brand-5);
+  }
+
+  .radio-card:has(input:checked:focus-visible) {
+    box-shadow:
+      var(--shadow-s),
+      0 0 0 0.1em var(--color-brand-5),
+      0 0 0 calc(0.2em + var(--border-s)) var(--color-brand-transparent);
+  }
+
+  .radio {
+    display: inline;
+    line-height: 1;
+  }
+</style>
