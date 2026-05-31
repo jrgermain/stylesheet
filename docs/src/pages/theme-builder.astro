@@ -1,7 +1,6 @@
 ---
 import Section from "../components/theme-builder/Section.astro";
 import Layout from "../layouts/Layout.astro";
-import Field from "../components/Field.astro";
 import RadioCard from "../components/theme-builder/RadioCard.astro";
 import GraySwatch from "../components/theme-builder/GraySwatch.astro";
 ---
@@ -26,64 +25,78 @@ import GraySwatch from "../components/theme-builder/GraySwatch.astro";
       <span class="chip">Beta</span>
     </div>
     <Section title="General">
-      <Field label="Roundness" orientation="horizontal">
-        <span class="slider-label">Less</span>
+      <div class="field">
+        <label for="roundness-input">Roundness</label>
         <input
+          id="roundness-input"
           name="roundness"
           type="range"
           class="slider"
           min="0"
           max="3"
           step="1"
-          style="flex-grow:1"
         />
-        <span class="slider-label">More</span>
-      </Field>
-      <Field label="Density" orientation="horizontal">
-        <span class="slider-label">Tight</span>
+        <div class="slider-labels">
+          <span class="slider-label">Less</span>
+          <span class="slider-label">More</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="density-input">Density</label>
         <input
+          id="density-input"
           name="density"
           type="range"
           class="slider"
           min="0"
           max="3"
           step="1"
-          style="flex-grow:1"
         />
-        <span class="slider-label">Spacious</span>
-      </Field>
-      <Field label="Depth" orientation="horizontal">
-        <span class="slider-label">Shallow</span>
+        <div class="slider-labels">
+          <span class="slider-label">Tight</span>
+          <span class="slider-label">Spacious</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="depth-input">Depth</label>
         <input
+          id="depth-input"
           name="depth"
           type="range"
           class="slider"
           min="0"
           max="3"
           step="1"
-          style="flex-grow:1"
         />
-        <span class="slider-label">Deep</span>
-      </Field>
-      <Field label="Animation Speed" orientation="horizontal">
-        <span class="slider-label">Quick</span>
+        <div class="slider-labels">
+          <span class="slider-label">Shallow</span>
+          <span class="slider-label">Deep</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="animation-speed-input">Animation Speed</label>
         <input
+          id="animation-speed-input"
           name="animationSpeed"
           type="range"
           class="slider"
           min="0"
           max="2"
           step="1"
-          style="flex-grow:1"
         />
-        <span class="slider-label">Slow</span>
-      </Field>
+        <div class="slider-labels">
+          <span class="slider-label">Quick</span>
+          <span class="slider-label">Slow</span>
+        </div>
+      </div>
     </Section>
 
     <Section title="Colors">
-      <Field label="Brand Color (Hue)">
+      <div class="field">
+        <label for="brand-color-hue-input">Brand Color</label>
         <div class="spectrum hue">
           <input
+            id="brand-color-hue-input"
             name="brandColorHue"
             type="range"
             class="slider"
@@ -91,10 +104,14 @@ import GraySwatch from "../components/theme-builder/GraySwatch.astro";
             max="360"
           />
         </div>
-      </Field>
-      <Field label="Brand Color (Saturation)">
+      </div>
+      <div class="field">
+        <label for="brand-color-saturation-input"
+          >Brand Color (Saturation)</label
+        >
         <div class="spectrum saturation">
           <input
+            id="brand-color-saturation-input"
             name="brandColorSaturation"
             type="range"
             class="slider"
@@ -103,8 +120,10 @@ import GraySwatch from "../components/theme-builder/GraySwatch.astro";
             step="0.1"
           />
         </div>
-      </Field>
-      <Field label="Gray Tint" orientation="horizontal">
+      </div>
+      <output class="brand-color-preview">Sample</output>
+      <fieldset class="field">
+        <legend>Gray Tint</legend>
         <RadioCard name="grays" value="cool">
           Cool
           <GraySwatch color="#7b8188" />
@@ -121,8 +140,9 @@ import GraySwatch from "../components/theme-builder/GraySwatch.astro";
           Match Brand Color
           <GraySwatch color="var(--color-brand-5)" />
         </RadioCard>
-      </Field>
-      <Field label="Gray Tint Strength" id="gray-tint-saturation-field">
+      </fieldset>
+      <div class="field" id="gray-tint-saturation-field">
+        <label for="gray-tint-saturation">Gray Tint Strength</label>
         <input
           id="gray-tint-saturation"
           name="grayTintSaturation"
@@ -132,46 +152,50 @@ import GraySwatch from "../components/theme-builder/GraySwatch.astro";
           max="0.03"
           step="0.0005"
         />
-      </Field>
+      </div>
       <output class="gray-tint-preview">Sample</output>
     </Section>
 
     <Section title="Fonts">
-      <Field label="Body Font">
+      <label class="field">
+        Body Font
         <input
           name="bodyFont"
           type="text"
           class="input"
           placeholder='"Avenir Next", Avenir, "Segoe UI Variable Display", "Segoe UI", "URW Gothic", source-sans-pro, "Noto Sans", ui-sans-serif, sans-serif'
         />
-      </Field>
-      <Field label="Heading Font">
+      </label>
+      <label class="field">
+        Heading Font
         <input
           name="headingFont"
           type="text"
           class="input"
           placeholder='Seravek, Tahoma, Cantarell, "DejaVu Sans", source-sans-pro, ui-sans-serif, sans-serif'
         />
-      </Field>
-      <Field label="Monospace Font">
+      </label>
+      <label class="field">
+        Monospace Font
         <input
           name="monoFont"
           type="text"
           class="input"
           placeholder='ui-monospace, "Cascadia Code", menlo, hack, monospace'
         />
-      </Field>
+      </label>
     </Section>
 
     <Section title="Download Options">
-      <Field label="Name">
+      <label class="field">
+        Name
         <input
           name="name"
           type="text"
           class="input"
           placeholder="Enter theme name"
         />
-      </Field>
+      </label>
       <label class="checkbox">
         <input name="addHash" type="checkbox" />
         Add hash to filename
@@ -216,22 +240,22 @@ import GraySwatch from "../components/theme-builder/GraySwatch.astro";
       font-weight: var(--font-weight-semibold);
     }
 
+    .brand-color-preview,
+    .gray-tint-preview {
+      margin-block: auto;
+      margin-inline-end: auto;
+      padding: 0.5em;
+      border-radius: 0.25em;
+    }
+
     .brand-color-preview {
-      width: 1.5em;
-      height: 1.5em;
-      border-radius: var(--radius-s);
-      border: var(--border-s) solid var(--color-border);
+      background-color: var(--color-brand-3);
+      color: var(--color-brand-9);
     }
 
     .gray-tint-preview {
-      /* display: inline-flex;
-    align-items: center; */
-      margin-block: auto;
-      margin-inline-end: auto;
       background-color: var(--color-gray-8);
       color: var(--color-gray-3);
-      padding: 0.5em;
-      border-radius: 0.25em;
     }
 
     .spectrum {
@@ -252,6 +276,10 @@ import GraySwatch from "../components/theme-builder/GraySwatch.astro";
       --spectrum-end: oklch(from var(--color-brand-5) 0.65 0.2 h);
     }
 
+    .spectrum input {
+      width: 100%;
+    }
+
     .spectrum input::-webkit-slider-runnable-track {
       block-size: 0.33em;
       background: linear-gradient(
@@ -270,7 +298,15 @@ import GraySwatch from "../components/theme-builder/GraySwatch.astro";
       );
     }
 
+    .slider-labels {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
     .slider-label {
+      position: relative;
+      display: inline-block;
       font-size: var(--font-size-s);
       color: var(--color-text-secondary);
       font-weight: var(--font-weight-normal);
