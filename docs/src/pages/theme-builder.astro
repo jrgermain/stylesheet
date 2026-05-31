@@ -1,9 +1,9 @@
 ---
-import Section from "../../components/theme-builder/Section.astro";
-import Layout from "../../layouts/Layout.astro";
-import Field from "../../components/Field.astro";
-import RadioCard from "../../components/theme-builder/RadioCard.astro";
-import GraySwatch from "../../components/theme-builder/GraySwatch.astro";
+import Section from "../components/theme-builder/Section.astro";
+import Layout from "../layouts/Layout.astro";
+import Field from "../components/Field.astro";
+import RadioCard from "../components/theme-builder/RadioCard.astro";
+import GraySwatch from "../components/theme-builder/GraySwatch.astro";
 ---
 
 <Layout title="Theme Builder">
@@ -21,6 +21,10 @@ import GraySwatch from "../../components/theme-builder/GraySwatch.astro";
   </div>
 
   <form id="builder" class="form stack vertical">
+    <div class="theme-builder-heading">
+      <h1 class="heading level-1">Theme Builder</h1>
+      <span class="chip">Beta</span>
+    </div>
     <Section title="General">
       <Field label="Roundness" orientation="horizontal">
         <span class="slider-label">Less</span>
@@ -178,6 +182,11 @@ import GraySwatch from "../../components/theme-builder/GraySwatch.astro";
   </form>
 
   <style>
+    .theme-builder-heading {
+      display: flex;
+      align-items: start;
+      gap: var(--space-xs);
+    }
     .toolbar {
       display: flex;
       align-items: center;
